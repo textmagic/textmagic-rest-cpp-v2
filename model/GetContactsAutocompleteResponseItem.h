@@ -79,6 +79,11 @@ public:
     utility::string_t getSharedBy() const;
         void setSharedBy(utility::string_t value);
     /// <summary>
+    /// If contact or list was shared by another sub-account then &#x60;true&#x60; will be set.
+    /// </summary>
+    bool isIsShared() const;
+        void setIsShared(bool value);
+    /// <summary>
     /// Contact avatar URI.
     /// </summary>
     utility::string_t getAvatar() const;
@@ -115,6 +120,7 @@ protected:
         utility::string_t m_Value;
         utility::string_t m_Label;
         utility::string_t m_SharedBy;
+        bool m_IsShared;
         utility::string_t m_Avatar;
         bool m_Favorited;
         int32_t m_UserId;

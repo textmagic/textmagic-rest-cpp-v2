@@ -26,6 +26,7 @@ GetContactsAutocompleteResponseItem::GetContactsAutocompleteResponseItem()
     m_Value = utility::conversions::to_string_t("");
     m_Label = utility::conversions::to_string_t("");
     m_SharedBy = utility::conversions::to_string_t("");
+    m_IsShared = false;
     m_Avatar = utility::conversions::to_string_t("");
     m_Favorited = false;
     m_UserId = 0;
@@ -52,6 +53,7 @@ web::json::value GetContactsAutocompleteResponseItem::toJson() const
     val[utility::conversions::to_string_t("value")] = ModelBase::toJson(m_Value);
     val[utility::conversions::to_string_t("label")] = ModelBase::toJson(m_Label);
     val[utility::conversions::to_string_t("sharedBy")] = ModelBase::toJson(m_SharedBy);
+    val[utility::conversions::to_string_t("isShared")] = ModelBase::toJson(m_IsShared);
     val[utility::conversions::to_string_t("avatar")] = ModelBase::toJson(m_Avatar);
     val[utility::conversions::to_string_t("favorited")] = ModelBase::toJson(m_Favorited);
     val[utility::conversions::to_string_t("userId")] = ModelBase::toJson(m_UserId);
@@ -102,6 +104,14 @@ void GetContactsAutocompleteResponseItem::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setSharedBy(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("isShared")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("isShared")];
+        if(!fieldValue.is_null())
+        {
+            setIsShared(ModelBase::boolFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("avatar")))
@@ -167,6 +177,7 @@ void GetContactsAutocompleteResponseItem::toMultipart(std::shared_ptr<MultipartF
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("value"), m_Value));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("label"), m_Label));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("sharedBy"), m_SharedBy));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("isShared"), m_IsShared));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("avatar"), m_Avatar));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("favorited"), m_Favorited));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userId"), m_UserId));
@@ -188,6 +199,7 @@ void GetContactsAutocompleteResponseItem::fromMultiPart(std::shared_ptr<Multipar
     setValue(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("value"))));
     setLabel(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("label"))));
     setSharedBy(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("sharedBy"))));
+    setIsShared(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("isShared"))));
     setAvatar(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("avatar"))));
     setFavorited(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("favorited"))));
     setUserId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userId"))));
@@ -249,6 +261,17 @@ utility::string_t GetContactsAutocompleteResponseItem::getSharedBy() const
 void GetContactsAutocompleteResponseItem::setSharedBy(utility::string_t value)
 {
     m_SharedBy = value;
+    
+}
+bool GetContactsAutocompleteResponseItem::isIsShared() const
+{
+    return m_IsShared;
+}
+
+
+void GetContactsAutocompleteResponseItem::setIsShared(bool value)
+{
+    m_IsShared = value;
     
 }
 utility::string_t GetContactsAutocompleteResponseItem::getAvatar() const
