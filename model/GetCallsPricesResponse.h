@@ -54,22 +54,22 @@ public:
     /// GetCallsPricesResponse members
 
     /// <summary>
-    /// Price for outbound message
+    /// Price for outbound message.
     /// </summary>
     double getOutbound() const;
         void setOutbound(double value);
     /// <summary>
-    /// Price for inbound message
+    /// Price for inbound message.
     /// </summary>
     double getInbound() const;
         void setInbound(double value);
     /// <summary>
-    /// Price for forward
+    /// Price for forward.
     /// </summary>
     double getForward() const;
         void setForward(double value);
     /// <summary>
-    /// 2-letter ISO country code for local phone numbers, used when local is  set to true. Default is account country
+    /// 2-letter ISO country code for local phone numbers, used when local is  set to true. Default is account country.
     /// </summary>
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);
