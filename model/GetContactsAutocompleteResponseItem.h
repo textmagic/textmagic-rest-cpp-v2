@@ -54,17 +54,17 @@ public:
     /// GetContactsAutocompleteResponseItem members
 
     /// <summary>
-    /// Id of entity. 0 if object is a Reply
+    /// Id of entity. 0 if object is a reply.
     /// </summary>
     int32_t getEntityId() const;
         void setEntityId(int32_t value);
     /// <summary>
-    /// Entry type: * **contact** if it is related to a contact * **list** if it is related to a contact list * **reply** if it is related to an incoming message 
+    /// Entry type: * **contact** if it is related to a contact; * **list** if it is related to a contact list; * **reply** if it is related to an incoming message. 
     /// </summary>
     utility::string_t getEntityType() const;
         void setEntityType(utility::string_t value);
     /// <summary>
-    /// Id of contact/list if entityType is contact/list OR phone number if entityType is reply.
+    /// ID of the contact/list if entityType is contact/list OR phone number if entityType is reply.
     /// </summary>
     utility::string_t getValue() const;
         void setValue(utility::string_t value);
@@ -74,7 +74,7 @@ public:
     utility::string_t getLabel() const;
         void setLabel(utility::string_t value);
     /// <summary>
-    /// If contact or list was shared by another sub-account then name if this user will be shown.
+    /// If contact or list was shared by another sub-account, the name of this user will be shown.
     /// </summary>
     utility::string_t getSharedBy() const;
         void setSharedBy(utility::string_t value);
@@ -94,7 +94,7 @@ public:
     bool isFavorited() const;
         void setFavorited(bool value);
     /// <summary>
-    /// Owner id of the contact/list (if it was shared).
+    /// Owner ID of the contact/list (if it was shared).
     /// </summary>
     int32_t getUserId() const;
         void setUserId(int32_t value);

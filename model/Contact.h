@@ -71,7 +71,7 @@ public:
     bool isFavorited() const;
         void setFavorited(bool value);
     /// <summary>
-    /// Is the Contact blocked? [Custom fields list](http://docs.textmagictesting.com/#operation/getBlockedContacts).
+    /// Is the Contact blocked? [Blocked contacts](http://docs.textmagictesting.com/#operation/getBlockedContacts).
     /// </summary>
     bool isBlocked() const;
         void setBlocked(bool value);
