@@ -54,7 +54,7 @@ public:
     /// ListImage members
 
     /// <summary>
-    /// URI of a list avatar.
+    /// The URI of a list avatar.
     /// </summary>
     utility::string_t getHref() const;
         void setHref(utility::string_t value);

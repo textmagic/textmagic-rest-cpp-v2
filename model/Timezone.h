@@ -64,12 +64,12 @@ public:
     utility::string_t getArea() const;
         void setArea(utility::string_t value);
     /// <summary>
-    /// Is Daylight saving time used in this timezone?
+    /// Is daylight saving time used in this timezone?
     /// </summary>
     int32_t getDst() const;
         void setDst(int32_t value);
     /// <summary>
-    /// Offset from UTC time in seconds. In this example it is 21600/60/60&#x3D;6 hours.
+    /// Offset from UTC time in seconds. In this example, it is 21600/60/60&#x3D;6 hours.
     /// </summary>
     int32_t getOffset() const;
         void setOffset(int32_t value);

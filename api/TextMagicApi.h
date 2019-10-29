@@ -235,7 +235,7 @@ public:
     /// Close chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Close chats by chat ids or close all chats
+    /// Close chats by chat IDs or close all chats
     /// </remarks>
     /// <param name="closeChatsBulkInputObject"></param>
     pplx::task<void> closeChatsBulk(
@@ -339,7 +339,7 @@ public:
     /// Delete chat messages by ID(s)
     /// </summary>
     /// <remarks>
-    /// Delete messages from chat by given messages ID(s).
+    /// Delete messages from chat by given message IDs.
     /// </remarks>
     /// <param name="deleteChatMessagesBulkInputObject"></param>
     /// <param name="id"></param>
@@ -351,7 +351,7 @@ public:
     /// Delete chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Delete chats by given ID(s) or delete all chats.
+    /// Delete chats by given IDs or delete all chats.
     /// </remarks>
     /// <param name="deleteChatsBulkInputObject"></param>
     pplx::task<void> deleteChatsBulk(
@@ -517,7 +517,7 @@ public:
     /// Delete sessions (bulk)
     /// </summary>
     /// <remarks>
-    /// Delete messages sessions, together with all nested messages, by given ID(s) or delete all messages sessions.
+    /// Delete message sessions, together with all nested messages, by given ID(s) or delete all message sessions.
     /// </remarks>
     /// <param name="deleteMessageSessionsBulkInputObject"></param>
     pplx::task<void> deleteMessageSessionsBulk(
@@ -587,7 +587,7 @@ public:
     /// Delete templates (bulk)
     /// </summary>
     /// <remarks>
-    /// Delete template by given ID(s) or delete all templates.
+    /// Delete templates by given IDs or delete all templates.
     /// </remarks>
     /// <param name="deleteTemplatesBulkInputObject"></param>
     pplx::task<void> deleteTemplatesBulk(
@@ -1079,8 +1079,8 @@ public:
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
-    /// <param name="favoriteOnly">Return only favorite lists (optional, default to 0)</param>
-    /// <param name="onlyMine">Return only current user lists (optional, default to 0)</param>
+    /// <param name="favoriteOnly">Return only favorited lists. (optional, default to 0)</param>
+    /// <param name="onlyMine">Return only current user lists. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetListsPaginatedResponse>> getLists(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -1190,38 +1190,38 @@ public:
         boost::optional<utility::string_t> localCountry
     );
     /// <summary>
-    /// Get a session details
+    /// Get a session&#x60;s details
     /// </summary>
     /// <remarks>
-    /// Get a specific session’s details
+    /// Get a specific session’s details.
     /// </remarks>
-    /// <param name="id">a session ID</param>
+    /// <param name="id">Session ID.</param>
     pplx::task<std::shared_ptr<MessageSession>> getMessageSession(
         int32_t id
     );
     /// <summary>
-    /// Get a session statistics
+    /// Get a session&#x60;s statistics
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
     /// <param name="id"></param>
-    /// <param name="includeDeleted">Search also in deleted messages (optional, default to 0)</param>
+    /// <param name="includeDeleted">Search also in deleted messages. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetMessageSessionStatResponse>> getMessageSessionStat(
         int32_t id,
         boost::optional<int32_t> includeDeleted
     );
     /// <summary>
-    /// Get a session messages
+    /// Get a session&#x60;s messages
     /// </summary>
     /// <remarks>
-    /// A useful synonym for \&quot;messages/search\&quot; command with provided \&quot;sessionId\&quot; parameter.
+    /// A useful synonym for the \&quot;messages/search\&quot; command with the provided \&quot;sessionId\&quot; parameter.
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="statuses">Find messages by status (optional)</param>
-    /// <param name="includeDeleted">Search also in deleted messages (optional, default to 0)</param>
+    /// <param name="statuses">Find messages by status. (optional)</param>
+    /// <param name="includeDeleted">Search also in deleted messages. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetMessagesBySessionIdPaginatedResponse>> getMessagesBySessionId(
         int32_t id,
         boost::optional<int32_t> page,
@@ -1374,7 +1374,7 @@ public:
         boost::optional<int32_t> limit
     );
     /// <summary>
-    /// Get a template details
+    /// Get a template&#x60;s details
     /// </summary>
     /// <remarks>
     /// Get a single template.
@@ -1467,7 +1467,7 @@ public:
     /// Mark chats as read (bulk)
     /// </summary>
     /// <remarks>
-    /// Mark several chats as read by chat ids or mark all chats as read
+    /// Mark several chats as read by chat IDs or mark all chats as read
     /// </remarks>
     /// <param name="markChatsReadBulkInputObject"></param>
     pplx::task<void> markChatsReadBulk(
@@ -1477,7 +1477,7 @@ public:
     /// Mark chats as unread (bulk)
     /// </summary>
     /// <remarks>
-    /// Mark several chats as UNread by chat ids or mark all chats as UNread
+    /// Mark several chats as UNread by chat IDs or mark all chats as UNread
     /// </remarks>
     /// <param name="markChatsUnreadBulkInputObject"></param>
     pplx::task<void> markChatsUnreadBulk(
@@ -1497,7 +1497,7 @@ public:
     /// Mute chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Mute several chats by chat ids or mute all chats
+    /// Mute several chats by chat IDs or mute all chats
     /// </remarks>
     /// <param name="muteChatsBulkInputObject"></param>
     pplx::task<void> muteChatsBulk(
@@ -1515,7 +1515,7 @@ public:
     /// Reopen chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Reopen chats by chat ids or reopen all chats
+    /// Reopen chats by chat IDs or reopen all chats
     /// </remarks>
     /// <param name="reopenChatsBulkInputObject"></param>
     pplx::task<void> reopenChatsBulk(
@@ -1715,9 +1715,9 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="ids">Find template by ID(s) (optional)</param>
-    /// <param name="name">Find template by name (optional)</param>
-    /// <param name="content">Find template by content (optional)</param>
+    /// <param name="ids">Find template by ID(s). (optional)</param>
+    /// <param name="name">Find template by name. (optional)</param>
+    /// <param name="content">Find template by content. (optional)</param>
     pplx::task<std::shared_ptr<SearchTemplatesPaginatedResponse>> searchTemplates(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -1779,7 +1779,7 @@ public:
     /// Unmute chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Unmute several chats by chat ids or unmute all chats
+    /// Unmute several chats by chat IDs or unmute all chats
     /// </remarks>
     /// <param name="unmuteChatsBulkInputObject"></param>
     pplx::task<void> unmuteChatsBulk(

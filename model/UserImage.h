@@ -54,7 +54,7 @@ public:
     /// UserImage members
 
     /// <summary>
-    /// URI of a user avatar.
+    /// The URI of a user avatar.
     /// </summary>
     utility::string_t getHref() const;
         void setHref(utility::string_t value);

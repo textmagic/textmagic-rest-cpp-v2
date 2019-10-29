@@ -69,7 +69,7 @@ public:
     utility::string_t getText() const;
         void setText(utility::string_t value);
     /// <summary>
-    /// *   **O** – for TextMagic Online *   **A** – for API *   **M** – for TextMagic Messenger *   **E** – for [Email to SMS](http://docs.textmagictesting.com/#tag/Send-Email-to-SMS) *   **X** – for [Distribution Lists](http://docs.textmagictesting.com/#tag/Distribution-Lists) 
+    /// *   **O** – for TextMagic Online; *   **A** – for API; *   **M** – for TextMagic Messenger; *   **E** – for [Email to SMS](http://docs.textmagictesting.com/#tag/Send-Email-to-SMS); *   **X** – for [Distribution Lists](http://docs.textmagictesting.com/#tag/Distribution-Lists). 
     /// </summary>
     utility::string_t getSource() const;
         void setSource(utility::string_t value);
@@ -89,7 +89,7 @@ public:
     int32_t getNumbersCount() const;
         void setNumbersCount(int32_t value);
     /// <summary>
-    /// Destination type of a Message Session: * **t** - text SMS * **s** - text-to-speech * **v** - voice broadcast 
+    /// Destination type of a Message Session: * **t** – text SMS; * **s** – text-to-speech; * **v** – voice broadcast. 
     /// </summary>
     utility::string_t getDestination() const;
         void setDestination(utility::string_t value);

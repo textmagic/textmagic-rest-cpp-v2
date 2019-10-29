@@ -54,28 +54,28 @@ public:
     /// DeleteChatMessagesBulkInputObject members
 
     /// <summary>
-    /// Inbound messages ID(s) to delete. Require when \&quot;all\&quot; equal to 0 (false).
+    /// Inbound message IDs to delete. Require when \&quot;all\&quot; is equal to 0 (false).
     /// </summary>
     utility::string_t getInboundIds() const;
     bool inboundIdsIsSet() const;
     void unsetInbound_ids();
     void setInboundIds(utility::string_t value);
     /// <summary>
-    /// Sent messages ID(s) to delete. Require when \&quot;all\&quot; equal to 0 (false).
+    /// Sent message IDs to delete. Require when \&quot;all\&quot; is equal to 0 (false).
     /// </summary>
     utility::string_t getSentIds() const;
     bool sentIdsIsSet() const;
     void unsetSent_ids();
     void setSentIds(utility::string_t value);
     /// <summary>
-    /// Calls ID(s) to delete. Require when \&quot;all\&quot; equal to 0 (false).
+    /// Calls IDs to delete. Require when \&quot;all\&quot; is equal to 0 (false).
     /// </summary>
     utility::string_t getCallsIds() const;
     bool callsIdsIsSet() const;
     void unsetCalls_ids();
     void setCallsIds(utility::string_t value);
     /// <summary>
-    /// Default is 0 (false). If set to 1 all the entities will be removed.
+    /// Default is 0 (false). If set to 1, all entities will be removed.
     /// </summary>
     bool isAll() const;
     bool allIsSet() const;

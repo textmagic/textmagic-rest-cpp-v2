@@ -64,12 +64,12 @@ public:
     utility::string_t getName() const;
         void setName(utility::string_t value);
     /// <summary>
-    /// Template text. May contain the tags. See [Custom fields list](http://docs.textmagictesting.com/#section/Custom-fields-list-(Merge-tags)).
+    /// Template text. May contain tags inside braces. See the [Custom fields list](http://docs.textmagictesting.com/#section/Custom-fields-list-(Merge-tags)).
     /// </summary>
     utility::string_t getContent() const;
         void setContent(utility::string_t value);
     /// <summary>
-    /// Time when template was last modified.
+    /// Time when the template was last modified.
     /// </summary>
     utility::datetime getLastModified() const;
         void setLastModified(utility::datetime value);

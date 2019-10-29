@@ -54,7 +54,7 @@ public:
     /// Currency members
 
     /// <summary>
-    /// Three-letter ISO currency ID.
+    /// The 3-letter ISO currency ID.
     /// </summary>
     utility::string_t getId() const;
         void setId(utility::string_t value);

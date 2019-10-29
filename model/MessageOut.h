@@ -66,7 +66,7 @@ public:
     void unsetSender();
     void setSender(utility::string_t value);
     /// <summary>
-    /// Recipient phone number.
+    /// Recipient&#x60;s phone number.
     /// </summary>
     utility::string_t getReceiver() const;
     bool receiverIsSet() const;
@@ -88,7 +88,7 @@ public:
     int32_t getContactId() const;
         void setContactId(int32_t value);
     /// <summary>
-    /// Message Session ID of a Message.
+    /// Message Session ID of a message.
     /// </summary>
     int32_t getSessionId() const;
         void setSessionId(int32_t value);
@@ -135,7 +135,7 @@ public:
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);
     /// <summary>
-    /// Receipent phone number.
+    /// Receipent&#x60;s phone number.
     /// </summary>
     utility::string_t getPhone() const;
     bool phoneIsSet() const;
@@ -154,7 +154,7 @@ public:
     int32_t getPartsCount() const;
         void setPartsCount(int32_t value);
     /// <summary>
-    /// The user email which this message came from. For Email2SMS and Distribution Lists the message will come from an original email address; in other cases, it will come from an account email address.
+    /// The user email which this message came from. For Email2SMS and Distribution Lists the messages, it is an original email address - in other cases, it is an account email address.
     /// </summary>
     utility::string_t getFromEmail() const;
     bool fromEmailIsSet() const;

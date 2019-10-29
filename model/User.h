@@ -63,7 +63,7 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// User&#39;s prefered format of time display * *12h* - AM/PM format * *24h* - 24 hour clock format 
+    /// User&#39;s preferred format of time display: * *12h* – AM/PM format; * *24h* – 24 hour clock format. 
     /// </summary>
     utility::string_t getDisplayTimeFormat() const;
     bool displayTimeFormatIsSet() const;
@@ -90,7 +90,7 @@ public:
     utility::string_t getEmail() const;
         void setEmail(utility::string_t value);
     /// <summary>
-    /// Current account status: * **A** for Active * **T** for Trial. 
+    /// Current account status: * **A** for Active; * **T** for Trial. 
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
@@ -100,7 +100,7 @@ public:
     double getBalance() const;
         void setBalance(double value);
     /// <summary>
-    /// User phone number
+    /// User&#x60;s phone number.
     /// </summary>
     utility::string_t getPhone() const;
         void setPhone(utility::string_t value);
@@ -125,17 +125,17 @@ public:
     std::shared_ptr<Timezone> getTimezone() const;
         void setTimezone(std::shared_ptr<Timezone> value);
     /// <summary>
-    /// Type of account: * **P** for Parent User * **A** for Administrator Sub-Account * **U** for Regular User 
+    /// Type of account: * **P** for Parent User; * **A** for Administrator Sub-Account; * **U** for Regular User 
     /// </summary>
     utility::string_t getSubaccountType() const;
         void setSubaccountType(utility::string_t value);
     /// <summary>
-    /// Is account has confirmed Email.
+    /// Does the account have a confirmed email?
     /// </summary>
     bool isEmailAccepted() const;
         void setEmailAccepted(bool value);
     /// <summary>
-    /// Is account has confirmed Phone number.
+    /// Does the account have a confirmed phone number?
     /// </summary>
     bool isPhoneAccepted() const;
         void setPhoneAccepted(bool value);
