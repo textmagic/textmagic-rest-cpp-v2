@@ -59,21 +59,21 @@ public:
     utility::string_t getName() const;
         void setName(utility::string_t value);
     /// <summary>
-    /// Should new list be **shared** among all the sub-accounts?
+    /// Should the new list be **shared** among all the sub-accounts?
     /// </summary>
     bool isShared() const;
     bool sharedIsSet() const;
     void unsetShared();
     void setShared(bool value);
     /// <summary>
-    /// Is list favorited. Default is false.
+    /// Is the list favorited? Default is false.
     /// </summary>
     bool isFavorited() const;
     bool favoritedIsSet() const;
     void unsetFavorited();
     void setFavorited(bool value);
     /// <summary>
-    /// Is list default for new contacts (web only).
+    /// Is the list default for new contacts (web only)?
     /// </summary>
     bool isIsDefault() const;
     bool isDefaultIsSet() const;

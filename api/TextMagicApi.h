@@ -1090,10 +1090,10 @@ public:
         boost::optional<int32_t> onlyMine
     );
     /// <summary>
-    /// Get contact&#39;s lists
+    /// Get a contact&#39;s lists
     /// </summary>
     /// <remarks>
-    /// Get all the lists in which the contact is included
+    /// Get all the lists in which a contact is included.
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
@@ -1645,11 +1645,11 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="ids">Find lists by ID(s) (optional)</param>
-    /// <param name="query">Find lists by specified search query (optional)</param>
-    /// <param name="onlyMine">Return only current user lists (optional, default to 0)</param>
-    /// <param name="onlyDefault">Return only default lists (optional, default to 0)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
+    /// <param name="ids">Find lists by IDs. (optional)</param>
+    /// <param name="query">Find lists by specified search query. (optional)</param>
+    /// <param name="onlyMine">Return only current user lists. (optional, default to 0)</param>
+    /// <param name="onlyDefault">Return only default lists. (optional, default to 0)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     pplx::task<std::shared_ptr<SearchListsPaginatedResponse>> searchLists(
         boost::optional<int32_t> page,

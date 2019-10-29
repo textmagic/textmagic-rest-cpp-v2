@@ -23,19 +23,19 @@ apt-get install build-essential cmake libcpprest-dev
 
 Download and extract lib archive:
 ```shell
-wget https://github.com/textmagic/textmagic-rest-cpp-v2/archive/v2.0.812.tar.gz && \
-tar zxf v2.0.812.tar.gz && \
-rm -f v2.0.812.tar.gz && \
-cd textmagic-rest-cpp-v2-2.0.812
+wget https://github.com/textmagic/textmagic-rest-cpp-v2/archive/v2.0.813.tar.gz && \
+tar zxf v2.0.813.tar.gz && \
+rm -f v2.0.813.tar.gz && \
+cd textmagic-rest-cpp-v2-2.0.813
 ```
 Build using cmake
 ```shell
 cmake . && cmake --build .
 ```
-The output library file will be placed in the `textmagic-rest-cpp-v2-2.0.812/lib` directory:
+The output library file will be placed in the `textmagic-rest-cpp-v2-2.0.813/lib` directory:
 
 ## Usage Example
-In the example below, we assume that you moved the library sources `textmagic-rest-cpp-v2-2.0.812` directory to your test project root directory.
+In the example below, we assume that you moved the library sources `textmagic-rest-cpp-v2-2.0.813` directory to your test project root directory.
 
 Configure your `CMakeLists.txt` as shown here:
 ```shell
@@ -47,9 +47,9 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(app main.cpp)
 
 add_library(textmagic_client SHARED IMPORTED)
-set_property(TARGET textmagic_client PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.812/lib/libtextmagic_client.so")
+set_property(TARGET textmagic_client PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.813/lib/libtextmagic_client.so")
 
-target_include_directories (app PRIVATE ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.812 ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.812/model ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.812/api)
+target_include_directories (app PRIVATE ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.813 ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.813/model ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.813/api)
 target_link_libraries(app boost_system cpprest crypto textmagic_client )
 ```
 
@@ -57,9 +57,9 @@ target_link_libraries(app boost_system cpprest crypto textmagic_client )
 ```cpp
 #include <iostream>
 #include <fstream>
-#include "textmagic-rest-cpp-v2-2.0.812/ApiClient.h"
-#include "textmagic-rest-cpp-v2-2.0.812/ApiConfiguration.h"
-#include "textmagic-rest-cpp-v2-2.0.812/api/TextMagicApi.h"
+#include "textmagic-rest-cpp-v2-2.0.813/ApiClient.h"
+#include "textmagic-rest-cpp-v2-2.0.813/ApiConfiguration.h"
+#include "textmagic-rest-cpp-v2-2.0.813/api/TextMagicApi.h"
 
 using namespace com::textmagic::client::api;
 
