@@ -180,10 +180,10 @@ public:
         int32_t id
     );
     /// <summary>
-    /// Block contact by phone number
+    /// Block a contact by phone number
     /// </summary>
     /// <remarks>
-    /// Block contact from inbound and outbound communication by phone number.
+    /// Block a contact from inbound and outbound communication by phone number.
     /// </remarks>
     /// <param name="blockContactInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> blockContact(
@@ -361,7 +361,7 @@ public:
     /// Delete a contact
     /// </summary>
     /// <remarks>
-    /// &gt; This command removes your contact completely. If it was assigned or saved to a shared list, it will disappear from there too. If you only need to remove a contact from selected lists, instead use the Contact assignment command in the Lists section rather than deleting the contact. 
+    /// &gt; This command removes your contact completely. If it was assigned or saved to a shared list, it will disappear from there too. If you only need to remove a contact from selected lists, use the Contact assignment command in the Lists section instead, rather than deleting the contact. 
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteContact(
@@ -849,7 +849,7 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="id">The contact id</param>
+    /// <param name="id">Contact ID.</param>
     pplx::task<std::shared_ptr<Contact>> getContact(
         int32_t id
     );
@@ -864,12 +864,12 @@ public:
         utility::string_t phone
     );
     /// <summary>
-    /// Check is that phone number blocked
+    /// Check if a phone number is blocked
     /// </summary>
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="phone">Phone number to check</param>
+    /// <param name="phone">Phone number to check.</param>
     pplx::task<std::shared_ptr<Contact>> getContactIfBlocked(
         utility::string_t phone
     );
@@ -1415,7 +1415,7 @@ public:
     /// Get all unsubscribed contacts
     /// </summary>
     /// <remarks>
-    /// When one of your message recipients sends a request with one of the [STOP-words](https://www.textmagic.com/sms-stop-command/), they will be immediately opted-out of your send lists and their contact status will change to an unsubscribed contact. To retrieve information on all contacts who have unsubscribed, use: 
+    /// When one of your message recipients sends a request with one of the [STOP-words](https://www.textmagic.com/sms-stop-command/), they will be immediately opted-out of your send lists and their contact status will change to an unsubscribed contact. To retrieve information on all contacts who have unsubscribed status, use: 
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1443,9 +1443,9 @@ public:
     /// <remarks>
     /// Import contacts from the CSV, XLS or XLSX file.
     /// </remarks>
-    /// <param name="file">File containing contacts in csv or xls(x) formats</param>
+    /// <param name="file">File containing contacts in csv or xls(x) formats.</param>
     /// <param name="column">Import file column mapping. The string must contain sub-strings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where the value before &#x60;:&#x60; is a number of the column in the file, and the value after &#x60;:&#x60; is a field of the newly created contact or the ID of a custom field. Numbers of columns begin from zero. Allowed built-in contact fields are: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. </param>
-    /// <param name="listId">List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified.  (optional)</param>
+    /// <param name="listId">List that ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified.  (optional)</param>
     /// <param name="listName">List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified.  (optional)</param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> importContacts(
         std::shared_ptr<HttpContent> file,
@@ -1756,10 +1756,10 @@ public:
         std::shared_ptr<SetChatStatusInputObject> setChatStatusInputObject
     );
     /// <summary>
-    /// Unblock contact by phone number.
+    /// Unblock a contact by phone number
     /// </summary>
     /// <remarks>
-    /// 
+    /// Unblock a contact by phone number
     /// </remarks>
     /// <param name="unblockContactInputObject"></param>
     pplx::task<void> unblockContact(
@@ -1769,7 +1769,7 @@ public:
     /// Unblock contacts (bulk)
     /// </summary>
     /// <remarks>
-    /// Unblock several contacts by blocked contact ids or unblock all contacts
+    /// Unblock several contacts by blocked contact IDs or unblock all contacts.
     /// </remarks>
     /// <param name="unblockContactsBulkInputObject"></param>
     pplx::task<void> unblockContactsBulk(

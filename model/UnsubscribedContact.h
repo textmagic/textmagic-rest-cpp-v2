@@ -64,7 +64,7 @@ public:
     utility::string_t getPhone() const;
         void setPhone(utility::string_t value);
     /// <summary>
-    /// Time when contact has been opted-out.
+    /// Time when contact was opted-out.
     /// </summary>
     utility::datetime getUnsubscribeTime() const;
         void setUnsubscribeTime(utility::datetime value);

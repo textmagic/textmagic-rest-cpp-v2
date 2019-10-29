@@ -66,7 +66,7 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// Is the Contact favorite? [Custom fields list](http://docs.textmagictesting.com/#operation/getFavorites).
+    /// Is the Contact favorite? [Favorite list](http://docs.textmagictesting.com/#operation/getFavorites).
     /// </summary>
     bool isFavorited() const;
         void setFavorited(bool value);
