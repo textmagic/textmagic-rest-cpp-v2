@@ -54,12 +54,12 @@ public:
     /// SendMessageInputObject members
 
     /// <summary>
-    /// Message text. Required if **template_id** is not set.
+    /// Message text. Required if the **template_id** is not set.
     /// </summary>
     utility::string_t getText() const;
         void setText(utility::string_t value);
     /// <summary>
-    /// Template used instead of message text. Required if **text** is not set.
+    /// Template used instead of message text. Required if the **text** is not set.
     /// </summary>
     int32_t getTemplateId() const;
     bool templateIdIsSet() const;
@@ -148,7 +148,7 @@ public:
     void unsetCreateChat();
     void setCreateChat(bool value);
     /// <summary>
-    /// Send a Text to Speech message.
+    /// Send a Text-to-Speech message.
     /// </summary>
     bool isTts() const;
     bool ttsIsSet() const;

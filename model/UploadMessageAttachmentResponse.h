@@ -59,12 +59,12 @@ public:
     int32_t getChars() const;
         void setChars(int32_t value);
     /// <summary>
-    /// This is a relative link to your file. To construct a full link, just add “[https://my.textmagic.com/”](https://my.textmagic.com/%E2%80%9D) to the beginning (like this: [https://my.textmagic.com/click/Zwcj9](https://my.textmagic.com/click/Zwcj9)). For most modern devices, you can omit “https://” part and write just [my.textmagic.com/click/Zwcj9](https://my.textmagic.com/click/Zwcj9), it will save you 8 characters. 
+    /// This is a relative link to your file. To construct a full link, just add “[https://my.textmagic.com/”](https://my.textmagic.com/%E2%80%9D) to the beginning (like this: [https://my.textmagic.com/click/Zwcj9](https://my.textmagic.com/click/Zwcj9)). For most modern devices, you can omit the “https://” part and write just [my.textmagic.com/click/Zwcj9](https://my.textmagic.com/click/Zwcj9), which will save you 8 characters. 
     /// </summary>
     utility::string_t getHref() const;
         void setHref(utility::string_t value);
     /// <summary>
-    /// File name of uploaded file. 
+    /// File name of the uploaded file. 
     /// </summary>
     utility::string_t getName() const;
         void setName(utility::string_t value);

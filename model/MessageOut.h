@@ -161,7 +161,7 @@ public:
     void unsetFromEmail();
     void setFromEmail(utility::string_t value);
     /// <summary>
-    /// Phone number used to send the SMS.
+    /// The Phone number used to send the SMS.
     /// </summary>
     utility::string_t getFromNumber() const;
     bool fromNumberIsSet() const;

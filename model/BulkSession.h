@@ -60,12 +60,12 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// * **n** - bulk session is just created * **w** - work in progress * **f** - failed * **c** - completed with success * **s** - suspended 
+    /// * **n** – bulk session is just created * **w** - work in progress * **f** - failed * **c** - completed with success * **s** - suspended 
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
     /// <summary>
-    /// Amount of messages which is already processed.
+    /// Amount of messages already processed.
     /// </summary>
     int32_t getItemsProcessed() const;
         void setItemsProcessed(int32_t value);
