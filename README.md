@@ -1,7 +1,7 @@
 [comment]: <> (HEAD)
 # TextMagic C++ SDK
 
-This library provides you with an easy way to send SMS and receive replies, by integrating the TextMagic SMS Gateway into your C++ application.
+This library provides you with an easy way to send SMS and receive replies, by integrating the the TextMagic SMS Gateway into your C++ application.
 
 ## What is TextMagic?
 TextMagic’s application programming interface (API) provides the communication link between your application and TextMagic’s SMS Gateway, allowing you to send and receive text messages and to check the delivery status of text messages you’ve already sent.
@@ -23,19 +23,19 @@ apt-get install build-essential cmake libcpprest-dev
 
 Download and extract lib archive:
 ```shell
-wget https://github.com/textmagic/textmagic-rest-cpp-v2/archive/v2.0.806.tar.gz && \
-tar zxf v2.0.806.tar.gz && \
-rm -f v2.0.806.tar.gz && \
-cd textmagic-rest-cpp-v2-2.0.806
+wget https://github.com/textmagic/textmagic-rest-cpp-v2/archive/v2.0.807.tar.gz && \
+tar zxf v2.0.807.tar.gz && \
+rm -f v2.0.807.tar.gz && \
+cd textmagic-rest-cpp-v2-2.0.807
 ```
 Build using cmake
 ```shell
 cmake . && cmake --build .
 ```
-The output library file will be placed in `textmagic-rest-cpp-v2-2.0.806/lib` directory:
+The output library file will be placed in `textmagic-rest-cpp-v2-2.0.807/lib` directory:
 
 ## Usage Example
-In the example below, we assume that you moved the library sources `textmagic-rest-cpp-v2-2.0.806` directory to your test project root directory.
+In the example below, we assume that you moved the library sources `textmagic-rest-cpp-v2-2.0.807` directory to your test project root directory.
 
 Configure your `CMakeLists.txt` as shown here:
 ```shell
@@ -47,9 +47,9 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(app main.cpp)
 
 add_library(textmagic_client SHARED IMPORTED)
-set_property(TARGET textmagic_client PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.806/lib/libtextmagic_client.so")
+set_property(TARGET textmagic_client PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.807/lib/libtextmagic_client.so")
 
-target_include_directories (app PRIVATE ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.806 ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.806/model ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.806/api)
+target_include_directories (app PRIVATE ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.807 ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.807/model ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.807/api)
 target_link_libraries(app boost_system cpprest crypto textmagic_client )
 ```
 
@@ -57,9 +57,9 @@ target_link_libraries(app boost_system cpprest crypto textmagic_client )
 ```cpp
 #include <iostream>
 #include <fstream>
-#include "textmagic-rest-cpp-v2-2.0.806/ApiClient.h"
-#include "textmagic-rest-cpp-v2-2.0.806/ApiConfiguration.h"
-#include "textmagic-rest-cpp-v2-2.0.806/api/TextMagicApi.h"
+#include "textmagic-rest-cpp-v2-2.0.807/ApiClient.h"
+#include "textmagic-rest-cpp-v2-2.0.807/ApiConfiguration.h"
+#include "textmagic-rest-cpp-v2-2.0.807/api/TextMagicApi.h"
 
 using namespace com::textmagic::client::api;
 
