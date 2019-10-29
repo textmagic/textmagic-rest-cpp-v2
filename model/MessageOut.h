@@ -103,24 +103,24 @@ public:
     utility::string_t getAvatar() const;
         void setAvatar(utility::string_t value);
     /// <summary>
-    /// Indicates that message has been deleted.
+    /// Indicates that the message has been deleted.
     /// </summary>
     bool isDeleted() const;
     bool deletedIsSet() const;
     void unsetDeleted();
     void setDeleted(bool value);
     /// <summary>
-    /// Message charset. Could be: *   **ISO-8859-1** for plaintext SMS *   **UTF-16BE** for Unicode SMS 
+    /// Message charset. Could be: *   **ISO-8859-1** for plaintext SMS; *   **UTF-16BE** for Unicode SMS. 
     /// </summary>
     utility::string_t getCharset() const;
         void setCharset(utility::string_t value);
     /// <summary>
-    /// Human-readable message charset label. Could be: *   **ISO-8859-1** for plaintext SMS *   **UTF-16BE** for Unicode SMS *   **Voice** for voice services (Text-to-Speech or Voice Broadcast) messages 
+    /// Human-readable message charset label. Could be: *   **ISO-8859-1** for plaintext SMS; *   **UTF-16BE** for Unicode SMS; *   **Voice** for voice services (Text-to-Speech or Voice Broadcast) messages. 
     /// </summary>
     utility::string_t getCharsetLabel() const;
         void setCharsetLabel(utility::string_t value);
     /// <summary>
-    /// Contact first name. Could be substituted from your [Contacts](http://docs.textmagictesting.com/#tag/Contacts) (even if you submitted phone number instead of contact ID). 
+    /// Contact first name. Could be substituted from your [Contacts](http://docs.textmagictesting.com/#tag/Contacts) (even if you submitted the phone number instead of the contact ID). 
     /// </summary>
     utility::string_t getFirstName() const;
         void setFirstName(utility::string_t value);
@@ -130,7 +130,7 @@ public:
     utility::string_t getLastName() const;
         void setLastName(utility::string_t value);
     /// <summary>
-    /// Two-letter ISO country code of the recipient phone number. 
+    /// The 2-letter ISO country code of the recipient&#39;s phone number. 
     /// </summary>
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);
@@ -154,14 +154,14 @@ public:
     int32_t getPartsCount() const;
         void setPartsCount(int32_t value);
     /// <summary>
-    /// User email which this message came from. For Email2SMS and Distribution Lists messages it will be an original email address, in other cases it is an account email address.
+    /// The user email which this message came from. For Email2SMS and Distribution Lists the message will come from an original email address; in other cases, it will come from an account email address.
     /// </summary>
     utility::string_t getFromEmail() const;
     bool fromEmailIsSet() const;
     void unsetFromEmail();
     void setFromEmail(utility::string_t value);
     /// <summary>
-    /// Phone number which is used to send SMS.
+    /// Phone number used to send the SMS.
     /// </summary>
     utility::string_t getFromNumber() const;
     bool fromNumberIsSet() const;

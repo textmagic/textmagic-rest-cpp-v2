@@ -54,7 +54,7 @@ public:
     /// Country members
 
     /// <summary>
-    /// Two-letter ISO country ID.
+    /// The 2-letter ISO country ID.
     /// </summary>
     utility::string_t getId() const;
         void setId(utility::string_t value);

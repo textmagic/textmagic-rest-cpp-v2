@@ -61,7 +61,7 @@ public:
     void unsetCode();
     void setCode(int32_t value);
     /// <summary>
-    /// Brief error message. You could display this message to your user or save it in a log.
+    /// A Brief error message. You could display this message to your user or save it in a log.
     /// </summary>
     utility::string_t getMessage() const;
     bool messageIsSet() const;

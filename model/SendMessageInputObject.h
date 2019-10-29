@@ -141,28 +141,28 @@ public:
     void unsetRrule();
     void setRrule(utility::string_t value);
     /// <summary>
-    /// Should sending method try to create new Chat(if not exist) with specified recipients.
+    /// Should sending method try to create new Chat (if not exist) with specified recipients?
     /// </summary>
     bool isCreateChat() const;
     bool createChatIsSet() const;
     void unsetCreateChat();
     void setCreateChat(bool value);
     /// <summary>
-    /// Send Text to Speech message.
+    /// Send a Text to Speech message.
     /// </summary>
     bool isTts() const;
     bool ttsIsSet() const;
     void unsetTts();
     void setTts(bool value);
     /// <summary>
-    /// Treat phone numbers passed in \\&#39;phones\\&#39; field as local.
+    /// Treat phone numbers passed in the \\&#39;phones\\&#39; field as local.
     /// </summary>
     bool isLocal() const;
     bool localIsSet() const;
     void unsetLocal();
     void setLocal(bool value);
     /// <summary>
-    /// 2-letter ISO country code for local phone numbers, used when \\&#39;local\\&#39; is set to true. Default is account country.
+    /// The 2-letter ISO country code for local phone numbers, used when \\&#39;local\\&#39; is set to true. Default is the account country.
     /// </summary>
     utility::string_t getLocalCountry() const;
     bool localCountryIsSet() const;

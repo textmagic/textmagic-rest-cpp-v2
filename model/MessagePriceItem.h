@@ -64,7 +64,7 @@ public:
     utility::string_t getPrice() const;
         void setPrice(utility::string_t value);
     /// <summary>
-    /// Two-letter ISO country code of the recipient phone number.
+    /// The 2-letter ISO country code of the recipient phone number.
     /// </summary>
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);

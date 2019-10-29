@@ -56,14 +56,14 @@ public:
     /// BadRequestResponse_errors members
 
     /// <summary>
-    /// Array of messages with errors related to the entire request. For example, you did not specify either the **text** or **templateId** when [sending the message](http://docs.textmagictesting.com/#tag/Outbound-Messages). 
+    /// Array of messages with errors related to the entire request. For example, you did not specify either the **text** or the **templateId** when [sending the message](http://docs.textmagictesting.com/#tag/Outbound-Messages). 
     /// </summary>
     std::vector<utility::string_t>& getCommon();
     bool commonIsSet() const;
     void unsetCommon();
     void setCommon(std::vector<utility::string_t> value);
     /// <summary>
-    /// Associative array. The keys are the POST/PUT parameters names and the values are arrays with error messages for these parameters. 
+    /// Associative array. The keys are the POST/PUT parameter names and the values are arrays with error messages for these parameters. 
     /// </summary>
     std::shared_ptr<Object> getFields() const;
     bool fieldsIsSet() const;

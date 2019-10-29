@@ -69,7 +69,7 @@ public:
     double getForward() const;
         void setForward(double value);
     /// <summary>
-    /// 2-letter ISO country code for local phone numbers, used when local is  set to true. Default is account country
+    /// The 2-letter ISO country code for local phone numbers, used when local is  set to true. Default is account country
     /// </summary>
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);

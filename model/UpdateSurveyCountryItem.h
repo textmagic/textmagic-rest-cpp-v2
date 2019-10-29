@@ -54,7 +54,7 @@ public:
     /// UpdateSurveyCountryItem members
 
     /// <summary>
-    /// Two-letter ISO country code
+    /// The 2-letter ISO country code
     /// </summary>
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);

@@ -69,7 +69,7 @@ public:
     utility::string_t getFromNumber() const;
         void setFromNumber(utility::string_t value);
     /// <summary>
-    /// 
+    /// Is allowed to use a dedicated number?
     /// </summary>
     bool isAllowDedicated() const;
         void setAllowDedicated(bool value);

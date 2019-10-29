@@ -54,37 +54,37 @@ public:
     /// GetMessagePriceResponseCountriesItem members
 
     /// <summary>
-    /// Two-letter ISO country code
+    /// The 2-letter ISO country code.
     /// </summary>
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);
     /// <summary>
-    /// Country name
+    /// Country name.
     /// </summary>
     utility::string_t getCountryName() const;
         void setCountryName(utility::string_t value);
     /// <summary>
-    /// Is allow to use dedicated number
+    /// Is allowed to use a dedicated number?
     /// </summary>
     bool isAllowDedicated() const;
         void setAllowDedicated(bool value);
     /// <summary>
-    /// Parts count to send
+    /// Parts count to send.
     /// </summary>
     double getCount() const;
         void setCount(double value);
     /// <summary>
-    /// Maximum parts to send
+    /// Maximum parts to send.
     /// </summary>
     double getMax() const;
         void setMax(double value);
     /// <summary>
-    /// Total price to send
+    /// Total price to send.
     /// </summary>
     utility::string_t getSum() const;
         void setSum(utility::string_t value);
     /// <summary>
-    /// Is this landline number?
+    /// Is this a landline number?
     /// </summary>
     double getLandline() const;
         void setLandline(double value);

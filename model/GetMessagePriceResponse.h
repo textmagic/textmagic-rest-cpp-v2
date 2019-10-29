@@ -55,7 +55,7 @@ public:
     /// GetMessagePriceResponse members
 
     /// <summary>
-    /// Total price of the mesasge.
+    /// Total price of the message.
     /// </summary>
     double getTotal() const;
         void setTotal(double value);

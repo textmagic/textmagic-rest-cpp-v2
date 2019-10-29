@@ -683,7 +683,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="lastId">Filter results by ID, selecting all values lesser than the specified ID. Note that \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)</param>
+    /// <param name="lastId">Filter results by ID, selecting all values lesser than the specified ID. Note that the \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)</param>
     pplx::task<std::shared_ptr<GetAllOutboundMessagesPaginatedResponse>> getAllOutboundMessages(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -739,7 +739,7 @@ public:
     /// <remarks>
     /// Get all available sender setting options which could be used in \&quot;from\&quot; parameter of POST messages method.
     /// </remarks>
-    /// <param name="country">Two-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)</param>
+    /// <param name="country">The 2-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)</param>
     pplx::task<std::shared_ptr<GetAvailableSenderSettingOptionsResponse>> getAvailableSenderSettingOptions(
         boost::optional<utility::string_t> country
     );
@@ -1111,21 +1111,21 @@ public:
     /// </remarks>
     /// <param name="text">Message text. Required if **template_id** is not set. (optional)</param>
     /// <param name="templateId">Template used instead of message text. Required if **text** is not set. (optional)</param>
-    /// <param name="sendingTime">DEPRECATED, consider using sendingDateTime and sendingTimezone parameters instead: Optional (required with rrule set). Message sending time in unix timestamp format. Default is now. (optional)</param>
-    /// <param name="sendingDateTime">Sending time in Y-m-d H:i:s format (e.g. 2016-05-27 13:02:33). This time is relative to sendingTimezone. (optional)</param>
-    /// <param name="sendingTimezone">ID or ISO-name of timezone used for sending when sendingDateTime parameter is set. E.g. if you specify sendingDateTime &#x3D; \\\&quot;2016-05-27 13:02:33\\\&quot; and sendingTimezone &#x3D; \\\&quot;America/Buenos_Aires\\\&quot;, your message will be sent at May 27, 2016 13:02:33 Buenos Aires time, or 16:02:33 UTC. Default is account timezone. (optional)</param>
-    /// <param name="contacts">Comma separated array of contact resources id message will be sent to. (optional)</param>
-    /// <param name="lists">Comma separated array of list resources id message will be sent to. (optional)</param>
-    /// <param name="phones">Comma separated array of E.164 phone numbers message will be sent to. (optional)</param>
+    /// <param name="sendingTime">DEPRECATED, consider using sendingDateTime and sendingTimezone parameters instead: Optional (required with rrule set). Message sending time is in unix timestamp format. Default is now. (optional)</param>
+    /// <param name="sendingDateTime">Sending time is in Y-m-d H:i:s format (e.g. 2016-05-27 13:02:33). This time is relative to the sendingTimezone. (optional)</param>
+    /// <param name="sendingTimezone">The ID or ISO-name of the timezone used for sending when the sendingDateTime parameter is set, e.g. if you specify sendingDateTime &#x3D; \\\&quot;2016-05-27 13:02:33\\\&quot; and sendingTimezone &#x3D; \\\&quot;America/Buenos_Aires\\\&quot;, your message will be sent on May 27, 2016 13:02:33 Buenos Aires time, or 16:02:33 UTC. Default is the account timezone. (optional)</param>
+    /// <param name="contacts">Comma-separated array of contact resources id message will be sent to. (optional)</param>
+    /// <param name="lists">Comma-separated array of list resources id message will be sent to. (optional)</param>
+    /// <param name="phones">Comma-separated array of E.164 phone numbers message will be sent to. (optional)</param>
     /// <param name="cutExtra">Should sending method cut extra characters which not fit supplied partsCount or return 400 Bad request response instead. (optional, default to 0)</param>
-    /// <param name="partsCount">Maximum message parts count (TextMagic allows sending 1 to 6 message parts). (optional, default to 6)</param>
+    /// <param name="partsCount">Maximum message parts count (TextMagic allows sending of 1 to 6 message parts). (optional, default to 6)</param>
     /// <param name="referenceId">Custom message reference id which can be used in your application infrastructure. (optional)</param>
-    /// <param name="from">One of allowed Sender ID (phone number or alphanumeric sender ID). If specified Sender ID is not allowed for some destinations, a fallback default Sender ID will be used to ensure delivery. See [Get timezones](http://docs.textmagictesting.com/#tag/Sender-IDs). (optional)</param>
-    /// <param name="rule">iCal RRULE parameter to create recurrent scheduled messages. When used, sendingTime is mandatory as start point of sending. See https://www.textmagic.com/free-tools/rrule-generator for format details. (optional)</param>
-    /// <param name="createChat">Should sending method try to create new Chat(if not exist) with specified recipients. (optional, default to 0)</param>
+    /// <param name="from">One of the allowed Sender ID (phone number or alphanumeric sender ID). If the specified Sender ID is not allowed for some destinations, a fallback default Sender ID will be used to ensure delivery. See [Get timezones](http://docs.textmagictesting.com/#tag/Sender-IDs). (optional)</param>
+    /// <param name="rule">An iCal RRULE parameter to create recurrent scheduled messages. When used, sendingTime is mandatory as the start point of sending. See https://www.textmagic.com/free-tools/rrule-generator for format details. (optional)</param>
+    /// <param name="createChat">Should the sending method try to create new Chat(if not exist) with specified recipients? (optional, default to 0)</param>
     /// <param name="tts">Send Text to Speech message. (optional, default to 0)</param>
-    /// <param name="local">Treat phone numbers passed in \\&#39;phones\\&#39; field as local. (optional, default to 0)</param>
-    /// <param name="localCountry">2-letter ISO country code for local phone numbers, used when \\&#39;local\\&#39; is set to true. Default is account country. (optional)</param>
+    /// <param name="local">Treat phone numbers passed in the \\&#39;phones\\&#39; field as local. (optional, default to 0)</param>
+    /// <param name="localCountry">The 2-letter ISO country code for local phone numbers, used when \\&#39;local\\&#39; is set to true. Default is the account country. (optional)</param>
     pplx::task<std::shared_ptr<GetMessagePreviewResponse>> getMessagePreview(
         boost::optional<utility::string_t> text,
         boost::optional<int32_t> templateId,
@@ -1151,24 +1151,24 @@ public:
     /// <remarks>
     /// Check pricing for a new outbound message.
     /// </remarks>
-    /// <param name="includeBlocked">Should we show pricing for the blocked contacts. (optional, default to 0)</param>
-    /// <param name="text">Message text. Required if **template_id** is not set. (optional)</param>
-    /// <param name="templateId">Template used instead of message text. Required if **text** is not set. (optional)</param>
-    /// <param name="sendingTime">DEPRECATED, consider using sendingDateTime and sendingTimezone parameters instead: Optional (required with rrule set). Message sending time in unix timestamp format. Default is now. (optional)</param>
-    /// <param name="sendingDateTime">Sending time in Y-m-d H:i:s format (e.g. 2016-05-27 13:02:33). This time is relative to sendingTimezone. (optional)</param>
-    /// <param name="sendingTimezone">ID or ISO-name of timezone used for sending when sendingDateTime parameter is set. E.g. if you specify sendingDateTime &#x3D; \\\&quot;2016-05-27 13:02:33\\\&quot; and sendingTimezone &#x3D; \\\&quot;America/Buenos_Aires\\\&quot;, your message will be sent at May 27, 2016 13:02:33 Buenos Aires time, or 16:02:33 UTC. Default is account timezone. (optional)</param>
-    /// <param name="contacts">Comma separated array of contact resources id message will be sent to. (optional)</param>
-    /// <param name="lists">Comma separated array of list resources id message will be sent to. (optional)</param>
-    /// <param name="phones">Comma separated array of E.164 phone numbers message will be sent to. (optional)</param>
+    /// <param name="includeBlocked">Should we show the pricing for blocked contacts? (optional, default to 0)</param>
+    /// <param name="text">Message text. Required if the **template_id** is not set. (optional)</param>
+    /// <param name="templateId">Template used instead of message text. Required if the **text** is not set. (optional)</param>
+    /// <param name="sendingTime">DEPRECATED, consider using the sendingDateTime and sendingTimezone parameters instead: optional (required with rrule set). Message sending time is in unix timestamp format. Default is now. (optional)</param>
+    /// <param name="sendingDateTime">Sending time is in Y-m-d H:i:s format (e.g. 2016-05-27 13:02:33). This time is relative to the sendingTimezone. (optional)</param>
+    /// <param name="sendingTimezone">The ID or ISO-name of the timezone used for sending when sendingDateTime parameter is set, e.g. if you specify sendingDateTime &#x3D; \\\&quot;2016-05-27 13:02:33\\\&quot; and sendingTimezone &#x3D; \\\&quot;America/Buenos_Aires\\\&quot;, your message will be sent on May 27, 2016 13:02:33 Buenos Aires time, or 16:02:33 UTC. Default is the account timezone. (optional)</param>
+    /// <param name="contacts">Comma-separated array of contact resources id message will be sent to. (optional)</param>
+    /// <param name="lists">Comma-separated array of list resources id message will be sent to. (optional)</param>
+    /// <param name="phones">Comma-separated array of E.164 phone numbers message will be sent to. (optional)</param>
     /// <param name="cutExtra">Should sending method cut extra characters which not fit supplied partsCount or return 400 Bad request response instead. (optional, default to 0)</param>
     /// <param name="partsCount">Maximum message parts count (TextMagic allows sending 1 to 6 message parts). (optional, default to 6)</param>
     /// <param name="referenceId">Custom message reference id which can be used in your application infrastructure. (optional)</param>
-    /// <param name="from">One of allowed Sender ID (phone number or alphanumeric sender ID). If specified Sender ID is not allowed for some destinations, a fallback default Sender ID will be used to ensure delivery. See [Get timezones](http://docs.textmagictesting.com/#tag/Sender-IDs). (optional)</param>
-    /// <param name="rule">iCal RRULE parameter to create recurrent scheduled messages. When used, sendingTime is mandatory as start point of sending. See https://www.textmagic.com/free-tools/rrule-generator for format details. (optional)</param>
-    /// <param name="createChat">Should sending method try to create new Chat(if not exist) with specified recipients. (optional, default to 0)</param>
-    /// <param name="tts">Send Text to Speech message. (optional, default to 0)</param>
-    /// <param name="local">Treat phone numbers passed in \\&#39;phones\\&#39; field as local. (optional, default to 0)</param>
-    /// <param name="localCountry">2-letter ISO country code for local phone numbers, used when \\&#39;local\\&#39; is set to true. Default is account country. (optional)</param>
+    /// <param name="from">One of the allowed Sender ID (phone number or alphanumeric sender ID). If the specified Sender ID is not allowed for some destinations, a fallback default Sender ID will be used to ensure delivery. See [Get timezones](http://docs.textmagictesting.com/#tag/Sender-IDs). (optional)</param>
+    /// <param name="rule">An iCal RRULE parameter to create recurrent scheduled messages. When used, sendingTime is mandatory as the start point of sending. See https://www.textmagic.com/free-tools/rrule-generator for format details. (optional)</param>
+    /// <param name="createChat">Should the sending method try to create new Chat (if not exist) with specified recipients? (optional, default to 0)</param>
+    /// <param name="tts">Send a Text to Speech message. (optional, default to 0)</param>
+    /// <param name="local">Treat phone numbers passed in the \\&#39;phones\\&#39; field as local. (optional, default to 0)</param>
+    /// <param name="localCountry">The 2-letter ISO country code for local phone numbers, used when \\&#39;local\\&#39; is set to true. Default is the account country. (optional)</param>
     pplx::task<std::shared_ptr<GetMessagePriceResponse>> getMessagePrice(
         boost::optional<int32_t> includeBlocked,
         boost::optional<utility::string_t> text,
@@ -1729,7 +1729,7 @@ public:
     /// Send message
     /// </summary>
     /// <remarks>
-    /// The main entrypoint to send messages. See examples above for the reference.
+    /// This is the main entrypoint to send messages. See the examples above for the reference.
     /// </remarks>
     /// <param name="sendMessageInputObject"></param>
     pplx::task<std::shared_ptr<SendMessageResponse>> sendMessage(
