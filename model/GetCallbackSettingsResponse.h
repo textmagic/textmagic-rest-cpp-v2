@@ -64,7 +64,7 @@ public:
     utility::string_t getInUrl() const;
         void setInUrl(utility::string_t value);
     /// <summary>
-    /// Desired callback data format. m - multipart/form-data, u - application/x-www-form-urlencoded, j - application/json
+    /// Desired callback data format. m - multipart/form-data, u - application/x-www-form-urlencoded, j - application/json.
     /// </summary>
     utility::string_t getFormat() const;
         void setFormat(utility::string_t value);

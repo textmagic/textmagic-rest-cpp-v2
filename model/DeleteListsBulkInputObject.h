@@ -54,7 +54,7 @@ public:
     /// DeleteListsBulkInputObject members
 
     /// <summary>
-    /// Entity ID(s), separated by comma
+    /// Entity ID(s), separated by comma.
     /// </summary>
     utility::string_t getIds() const;
     bool idsIsSet() const;

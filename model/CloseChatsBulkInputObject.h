@@ -54,14 +54,14 @@ public:
     /// CloseChatsBulkInputObject members
 
     /// <summary>
-    /// Entity ID(s), separated by comma
+    /// Entity ID(s), separated by comma.
     /// </summary>
     utility::string_t getIds() const;
     bool idsIsSet() const;
     void unsetIds();
     void setIds(utility::string_t value);
     /// <summary>
-    /// Entity ID(s), separated by comma
+    /// Entity ID(s), separated by comma.
     /// </summary>
     bool isAll() const;
     bool allIsSet() const;

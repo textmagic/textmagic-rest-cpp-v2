@@ -633,7 +633,7 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="status">Fetch only (a)ctive, (c)losed or (d)eleted chats (optional)</param>
+    /// <param name="status">Fetch only (a)ctive, (c)losed or (d)eleted chats. (optional)</param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
@@ -683,7 +683,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="lastId">Filter results by ID, selecting all values lesser than the specified ID. Note that the \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)</param>
+    /// <param name="lastId">Filter results by ID, selecting all values lesser than the specified ID. Note that the \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified. (optional)</param>
     pplx::task<std::shared_ptr<GetAllOutboundMessagesPaginatedResponse>> getAllOutboundMessages(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -698,7 +698,7 @@ public:
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="status">Fetch schedules with a specific status: a - actual, c - completed, x - all. (optional, default to x)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     pplx::task<std::shared_ptr<GetAllScheduledMessagesPaginatedResponse>> getAllScheduledMessages(
         boost::optional<int32_t> page,
@@ -812,8 +812,8 @@ public:
     /// 
     /// </remarks>
     /// <param name="phone"></param>
-    /// <param name="upsert">Create a new chat if not found (optional, default to 0)</param>
-    /// <param name="reopen">Reopen chat if found or do not change status (optional, default to 0)</param>
+    /// <param name="upsert">Create a new chat if not found. (optional, default to 0)</param>
+    /// <param name="reopen">Reopen chat if found or do not change status. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<Chat>> getChatByPhone(
         utility::string_t phone,
         boost::optional<int32_t> upsert,
@@ -828,7 +828,7 @@ public:
     /// <param name="id"></param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="query">Find messages by specified search query (optional)</param>
+    /// <param name="query">Find messages by specified search query. (optional)</param>
     /// <param name="start">Return messages since specified timestamp only. (optional)</param>
     /// <param name="end">Return messages up to specified timestamp only. (optional)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
@@ -1269,8 +1269,8 @@ public:
     /// </remarks>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="lastId">Filter results by ID, selecting all values lesser than the specified ID. (optional)</param>
-    /// <param name="query">Find message by specified search query (optional)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
+    /// <param name="query">Find message by specified search query. (optional)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     pplx::task<std::shared_ptr<GetOutboundMessagesHistoryPaginatedResponse>> getOutboundMessagesHistory(
         boost::optional<int32_t> limit,
@@ -1577,7 +1577,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="query">Find chats by specified search query (optional)</param>
+    /// <param name="query">Find chats by specified search query. (optional)</param>
     /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     pplx::task<std::shared_ptr<SearchChatsByReceipentPaginatedResponse>> searchChatsByReceipent(
         boost::optional<int32_t> page,
@@ -1669,7 +1669,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="lastId">Filter results by ID, selecting all values lesser than the specified ID. Note that the \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified (optional)</param>
+    /// <param name="lastId">Filter results by ID, selecting all values lesser than the specified ID. Note that the \\&#39;page\\&#39; parameter is ignored when \\&#39;lastId\\&#39; is specified. (optional)</param>
     /// <param name="ids">Find message by ID(s). (optional)</param>
     /// <param name="sessionId">Find messages by session ID. (optional)</param>
     /// <param name="statuses">Find messages by status. (optional)</param>
@@ -1693,8 +1693,8 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="query">Find messages by specified search query (optional)</param>
-    /// <param name="ids">Find schedules by ID(s) (optional)</param>
+    /// <param name="query">Find messages by specified search query. (optional)</param>
+    /// <param name="ids">Find schedules by ID(s). (optional)</param>
     /// <param name="status">Fetch schedules with a specific status: a - actual, c - completed, x - all. (optional, default to x)</param>
     /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
@@ -1967,7 +1967,7 @@ public:
     /// <remarks>
     /// Upload a new file to insert it as a link.
     /// </remarks>
-    /// <param name="file">Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats</param>
+    /// <param name="file">Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats.</param>
     pplx::task<std::shared_ptr<UploadMessageAttachmentResponse>> uploadMessageAttachment(
         std::shared_ptr<HttpContent> file
     );

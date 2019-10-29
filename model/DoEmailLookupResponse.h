@@ -64,7 +64,7 @@ public:
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
     /// <summary>
-    /// The delivery status of the email address is&#x60;deliverable&#x60;, &#x60;undeliverable&#x60;  or &#x60;unknown&#x60;.
+    /// The delivery status of the email address is&#x60;deliverable&#x60;, &#x60;undeliverable&#x60;. or &#x60;unknown&#x60;.
     /// </summary>
     utility::string_t getDeliverability() const;
         void setDeliverability(utility::string_t value);
@@ -94,7 +94,7 @@ public:
     utility::string_t getSuggestion() const;
         void setSuggestion(utility::string_t value);
     /// <summary>
-    /// Checks the mailbox part of the email to see whether it matches a specific role type (‘admin’, ‘sales’, ‘webmaster’)
+    /// Checks the mailbox part of the email to see whether it matches a specific role type (‘admin’, ‘sales’, ‘webmaster’).
     /// </summary>
     utility::string_t getEmailRole() const;
         void setEmailRole(utility::string_t value);

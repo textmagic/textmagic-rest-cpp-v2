@@ -54,12 +54,12 @@ public:
     /// UpdateSurveyCountryItem members
 
     /// <summary>
-    /// The 2-letter ISO country code
+    /// The 2-letter ISO country code.
     /// </summary>
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);
     /// <summary>
-    /// User inbound phone ID
+    /// User inbound phone ID.
     /// </summary>
     int32_t getUserInboundId() const;
         void setUserInboundId(int32_t value);
