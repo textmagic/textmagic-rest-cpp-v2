@@ -68,7 +68,7 @@ public:
     void unsetAll();
     void setAll(bool value);
     /// <summary>
-    /// Mute for N hours
+    /// Mute for N hours.
     /// </summary>
     int32_t getFor() const;
     bool forIsSet() const;

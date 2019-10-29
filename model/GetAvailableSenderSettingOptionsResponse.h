@@ -55,7 +55,7 @@ public:
     /// GetAvailableSenderSettingOptionsResponse members
 
     /// <summary>
-    /// Array of dedicated numbers strings.
+    /// Array of dedicated number strings.
     /// </summary>
     std::vector<utility::string_t>& getDedicated();
         void setDedicated(std::vector<utility::string_t> value);
@@ -65,7 +65,7 @@ public:
     std::vector<utility::string_t>& getUser();
         void setUser(std::vector<utility::string_t> value);
     /// <summary>
-    /// Array of shared numbers strings.
+    /// Array of shared number strings.
     /// </summary>
     std::vector<utility::string_t>& getShared();
         void setShared(std::vector<utility::string_t> value);

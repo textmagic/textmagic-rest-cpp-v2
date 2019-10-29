@@ -54,7 +54,7 @@ public:
     /// SenderSettingsItem members
 
     /// <summary>
-    /// The 2-letter ISO country code of the recipient phone number. 
+    /// The 2-letter ISO country code of the recipient&#39;s phone number. 
     /// </summary>
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);

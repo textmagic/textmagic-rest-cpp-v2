@@ -432,7 +432,7 @@ public:
         int32_t id
     );
     /// <summary>
-    /// Cancel dedicated number subscription
+    /// Cancel a dedicated number subscription
     /// </summary>
     /// <remarks>
     /// 
@@ -597,10 +597,10 @@ public:
     /// Carrier Lookup
     /// </summary>
     /// <remarks>
-    /// This API call allows you to retrieve additional information about a phone number: region-specific phone number formatting, carrier, phone type (landline/mobile) and country information.  &gt; Numbers can be checked one by one. You cannot check multiple numbers in one request.   
+    /// This API call allows you to retrieve additional information about a phone number: region-specific phone number formatting, carrier, phone type (landline/mobile) and country information.  &gt; Numbers must be checked one by one. You cannot check multiple numbers in one request.   
     /// </remarks>
     /// <param name="phone">Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) or in [National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers). </param>
-    /// <param name="country">This option must be specified only if the phone number in a **[National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)**.  (optional)</param>
+    /// <param name="country">This option must be specified only if the phone number is in a **[National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)**.  (optional)</param>
     pplx::task<std::shared_ptr<DoCarrierLookupResponse>> doCarrierLookup(
         utility::string_t phone,
         boost::optional<utility::string_t> country
@@ -609,7 +609,7 @@ public:
     /// Email Lookup
     /// </summary>
     /// <remarks>
-    /// To get more details about an email address or to check if it is a valid email, you can use the Email Lookup command. To upload and check emails in bulk, please use our [Web app](https://my.textmagic.com/online/email-lookup/).  This API call allows you to retrieve additional information about an email address, such as mailbox detection, syntax checks, DNS validation, deliverability status, and many more helpful values (see the table below).  &gt; Emails must be checked one by one. You cannot check multiple emails in one request. To upload and check emails in bulk, please use our [Web app](https://my.textmagic.com/online/email-lookup/).
+    /// To get more details about an email address or to check whether it is a valid email or not, you can use the Email Lookup command. To upload and check emails in bulk, please use our [Web app](https://my.textmagic.com/online/email-lookup/).  This API call allows you to retrieve additional information about an email address, such as mailbox detection, syntax checks, DNS validation, deliverability status, and many more helpful values (see the table below).  &gt; Emails must be checked one by one. You cannot check multiple emails in one request. To upload and check emails in bulk, please use our [Web app](https://my.textmagic.com/online/email-lookup/).
     /// </remarks>
     /// <param name="email">Email address.</param>
     pplx::task<std::shared_ptr<DoEmailLookupResponse>> doEmailLookup(
@@ -725,8 +725,8 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="country">Two-letter dedicated number country ISO code.</param>
-    /// <param name="prefix">Desired number prefix. Should include country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional)</param>
+    /// <param name="country">The 2-letter dedicated number country ISO code.</param>
+    /// <param name="prefix">Desired number prefix. Should include the country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional)</param>
     /// <param name="tollfree">Should we show only tollfree numbers (tollfree available only for US). (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetAvailableDedicatedNumbersResponse>> getAvailableDedicatedNumbers(
         utility::string_t country,
@@ -737,7 +737,7 @@ public:
     /// Get available sender settings
     /// </summary>
     /// <remarks>
-    /// Get all available sender setting options which could be used in \&quot;from\&quot; parameter of POST messages method.
+    /// Get all available sender setting options which can be used in the \&quot;from\&quot; parameter of the POST messages method.
     /// </remarks>
     /// <param name="country">The 2-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)</param>
     pplx::task<std::shared_ptr<GetAvailableSenderSettingOptionsResponse>> getAvailableSenderSettingOptions(
@@ -894,7 +894,7 @@ public:
         int32_t id
     );
     /// <summary>
-    /// Fetch notes assigned to the given contact.
+    /// Fetch notes assigned to a given contact
     /// </summary>
     /// <remarks>
     /// 
@@ -1317,7 +1317,7 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="country">Return sender settings enabled for sending to specified country. Two upper case characters (optional)</param>
+    /// <param name="country">Return sender settings enabled for sending to a specified country. Should be 2 upper-case characters. (optional)</param>
     pplx::task<std::shared_ptr<GetSenderSettingsResponse>> getSenderSettings(
         boost::optional<utility::string_t> country
     );
@@ -1431,7 +1431,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="surveyId">Fetch only that numbers which are ready for the survey (optional)</param>
+    /// <param name="surveyId">Fetch only those numbers that are ready for the survey. (optional)</param>
     pplx::task<std::shared_ptr<GetUserDedicatedNumbersPaginatedResponse>> getUserDedicatedNumbers(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -1444,7 +1444,7 @@ public:
     /// Import contacts from the CSV, XLS or XLSX file.
     /// </remarks>
     /// <param name="file">File containing contacts in csv or xls(x) formats</param>
-    /// <param name="column">Import file column mapping. String must contain substrings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where value before &#x60;:&#x60; is a number of column in file, value after &#x60;:&#x60; is a field of newly created contact or ID of custom field. Numbers of columns begins from zero. Allowed built-in contact fields: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. </param>
+    /// <param name="column">Import file column mapping. The string must contain sub-strings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where the value before &#x60;:&#x60; is a number of the column in the file, and the value after &#x60;:&#x60; is a field of the newly created contact or the ID of a custom field. Numbers of columns begin from zero. Allowed built-in contact fields are: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. </param>
     /// <param name="listId">List ID contacts will be imported to. Ignored if &#x60;listName&#x60; is specified.  (optional)</param>
     /// <param name="listName">List name. This list will be created during import. If such name is already taken, an ordinal (1, 2, ...) will be added to the end. Ignored if &#x60;listId&#x60; is specified.  (optional)</param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> importContacts(
@@ -1497,7 +1497,7 @@ public:
     /// Mute chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Mute several chats by chat IDs or mute all chats
+    /// Mute several chats by chat ids or mute all chats.
     /// </remarks>
     /// <param name="muteChatsBulkInputObject"></param>
     pplx::task<void> muteChatsBulk(
@@ -1535,7 +1535,7 @@ public:
     /// Apply for a new Sender ID
     /// </summary>
     /// <remarks>
-    /// &gt; Sender IDs are shared between all of your sub-accounts.
+    /// &gt; Sender IDs are shared among all of your sub-accounts.
     /// </remarks>
     /// <param name="requestSenderIdInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> requestSenderId(
@@ -1779,7 +1779,7 @@ public:
     /// Unmute chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Unmute several chats by chat IDs or unmute all chats
+    /// Unmute several chats by chat ids or unmute all chats.
     /// </remarks>
     /// <param name="unmuteChatsBulkInputObject"></param>
     pplx::task<void> unmuteChatsBulk(
@@ -1943,7 +1943,7 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="image">Contact avatar. Should be PNG or JPG file not more than 10 MB</param>
+    /// <param name="image">Contact avatar. Should be a PNG or JPG file not more than 10 MB.</param>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> uploadContactAvatar(
         std::shared_ptr<HttpContent> image,

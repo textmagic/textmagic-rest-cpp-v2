@@ -13,7 +13,7 @@
 /*
  * BadRequestResponse_errors.h
  *
- * If it was a **POST** or **PUT** request (and the **message** returned is &#x60;Validation Failed&#x60;), this field may contain **errors **that describe the errors grouped by the input parameter name. 
+ * If it was a **POST** or **PUT** request (and the **message** returned is &#x60;Validation Failed&#x60;), this field may contain **errors** that describe the errors grouped by the input parameter name. 
  */
 
 #ifndef COM_TEXTMAGIC_CLIENT_MODEL_BadRequestResponse_errors_H_
@@ -32,7 +32,7 @@ namespace client {
 namespace model {
 
 /// <summary>
-/// If it was a **POST** or **PUT** request (and the **message** returned is &#x60;Validation Failed&#x60;), this field may contain **errors **that describe the errors grouped by the input parameter name. 
+/// If it was a **POST** or **PUT** request (and the **message** returned is &#x60;Validation Failed&#x60;), this field may contain **errors** that describe the errors grouped by the input parameter name. 
 /// </summary>
 class  BadRequestResponse_errors
     : public ModelBase

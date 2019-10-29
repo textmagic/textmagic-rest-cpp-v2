@@ -60,7 +60,7 @@ public:
     std::vector<utility::string_t>& getNumbers();
         void setNumbers(std::vector<utility::string_t> value);
     /// <summary>
-    /// Dedicated number monthly fee for this country. Returned in current [account](http://docs.textmagictesting.com/#tag/User) currency.
+    /// Dedicated number monthly fee for this country. Returned in the current [account](http://docs.textmagictesting.com/#tag/User) currency.
     /// </summary>
     float getPrice() const;
         void setPrice(float value);

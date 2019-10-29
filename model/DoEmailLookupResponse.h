@@ -84,17 +84,17 @@ public:
     utility::string_t getAddressType() const;
         void setAddressType(utility::string_t value);
     /// <summary>
-    /// This is be &#x60;true&#x60; if the domain is in the list of disposable email addresses, otherwise returns as &#x60;false&#x60;.
+    /// This is &#x60;true&#x60; if the domain is in the list of disposable email addresses; otherwise, it returns as &#x60;false&#x60;.
     /// </summary>
     bool isIsDisposableAddress() const;
         void setIsDisposableAddress(bool value);
     /// <summary>
-    /// Null if nothing is suggested, however, if there is a potential typo in the email address, the closest suggestion is provided.
+    /// Null if nothing is suggested; however, if there is a potential typo in the email address, the closest suggestion is provided.
     /// </summary>
     utility::string_t getSuggestion() const;
         void setSuggestion(utility::string_t value);
     /// <summary>
-    /// Checks the mailbox part of the email whether it matches a specific role type (‘admin’, ‘sales’, ‘webmaster’)
+    /// Checks the mailbox part of the email to see whether it matches a specific role type (‘admin’, ‘sales’, ‘webmaster’)
     /// </summary>
     utility::string_t getEmailRole() const;
         void setEmailRole(utility::string_t value);
@@ -119,12 +119,12 @@ public:
     int32_t getPreference() const;
         void setPreference(int32_t value);
     /// <summary>
-    /// &#x60;true&#x60; if the email address exists in TextMagic whitelist. 
+    /// &#x60;true&#x60; if the email address exists in the TextMagic whitelist. 
     /// </summary>
     bool isIsInWhiteList() const;
         void setIsInWhiteList(bool value);
     /// <summary>
-    /// &#x60;true&#x60; if the email address exists in TextMagic blacklist. 
+    /// &#x60;true&#x60; if the email address exists in the TextMagic blacklist. 
     /// </summary>
     bool isIsInBlackList() const;
         void setIsInBlackList(bool value);

@@ -90,7 +90,7 @@ public:
     utility::datetime getExpireAt() const;
         void setExpireAt(utility::datetime value);
     /// <summary>
-    /// Number status: *   **U** for Unused. No messages have been sent from (or received to) this number. *   **A** for Active. 
+    /// Number status: *   **U** for Unused. No messages have been sent from (or received to) this number; *   **A** for Active. 
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);

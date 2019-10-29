@@ -55,7 +55,7 @@ public:
     /// DoCarrierLookupResponse members
 
     /// <summary>
-    /// Cost to check that one number is constant – 0.04 in your account currency.
+    /// The cost to check that one number is constant – 0.04 in your account currency.
     /// </summary>
     double getCost() const;
         void setCost(double value);
@@ -87,7 +87,7 @@ public:
     utility::string_t getNumber164() const;
         void setNumber164(utility::string_t value);
     /// <summary>
-    /// The field shows if entered phone number is valid or not.
+    /// This field shows whether the entered phone number is valid or not.
     /// </summary>
     bool isValid() const;
         void setValid(bool value);
