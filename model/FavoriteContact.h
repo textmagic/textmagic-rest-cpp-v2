@@ -64,17 +64,17 @@ public:
     utility::string_t getEntityType() const;
         void setEntityType(utility::string_t value);
     /// <summary>
-    /// Contact first name/last name if entityType is **contact** List name if entity type is **list**.
+    /// Contact first name/last name if entityType is **contact**; List name if entity type is **list**.
     /// </summary>
     utility::string_t getPrimaryLabel() const;
         void setPrimaryLabel(utility::string_t value);
     /// <summary>
-    /// Phone number if entityType is **contact** List contacts number if entity type is **list**.
+    /// Phone number if entityType is **contact**; List contacts number if entity type is **list**.
     /// </summary>
     utility::string_t getSecondaryLabel() const;
         void setSecondaryLabel(utility::string_t value);
     /// <summary>
-    /// Contact country if entityType is **contact** else null.
+    /// Contact country if entityType is **contact**; else, null.
     /// </summary>
     utility::string_t getTertiaryLabel() const;
         void setTertiaryLabel(utility::string_t value);

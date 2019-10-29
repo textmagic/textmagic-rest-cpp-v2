@@ -465,27 +465,27 @@ public:
     /// Delete a list
     /// </summary>
     /// <remarks>
-    /// This command has no parameters. If successful, this command will return the standard delete response (204 No Content), otherwise a standard error response will be returned.  When you delete a list, the contacts in it are deleted as well unless they were saved in other list.
+    /// This command has no parameters. If successful, this command will return the standard delete response (204 No Content); otherwise, a standard error response will be returned.  When you delete a list, the contacts in it are deleted as well, unless they were saved in another list.
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteList(
         int32_t id
     );
     /// <summary>
-    /// Delete an avatar for the list
+    /// Delete an avatar for a list
     /// </summary>
     /// <remarks>
-    /// 
+    /// Delete an avatar for a list
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteListAvatar(
         int32_t id
     );
     /// <summary>
-    /// Delete contacts from list (bulk)
+    /// Delete contacts from a list (bulk)
     /// </summary>
     /// <remarks>
-    /// 
+    /// Delete contacts from a list (bulk)
     /// </remarks>
     /// <param name="deleteListContactsBulkInputObject"></param>
     /// <param name="id"></param>
@@ -943,12 +943,12 @@ public:
     /// Get all contacts in a list
     /// </summary>
     /// <remarks>
-    /// A useful synonym for \&quot;contacts/search\&quot; command with provided \&quot;listId\&quot; parameter.
+    /// A useful synonym for the \&quot;contacts/search\&quot; command with the provided \&quot;listId\&quot; parameter.
     /// </remarks>
-    /// <param name="id">Given group Id.</param>
+    /// <param name="id">Given group ID.</param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     pplx::task<std::shared_ptr<GetContactsByListIdPaginatedResponse>> getContactsByListId(
         int32_t id,
@@ -1060,7 +1060,7 @@ public:
         int32_t id
     );
     /// <summary>
-    /// Get all contacts IDs in a list
+    /// Get all contact IDs in a list
     /// </summary>
     /// <remarks>
     /// 
@@ -1950,12 +1950,12 @@ public:
         int32_t id
     );
     /// <summary>
-    /// Add an avatar for the list
+    /// Add an avatar for a list
     /// </summary>
     /// <remarks>
-    /// 
+    /// Add an avatar for a list
     /// </remarks>
-    /// <param name="image">List avatar. Should be PNG or JPG file not more than 10 MB</param>
+    /// <param name="image">List avatar. Should be a PNG or JPG file not more than 10 MB.</param>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> uploadListAvatar(
         std::shared_ptr<HttpContent> image,

@@ -54,7 +54,7 @@ public:
     /// ClearAndAssignContactsToListInputObject members
 
     /// <summary>
-    /// Contact ID(s), separated by comma or &#39;all&#39; to add all contacts belonging to the current user
+    /// Contact ID(s), separated by a comma or \&quot;all\&quot; to add all contacts belonging to the current user.
     /// </summary>
     utility::string_t getContacts() const;
         void setContacts(utility::string_t value);
