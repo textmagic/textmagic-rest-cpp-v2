@@ -54,12 +54,12 @@ public:
     /// GetSubaccountsWithTokensInputObject members
 
     /// <summary>
-    /// Application name
+    /// Application name.
     /// </summary>
     utility::string_t getAppName() const;
         void setAppName(utility::string_t value);
     /// <summary>
-    /// Your account password
+    /// Your account password.
     /// </summary>
     utility::string_t getPassword() const;
         void setPassword(utility::string_t value);

@@ -59,7 +59,7 @@ public:
     utility::string_t getCountry() const;
         void setCountry(utility::string_t value);
     /// <summary>
-    /// Phone enabled for sending to specified country
+    /// Phone enabled for sending to a specified country
     /// </summary>
     utility::string_t getPhone() const;
         void setPhone(utility::string_t value);

@@ -61,7 +61,7 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// Format for representation of time
+    /// Format for representation of time.
     /// </summary>
     utility::string_t getDisplayTimeFormat() const;
     bool displayTimeFormatIsSet() const;

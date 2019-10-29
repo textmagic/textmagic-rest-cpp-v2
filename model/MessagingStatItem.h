@@ -59,7 +59,7 @@ public:
     float getReplyRate() const;
         void setReplyRate(float value);
     /// <summary>
-    /// Time interval start, empty if the **by** parameter was set to **off**. 
+    /// Time interval start: empty if the **by** parameter was set to **off**. 
     /// </summary>
     utility::datetime getDate() const;
         void setDate(utility::datetime value);
@@ -84,7 +84,7 @@ public:
     int32_t getMessagesSentDelivered() const;
         void setMessagesSentDelivered(int32_t value);
     /// <summary>
-    /// Messages accepted for delivery (in queue), but not yet delivered.
+    /// Messages accepted for delivery (in queue) but not yet delivered.
     /// </summary>
     int32_t getMessagesSentAccepted() const;
         void setMessagesSentAccepted(int32_t value);
@@ -94,7 +94,7 @@ public:
     int32_t getMessagesSentBuffered() const;
         void setMessagesSentBuffered(int32_t value);
     /// <summary>
-    /// Messages that have failed for whatever reason, e.g. the destination phone was switched off for 48 hours or the recipient phone account is out of service.
+    /// Messages that have failed for whatever reason, e.g. the destination phone was switched off for 48 hours or the recipient&#39;s phone account is out of service.
     /// </summary>
     int32_t getMessagesSentFailed() const;
         void setMessagesSentFailed(int32_t value);

@@ -79,12 +79,12 @@ public:
     float getDelta() const;
         void setDelta(float value);
     /// <summary>
-    /// Type of statement (what you have been charged for): *   **sms** for sending SMS *   **number** for renewing a dedicated number *   **schedule** for scheduling text messages *   **topup** for adding credits to your account 
+    /// Type of statement (what you have been charged for): *   **sms** - for sending SMS *   **number** - for renewing a dedicated number; *   **schedule** - for scheduling text messages; *   **topup** - for adding credits to your account. 
     /// </summary>
     utility::string_t getType() const;
         void setType(utility::string_t value);
     /// <summary>
-    /// Value differs by **type**: *   for **sms**, it is the sent messages amount *   for **number**, it is a dedicated phone number *   for **schedule**, it is a scheduled messages amount *   for **top-up**, it is an invoice ID 
+    /// Value differs by **type**: *   for **sms**, it is the sent messages amount; *   for **number**, it is a dedicated phone number; *   for **schedule**, it is a scheduled messages amount; *   for **top-up**, it is an invoice ID. 
     /// </summary>
     utility::string_t getValue() const;
         void setValue(utility::string_t value);

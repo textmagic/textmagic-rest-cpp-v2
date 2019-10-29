@@ -54,7 +54,7 @@ public:
     /// InviteSubaccountInputObject members
 
     /// <summary>
-    /// Invitation email will be sent to this email address.
+    /// The invitation email will be sent to this email address.
     /// </summary>
     utility::string_t getEmail() const;
         void setEmail(utility::string_t value);

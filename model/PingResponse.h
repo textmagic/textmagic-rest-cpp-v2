@@ -59,7 +59,7 @@ public:
     utility::string_t getPing() const;
         void setPing(utility::string_t value);
     /// <summary>
-    /// Current date time
+    /// Current date and time.
     /// </summary>
     utility::string_t getUtcDateTime() const;
         void setUtcDateTime(utility::string_t value);

@@ -60,7 +60,7 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// Format for representation of time
+    /// Format for representation of time.
     /// </summary>
     utility::string_t getDisplayTimeFormat() const;
     bool displayTimeFormatIsSet() const;
@@ -77,7 +77,7 @@ public:
     std::shared_ptr<User> getUser() const;
         void setUser(std::shared_ptr<User> value);
     /// <summary>
-    /// *   **P** for Pending. This Sender ID is being reviewed by our support team. *   **R** for Rejected. Our support team rejected your application for this Sender ID. *   **A** for Active. 
+    /// *   **P** for Pending - this Sender ID is being reviewed by our support team; *   **R** for Rejected - our support team rejected your application for this Sender ID; *   **A** for Active. 
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);

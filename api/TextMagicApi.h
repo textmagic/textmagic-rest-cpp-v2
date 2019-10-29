@@ -1013,7 +1013,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="query">Find contacts or lists by specified search query (optional)</param>
+    /// <param name="query">Find contacts or lists by specified search query. (optional)</param>
     pplx::task<std::shared_ptr<GetFavoritesPaginatedResponse>> getFavorites(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -1243,7 +1243,7 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="by">*   **off** to get total values per specified time interval *   **day** to show values grouped by day *   **month** to show values grouped by month *   **year** to show values grouped by year  (optional, default to off)</param>
+    /// <param name="by">*   **off** - to get total values per specified time interval; *   **day** - to show values grouped by day; *   **month** - to show values grouped by month; *   **year** - to show values grouped by year.  (optional, default to off)</param>
     /// <param name="start">Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior.  (optional)</param>
     /// <param name="end">Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is today.  (optional)</param>
     pplx::task<std::shared_ptr<GetMessagingStatResponse>> getMessagingStat(
@@ -1348,7 +1348,7 @@ public:
         int32_t id
     );
     /// <summary>
-    /// Get sub-accounts list
+    /// Get a sub-accounts list
     /// </summary>
     /// <remarks>
     /// 
@@ -1360,7 +1360,7 @@ public:
         boost::optional<int32_t> limit
     );
     /// <summary>
-    /// Get all sub-accounts with their REST API tokens associated with app name
+    /// Get all sub-accounts with their REST API tokens associated with a specified app name
     /// </summary>
     /// <remarks>
     /// Get all sub-accounts with their REST API tokens associated with specified app name. When more than one token related to app name, last key will be returned.
@@ -1389,7 +1389,7 @@ public:
     /// <remarks>
     /// Return all available timezone IDs
     /// </remarks>
-    /// <param name="full">Return full info about timezones in array (0 or 1). Default is 0 (optional, default to 0)</param>
+    /// <param name="full">Return full info about timezones in array (0 or 1). Default is 0. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetTimezonesResponse>> getTimezones(
         boost::optional<int32_t> full
     );
@@ -1507,7 +1507,7 @@ public:
     /// Ping
     /// </summary>
     /// <remarks>
-    /// Make a simple ping request
+    /// Make a simple ping request.
     /// </remarks>
     pplx::task<std::shared_ptr<PingResponse>> ping(
     );
@@ -1933,7 +1933,7 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="image">User avatar. Should be PNG or JPG file not more than 10 MB</param>
+    /// <param name="image">User avatar. Should be a PNG or JPG file not more than 10 MB.</param>
     pplx::task<void> uploadAvatar(
         std::shared_ptr<HttpContent> image
     );

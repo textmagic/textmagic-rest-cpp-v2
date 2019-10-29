@@ -59,12 +59,12 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// Top up amount.
+    /// Top-up amount.
     /// </summary>
     int32_t getBundle() const;
         void setBundle(int32_t value);
     /// <summary>
-    /// Top up currency.
+    /// Top-up currency.
     /// </summary>
     utility::string_t getCurrency() const;
         void setCurrency(utility::string_t value);

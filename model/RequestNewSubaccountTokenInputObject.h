@@ -54,17 +54,17 @@ public:
     /// RequestNewSubaccountTokenInputObject members
 
     /// <summary>
-    /// Subaccount ID
+    /// Sub-account ID.
     /// </summary>
     int32_t getUserId() const;
         void setUserId(int32_t value);
     /// <summary>
-    /// Your account password
+    /// Your account password.
     /// </summary>
     utility::string_t getPassword() const;
         void setPassword(utility::string_t value);
     /// <summary>
-    /// Application name
+    /// Application name.
     /// </summary>
     utility::string_t getAppName() const;
     bool appNameIsSet() const;
