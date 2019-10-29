@@ -22,6 +22,7 @@ namespace model {
 UpdateContactNoteInputObject::UpdateContactNoteInputObject()
 {
     m_Note = utility::conversions::to_string_t("");
+    m_NoteIsSet = false;
 }
 
 UpdateContactNoteInputObject::~UpdateContactNoteInputObject()
@@ -37,7 +38,10 @@ web::json::value UpdateContactNoteInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("note")] = ModelBase::toJson(m_Note);
+    if(m_NoteIsSet)
+    {
+        val[utility::conversions::to_string_t("note")] = ModelBase::toJson(m_Note);
+    }
 
     return val;
 }
@@ -62,7 +66,11 @@ void UpdateContactNoteInputObject::toMultipart(std::shared_ptr<MultipartFormData
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("note"), m_Note));
+    if(m_NoteIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("note"), m_Note));
+        
+    }
 }
 
 void UpdateContactNoteInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -73,7 +81,10 @@ void UpdateContactNoteInputObject::fromMultiPart(std::shared_ptr<MultipartFormDa
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setNote(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("note"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("note")))
+    {
+        setNote(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("note"))));
+    }
 }
 
 utility::string_t UpdateContactNoteInputObject::getNote() const
@@ -85,8 +96,18 @@ utility::string_t UpdateContactNoteInputObject::getNote() const
 void UpdateContactNoteInputObject::setNote(utility::string_t value)
 {
     m_Note = value;
-    
+    m_NoteIsSet = true;
 }
+bool UpdateContactNoteInputObject::noteIsSet() const
+{
+    return m_NoteIsSet;
+}
+
+void UpdateContactNoteInputObject::unsetNote()
+{
+    m_NoteIsSet = false;
+}
+
 }
 }
 }

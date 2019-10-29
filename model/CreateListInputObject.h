@@ -57,7 +57,9 @@ public:
     /// List name.
     /// </summary>
     utility::string_t getName() const;
-        void setName(utility::string_t value);
+    bool nameIsSet() const;
+    void unsetName();
+    void setName(utility::string_t value);
     /// <summary>
     /// Should the new list be **shared** among all the sub-accounts?
     /// </summary>
@@ -82,7 +84,8 @@ public:
 
 protected:
     utility::string_t m_Name;
-        bool m_Shared;
+    bool m_NameIsSet;
+    bool m_Shared;
     bool m_SharedIsSet;
     bool m_Favorited;
     bool m_FavoritedIsSet;

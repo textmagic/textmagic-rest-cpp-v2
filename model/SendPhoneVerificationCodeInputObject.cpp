@@ -22,8 +22,11 @@ namespace model {
 SendPhoneVerificationCodeInputObject::SendPhoneVerificationCodeInputObject()
 {
     m_Phone = utility::conversions::to_string_t("");
+    m_PhoneIsSet = false;
     m_Brand = utility::conversions::to_string_t("");
+    m_BrandIsSet = false;
     m_CodeLength = 0;
+    m_CodeLengthIsSet = false;
     m_Language = utility::conversions::to_string_t("");
     m_LanguageIsSet = false;
     m_SenderId = utility::conversions::to_string_t("");
@@ -45,9 +48,18 @@ web::json::value SendPhoneVerificationCodeInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("phone")] = ModelBase::toJson(m_Phone);
-    val[utility::conversions::to_string_t("brand")] = ModelBase::toJson(m_Brand);
-    val[utility::conversions::to_string_t("codeLength")] = ModelBase::toJson(m_CodeLength);
+    if(m_PhoneIsSet)
+    {
+        val[utility::conversions::to_string_t("phone")] = ModelBase::toJson(m_Phone);
+    }
+    if(m_BrandIsSet)
+    {
+        val[utility::conversions::to_string_t("brand")] = ModelBase::toJson(m_Brand);
+    }
+    if(m_CodeLengthIsSet)
+    {
+        val[utility::conversions::to_string_t("codeLength")] = ModelBase::toJson(m_CodeLength);
+    }
     if(m_LanguageIsSet)
     {
         val[utility::conversions::to_string_t("language")] = ModelBase::toJson(m_Language);
@@ -124,9 +136,20 @@ void SendPhoneVerificationCodeInputObject::toMultipart(std::shared_ptr<Multipart
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phone"), m_Phone));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("brand"), m_Brand));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("codeLength"), m_CodeLength));
+    if(m_PhoneIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phone"), m_Phone));
+        
+    }
+    if(m_BrandIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("brand"), m_Brand));
+        
+    }
+    if(m_CodeLengthIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("codeLength"), m_CodeLength));
+    }
     if(m_LanguageIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("language"), m_Language));
@@ -152,9 +175,18 @@ void SendPhoneVerificationCodeInputObject::fromMultiPart(std::shared_ptr<Multipa
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phone"))));
-    setBrand(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("brand"))));
-    setCodeLength(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("codeLength"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("phone")))
+    {
+        setPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phone"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("brand")))
+    {
+        setBrand(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("brand"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("codeLength")))
+    {
+        setCodeLength(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("codeLength"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("language")))
     {
         setLanguage(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("language"))));
@@ -178,8 +210,18 @@ utility::string_t SendPhoneVerificationCodeInputObject::getPhone() const
 void SendPhoneVerificationCodeInputObject::setPhone(utility::string_t value)
 {
     m_Phone = value;
-    
+    m_PhoneIsSet = true;
 }
+bool SendPhoneVerificationCodeInputObject::phoneIsSet() const
+{
+    return m_PhoneIsSet;
+}
+
+void SendPhoneVerificationCodeInputObject::unsetPhone()
+{
+    m_PhoneIsSet = false;
+}
+
 utility::string_t SendPhoneVerificationCodeInputObject::getBrand() const
 {
     return m_Brand;
@@ -189,8 +231,18 @@ utility::string_t SendPhoneVerificationCodeInputObject::getBrand() const
 void SendPhoneVerificationCodeInputObject::setBrand(utility::string_t value)
 {
     m_Brand = value;
-    
+    m_BrandIsSet = true;
 }
+bool SendPhoneVerificationCodeInputObject::brandIsSet() const
+{
+    return m_BrandIsSet;
+}
+
+void SendPhoneVerificationCodeInputObject::unsetBrand()
+{
+    m_BrandIsSet = false;
+}
+
 int32_t SendPhoneVerificationCodeInputObject::getCodeLength() const
 {
     return m_CodeLength;
@@ -200,8 +252,18 @@ int32_t SendPhoneVerificationCodeInputObject::getCodeLength() const
 void SendPhoneVerificationCodeInputObject::setCodeLength(int32_t value)
 {
     m_CodeLength = value;
-    
+    m_CodeLengthIsSet = true;
 }
+bool SendPhoneVerificationCodeInputObject::codeLengthIsSet() const
+{
+    return m_CodeLengthIsSet;
+}
+
+void SendPhoneVerificationCodeInputObject::unsetCodeLength()
+{
+    m_CodeLengthIsSet = false;
+}
+
 utility::string_t SendPhoneVerificationCodeInputObject::getLanguage() const
 {
     return m_Language;

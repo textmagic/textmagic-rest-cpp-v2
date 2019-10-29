@@ -22,7 +22,9 @@ namespace model {
 MuteChatInputObject::MuteChatInputObject()
 {
     m_Id = 0;
+    m_IdIsSet = false;
     m_Mute = false;
+    m_MuteIsSet = false;
     m__for = 0;
     m__forIsSet = false;
 }
@@ -40,8 +42,14 @@ web::json::value MuteChatInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
-    val[utility::conversions::to_string_t("mute")] = ModelBase::toJson(m_Mute);
+    if(m_IdIsSet)
+    {
+        val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
+    }
+    if(m_MuteIsSet)
+    {
+        val[utility::conversions::to_string_t("mute")] = ModelBase::toJson(m_Mute);
+    }
     if(m__forIsSet)
     {
         val[utility::conversions::to_string_t("for")] = ModelBase::toJson(m__for);
@@ -86,8 +94,14 @@ void MuteChatInputObject::toMultipart(std::shared_ptr<MultipartFormData> multipa
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("mute"), m_Mute));
+    if(m_IdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
+    }
+    if(m_MuteIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("mute"), m_Mute));
+    }
     if(m__forIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("for"), m__for));
@@ -102,8 +116,14 @@ void MuteChatInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multi
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("id"))));
-    setMute(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("mute"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("id")))
+    {
+        setId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("id"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("mute")))
+    {
+        setMute(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("mute"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("for")))
     {
         setFor(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("for"))));
@@ -119,8 +139,18 @@ int32_t MuteChatInputObject::getId() const
 void MuteChatInputObject::setId(int32_t value)
 {
     m_Id = value;
-    
+    m_IdIsSet = true;
 }
+bool MuteChatInputObject::idIsSet() const
+{
+    return m_IdIsSet;
+}
+
+void MuteChatInputObject::unsetId()
+{
+    m_IdIsSet = false;
+}
+
 bool MuteChatInputObject::isMute() const
 {
     return m_Mute;
@@ -130,8 +160,18 @@ bool MuteChatInputObject::isMute() const
 void MuteChatInputObject::setMute(bool value)
 {
     m_Mute = value;
-    
+    m_MuteIsSet = true;
 }
+bool MuteChatInputObject::muteIsSet() const
+{
+    return m_MuteIsSet;
+}
+
+void MuteChatInputObject::unsetMute()
+{
+    m_MuteIsSet = false;
+}
+
 int32_t MuteChatInputObject::getFor() const
 {
     return m__for;

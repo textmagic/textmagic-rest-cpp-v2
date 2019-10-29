@@ -57,17 +57,23 @@ public:
     /// Verification code received by the user and entered into the form field.
     /// </summary>
     int32_t getCode() const;
-        void setCode(int32_t value);
+    bool codeIsSet() const;
+    void unsetCode();
+    void setCode(int32_t value);
     /// <summary>
     /// VerifyId from Step 1 to match both requests together.
     /// </summary>
     utility::string_t getVerifyId() const;
-        void setVerifyId(utility::string_t value);
+    bool verifyIdIsSet() const;
+    void unsetVerifyId();
+    void setVerifyId(utility::string_t value);
 
 protected:
     int32_t m_Code;
-        utility::string_t m_VerifyId;
-    };
+    bool m_CodeIsSet;
+    utility::string_t m_VerifyId;
+    bool m_VerifyIdIsSet;
+};
 
 }
 }

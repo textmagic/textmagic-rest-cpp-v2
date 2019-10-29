@@ -57,17 +57,23 @@ public:
     /// The invitation email will be sent to this email address.
     /// </summary>
     utility::string_t getEmail() const;
-        void setEmail(utility::string_t value);
+    bool emailIsSet() const;
+    void unsetEmail();
+    void setEmail(utility::string_t value);
     /// <summary>
     /// Type of account: *   **A** for Administrator sub-account; *   **U** for Regular User. 
     /// </summary>
     utility::string_t getRole() const;
-        void setRole(utility::string_t value);
+    bool roleIsSet() const;
+    void unsetRole();
+    void setRole(utility::string_t value);
 
 protected:
     utility::string_t m_Email;
-        utility::string_t m_Role;
-    };
+    bool m_EmailIsSet;
+    utility::string_t m_Role;
+    bool m_RoleIsSet;
+};
 
 }
 }

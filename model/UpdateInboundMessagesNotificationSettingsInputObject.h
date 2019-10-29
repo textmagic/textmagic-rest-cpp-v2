@@ -57,17 +57,23 @@ public:
     /// Should user receive notification about new incoming messages.
     /// </summary>
     bool isInboundMessageNotification() const;
-        void setInboundMessageNotification(bool value);
+    bool inboundMessageNotificationIsSet() const;
+    void unsetInboundMessageNotification();
+    void setInboundMessageNotification(bool value);
     /// <summary>
     /// Include SMS history into notification Email.
     /// </summary>
     bool isIncludeSmsHistory() const;
-        void setIncludeSmsHistory(bool value);
+    bool includeSmsHistoryIsSet() const;
+    void unsetIncludeSmsHistory();
+    void setIncludeSmsHistory(bool value);
     /// <summary>
     /// Send Email notification in HTML format.
     /// </summary>
     bool isSendInHtmlFormat() const;
-        void setSendInHtmlFormat(bool value);
+    bool sendInHtmlFormatIsSet() const;
+    void unsetSendInHtmlFormat();
+    void setSendInHtmlFormat(bool value);
     /// <summary>
     /// New message notification email 2.
     /// </summary>
@@ -92,9 +98,12 @@ public:
 
 protected:
     bool m_InboundMessageNotification;
-        bool m_IncludeSmsHistory;
-        bool m_SendInHtmlFormat;
-        utility::string_t m_AlertEmail1;
+    bool m_InboundMessageNotificationIsSet;
+    bool m_IncludeSmsHistory;
+    bool m_IncludeSmsHistoryIsSet;
+    bool m_SendInHtmlFormat;
+    bool m_SendInHtmlFormatIsSet;
+    utility::string_t m_AlertEmail1;
     bool m_AlertEmail1IsSet;
     utility::string_t m_AlertEmail2;
     bool m_AlertEmail2IsSet;

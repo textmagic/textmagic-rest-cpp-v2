@@ -22,7 +22,9 @@ namespace model {
 SetChatStatusInputObject::SetChatStatusInputObject()
 {
     m_Id = 0;
+    m_IdIsSet = false;
     m_Status = utility::conversions::to_string_t("");
+    m_StatusIsSet = false;
 }
 
 SetChatStatusInputObject::~SetChatStatusInputObject()
@@ -38,8 +40,14 @@ web::json::value SetChatStatusInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
-    val[utility::conversions::to_string_t("status")] = ModelBase::toJson(m_Status);
+    if(m_IdIsSet)
+    {
+        val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
+    }
+    if(m_StatusIsSet)
+    {
+        val[utility::conversions::to_string_t("status")] = ModelBase::toJson(m_Status);
+    }
 
     return val;
 }
@@ -72,8 +80,15 @@ void SetChatStatusInputObject::toMultipart(std::shared_ptr<MultipartFormData> mu
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("status"), m_Status));
+    if(m_IdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
+    }
+    if(m_StatusIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("status"), m_Status));
+        
+    }
 }
 
 void SetChatStatusInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -84,8 +99,14 @@ void SetChatStatusInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> 
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("id"))));
-    setStatus(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("status"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("id")))
+    {
+        setId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("id"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("status")))
+    {
+        setStatus(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("status"))));
+    }
 }
 
 int32_t SetChatStatusInputObject::getId() const
@@ -97,8 +118,18 @@ int32_t SetChatStatusInputObject::getId() const
 void SetChatStatusInputObject::setId(int32_t value)
 {
     m_Id = value;
-    
+    m_IdIsSet = true;
 }
+bool SetChatStatusInputObject::idIsSet() const
+{
+    return m_IdIsSet;
+}
+
+void SetChatStatusInputObject::unsetId()
+{
+    m_IdIsSet = false;
+}
+
 utility::string_t SetChatStatusInputObject::getStatus() const
 {
     return m_Status;
@@ -108,8 +139,18 @@ utility::string_t SetChatStatusInputObject::getStatus() const
 void SetChatStatusInputObject::setStatus(utility::string_t value)
 {
     m_Status = value;
-    
+    m_StatusIsSet = true;
 }
+bool SetChatStatusInputObject::statusIsSet() const
+{
+    return m_StatusIsSet;
+}
+
+void SetChatStatusInputObject::unsetStatus()
+{
+    m_StatusIsSet = false;
+}
+
 }
 }
 }

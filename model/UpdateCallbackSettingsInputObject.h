@@ -57,23 +57,32 @@ public:
     /// This URL is used to push message delivery status updates to your application.
     /// </summary>
     utility::string_t getOutUrl() const;
-        void setOutUrl(utility::string_t value);
+    bool outUrlIsSet() const;
+    void unsetOutUrl();
+    void setOutUrl(utility::string_t value);
     /// <summary>
     /// This URL is used to push incoming SMS to your application.
     /// </summary>
     utility::string_t getInUrl() const;
-        void setInUrl(utility::string_t value);
+    bool inUrlIsSet() const;
+    void unsetInUrl();
+    void setInUrl(utility::string_t value);
     /// <summary>
     /// Desired callback data format. m - multipart/form-data, u - application/x-www-form-urlencoded, j - application/json
     /// </summary>
     utility::string_t getFormat() const;
-        void setFormat(utility::string_t value);
+    bool formatIsSet() const;
+    void unsetFormat();
+    void setFormat(utility::string_t value);
 
 protected:
     utility::string_t m_OutUrl;
-        utility::string_t m_InUrl;
-        utility::string_t m_Format;
-    };
+    bool m_OutUrlIsSet;
+    utility::string_t m_InUrl;
+    bool m_InUrlIsSet;
+    utility::string_t m_Format;
+    bool m_FormatIsSet;
+};
 
 }
 }

@@ -22,7 +22,9 @@ namespace model {
 InviteSubaccountInputObject::InviteSubaccountInputObject()
 {
     m_Email = utility::conversions::to_string_t("");
+    m_EmailIsSet = false;
     m_Role = utility::conversions::to_string_t("");
+    m_RoleIsSet = false;
 }
 
 InviteSubaccountInputObject::~InviteSubaccountInputObject()
@@ -38,8 +40,14 @@ web::json::value InviteSubaccountInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("email")] = ModelBase::toJson(m_Email);
-    val[utility::conversions::to_string_t("role")] = ModelBase::toJson(m_Role);
+    if(m_EmailIsSet)
+    {
+        val[utility::conversions::to_string_t("email")] = ModelBase::toJson(m_Email);
+    }
+    if(m_RoleIsSet)
+    {
+        val[utility::conversions::to_string_t("role")] = ModelBase::toJson(m_Role);
+    }
 
     return val;
 }
@@ -72,8 +80,16 @@ void InviteSubaccountInputObject::toMultipart(std::shared_ptr<MultipartFormData>
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("email"), m_Email));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("role"), m_Role));
+    if(m_EmailIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("email"), m_Email));
+        
+    }
+    if(m_RoleIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("role"), m_Role));
+        
+    }
 }
 
 void InviteSubaccountInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -84,8 +100,14 @@ void InviteSubaccountInputObject::fromMultiPart(std::shared_ptr<MultipartFormDat
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setEmail(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("email"))));
-    setRole(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("role"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("email")))
+    {
+        setEmail(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("email"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("role")))
+    {
+        setRole(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("role"))));
+    }
 }
 
 utility::string_t InviteSubaccountInputObject::getEmail() const
@@ -97,8 +119,18 @@ utility::string_t InviteSubaccountInputObject::getEmail() const
 void InviteSubaccountInputObject::setEmail(utility::string_t value)
 {
     m_Email = value;
-    
+    m_EmailIsSet = true;
 }
+bool InviteSubaccountInputObject::emailIsSet() const
+{
+    return m_EmailIsSet;
+}
+
+void InviteSubaccountInputObject::unsetEmail()
+{
+    m_EmailIsSet = false;
+}
+
 utility::string_t InviteSubaccountInputObject::getRole() const
 {
     return m_Role;
@@ -108,8 +140,18 @@ utility::string_t InviteSubaccountInputObject::getRole() const
 void InviteSubaccountInputObject::setRole(utility::string_t value)
 {
     m_Role = value;
-    
+    m_RoleIsSet = true;
 }
+bool InviteSubaccountInputObject::roleIsSet() const
+{
+    return m_RoleIsSet;
+}
+
+void InviteSubaccountInputObject::unsetRole()
+{
+    m_RoleIsSet = false;
+}
+
 }
 }
 }

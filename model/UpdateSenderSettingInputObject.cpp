@@ -22,7 +22,9 @@ namespace model {
 UpdateSenderSettingInputObject::UpdateSenderSettingInputObject()
 {
     m_Value = utility::conversions::to_string_t("");
+    m_ValueIsSet = false;
     m_Country = utility::conversions::to_string_t("");
+    m_CountryIsSet = false;
     m_ChatId = 0;
     m_ChatIdIsSet = false;
 }
@@ -40,8 +42,14 @@ web::json::value UpdateSenderSettingInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("value")] = ModelBase::toJson(m_Value);
-    val[utility::conversions::to_string_t("country")] = ModelBase::toJson(m_Country);
+    if(m_ValueIsSet)
+    {
+        val[utility::conversions::to_string_t("value")] = ModelBase::toJson(m_Value);
+    }
+    if(m_CountryIsSet)
+    {
+        val[utility::conversions::to_string_t("country")] = ModelBase::toJson(m_Country);
+    }
     if(m_ChatIdIsSet)
     {
         val[utility::conversions::to_string_t("chatId")] = ModelBase::toJson(m_ChatId);
@@ -86,8 +94,16 @@ void UpdateSenderSettingInputObject::toMultipart(std::shared_ptr<MultipartFormDa
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("value"), m_Value));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("country"), m_Country));
+    if(m_ValueIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("value"), m_Value));
+        
+    }
+    if(m_CountryIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("country"), m_Country));
+        
+    }
     if(m_ChatIdIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatId"), m_ChatId));
@@ -102,8 +118,14 @@ void UpdateSenderSettingInputObject::fromMultiPart(std::shared_ptr<MultipartForm
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setValue(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("value"))));
-    setCountry(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("country"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("value")))
+    {
+        setValue(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("value"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("country")))
+    {
+        setCountry(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("country"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("chatId")))
     {
         setChatId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatId"))));
@@ -119,8 +141,18 @@ utility::string_t UpdateSenderSettingInputObject::getValue() const
 void UpdateSenderSettingInputObject::setValue(utility::string_t value)
 {
     m_Value = value;
-    
+    m_ValueIsSet = true;
 }
+bool UpdateSenderSettingInputObject::valueIsSet() const
+{
+    return m_ValueIsSet;
+}
+
+void UpdateSenderSettingInputObject::unsetValue()
+{
+    m_ValueIsSet = false;
+}
+
 utility::string_t UpdateSenderSettingInputObject::getCountry() const
 {
     return m_Country;
@@ -130,8 +162,18 @@ utility::string_t UpdateSenderSettingInputObject::getCountry() const
 void UpdateSenderSettingInputObject::setCountry(utility::string_t value)
 {
     m_Country = value;
-    
+    m_CountryIsSet = true;
 }
+bool UpdateSenderSettingInputObject::countryIsSet() const
+{
+    return m_CountryIsSet;
+}
+
+void UpdateSenderSettingInputObject::unsetCountry()
+{
+    m_CountryIsSet = false;
+}
+
 int32_t UpdateSenderSettingInputObject::getChatId() const
 {
     return m_ChatId;

@@ -24,6 +24,7 @@ UpdateBalanceNotificationSettingsInputObject::UpdateBalanceNotificationSettingsI
     m_LowBalanceNotification = false;
     m_LowBalanceNotificationIsSet = false;
     m_AlertBalance = utility::conversions::to_string_t("");
+    m_AlertBalanceIsSet = false;
     m_AlertPhone = utility::conversions::to_string_t("");
     m_AlertPhoneIsSet = false;
     m_AlertEmail1 = utility::conversions::to_string_t("");
@@ -51,7 +52,10 @@ web::json::value UpdateBalanceNotificationSettingsInputObject::toJson() const
     {
         val[utility::conversions::to_string_t("lowBalanceNotification")] = ModelBase::toJson(m_LowBalanceNotification);
     }
-    val[utility::conversions::to_string_t("alertBalance")] = ModelBase::toJson(m_AlertBalance);
+    if(m_AlertBalanceIsSet)
+    {
+        val[utility::conversions::to_string_t("alertBalance")] = ModelBase::toJson(m_AlertBalance);
+    }
     if(m_AlertPhoneIsSet)
     {
         val[utility::conversions::to_string_t("alertPhone")] = ModelBase::toJson(m_AlertPhone);
@@ -136,7 +140,11 @@ void UpdateBalanceNotificationSettingsInputObject::toMultipart(std::shared_ptr<M
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("lowBalanceNotification"), m_LowBalanceNotification));
     }
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("alertBalance"), m_AlertBalance));
+    if(m_AlertBalanceIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("alertBalance"), m_AlertBalance));
+        
+    }
     if(m_AlertPhoneIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("alertPhone"), m_AlertPhone));
@@ -171,7 +179,10 @@ void UpdateBalanceNotificationSettingsInputObject::fromMultiPart(std::shared_ptr
     {
         setLowBalanceNotification(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lowBalanceNotification"))));
     }
-    setAlertBalance(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertBalance"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("alertBalance")))
+    {
+        setAlertBalance(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertBalance"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("alertPhone")))
     {
         setAlertPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertPhone"))));
@@ -220,8 +231,18 @@ utility::string_t UpdateBalanceNotificationSettingsInputObject::getAlertBalance(
 void UpdateBalanceNotificationSettingsInputObject::setAlertBalance(utility::string_t value)
 {
     m_AlertBalance = value;
-    
+    m_AlertBalanceIsSet = true;
 }
+bool UpdateBalanceNotificationSettingsInputObject::alertBalanceIsSet() const
+{
+    return m_AlertBalanceIsSet;
+}
+
+void UpdateBalanceNotificationSettingsInputObject::unsetAlertBalance()
+{
+    m_AlertBalanceIsSet = false;
+}
+
 utility::string_t UpdateBalanceNotificationSettingsInputObject::getAlertPhone() const
 {
     return m_AlertPhone;

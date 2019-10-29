@@ -22,7 +22,9 @@ namespace model {
 CheckPhoneVerificationCodeInputObject::CheckPhoneVerificationCodeInputObject()
 {
     m_Code = 0;
+    m_CodeIsSet = false;
     m_VerifyId = utility::conversions::to_string_t("");
+    m_VerifyIdIsSet = false;
 }
 
 CheckPhoneVerificationCodeInputObject::~CheckPhoneVerificationCodeInputObject()
@@ -38,8 +40,14 @@ web::json::value CheckPhoneVerificationCodeInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("code")] = ModelBase::toJson(m_Code);
-    val[utility::conversions::to_string_t("verifyId")] = ModelBase::toJson(m_VerifyId);
+    if(m_CodeIsSet)
+    {
+        val[utility::conversions::to_string_t("code")] = ModelBase::toJson(m_Code);
+    }
+    if(m_VerifyIdIsSet)
+    {
+        val[utility::conversions::to_string_t("verifyId")] = ModelBase::toJson(m_VerifyId);
+    }
 
     return val;
 }
@@ -72,8 +80,15 @@ void CheckPhoneVerificationCodeInputObject::toMultipart(std::shared_ptr<Multipar
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("code"), m_Code));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("verifyId"), m_VerifyId));
+    if(m_CodeIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("code"), m_Code));
+    }
+    if(m_VerifyIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("verifyId"), m_VerifyId));
+        
+    }
 }
 
 void CheckPhoneVerificationCodeInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -84,8 +99,14 @@ void CheckPhoneVerificationCodeInputObject::fromMultiPart(std::shared_ptr<Multip
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setCode(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("code"))));
-    setVerifyId(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("verifyId"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("code")))
+    {
+        setCode(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("code"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("verifyId")))
+    {
+        setVerifyId(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("verifyId"))));
+    }
 }
 
 int32_t CheckPhoneVerificationCodeInputObject::getCode() const
@@ -97,8 +118,18 @@ int32_t CheckPhoneVerificationCodeInputObject::getCode() const
 void CheckPhoneVerificationCodeInputObject::setCode(int32_t value)
 {
     m_Code = value;
-    
+    m_CodeIsSet = true;
 }
+bool CheckPhoneVerificationCodeInputObject::codeIsSet() const
+{
+    return m_CodeIsSet;
+}
+
+void CheckPhoneVerificationCodeInputObject::unsetCode()
+{
+    m_CodeIsSet = false;
+}
+
 utility::string_t CheckPhoneVerificationCodeInputObject::getVerifyId() const
 {
     return m_VerifyId;
@@ -108,8 +139,18 @@ utility::string_t CheckPhoneVerificationCodeInputObject::getVerifyId() const
 void CheckPhoneVerificationCodeInputObject::setVerifyId(utility::string_t value)
 {
     m_VerifyId = value;
-    
+    m_VerifyIdIsSet = true;
 }
+bool CheckPhoneVerificationCodeInputObject::verifyIdIsSet() const
+{
+    return m_VerifyIdIsSet;
+}
+
+void CheckPhoneVerificationCodeInputObject::unsetVerifyId()
+{
+    m_VerifyIdIsSet = false;
+}
+
 }
 }
 }

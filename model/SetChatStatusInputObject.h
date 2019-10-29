@@ -57,17 +57,23 @@ public:
     /// Chat ID.
     /// </summary>
     int32_t getId() const;
-        void setId(int32_t value);
+    bool idIsSet() const;
+    void unsetId();
+    void setId(int32_t value);
     /// <summary>
     /// Chat status:   * **a** - Active;   * **c** - Closed;   * **d** - Deleted. 
     /// </summary>
     utility::string_t getStatus() const;
-        void setStatus(utility::string_t value);
+    bool statusIsSet() const;
+    void unsetStatus();
+    void setStatus(utility::string_t value);
 
 protected:
     int32_t m_Id;
-        utility::string_t m_Status;
-    };
+    bool m_IdIsSet;
+    utility::string_t m_Status;
+    bool m_StatusIsSet;
+};
 
 }
 }

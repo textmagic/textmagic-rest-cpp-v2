@@ -26,11 +26,13 @@ UpdateContactInputObject::UpdateContactInputObject()
     m_LastName = utility::conversions::to_string_t("");
     m_LastNameIsSet = false;
     m_Phone = utility::conversions::to_string_t("");
+    m_PhoneIsSet = false;
     m_Email = utility::conversions::to_string_t("");
     m_EmailIsSet = false;
     m_CompanyName = utility::conversions::to_string_t("");
     m_CompanyNameIsSet = false;
     m_Lists = utility::conversions::to_string_t("");
+    m_ListsIsSet = false;
     m_Favorited = false;
     m_FavoritedIsSet = false;
     m_Blocked = false;
@@ -65,7 +67,10 @@ web::json::value UpdateContactInputObject::toJson() const
     {
         val[utility::conversions::to_string_t("lastName")] = ModelBase::toJson(m_LastName);
     }
-    val[utility::conversions::to_string_t("phone")] = ModelBase::toJson(m_Phone);
+    if(m_PhoneIsSet)
+    {
+        val[utility::conversions::to_string_t("phone")] = ModelBase::toJson(m_Phone);
+    }
     if(m_EmailIsSet)
     {
         val[utility::conversions::to_string_t("email")] = ModelBase::toJson(m_Email);
@@ -74,7 +79,10 @@ web::json::value UpdateContactInputObject::toJson() const
     {
         val[utility::conversions::to_string_t("companyName")] = ModelBase::toJson(m_CompanyName);
     }
-    val[utility::conversions::to_string_t("lists")] = ModelBase::toJson(m_Lists);
+    if(m_ListsIsSet)
+    {
+        val[utility::conversions::to_string_t("lists")] = ModelBase::toJson(m_Lists);
+    }
     if(m_FavoritedIsSet)
     {
         val[utility::conversions::to_string_t("favorited")] = ModelBase::toJson(m_Favorited);
@@ -240,7 +248,11 @@ void UpdateContactInputObject::toMultipart(std::shared_ptr<MultipartFormData> mu
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("lastName"), m_LastName));
         
     }
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phone"), m_Phone));
+    if(m_PhoneIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phone"), m_Phone));
+        
+    }
     if(m_EmailIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("email"), m_Email));
@@ -251,7 +263,11 @@ void UpdateContactInputObject::toMultipart(std::shared_ptr<MultipartFormData> mu
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("companyName"), m_CompanyName));
         
     }
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("lists"), m_Lists));
+    if(m_ListsIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("lists"), m_Lists));
+        
+    }
     if(m_FavoritedIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("favorited"), m_Favorited));
@@ -303,7 +319,10 @@ void UpdateContactInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> 
     {
         setLastName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lastName"))));
     }
-    setPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phone"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("phone")))
+    {
+        setPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phone"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("email")))
     {
         setEmail(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("email"))));
@@ -312,7 +331,10 @@ void UpdateContactInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> 
     {
         setCompanyName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("companyName"))));
     }
-    setLists(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lists"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("lists")))
+    {
+        setLists(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lists"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("favorited")))
     {
         setFavorited(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("favorited"))));
@@ -407,8 +429,18 @@ utility::string_t UpdateContactInputObject::getPhone() const
 void UpdateContactInputObject::setPhone(utility::string_t value)
 {
     m_Phone = value;
-    
+    m_PhoneIsSet = true;
 }
+bool UpdateContactInputObject::phoneIsSet() const
+{
+    return m_PhoneIsSet;
+}
+
+void UpdateContactInputObject::unsetPhone()
+{
+    m_PhoneIsSet = false;
+}
+
 utility::string_t UpdateContactInputObject::getEmail() const
 {
     return m_Email;
@@ -460,8 +492,18 @@ utility::string_t UpdateContactInputObject::getLists() const
 void UpdateContactInputObject::setLists(utility::string_t value)
 {
     m_Lists = value;
-    
+    m_ListsIsSet = true;
 }
+bool UpdateContactInputObject::listsIsSet() const
+{
+    return m_ListsIsSet;
+}
+
+void UpdateContactInputObject::unsetLists()
+{
+    m_ListsIsSet = false;
+}
+
 bool UpdateContactInputObject::isFavorited() const
 {
     return m_Favorited;

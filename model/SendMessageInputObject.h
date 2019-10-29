@@ -57,7 +57,9 @@ public:
     /// Message text. Required if the **template_id** is not set.
     /// </summary>
     utility::string_t getText() const;
-        void setText(utility::string_t value);
+    bool textIsSet() const;
+    void unsetText();
+    void setText(utility::string_t value);
     /// <summary>
     /// Template used instead of message text. Required if the **text** is not set.
     /// </summary>
@@ -104,7 +106,9 @@ public:
     /// Comma separated array of E.164 phone numbers message will be sent to.
     /// </summary>
     utility::string_t getPhones() const;
-        void setPhones(utility::string_t value);
+    bool phonesIsSet() const;
+    void unsetPhones();
+    void setPhones(utility::string_t value);
     /// <summary>
     /// Should sending method cut extra characters which not fit supplied partsCount or return 400 Bad request response instead.
     /// </summary>
@@ -171,7 +175,8 @@ public:
 
 protected:
     utility::string_t m_Text;
-        int32_t m_TemplateId;
+    bool m_TextIsSet;
+    int32_t m_TemplateId;
     bool m_TemplateIdIsSet;
     int32_t m_SendingTime;
     bool m_SendingTimeIsSet;
@@ -184,7 +189,8 @@ protected:
     utility::string_t m_Lists;
     bool m_ListsIsSet;
     utility::string_t m_Phones;
-        bool m_CutExtra;
+    bool m_PhonesIsSet;
+    bool m_CutExtra;
     bool m_CutExtraIsSet;
     int32_t m_PartsCount;
     bool m_PartsCountIsSet;

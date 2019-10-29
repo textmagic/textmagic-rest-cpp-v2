@@ -57,11 +57,14 @@ public:
     /// Contact Note text.
     /// </summary>
     utility::string_t getNote() const;
-        void setNote(utility::string_t value);
+    bool noteIsSet() const;
+    void unsetNote();
+    void setNote(utility::string_t value);
 
 protected:
     utility::string_t m_Note;
-    };
+    bool m_NoteIsSet;
+};
 
 }
 }

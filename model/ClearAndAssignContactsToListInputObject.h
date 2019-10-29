@@ -57,11 +57,14 @@ public:
     /// Contact ID(s), separated by a comma or \&quot;all\&quot; to add all contacts belonging to the current user.
     /// </summary>
     utility::string_t getContacts() const;
-        void setContacts(utility::string_t value);
+    bool contactsIsSet() const;
+    void unsetContacts();
+    void setContacts(utility::string_t value);
 
 protected:
     utility::string_t m_Contacts;
-    };
+    bool m_ContactsIsSet;
+};
 
 }
 }

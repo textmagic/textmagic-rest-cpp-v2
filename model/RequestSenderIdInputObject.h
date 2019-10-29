@@ -57,17 +57,23 @@ public:
     /// The Sender ID that you are applying for. *   11 characters maximum; *   Only Latin based characters and digits are allowed; *   Should contain at least 1 letter. 
     /// </summary>
     utility::string_t getSenderId() const;
-        void setSenderId(utility::string_t value);
+    bool senderIdIsSet() const;
+    void unsetSenderId();
+    void setSenderId(utility::string_t value);
     /// <summary>
     /// Explanation of why you need this Sender ID.
     /// </summary>
     utility::string_t getExplanation() const;
-        void setExplanation(utility::string_t value);
+    bool explanationIsSet() const;
+    void unsetExplanation();
+    void setExplanation(utility::string_t value);
 
 protected:
     utility::string_t m_SenderId;
-        utility::string_t m_Explanation;
-    };
+    bool m_SenderIdIsSet;
+    utility::string_t m_Explanation;
+    bool m_ExplanationIsSet;
+};
 
 }
 }

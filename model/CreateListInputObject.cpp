@@ -22,6 +22,7 @@ namespace model {
 CreateListInputObject::CreateListInputObject()
 {
     m_Name = utility::conversions::to_string_t("");
+    m_NameIsSet = false;
     m_Shared = false;
     m_SharedIsSet = false;
     m_Favorited = false;
@@ -43,7 +44,10 @@ web::json::value CreateListInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
+    if(m_NameIsSet)
+    {
+        val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
+    }
     if(m_SharedIsSet)
     {
         val[utility::conversions::to_string_t("shared")] = ModelBase::toJson(m_Shared);
@@ -104,7 +108,11 @@ void CreateListInputObject::toMultipart(std::shared_ptr<MultipartFormData> multi
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
+    if(m_NameIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
+        
+    }
     if(m_SharedIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("shared"), m_Shared));
@@ -127,7 +135,10 @@ void CreateListInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> mul
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("name")))
+    {
+        setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("shared")))
     {
         setShared(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("shared"))));
@@ -151,8 +162,18 @@ utility::string_t CreateListInputObject::getName() const
 void CreateListInputObject::setName(utility::string_t value)
 {
     m_Name = value;
-    
+    m_NameIsSet = true;
 }
+bool CreateListInputObject::nameIsSet() const
+{
+    return m_NameIsSet;
+}
+
+void CreateListInputObject::unsetName()
+{
+    m_NameIsSet = false;
+}
+
 bool CreateListInputObject::isShared() const
 {
     return m_Shared;

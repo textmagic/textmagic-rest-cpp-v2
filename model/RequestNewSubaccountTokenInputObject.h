@@ -57,12 +57,16 @@ public:
     /// Sub-account ID.
     /// </summary>
     int32_t getUserId() const;
-        void setUserId(int32_t value);
+    bool userIdIsSet() const;
+    void unsetUserId();
+    void setUserId(int32_t value);
     /// <summary>
     /// Your account password.
     /// </summary>
     utility::string_t getPassword() const;
-        void setPassword(utility::string_t value);
+    bool passwordIsSet() const;
+    void unsetPassword();
+    void setPassword(utility::string_t value);
     /// <summary>
     /// Application name.
     /// </summary>
@@ -73,8 +77,10 @@ public:
 
 protected:
     int32_t m_UserId;
-        utility::string_t m_Password;
-        utility::string_t m_AppName;
+    bool m_UserIdIsSet;
+    utility::string_t m_Password;
+    bool m_PasswordIsSet;
+    utility::string_t m_AppName;
     bool m_AppNameIsSet;
 };
 

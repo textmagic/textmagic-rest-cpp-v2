@@ -22,6 +22,7 @@ namespace model {
 UpdateCustomFieldInputObject::UpdateCustomFieldInputObject()
 {
     m_Name = utility::conversions::to_string_t("");
+    m_NameIsSet = false;
 }
 
 UpdateCustomFieldInputObject::~UpdateCustomFieldInputObject()
@@ -37,7 +38,10 @@ web::json::value UpdateCustomFieldInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
+    if(m_NameIsSet)
+    {
+        val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
+    }
 
     return val;
 }
@@ -62,7 +66,11 @@ void UpdateCustomFieldInputObject::toMultipart(std::shared_ptr<MultipartFormData
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
+    if(m_NameIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
+        
+    }
 }
 
 void UpdateCustomFieldInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -73,7 +81,10 @@ void UpdateCustomFieldInputObject::fromMultiPart(std::shared_ptr<MultipartFormDa
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("name")))
+    {
+        setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
+    }
 }
 
 utility::string_t UpdateCustomFieldInputObject::getName() const
@@ -85,8 +96,18 @@ utility::string_t UpdateCustomFieldInputObject::getName() const
 void UpdateCustomFieldInputObject::setName(utility::string_t value)
 {
     m_Name = value;
-    
+    m_NameIsSet = true;
 }
+bool UpdateCustomFieldInputObject::nameIsSet() const
+{
+    return m_NameIsSet;
+}
+
+void UpdateCustomFieldInputObject::unsetName()
+{
+    m_NameIsSet = false;
+}
+
 }
 }
 }

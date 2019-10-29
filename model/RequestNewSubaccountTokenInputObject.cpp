@@ -22,7 +22,9 @@ namespace model {
 RequestNewSubaccountTokenInputObject::RequestNewSubaccountTokenInputObject()
 {
     m_UserId = 0;
+    m_UserIdIsSet = false;
     m_Password = utility::conversions::to_string_t("");
+    m_PasswordIsSet = false;
     m_AppName = utility::conversions::to_string_t("");
     m_AppNameIsSet = false;
 }
@@ -40,8 +42,14 @@ web::json::value RequestNewSubaccountTokenInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("userId")] = ModelBase::toJson(m_UserId);
-    val[utility::conversions::to_string_t("password")] = ModelBase::toJson(m_Password);
+    if(m_UserIdIsSet)
+    {
+        val[utility::conversions::to_string_t("userId")] = ModelBase::toJson(m_UserId);
+    }
+    if(m_PasswordIsSet)
+    {
+        val[utility::conversions::to_string_t("password")] = ModelBase::toJson(m_Password);
+    }
     if(m_AppNameIsSet)
     {
         val[utility::conversions::to_string_t("appName")] = ModelBase::toJson(m_AppName);
@@ -86,8 +94,15 @@ void RequestNewSubaccountTokenInputObject::toMultipart(std::shared_ptr<Multipart
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userId"), m_UserId));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("password"), m_Password));
+    if(m_UserIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userId"), m_UserId));
+    }
+    if(m_PasswordIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("password"), m_Password));
+        
+    }
     if(m_AppNameIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("appName"), m_AppName));
@@ -103,8 +118,14 @@ void RequestNewSubaccountTokenInputObject::fromMultiPart(std::shared_ptr<Multipa
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setUserId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userId"))));
-    setPassword(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("password"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("userId")))
+    {
+        setUserId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userId"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("password")))
+    {
+        setPassword(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("password"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("appName")))
     {
         setAppName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("appName"))));
@@ -120,8 +141,18 @@ int32_t RequestNewSubaccountTokenInputObject::getUserId() const
 void RequestNewSubaccountTokenInputObject::setUserId(int32_t value)
 {
     m_UserId = value;
-    
+    m_UserIdIsSet = true;
 }
+bool RequestNewSubaccountTokenInputObject::userIdIsSet() const
+{
+    return m_UserIdIsSet;
+}
+
+void RequestNewSubaccountTokenInputObject::unsetUserId()
+{
+    m_UserIdIsSet = false;
+}
+
 utility::string_t RequestNewSubaccountTokenInputObject::getPassword() const
 {
     return m_Password;
@@ -131,8 +162,18 @@ utility::string_t RequestNewSubaccountTokenInputObject::getPassword() const
 void RequestNewSubaccountTokenInputObject::setPassword(utility::string_t value)
 {
     m_Password = value;
-    
+    m_PasswordIsSet = true;
 }
+bool RequestNewSubaccountTokenInputObject::passwordIsSet() const
+{
+    return m_PasswordIsSet;
+}
+
+void RequestNewSubaccountTokenInputObject::unsetPassword()
+{
+    m_PasswordIsSet = false;
+}
+
 utility::string_t RequestNewSubaccountTokenInputObject::getAppName() const
 {
     return m_AppName;

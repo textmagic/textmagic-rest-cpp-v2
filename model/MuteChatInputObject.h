@@ -56,12 +56,16 @@ public:
     /// Chat ID.
     /// </summary>
     int32_t getId() const;
-        void setId(int32_t value);
+    bool idIsSet() const;
+    void unsetId();
+    void setId(int32_t value);
     /// <summary>
     /// Mute notifications sound.
     /// </summary>
     bool isMute() const;
-        void setMute(bool value);
+    bool muteIsSet() const;
+    void unsetMute();
+    void setMute(bool value);
     /// <summary>
     /// Mute for N hours.
     /// </summary>
@@ -72,8 +76,10 @@ public:
 
 protected:
     int32_t m_Id;
-        bool m_Mute;
-        int32_t m__for;
+    bool m_IdIsSet;
+    bool m_Mute;
+    bool m_MuteIsSet;
+    int32_t m__for;
     bool m__forIsSet;
 };
 

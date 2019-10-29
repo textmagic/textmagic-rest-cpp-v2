@@ -57,11 +57,14 @@ public:
     /// Custom field name.
     /// </summary>
     utility::string_t getName() const;
-        void setName(utility::string_t value);
+    bool nameIsSet() const;
+    void unsetName();
+    void setName(utility::string_t value);
 
 protected:
     utility::string_t m_Name;
-    };
+    bool m_NameIsSet;
+};
 
 }
 }

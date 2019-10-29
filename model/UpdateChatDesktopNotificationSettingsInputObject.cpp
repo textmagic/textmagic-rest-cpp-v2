@@ -22,7 +22,9 @@ namespace model {
 UpdateChatDesktopNotificationSettingsInputObject::UpdateChatDesktopNotificationSettingsInputObject()
 {
     m_PlaySound = false;
+    m_PlaySoundIsSet = false;
     m_ShowNotifications = false;
+    m_ShowNotificationsIsSet = false;
     m_ShowText = false;
     m_ShowTextIsSet = false;
     m_SoundId = 0;
@@ -42,8 +44,14 @@ web::json::value UpdateChatDesktopNotificationSettingsInputObject::toJson() cons
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("playSound")] = ModelBase::toJson(m_PlaySound);
-    val[utility::conversions::to_string_t("showNotifications")] = ModelBase::toJson(m_ShowNotifications);
+    if(m_PlaySoundIsSet)
+    {
+        val[utility::conversions::to_string_t("playSound")] = ModelBase::toJson(m_PlaySound);
+    }
+    if(m_ShowNotificationsIsSet)
+    {
+        val[utility::conversions::to_string_t("showNotifications")] = ModelBase::toJson(m_ShowNotifications);
+    }
     if(m_ShowTextIsSet)
     {
         val[utility::conversions::to_string_t("showText")] = ModelBase::toJson(m_ShowText);
@@ -100,8 +108,14 @@ void UpdateChatDesktopNotificationSettingsInputObject::toMultipart(std::shared_p
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("playSound"), m_PlaySound));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("showNotifications"), m_ShowNotifications));
+    if(m_PlaySoundIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("playSound"), m_PlaySound));
+    }
+    if(m_ShowNotificationsIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("showNotifications"), m_ShowNotifications));
+    }
     if(m_ShowTextIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("showText"), m_ShowText));
@@ -120,8 +134,14 @@ void UpdateChatDesktopNotificationSettingsInputObject::fromMultiPart(std::shared
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setPlaySound(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("playSound"))));
-    setShowNotifications(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("showNotifications"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("playSound")))
+    {
+        setPlaySound(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("playSound"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("showNotifications")))
+    {
+        setShowNotifications(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("showNotifications"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("showText")))
     {
         setShowText(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("showText"))));
@@ -141,8 +161,18 @@ bool UpdateChatDesktopNotificationSettingsInputObject::isPlaySound() const
 void UpdateChatDesktopNotificationSettingsInputObject::setPlaySound(bool value)
 {
     m_PlaySound = value;
-    
+    m_PlaySoundIsSet = true;
 }
+bool UpdateChatDesktopNotificationSettingsInputObject::playSoundIsSet() const
+{
+    return m_PlaySoundIsSet;
+}
+
+void UpdateChatDesktopNotificationSettingsInputObject::unsetPlaySound()
+{
+    m_PlaySoundIsSet = false;
+}
+
 bool UpdateChatDesktopNotificationSettingsInputObject::isShowNotifications() const
 {
     return m_ShowNotifications;
@@ -152,8 +182,18 @@ bool UpdateChatDesktopNotificationSettingsInputObject::isShowNotifications() con
 void UpdateChatDesktopNotificationSettingsInputObject::setShowNotifications(bool value)
 {
     m_ShowNotifications = value;
-    
+    m_ShowNotificationsIsSet = true;
 }
+bool UpdateChatDesktopNotificationSettingsInputObject::showNotificationsIsSet() const
+{
+    return m_ShowNotificationsIsSet;
+}
+
+void UpdateChatDesktopNotificationSettingsInputObject::unsetShowNotifications()
+{
+    m_ShowNotificationsIsSet = false;
+}
+
 bool UpdateChatDesktopNotificationSettingsInputObject::isShowText() const
 {
     return m_ShowText;

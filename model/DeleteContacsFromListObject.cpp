@@ -22,6 +22,7 @@ namespace model {
 DeleteContacsFromListObject::DeleteContacsFromListObject()
 {
     m_Contacts = utility::conversions::to_string_t("");
+    m_ContactsIsSet = false;
 }
 
 DeleteContacsFromListObject::~DeleteContacsFromListObject()
@@ -37,7 +38,10 @@ web::json::value DeleteContacsFromListObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("contacts")] = ModelBase::toJson(m_Contacts);
+    if(m_ContactsIsSet)
+    {
+        val[utility::conversions::to_string_t("contacts")] = ModelBase::toJson(m_Contacts);
+    }
 
     return val;
 }
@@ -62,7 +66,11 @@ void DeleteContacsFromListObject::toMultipart(std::shared_ptr<MultipartFormData>
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contacts"), m_Contacts));
+    if(m_ContactsIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contacts"), m_Contacts));
+        
+    }
 }
 
 void DeleteContacsFromListObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -73,7 +81,10 @@ void DeleteContacsFromListObject::fromMultiPart(std::shared_ptr<MultipartFormDat
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setContacts(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contacts"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("contacts")))
+    {
+        setContacts(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contacts"))));
+    }
 }
 
 utility::string_t DeleteContacsFromListObject::getContacts() const
@@ -85,8 +96,18 @@ utility::string_t DeleteContacsFromListObject::getContacts() const
 void DeleteContacsFromListObject::setContacts(utility::string_t value)
 {
     m_Contacts = value;
-    
+    m_ContactsIsSet = true;
 }
+bool DeleteContacsFromListObject::contactsIsSet() const
+{
+    return m_ContactsIsSet;
+}
+
+void DeleteContacsFromListObject::unsetContacts()
+{
+    m_ContactsIsSet = false;
+}
+
 }
 }
 }

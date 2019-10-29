@@ -22,8 +22,11 @@ namespace model {
 BuyDedicatedNumberInputObject::BuyDedicatedNumberInputObject()
 {
     m_Phone = utility::conversions::to_string_t("");
+    m_PhoneIsSet = false;
     m_Country = utility::conversions::to_string_t("");
+    m_CountryIsSet = false;
     m_UserId = 0;
+    m_UserIdIsSet = false;
 }
 
 BuyDedicatedNumberInputObject::~BuyDedicatedNumberInputObject()
@@ -39,9 +42,18 @@ web::json::value BuyDedicatedNumberInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("phone")] = ModelBase::toJson(m_Phone);
-    val[utility::conversions::to_string_t("country")] = ModelBase::toJson(m_Country);
-    val[utility::conversions::to_string_t("userId")] = ModelBase::toJson(m_UserId);
+    if(m_PhoneIsSet)
+    {
+        val[utility::conversions::to_string_t("phone")] = ModelBase::toJson(m_Phone);
+    }
+    if(m_CountryIsSet)
+    {
+        val[utility::conversions::to_string_t("country")] = ModelBase::toJson(m_Country);
+    }
+    if(m_UserIdIsSet)
+    {
+        val[utility::conversions::to_string_t("userId")] = ModelBase::toJson(m_UserId);
+    }
 
     return val;
 }
@@ -82,9 +94,20 @@ void BuyDedicatedNumberInputObject::toMultipart(std::shared_ptr<MultipartFormDat
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phone"), m_Phone));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("country"), m_Country));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userId"), m_UserId));
+    if(m_PhoneIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phone"), m_Phone));
+        
+    }
+    if(m_CountryIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("country"), m_Country));
+        
+    }
+    if(m_UserIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userId"), m_UserId));
+    }
 }
 
 void BuyDedicatedNumberInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -95,9 +118,18 @@ void BuyDedicatedNumberInputObject::fromMultiPart(std::shared_ptr<MultipartFormD
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phone"))));
-    setCountry(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("country"))));
-    setUserId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userId"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("phone")))
+    {
+        setPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phone"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("country")))
+    {
+        setCountry(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("country"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("userId")))
+    {
+        setUserId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userId"))));
+    }
 }
 
 utility::string_t BuyDedicatedNumberInputObject::getPhone() const
@@ -109,8 +141,18 @@ utility::string_t BuyDedicatedNumberInputObject::getPhone() const
 void BuyDedicatedNumberInputObject::setPhone(utility::string_t value)
 {
     m_Phone = value;
-    
+    m_PhoneIsSet = true;
 }
+bool BuyDedicatedNumberInputObject::phoneIsSet() const
+{
+    return m_PhoneIsSet;
+}
+
+void BuyDedicatedNumberInputObject::unsetPhone()
+{
+    m_PhoneIsSet = false;
+}
+
 utility::string_t BuyDedicatedNumberInputObject::getCountry() const
 {
     return m_Country;
@@ -120,8 +162,18 @@ utility::string_t BuyDedicatedNumberInputObject::getCountry() const
 void BuyDedicatedNumberInputObject::setCountry(utility::string_t value)
 {
     m_Country = value;
-    
+    m_CountryIsSet = true;
 }
+bool BuyDedicatedNumberInputObject::countryIsSet() const
+{
+    return m_CountryIsSet;
+}
+
+void BuyDedicatedNumberInputObject::unsetCountry()
+{
+    m_CountryIsSet = false;
+}
+
 int32_t BuyDedicatedNumberInputObject::getUserId() const
 {
     return m_UserId;
@@ -131,8 +183,18 @@ int32_t BuyDedicatedNumberInputObject::getUserId() const
 void BuyDedicatedNumberInputObject::setUserId(int32_t value)
 {
     m_UserId = value;
-    
+    m_UserIdIsSet = true;
 }
+bool BuyDedicatedNumberInputObject::userIdIsSet() const
+{
+    return m_UserIdIsSet;
+}
+
+void BuyDedicatedNumberInputObject::unsetUserId()
+{
+    m_UserIdIsSet = false;
+}
+
 }
 }
 }

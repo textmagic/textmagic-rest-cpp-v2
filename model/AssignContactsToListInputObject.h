@@ -57,11 +57,14 @@ public:
     /// Comma-separated array of [Contacts](http://docs.textmagictesting.com/#tag/Contacts) IDs.
     /// </summary>
     utility::string_t getContacts() const;
-        void setContacts(utility::string_t value);
+    bool contactsIsSet() const;
+    void unsetContacts();
+    void setContacts(utility::string_t value);
 
 protected:
     utility::string_t m_Contacts;
-    };
+    bool m_ContactsIsSet;
+};
 
 }
 }

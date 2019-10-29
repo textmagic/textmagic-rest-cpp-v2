@@ -22,8 +22,11 @@ namespace model {
 UpdateCallbackSettingsInputObject::UpdateCallbackSettingsInputObject()
 {
     m_OutUrl = utility::conversions::to_string_t("");
+    m_OutUrlIsSet = false;
     m_InUrl = utility::conversions::to_string_t("");
+    m_InUrlIsSet = false;
     m_Format = utility::conversions::to_string_t("");
+    m_FormatIsSet = false;
 }
 
 UpdateCallbackSettingsInputObject::~UpdateCallbackSettingsInputObject()
@@ -39,9 +42,18 @@ web::json::value UpdateCallbackSettingsInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("outUrl")] = ModelBase::toJson(m_OutUrl);
-    val[utility::conversions::to_string_t("inUrl")] = ModelBase::toJson(m_InUrl);
-    val[utility::conversions::to_string_t("format")] = ModelBase::toJson(m_Format);
+    if(m_OutUrlIsSet)
+    {
+        val[utility::conversions::to_string_t("outUrl")] = ModelBase::toJson(m_OutUrl);
+    }
+    if(m_InUrlIsSet)
+    {
+        val[utility::conversions::to_string_t("inUrl")] = ModelBase::toJson(m_InUrl);
+    }
+    if(m_FormatIsSet)
+    {
+        val[utility::conversions::to_string_t("format")] = ModelBase::toJson(m_Format);
+    }
 
     return val;
 }
@@ -82,9 +94,21 @@ void UpdateCallbackSettingsInputObject::toMultipart(std::shared_ptr<MultipartFor
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("outUrl"), m_OutUrl));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("inUrl"), m_InUrl));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("format"), m_Format));
+    if(m_OutUrlIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("outUrl"), m_OutUrl));
+        
+    }
+    if(m_InUrlIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("inUrl"), m_InUrl));
+        
+    }
+    if(m_FormatIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("format"), m_Format));
+        
+    }
 }
 
 void UpdateCallbackSettingsInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -95,9 +119,18 @@ void UpdateCallbackSettingsInputObject::fromMultiPart(std::shared_ptr<MultipartF
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setOutUrl(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("outUrl"))));
-    setInUrl(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("inUrl"))));
-    setFormat(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("format"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("outUrl")))
+    {
+        setOutUrl(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("outUrl"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("inUrl")))
+    {
+        setInUrl(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("inUrl"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("format")))
+    {
+        setFormat(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("format"))));
+    }
 }
 
 utility::string_t UpdateCallbackSettingsInputObject::getOutUrl() const
@@ -109,8 +142,18 @@ utility::string_t UpdateCallbackSettingsInputObject::getOutUrl() const
 void UpdateCallbackSettingsInputObject::setOutUrl(utility::string_t value)
 {
     m_OutUrl = value;
-    
+    m_OutUrlIsSet = true;
 }
+bool UpdateCallbackSettingsInputObject::outUrlIsSet() const
+{
+    return m_OutUrlIsSet;
+}
+
+void UpdateCallbackSettingsInputObject::unsetOutUrl()
+{
+    m_OutUrlIsSet = false;
+}
+
 utility::string_t UpdateCallbackSettingsInputObject::getInUrl() const
 {
     return m_InUrl;
@@ -120,8 +163,18 @@ utility::string_t UpdateCallbackSettingsInputObject::getInUrl() const
 void UpdateCallbackSettingsInputObject::setInUrl(utility::string_t value)
 {
     m_InUrl = value;
-    
+    m_InUrlIsSet = true;
 }
+bool UpdateCallbackSettingsInputObject::inUrlIsSet() const
+{
+    return m_InUrlIsSet;
+}
+
+void UpdateCallbackSettingsInputObject::unsetInUrl()
+{
+    m_InUrlIsSet = false;
+}
+
 utility::string_t UpdateCallbackSettingsInputObject::getFormat() const
 {
     return m_Format;
@@ -131,8 +184,18 @@ utility::string_t UpdateCallbackSettingsInputObject::getFormat() const
 void UpdateCallbackSettingsInputObject::setFormat(utility::string_t value)
 {
     m_Format = value;
-    
+    m_FormatIsSet = true;
 }
+bool UpdateCallbackSettingsInputObject::formatIsSet() const
+{
+    return m_FormatIsSet;
+}
+
+void UpdateCallbackSettingsInputObject::unsetFormat()
+{
+    m_FormatIsSet = false;
+}
+
 }
 }
 }

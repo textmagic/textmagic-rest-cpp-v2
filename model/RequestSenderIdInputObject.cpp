@@ -22,7 +22,9 @@ namespace model {
 RequestSenderIdInputObject::RequestSenderIdInputObject()
 {
     m_SenderId = utility::conversions::to_string_t("");
+    m_SenderIdIsSet = false;
     m_Explanation = utility::conversions::to_string_t("");
+    m_ExplanationIsSet = false;
 }
 
 RequestSenderIdInputObject::~RequestSenderIdInputObject()
@@ -38,8 +40,14 @@ web::json::value RequestSenderIdInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("senderId")] = ModelBase::toJson(m_SenderId);
-    val[utility::conversions::to_string_t("explanation")] = ModelBase::toJson(m_Explanation);
+    if(m_SenderIdIsSet)
+    {
+        val[utility::conversions::to_string_t("senderId")] = ModelBase::toJson(m_SenderId);
+    }
+    if(m_ExplanationIsSet)
+    {
+        val[utility::conversions::to_string_t("explanation")] = ModelBase::toJson(m_Explanation);
+    }
 
     return val;
 }
@@ -72,8 +80,16 @@ void RequestSenderIdInputObject::toMultipart(std::shared_ptr<MultipartFormData> 
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("senderId"), m_SenderId));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("explanation"), m_Explanation));
+    if(m_SenderIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("senderId"), m_SenderId));
+        
+    }
+    if(m_ExplanationIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("explanation"), m_Explanation));
+        
+    }
 }
 
 void RequestSenderIdInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -84,8 +100,14 @@ void RequestSenderIdInputObject::fromMultiPart(std::shared_ptr<MultipartFormData
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setSenderId(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("senderId"))));
-    setExplanation(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("explanation"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("senderId")))
+    {
+        setSenderId(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("senderId"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("explanation")))
+    {
+        setExplanation(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("explanation"))));
+    }
 }
 
 utility::string_t RequestSenderIdInputObject::getSenderId() const
@@ -97,8 +119,18 @@ utility::string_t RequestSenderIdInputObject::getSenderId() const
 void RequestSenderIdInputObject::setSenderId(utility::string_t value)
 {
     m_SenderId = value;
-    
+    m_SenderIdIsSet = true;
 }
+bool RequestSenderIdInputObject::senderIdIsSet() const
+{
+    return m_SenderIdIsSet;
+}
+
+void RequestSenderIdInputObject::unsetSenderId()
+{
+    m_SenderIdIsSet = false;
+}
+
 utility::string_t RequestSenderIdInputObject::getExplanation() const
 {
     return m_Explanation;
@@ -108,8 +140,18 @@ utility::string_t RequestSenderIdInputObject::getExplanation() const
 void RequestSenderIdInputObject::setExplanation(utility::string_t value)
 {
     m_Explanation = value;
-    
+    m_ExplanationIsSet = true;
 }
+bool RequestSenderIdInputObject::explanationIsSet() const
+{
+    return m_ExplanationIsSet;
+}
+
+void RequestSenderIdInputObject::unsetExplanation()
+{
+    m_ExplanationIsSet = false;
+}
+
 }
 }
 }

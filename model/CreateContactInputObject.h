@@ -73,7 +73,9 @@ public:
     /// Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164).
     /// </summary>
     utility::string_t getPhone() const;
-        void setPhone(utility::string_t value);
+    bool phoneIsSet() const;
+    void unsetPhone();
+    void setPhone(utility::string_t value);
     /// <summary>
     /// Contact email address.
     /// </summary>
@@ -92,7 +94,9 @@ public:
     /// Contact [list](http://docs.textmagictesting.com/#tag/Lists) ID. Each contact must be assigned to at least one list.
     /// </summary>
     utility::string_t getLists() const;
-        void setLists(utility::string_t value);
+    bool listsIsSet() const;
+    void unsetLists();
+    void setLists(utility::string_t value);
     /// <summary>
     /// Is the contact marked as favorite?
     /// </summary>
@@ -142,12 +146,14 @@ protected:
     utility::string_t m_LastName;
     bool m_LastNameIsSet;
     utility::string_t m_Phone;
-        utility::string_t m_Email;
+    bool m_PhoneIsSet;
+    utility::string_t m_Email;
     bool m_EmailIsSet;
     utility::string_t m_CompanyName;
     bool m_CompanyNameIsSet;
     utility::string_t m_Lists;
-        bool m_Favorited;
+    bool m_ListsIsSet;
+    bool m_Favorited;
     bool m_FavoritedIsSet;
     bool m_Blocked;
     bool m_BlockedIsSet;

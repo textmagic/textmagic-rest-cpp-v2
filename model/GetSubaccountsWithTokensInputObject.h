@@ -57,17 +57,23 @@ public:
     /// Application name.
     /// </summary>
     utility::string_t getAppName() const;
-        void setAppName(utility::string_t value);
+    bool appNameIsSet() const;
+    void unsetAppName();
+    void setAppName(utility::string_t value);
     /// <summary>
     /// Your account password.
     /// </summary>
     utility::string_t getPassword() const;
-        void setPassword(utility::string_t value);
+    bool passwordIsSet() const;
+    void unsetPassword();
+    void setPassword(utility::string_t value);
 
 protected:
     utility::string_t m_AppName;
-        utility::string_t m_Password;
-    };
+    bool m_AppNameIsSet;
+    utility::string_t m_Password;
+    bool m_PasswordIsSet;
+};
 
 }
 }

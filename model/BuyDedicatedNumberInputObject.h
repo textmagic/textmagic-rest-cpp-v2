@@ -57,23 +57,32 @@ public:
     /// Dedicated phone number.
     /// </summary>
     utility::string_t getPhone() const;
-        void setPhone(utility::string_t value);
+    bool phoneIsSet() const;
+    void unsetPhone();
+    void setPhone(utility::string_t value);
     /// <summary>
     /// Country code phone number.
     /// </summary>
     utility::string_t getCountry() const;
-        void setCountry(utility::string_t value);
+    bool countryIsSet() const;
+    void unsetCountry();
+    void setCountry(utility::string_t value);
     /// <summary>
     /// Assigned dedicated number. This number will be available for this account only. You cannot transfer numbers between sub-accounts. 
     /// </summary>
     int32_t getUserId() const;
-        void setUserId(int32_t value);
+    bool userIdIsSet() const;
+    void unsetUserId();
+    void setUserId(int32_t value);
 
 protected:
     utility::string_t m_Phone;
-        utility::string_t m_Country;
-        int32_t m_UserId;
-    };
+    bool m_PhoneIsSet;
+    utility::string_t m_Country;
+    bool m_CountryIsSet;
+    int32_t m_UserId;
+    bool m_UserIdIsSet;
+};
 
 }
 }

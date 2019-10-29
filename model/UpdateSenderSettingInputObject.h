@@ -57,12 +57,16 @@ public:
     /// Available phone number in international E.164 format or senderid.
     /// </summary>
     utility::string_t getValue() const;
-        void setValue(utility::string_t value);
+    bool valueIsSet() const;
+    void unsetValue();
+    void setValue(utility::string_t value);
     /// <summary>
     /// Country for which the setting will be set.
     /// </summary>
     utility::string_t getCountry() const;
-        void setCountry(utility::string_t value);
+    bool countryIsSet() const;
+    void unsetCountry();
+    void setCountry(utility::string_t value);
     /// <summary>
     /// Set sender setting for specified chat only.
     /// </summary>
@@ -73,8 +77,10 @@ public:
 
 protected:
     utility::string_t m_Value;
-        utility::string_t m_Country;
-        int32_t m_ChatId;
+    bool m_ValueIsSet;
+    utility::string_t m_Country;
+    bool m_CountryIsSet;
+    int32_t m_ChatId;
     bool m_ChatIdIsSet;
 };
 

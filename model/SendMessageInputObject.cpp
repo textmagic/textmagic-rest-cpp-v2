@@ -22,6 +22,7 @@ namespace model {
 SendMessageInputObject::SendMessageInputObject()
 {
     m_Text = utility::conversions::to_string_t("");
+    m_TextIsSet = false;
     m_TemplateId = 0;
     m_TemplateIdIsSet = false;
     m_SendingTime = 0;
@@ -35,6 +36,7 @@ SendMessageInputObject::SendMessageInputObject()
     m_Lists = utility::conversions::to_string_t("");
     m_ListsIsSet = false;
     m_Phones = utility::conversions::to_string_t("");
+    m_PhonesIsSet = false;
     m_CutExtra = false;
     m_CutExtraIsSet = false;
     m_PartsCount = 0;
@@ -68,7 +70,10 @@ web::json::value SendMessageInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("text")] = ModelBase::toJson(m_Text);
+    if(m_TextIsSet)
+    {
+        val[utility::conversions::to_string_t("text")] = ModelBase::toJson(m_Text);
+    }
     if(m_TemplateIdIsSet)
     {
         val[utility::conversions::to_string_t("templateId")] = ModelBase::toJson(m_TemplateId);
@@ -93,7 +98,10 @@ web::json::value SendMessageInputObject::toJson() const
     {
         val[utility::conversions::to_string_t("lists")] = ModelBase::toJson(m_Lists);
     }
-    val[utility::conversions::to_string_t("phones")] = ModelBase::toJson(m_Phones);
+    if(m_PhonesIsSet)
+    {
+        val[utility::conversions::to_string_t("phones")] = ModelBase::toJson(m_Phones);
+    }
     if(m_CutExtraIsSet)
     {
         val[utility::conversions::to_string_t("cutExtra")] = ModelBase::toJson(m_CutExtra);
@@ -282,7 +290,11 @@ void SendMessageInputObject::toMultipart(std::shared_ptr<MultipartFormData> mult
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("text"), m_Text));
+    if(m_TextIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("text"), m_Text));
+        
+    }
     if(m_TemplateIdIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("templateId"), m_TemplateId));
@@ -311,7 +323,11 @@ void SendMessageInputObject::toMultipart(std::shared_ptr<MultipartFormData> mult
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("lists"), m_Lists));
         
     }
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phones"), m_Phones));
+    if(m_PhonesIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phones"), m_Phones));
+        
+    }
     if(m_CutExtraIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("cutExtra"), m_CutExtra));
@@ -361,7 +377,10 @@ void SendMessageInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> mu
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setText(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("text"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("text")))
+    {
+        setText(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("text"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("templateId")))
     {
         setTemplateId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("templateId"))));
@@ -386,7 +405,10 @@ void SendMessageInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> mu
     {
         setLists(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lists"))));
     }
-    setPhones(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phones"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("phones")))
+    {
+        setPhones(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phones"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("cutExtra")))
     {
         setCutExtra(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("cutExtra"))));
@@ -434,8 +456,18 @@ utility::string_t SendMessageInputObject::getText() const
 void SendMessageInputObject::setText(utility::string_t value)
 {
     m_Text = value;
-    
+    m_TextIsSet = true;
 }
+bool SendMessageInputObject::textIsSet() const
+{
+    return m_TextIsSet;
+}
+
+void SendMessageInputObject::unsetText()
+{
+    m_TextIsSet = false;
+}
+
 int32_t SendMessageInputObject::getTemplateId() const
 {
     return m_TemplateId;
@@ -571,8 +603,18 @@ utility::string_t SendMessageInputObject::getPhones() const
 void SendMessageInputObject::setPhones(utility::string_t value)
 {
     m_Phones = value;
-    
+    m_PhonesIsSet = true;
 }
+bool SendMessageInputObject::phonesIsSet() const
+{
+    return m_PhonesIsSet;
+}
+
+void SendMessageInputObject::unsetPhones()
+{
+    m_PhonesIsSet = false;
+}
+
 bool SendMessageInputObject::isCutExtra() const
 {
     return m_CutExtra;

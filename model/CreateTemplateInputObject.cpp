@@ -22,7 +22,9 @@ namespace model {
 CreateTemplateInputObject::CreateTemplateInputObject()
 {
     m_Name = utility::conversions::to_string_t("");
+    m_NameIsSet = false;
     m_Content = utility::conversions::to_string_t("");
+    m_ContentIsSet = false;
 }
 
 CreateTemplateInputObject::~CreateTemplateInputObject()
@@ -38,8 +40,14 @@ web::json::value CreateTemplateInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
-    val[utility::conversions::to_string_t("content")] = ModelBase::toJson(m_Content);
+    if(m_NameIsSet)
+    {
+        val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
+    }
+    if(m_ContentIsSet)
+    {
+        val[utility::conversions::to_string_t("content")] = ModelBase::toJson(m_Content);
+    }
 
     return val;
 }
@@ -72,8 +80,16 @@ void CreateTemplateInputObject::toMultipart(std::shared_ptr<MultipartFormData> m
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("content"), m_Content));
+    if(m_NameIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
+        
+    }
+    if(m_ContentIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("content"), m_Content));
+        
+    }
 }
 
 void CreateTemplateInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -84,8 +100,14 @@ void CreateTemplateInputObject::fromMultiPart(std::shared_ptr<MultipartFormData>
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
-    setContent(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("content"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("name")))
+    {
+        setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("content")))
+    {
+        setContent(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("content"))));
+    }
 }
 
 utility::string_t CreateTemplateInputObject::getName() const
@@ -97,8 +119,18 @@ utility::string_t CreateTemplateInputObject::getName() const
 void CreateTemplateInputObject::setName(utility::string_t value)
 {
     m_Name = value;
-    
+    m_NameIsSet = true;
 }
+bool CreateTemplateInputObject::nameIsSet() const
+{
+    return m_NameIsSet;
+}
+
+void CreateTemplateInputObject::unsetName()
+{
+    m_NameIsSet = false;
+}
+
 utility::string_t CreateTemplateInputObject::getContent() const
 {
     return m_Content;
@@ -108,8 +140,18 @@ utility::string_t CreateTemplateInputObject::getContent() const
 void CreateTemplateInputObject::setContent(utility::string_t value)
 {
     m_Content = value;
-    
+    m_ContentIsSet = true;
 }
+bool CreateTemplateInputObject::contentIsSet() const
+{
+    return m_ContentIsSet;
+}
+
+void CreateTemplateInputObject::unsetContent()
+{
+    m_ContentIsSet = false;
+}
+
 }
 }
 }

@@ -56,12 +56,16 @@ public:
     /// Enable notification sound?
     /// </summary>
     bool isPlaySound() const;
-        void setPlaySound(bool value);
+    bool playSoundIsSet() const;
+    void unsetPlaySound();
+    void setPlaySound(bool value);
     /// <summary>
     /// Show desktop notifications about new messages.
     /// </summary>
     bool isShowNotifications() const;
-        void setShowNotifications(bool value);
+    bool showNotificationsIsSet() const;
+    void unsetShowNotifications();
+    void setShowNotifications(bool value);
     /// <summary>
     /// Incoming message text will be displayed in desktop notifications.
     /// </summary>
@@ -79,8 +83,10 @@ public:
 
 protected:
     bool m_PlaySound;
-        bool m_ShowNotifications;
-        bool m_ShowText;
+    bool m_PlaySoundIsSet;
+    bool m_ShowNotifications;
+    bool m_ShowNotificationsIsSet;
+    bool m_ShowText;
     bool m_ShowTextIsSet;
     int32_t m_SoundId;
     bool m_SoundIdIsSet;

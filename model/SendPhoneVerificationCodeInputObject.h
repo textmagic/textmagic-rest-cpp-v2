@@ -57,17 +57,23 @@ public:
     /// Use the phone number in international E.164 format. If you need to pass a phone number in the local format, please use it with the **country** parameter to specify the origin country of the phone number. 
     /// </summary>
     utility::string_t getPhone() const;
-        void setPhone(utility::string_t value);
+    bool phoneIsSet() const;
+    void unsetPhone();
+    void setPhone(utility::string_t value);
     /// <summary>
     /// An alphanumeric string with up to 18 characters you can use to personalize the verification text message body, to help users identify your company or application name. For example: “Your TextMagic PIN is …” 
     /// </summary>
     utility::string_t getBrand() const;
-        void setBrand(utility::string_t value);
+    bool brandIsSet() const;
+    void unsetBrand();
+    void setBrand(utility::string_t value);
     /// <summary>
     /// The length of the verification code. The value can be 4 or 6 characters. 
     /// </summary>
     int32_t getCodeLength() const;
-        void setCodeLength(int32_t value);
+    bool codeLengthIsSet() const;
+    void unsetCodeLength();
+    void setCodeLength(int32_t value);
     /// <summary>
     /// By default, the SMS or text-to-speech (TTS) voice message is generated in the locale that matches the number. For example, the text message or TTS message for a 33\\* number is sent in French. Use this parameter to explicitly control the language, accent, and gender used for the verification request. Choosing one of the following: &#x60;de-de&#x60;, &#x60;en-au&#x60;, &#x60;en-gb&#x60;, &#x60;en-us&#x60;, &#x60;en-in&#x60;, &#x60;es-es&#x60;, &#x60;es-mx&#x60;, &#x60;es-us&#x60;, &#x60;fr-ca&#x60;, &#x60;fr-fr&#x60;, &#x60;is-is&#x60;, &#x60;it-it&#x60;, &#x60;ja-jp&#x60;, &#x60;ko-kr&#x60;, &#x60;nl-nl&#x60;, &#x60;pl-pl&#x60;, &#x60;pt-pt&#x60;, &#x60;pt-br&#x60;, &#x60;ro-ro&#x60;, &#x60;ru-ru&#x60;, &#x60;sv-se&#x60;, &#x60;tr-tr&#x60;, &#x60;zh-cn&#x60; or &#x60;zh-tw&#x60;. 
     /// </summary>
@@ -92,9 +98,12 @@ public:
 
 protected:
     utility::string_t m_Phone;
-        utility::string_t m_Brand;
-        int32_t m_CodeLength;
-        utility::string_t m_Language;
+    bool m_PhoneIsSet;
+    utility::string_t m_Brand;
+    bool m_BrandIsSet;
+    int32_t m_CodeLength;
+    bool m_CodeLengthIsSet;
+    utility::string_t m_Language;
     bool m_LanguageIsSet;
     utility::string_t m_SenderId;
     bool m_SenderIdIsSet;

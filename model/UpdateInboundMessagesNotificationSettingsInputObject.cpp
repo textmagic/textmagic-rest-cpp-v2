@@ -22,8 +22,11 @@ namespace model {
 UpdateInboundMessagesNotificationSettingsInputObject::UpdateInboundMessagesNotificationSettingsInputObject()
 {
     m_InboundMessageNotification = false;
+    m_InboundMessageNotificationIsSet = false;
     m_IncludeSmsHistory = false;
+    m_IncludeSmsHistoryIsSet = false;
     m_SendInHtmlFormat = false;
+    m_SendInHtmlFormatIsSet = false;
     m_AlertEmail1 = utility::conversions::to_string_t("");
     m_AlertEmail1IsSet = false;
     m_AlertEmail2 = utility::conversions::to_string_t("");
@@ -45,9 +48,18 @@ web::json::value UpdateInboundMessagesNotificationSettingsInputObject::toJson() 
 {
     web::json::value val = web::json::value::object();
 
-    val[utility::conversions::to_string_t("inboundMessageNotification")] = ModelBase::toJson(m_InboundMessageNotification);
-    val[utility::conversions::to_string_t("includeSmsHistory")] = ModelBase::toJson(m_IncludeSmsHistory);
-    val[utility::conversions::to_string_t("sendInHtmlFormat")] = ModelBase::toJson(m_SendInHtmlFormat);
+    if(m_InboundMessageNotificationIsSet)
+    {
+        val[utility::conversions::to_string_t("inboundMessageNotification")] = ModelBase::toJson(m_InboundMessageNotification);
+    }
+    if(m_IncludeSmsHistoryIsSet)
+    {
+        val[utility::conversions::to_string_t("includeSmsHistory")] = ModelBase::toJson(m_IncludeSmsHistory);
+    }
+    if(m_SendInHtmlFormatIsSet)
+    {
+        val[utility::conversions::to_string_t("sendInHtmlFormat")] = ModelBase::toJson(m_SendInHtmlFormat);
+    }
     if(m_AlertEmail1IsSet)
     {
         val[utility::conversions::to_string_t("alertEmail1")] = ModelBase::toJson(m_AlertEmail1);
@@ -124,9 +136,18 @@ void UpdateInboundMessagesNotificationSettingsInputObject::toMultipart(std::shar
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("inboundMessageNotification"), m_InboundMessageNotification));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("includeSmsHistory"), m_IncludeSmsHistory));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("sendInHtmlFormat"), m_SendInHtmlFormat));
+    if(m_InboundMessageNotificationIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("inboundMessageNotification"), m_InboundMessageNotification));
+    }
+    if(m_IncludeSmsHistoryIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("includeSmsHistory"), m_IncludeSmsHistory));
+    }
+    if(m_SendInHtmlFormatIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("sendInHtmlFormat"), m_SendInHtmlFormat));
+    }
     if(m_AlertEmail1IsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("alertEmail1"), m_AlertEmail1));
@@ -152,9 +173,18 @@ void UpdateInboundMessagesNotificationSettingsInputObject::fromMultiPart(std::sh
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setInboundMessageNotification(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("inboundMessageNotification"))));
-    setIncludeSmsHistory(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("includeSmsHistory"))));
-    setSendInHtmlFormat(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("sendInHtmlFormat"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("inboundMessageNotification")))
+    {
+        setInboundMessageNotification(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("inboundMessageNotification"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("includeSmsHistory")))
+    {
+        setIncludeSmsHistory(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("includeSmsHistory"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("sendInHtmlFormat")))
+    {
+        setSendInHtmlFormat(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("sendInHtmlFormat"))));
+    }
     if(multipart->hasContent(utility::conversions::to_string_t("alertEmail1")))
     {
         setAlertEmail1(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertEmail1"))));
@@ -178,8 +208,18 @@ bool UpdateInboundMessagesNotificationSettingsInputObject::isInboundMessageNotif
 void UpdateInboundMessagesNotificationSettingsInputObject::setInboundMessageNotification(bool value)
 {
     m_InboundMessageNotification = value;
-    
+    m_InboundMessageNotificationIsSet = true;
 }
+bool UpdateInboundMessagesNotificationSettingsInputObject::inboundMessageNotificationIsSet() const
+{
+    return m_InboundMessageNotificationIsSet;
+}
+
+void UpdateInboundMessagesNotificationSettingsInputObject::unsetInboundMessageNotification()
+{
+    m_InboundMessageNotificationIsSet = false;
+}
+
 bool UpdateInboundMessagesNotificationSettingsInputObject::isIncludeSmsHistory() const
 {
     return m_IncludeSmsHistory;
@@ -189,8 +229,18 @@ bool UpdateInboundMessagesNotificationSettingsInputObject::isIncludeSmsHistory()
 void UpdateInboundMessagesNotificationSettingsInputObject::setIncludeSmsHistory(bool value)
 {
     m_IncludeSmsHistory = value;
-    
+    m_IncludeSmsHistoryIsSet = true;
 }
+bool UpdateInboundMessagesNotificationSettingsInputObject::includeSmsHistoryIsSet() const
+{
+    return m_IncludeSmsHistoryIsSet;
+}
+
+void UpdateInboundMessagesNotificationSettingsInputObject::unsetIncludeSmsHistory()
+{
+    m_IncludeSmsHistoryIsSet = false;
+}
+
 bool UpdateInboundMessagesNotificationSettingsInputObject::isSendInHtmlFormat() const
 {
     return m_SendInHtmlFormat;
@@ -200,8 +250,18 @@ bool UpdateInboundMessagesNotificationSettingsInputObject::isSendInHtmlFormat() 
 void UpdateInboundMessagesNotificationSettingsInputObject::setSendInHtmlFormat(bool value)
 {
     m_SendInHtmlFormat = value;
-    
+    m_SendInHtmlFormatIsSet = true;
 }
+bool UpdateInboundMessagesNotificationSettingsInputObject::sendInHtmlFormatIsSet() const
+{
+    return m_SendInHtmlFormatIsSet;
+}
+
+void UpdateInboundMessagesNotificationSettingsInputObject::unsetSendInHtmlFormat()
+{
+    m_SendInHtmlFormatIsSet = false;
+}
+
 utility::string_t UpdateInboundMessagesNotificationSettingsInputObject::getAlertEmail1() const
 {
     return m_AlertEmail1;

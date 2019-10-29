@@ -57,17 +57,23 @@ public:
     /// Template name.
     /// </summary>
     utility::string_t getName() const;
-        void setName(utility::string_t value);
+    bool nameIsSet() const;
+    void unsetName();
+    void setName(utility::string_t value);
     /// <summary>
     /// Template text. May contain tags inside braces. See [Get timezones](http://docs.textmagictesting.com/#section/Custom-fields-list-(Merge-tags)).
     /// </summary>
     utility::string_t getContent() const;
-        void setContent(utility::string_t value);
+    bool contentIsSet() const;
+    void unsetContent();
+    void setContent(utility::string_t value);
 
 protected:
     utility::string_t m_Name;
-        utility::string_t m_Content;
-    };
+    bool m_NameIsSet;
+    utility::string_t m_Content;
+    bool m_ContentIsSet;
+};
 
 }
 }
