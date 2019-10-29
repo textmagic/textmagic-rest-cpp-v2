@@ -1397,7 +1397,7 @@ public:
     /// Get unread messages number
     /// </summary>
     /// <remarks>
-    /// Get total amount of unread messages in the current user chats.
+    /// Get the total amount of unread messages in the current user chats.
     /// </remarks>
     pplx::task<std::shared_ptr<GetUnreadMessagesTotalResponse>> getUnreadMessagesTotal(
     );
@@ -1549,7 +1549,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="query">Find chats by specified search query (optional)</param>
+    /// <param name="query">Find chats by specified search query. (optional)</param>
     pplx::task<std::shared_ptr<SearchChatsPaginatedResponse>> searchChats(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -1563,7 +1563,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="ids">Find chats by ID(s) (optional)</param>
+    /// <param name="ids">Find chats by ID(s). (optional)</param>
     pplx::task<std::shared_ptr<SearchChatsByIdsPaginatedResponse>> searchChatsByIds(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -1749,7 +1749,7 @@ public:
     /// Change chat status
     /// </summary>
     /// <remarks>
-    /// Set status of the chat given by ID.
+    /// Set the status of the chat given by ID.
     /// </remarks>
     /// <param name="setChatStatusInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> setChatStatus(

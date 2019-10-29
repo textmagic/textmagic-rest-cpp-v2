@@ -83,7 +83,7 @@ public:
     utility::string_t getEmail() const;
         void setEmail(utility::string_t value);
     /// <summary>
-    /// Current account status: * **A** for Active * **T** for Trial. 
+    /// Current account status: * **A** for Active; * **T** for Trial. 
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
@@ -118,7 +118,7 @@ public:
     std::shared_ptr<Timezone> getTimezone() const;
         void setTimezone(std::shared_ptr<Timezone> value);
     /// <summary>
-    /// Type of account: *   **A** for Administrator sub-account *   **U** for Regular User 
+    /// Type of account: *   **A** for Administrator sub-account; *   **U** for Regular User. 
     /// </summary>
     utility::string_t getSubaccountType() const;
         void setSubaccountType(utility::string_t value);

@@ -59,7 +59,7 @@ public:
     utility::string_t getEmail() const;
         void setEmail(utility::string_t value);
     /// <summary>
-    /// Type of account: *   **A** for Administrator sub-account *   **U** for Regular User 
+    /// Type of account: *   **A** for Administrator sub-account; *   **U** for Regular User. 
     /// </summary>
     utility::string_t getRole() const;
         void setRole(utility::string_t value);

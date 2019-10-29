@@ -91,7 +91,7 @@ public:
     utility::datetime getUpdatedAt() const;
         void setUpdatedAt(utility::datetime value);
     /// <summary>
-    /// Chat status:   * **a** - Active   * **c** - Closed   * **d** - Deleted 
+    /// Chat status:   * **a** - Active;   * **c** - Closed;   * **d** - Deleted. 
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
