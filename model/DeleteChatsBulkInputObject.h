@@ -68,7 +68,7 @@ public:
     void unsetAll();
     void setAll(bool value);
     /// <summary>
-    /// Default is empty string. If set, all entities with specified status will be affected.
+    /// Default is an empty string. If set, all entities with specified status will be affected.
     /// </summary>
     utility::string_t getStatus() const;
     bool statusIsSet() const;

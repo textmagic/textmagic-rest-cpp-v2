@@ -73,7 +73,7 @@
 #include "GetContactsPaginatedResponse.h"
 #include "GetCountriesResponse.h"
 #include "GetCustomFieldsPaginatedResponse.h"
-#include "GetFavouritesPaginatedResponse.h"
+#include "GetFavoritesPaginatedResponse.h"
 #include "GetInboundMessagesNotificationSettingsResponse.h"
 #include "GetInvoicesPaginatedResponse.h"
 #include "GetListContactsIdsResponse.h"
@@ -205,7 +205,7 @@ public:
     /// <remarks>
     /// You can cancel the verification not earlier than 30 seconds after the initial request.
     /// </remarks>
-    /// <param name="verifyId">the verifyId that you received in Step 1.</param>
+    /// <param name="verifyId">The verifyId that you received in Step 1.</param>
     pplx::task<void> cancelVerification(
         utility::string_t verifyId
     );
@@ -445,7 +445,7 @@ public:
     /// Delete a single inbound message
     /// </summary>
     /// <remarks>
-    /// &gt; Note, deleted inbound message will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful! 
+    /// &gt; Note: deleted inbound messages will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful! 
     /// </remarks>
     /// <param name="id">The unique numeric ID for the inbound message.</param>
     pplx::task<void> deleteInboundMessage(
@@ -455,7 +455,7 @@ public:
     /// Delete inbound messages (bulk)
     /// </summary>
     /// <remarks>
-    /// &gt; Note, deleted inbound message will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful! 
+    /// &gt; Note: deleted inbound messages will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful! 
     /// </remarks>
     /// <param name="deleteInboundMessagesBulkInputObject"></param>
     pplx::task<void> deleteInboundMessagesBulk(
@@ -636,9 +636,9 @@ public:
     /// <param name="status">Fetch only (a)ctive, (c)losed or (d)eleted chats (optional)</param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
-    /// <param name="voice">Fetch results with voice calls (optional, default to 0)</param>
-    /// <param name="flat">Should additional contact info be included (optional, default to 0)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
+    /// <param name="voice">Fetch results with voice calls. (optional, default to 0)</param>
+    /// <param name="flat">Should additional contact info be included? (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetAllChatsPaginatedResponse>> getAllChats(
         boost::optional<utility::string_t> status,
         boost::optional<int32_t> page,
@@ -655,7 +655,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     pplx::task<std::shared_ptr<GetAllInboundMessagesPaginatedResponse>> getAllInboundMessages(
         boost::optional<int32_t> page,
@@ -697,7 +697,7 @@ public:
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="status">Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)</param>
+    /// <param name="status">Fetch schedules with a specific status: a - actual, c - completed, x - all. (optional, default to x)</param>
     /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     pplx::task<std::shared_ptr<GetAllScheduledMessagesPaginatedResponse>> getAllScheduledMessages(
@@ -829,10 +829,10 @@ public:
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="query">Find messages by specified search query (optional)</param>
-    /// <param name="start">Return messages since specified timestamp only (optional)</param>
-    /// <param name="end">Return messages up to specified timestamp only (optional)</param>
+    /// <param name="start">Return messages since specified timestamp only. (optional)</param>
+    /// <param name="end">Return messages up to specified timestamp only. (optional)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
-    /// <param name="voice">Fetch results with voice calls (optional, default to 0)</param>
+    /// <param name="voice">Fetch results with voice calls. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetChatMessagesPaginatedResponse>> getChatMessages(
         int32_t id,
         boost::optional<int32_t> page,
@@ -1014,7 +1014,7 @@ public:
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="query">Find contacts or lists by specified search query (optional)</param>
-    pplx::task<std::shared_ptr<GetFavouritesPaginatedResponse>> getFavourites(
+    pplx::task<std::shared_ptr<GetFavoritesPaginatedResponse>> getFavorites(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
         boost::optional<utility::string_t> query
@@ -1578,7 +1578,7 @@ public:
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="query">Find chats by specified search query (optional)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     pplx::task<std::shared_ptr<SearchChatsByReceipentPaginatedResponse>> searchChatsByReceipent(
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
@@ -1597,7 +1597,7 @@ public:
     /// <param name="ids">Find contact by ID(s) (optional)</param>
     /// <param name="listId">Find contact by List ID (optional)</param>
     /// <param name="includeBlocked">Should blocked contacts to be included (optional)</param>
-    /// <param name="query">Find contacts by specified search query (optional)</param>
+    /// <param name="query">Find contacts by specified search query. (optional)</param>
     /// <param name="local">Treat phone number passed in &#39;query&#39; field as local. Default is 0 (optional, default to 0)</param>
     /// <param name="country">2-letter ISO country code for local phone numbers, used when &#39;local&#39; is set to true. Default is account country (optional)</param>
     /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
@@ -1625,7 +1625,7 @@ public:
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="ids">Find message by ID(s). (optional)</param>
     /// <param name="query">Find recipients by specified search query. (optional)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     /// <param name="expand">Expand by adding firstName, lastName and contactId. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<SearchInboundMessagesPaginatedResponse>> searchInboundMessages(
@@ -1695,8 +1695,8 @@ public:
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="query">Find messages by specified search query (optional)</param>
     /// <param name="ids">Find schedules by ID(s) (optional)</param>
-    /// <param name="status">Fetch schedules with the specific status: a - actual, c - completed, x - all (optional, default to x)</param>
-    /// <param name="orderBy">Order results by some field. Default is id (optional, default to id)</param>
+    /// <param name="status">Fetch schedules with a specific status: a - actual, c - completed, x - all. (optional, default to x)</param>
+    /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     pplx::task<std::shared_ptr<SearchScheduledMessagesPaginatedResponse>> searchScheduledMessages(
         boost::optional<int32_t> page,
@@ -1739,7 +1739,7 @@ public:
     /// Step 1: Send a verification code 
     /// </summary>
     /// <remarks>
-    /// Sends verification code to specified phone number.
+    /// Sends a verification code to a specified phone number.
     /// </remarks>
     /// <param name="sendPhoneVerificationCodeInputObject"></param>
     pplx::task<std::shared_ptr<SendPhoneVerificationCodeResponse>> sendPhoneVerificationCodeTFA(

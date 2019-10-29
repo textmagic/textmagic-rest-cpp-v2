@@ -55,7 +55,7 @@ public:
     /// DoCarrierLookupResponse members
 
     /// <summary>
-    /// Cost to check one number is constant – 0.04 in your account currency.
+    /// Cost to check that one number is constant – 0.04 in your account currency.
     /// </summary>
     double getCost() const;
         void setCost(double value);

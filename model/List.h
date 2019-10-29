@@ -101,7 +101,7 @@ public:
     std::shared_ptr<ListImage> getAvatar() const;
         void setAvatar(std::shared_ptr<ListImage> value);
     /// <summary>
-    /// Indicates that List is used as a default. All new contacts added via web app will be added in this List by default.
+    /// Indicates that List is used as a default. All new contacts added via the Web-app will be added in this List by default.
     /// </summary>
     bool isIsDefault() const;
         void setIsDefault(bool value);

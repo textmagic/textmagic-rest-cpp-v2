@@ -8851,7 +8851,7 @@ pplx::task<std::shared_ptr<UsersInbound>> TextMagicApi::getDedicatedNumber(int32
         return result;
     });
 }
-pplx::task<std::shared_ptr<GetFavouritesPaginatedResponse>> TextMagicApi::getFavourites(boost::optional<int32_t> page, boost::optional<int32_t> limit, boost::optional<utility::string_t> query)
+pplx::task<std::shared_ptr<GetFavoritesPaginatedResponse>> TextMagicApi::getFavorites(boost::optional<int32_t> page, boost::optional<int32_t> limit, boost::optional<utility::string_t> query)
 {
 
 
@@ -8885,7 +8885,7 @@ pplx::task<std::shared_ptr<GetFavouritesPaginatedResponse>> TextMagicApi::getFav
     }
     else
     {
-        throw ApiException(400, utility::conversions::to_string_t("TextMagicApi->getFavourites does not produce any supported media type"));
+        throw ApiException(400, utility::conversions::to_string_t("TextMagicApi->getFavorites does not produce any supported media type"));
     }
 
     headerParams[utility::conversions::to_string_t("Accept")] = responseHttpContentType;
@@ -8921,7 +8921,7 @@ pplx::task<std::shared_ptr<GetFavouritesPaginatedResponse>> TextMagicApi::getFav
     }
     else
     {
-        throw ApiException(415, utility::conversions::to_string_t("TextMagicApi->getFavourites does not consume any supported media type"));
+        throw ApiException(415, utility::conversions::to_string_t("TextMagicApi->getFavorites does not consume any supported media type"));
     }
 
     // authentication (BasicAuth) required
@@ -8938,7 +8938,7 @@ pplx::task<std::shared_ptr<GetFavouritesPaginatedResponse>> TextMagicApi::getFav
         if (response.status_code() >= 400)
         {
             throw ApiException(response.status_code()
-                , utility::conversions::to_string_t("error calling getFavourites: ") + response.reason_phrase()
+                , utility::conversions::to_string_t("error calling getFavorites: ") + response.reason_phrase()
                 , std::make_shared<std::stringstream>(response.extract_utf8string(true).get()));
         }
 
@@ -8949,7 +8949,7 @@ pplx::task<std::shared_ptr<GetFavouritesPaginatedResponse>> TextMagicApi::getFav
             if( contentType.find(responseHttpContentType) == std::string::npos )
             {
                 throw ApiException(500
-                    , utility::conversions::to_string_t("error calling getFavourites: unexpected response type: ") + contentType
+                    , utility::conversions::to_string_t("error calling getFavorites: unexpected response type: ") + contentType
                     , std::make_shared<std::stringstream>(response.extract_utf8string(true).get()));
             }
         }
@@ -8958,7 +8958,7 @@ pplx::task<std::shared_ptr<GetFavouritesPaginatedResponse>> TextMagicApi::getFav
     })
     .then([=](utility::string_t response)
     {
-        std::shared_ptr<GetFavouritesPaginatedResponse> result(new GetFavouritesPaginatedResponse());
+        std::shared_ptr<GetFavoritesPaginatedResponse> result(new GetFavoritesPaginatedResponse());
 
         if(responseHttpContentType == utility::conversions::to_string_t("application/json"))
         {
@@ -8973,7 +8973,7 @@ pplx::task<std::shared_ptr<GetFavouritesPaginatedResponse>> TextMagicApi::getFav
         else
         {
             throw ApiException(500
-                , utility::conversions::to_string_t("error calling getFavourites: unsupported response type"));
+                , utility::conversions::to_string_t("error calling getFavorites: unsupported response type"));
         }
 
         return result;

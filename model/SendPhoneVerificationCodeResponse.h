@@ -59,7 +59,7 @@ public:
     std::shared_ptr<utility::string_t> getVerifyId() const;
         void setVerifyId(std::shared_ptr<utility::string_t> value);
     /// <summary>
-    /// Amount of credit which will be deducted from your account balance when this verification is successfully completed.
+    /// An amount of credit which will be deducted from your account balance when this verification is successfully completed.
     /// </summary>
     double getPrice() const;
         void setPrice(double value);

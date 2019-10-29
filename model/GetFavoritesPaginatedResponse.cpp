@@ -12,30 +12,30 @@
 
 
 
-#include "GetFavouritesPaginatedResponse.h"
+#include "GetFavoritesPaginatedResponse.h"
 
 namespace com {
 namespace textmagic {
 namespace client {
 namespace model {
 
-GetFavouritesPaginatedResponse::GetFavouritesPaginatedResponse()
+GetFavoritesPaginatedResponse::GetFavoritesPaginatedResponse()
 {
     m_Page = 0;
     m_PageCount = 0;
     m_Limit = 0;
 }
 
-GetFavouritesPaginatedResponse::~GetFavouritesPaginatedResponse()
+GetFavoritesPaginatedResponse::~GetFavoritesPaginatedResponse()
 {
 }
 
-void GetFavouritesPaginatedResponse::validate()
+void GetFavoritesPaginatedResponse::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value GetFavouritesPaginatedResponse::toJson() const
+web::json::value GetFavoritesPaginatedResponse::toJson() const
 {
     web::json::value val = web::json::value::object();
 
@@ -54,7 +54,7 @@ web::json::value GetFavouritesPaginatedResponse::toJson() const
     return val;
 }
 
-void GetFavouritesPaginatedResponse::fromJson(web::json::value& val)
+void GetFavoritesPaginatedResponse::fromJson(web::json::value& val)
 {
     if(val.has_field(utility::conversions::to_string_t("page")))
     {
@@ -102,7 +102,7 @@ void GetFavouritesPaginatedResponse::fromJson(web::json::value& val)
     }
 }
 
-void GetFavouritesPaginatedResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void GetFavoritesPaginatedResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -123,7 +123,7 @@ void GetFavouritesPaginatedResponse::toMultipart(std::shared_ptr<MultipartFormDa
             }
 }
 
-void GetFavouritesPaginatedResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+void GetFavoritesPaginatedResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -154,45 +154,45 @@ void GetFavouritesPaginatedResponse::fromMultiPart(std::shared_ptr<MultipartForm
     }
 }
 
-int32_t GetFavouritesPaginatedResponse::getPage() const
+int32_t GetFavoritesPaginatedResponse::getPage() const
 {
     return m_Page;
 }
 
 
-void GetFavouritesPaginatedResponse::setPage(int32_t value)
+void GetFavoritesPaginatedResponse::setPage(int32_t value)
 {
     m_Page = value;
     
 }
-int32_t GetFavouritesPaginatedResponse::getPageCount() const
+int32_t GetFavoritesPaginatedResponse::getPageCount() const
 {
     return m_PageCount;
 }
 
 
-void GetFavouritesPaginatedResponse::setPageCount(int32_t value)
+void GetFavoritesPaginatedResponse::setPageCount(int32_t value)
 {
     m_PageCount = value;
     
 }
-int32_t GetFavouritesPaginatedResponse::getLimit() const
+int32_t GetFavoritesPaginatedResponse::getLimit() const
 {
     return m_Limit;
 }
 
 
-void GetFavouritesPaginatedResponse::setLimit(int32_t value)
+void GetFavoritesPaginatedResponse::setLimit(int32_t value)
 {
     m_Limit = value;
     
 }
-std::vector<std::shared_ptr<FavoriteContact>>& GetFavouritesPaginatedResponse::getResources()
+std::vector<std::shared_ptr<FavoriteContact>>& GetFavoritesPaginatedResponse::getResources()
 {
     return m_Resources;
 }
 
-void GetFavouritesPaginatedResponse::setResources(std::vector<std::shared_ptr<FavoriteContact>> value)
+void GetFavoritesPaginatedResponse::setResources(std::vector<std::shared_ptr<FavoriteContact>> value)
 {
     m_Resources = value;
     

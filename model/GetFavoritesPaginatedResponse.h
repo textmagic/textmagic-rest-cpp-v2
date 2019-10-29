@@ -11,13 +11,13 @@
  */
 
 /*
- * GetFavouritesPaginatedResponse.h
+ * GetFavoritesPaginatedResponse.h
  *
  * 
  */
 
-#ifndef COM_TEXTMAGIC_CLIENT_MODEL_GetFavouritesPaginatedResponse_H_
-#define COM_TEXTMAGIC_CLIENT_MODEL_GetFavouritesPaginatedResponse_H_
+#ifndef COM_TEXTMAGIC_CLIENT_MODEL_GetFavoritesPaginatedResponse_H_
+#define COM_TEXTMAGIC_CLIENT_MODEL_GetFavoritesPaginatedResponse_H_
 
 
 #include "../ModelBase.h"
@@ -33,12 +33,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  GetFavouritesPaginatedResponse
+class  GetFavoritesPaginatedResponse
     : public ModelBase
 {
 public:
-    GetFavouritesPaginatedResponse();
-    virtual ~GetFavouritesPaginatedResponse();
+    GetFavoritesPaginatedResponse();
+    virtual ~GetFavoritesPaginatedResponse();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -52,7 +52,7 @@ public:
     void fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// GetFavouritesPaginatedResponse members
+    /// GetFavoritesPaginatedResponse members
 
     /// <summary>
     /// 
@@ -87,4 +87,4 @@ protected:
 }
 }
 
-#endif /* COM_TEXTMAGIC_CLIENT_MODEL_GetFavouritesPaginatedResponse_H_ */
+#endif /* COM_TEXTMAGIC_CLIENT_MODEL_GetFavoritesPaginatedResponse_H_ */

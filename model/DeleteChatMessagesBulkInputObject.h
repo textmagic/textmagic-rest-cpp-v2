@@ -75,7 +75,7 @@ public:
     void unsetCalls_ids();
     void setCallsIds(utility::string_t value);
     /// <summary>
-    /// Default is 0 (false). If set to 1, all entities will be removed.
+    /// Default is 0 (false). If set to 1, all the entities will be removed.
     /// </summary>
     bool isAll() const;
     bool allIsSet() const;

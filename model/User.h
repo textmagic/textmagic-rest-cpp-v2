@@ -63,7 +63,7 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// User&#39;s preferred format of time display: * *12h* – AM/PM format; * *24h* – 24 hour clock format. 
+    /// User&#39;s preferred format of time display: * *12h* - AM/PM format; * *24h* - 24-hour clock format. 
     /// </summary>
     utility::string_t getDisplayTimeFormat() const;
     bool displayTimeFormatIsSet() const;
@@ -100,7 +100,7 @@ public:
     double getBalance() const;
         void setBalance(double value);
     /// <summary>
-    /// User&#x60;s phone number.
+    /// User&#39;s phone number.
     /// </summary>
     utility::string_t getPhone() const;
         void setPhone(utility::string_t value);
@@ -125,7 +125,7 @@ public:
     std::shared_ptr<Timezone> getTimezone() const;
         void setTimezone(std::shared_ptr<Timezone> value);
     /// <summary>
-    /// Type of account: * **P** for Parent User; * **A** for Administrator Sub-Account; * **U** for Regular User 
+    /// Type of account: * **P** for Parent User; * **A** for Administrator Sub-Account; * **U** for Regular User. 
     /// </summary>
     utility::string_t getSubaccountType() const;
         void setSubaccountType(utility::string_t value);

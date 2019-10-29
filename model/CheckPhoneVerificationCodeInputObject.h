@@ -54,7 +54,7 @@ public:
     /// CheckPhoneVerificationCodeInputObject members
 
     /// <summary>
-    /// Verification code that was received by the user and entered into the form field.
+    /// Verification code received by the user and entered into the form field.
     /// </summary>
     int32_t getCode() const;
         void setCode(int32_t value);

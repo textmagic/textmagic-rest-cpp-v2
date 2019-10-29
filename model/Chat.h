@@ -66,7 +66,7 @@ public:
     int32_t getOriginalId() const;
         void setOriginalId(int32_t value);
     /// <summary>
-    /// Chat partner phone number.
+    /// Chat partner&#39;s phone number.
     /// </summary>
     utility::string_t getPhone() const;
         void setPhone(utility::string_t value);
@@ -76,7 +76,7 @@ public:
     std::shared_ptr<Contact> getContact() const;
         void setContact(std::shared_ptr<Contact> value);
     /// <summary>
-    /// If this field has a value then it means that chat phone number has been unsubscribed from you and this value is a ID of a Unsubscribed contact entity. See [Get all unsubscribed contacts](http://docs.textmagictesting.com/#operation/getUnsubscribers).
+    /// If this field has a value, it means that the chat phone number has been unsubscribed from you and this value is an ID of an Unsubscribed contact entity. See [Get all unsubscribed contacts](http://docs.textmagictesting.com/#operation/getUnsubscribers).
     /// </summary>
     int32_t getUnsubscribedContactId() const;
         void setUnsubscribedContactId(int32_t value);
@@ -86,7 +86,7 @@ public:
     int32_t getUnread() const;
         void setUnread(int32_t value);
     /// <summary>
-    /// Time when last incoming message arrived at this chat.
+    /// Time when the last incoming message arrived at this chat.
     /// </summary>
     utility::datetime getUpdatedAt() const;
         void setUpdatedAt(utility::datetime value);
@@ -96,7 +96,7 @@ public:
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
     /// <summary>
-    /// Indicates when chat is muted.
+    /// Indicates when the chat is muted.
     /// </summary>
     int32_t getMute() const;
         void setMute(int32_t value);
@@ -106,22 +106,22 @@ public:
     utility::string_t getLastMessage() const;
         void setLastMessage(utility::string_t value);
     /// <summary>
-    /// Last message type: * **ci** - incoming call * **co** - outgoing call * **i** - incoming message * **o** - outgoing message 
+    /// Last message type: * **ci** - incoming call; * **co** - outgoing call; * **i** - incoming message; * **o** - outgoing message. 
     /// </summary>
     utility::string_t getDirection() const;
         void setDirection(utility::string_t value);
     /// <summary>
-    /// If filled then value will be used as a sender number for all outgoing messages of a chat.
+    /// If filled, the value will be used as a sender number for all outgoing messages of a chat.
     /// </summary>
     utility::string_t getFrom() const;
         void setFrom(utility::string_t value);
     /// <summary>
-    /// Date and time until chat will be mutted.
+    /// Date and time until the chat will be muted.
     /// </summary>
     utility::datetime getMutedUntil() const;
         void setMutedUntil(utility::datetime value);
     /// <summary>
-    /// Time left till chat will be unmutted (seconds).
+    /// Time left untill the chat will be unmuted (seconds).
     /// </summary>
     int32_t getTimeLeftMute() const;
         void setTimeLeftMute(int32_t value);

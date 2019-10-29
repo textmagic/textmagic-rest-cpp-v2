@@ -123,12 +123,12 @@ public:
     utility::string_t getSubaccountType() const;
         void setSubaccountType(utility::string_t value);
     /// <summary>
-    /// Is account has confirmed Email.
+    /// Does the account have a confirmed Email?.
     /// </summary>
     bool isEmailAccepted() const;
         void setEmailAccepted(bool value);
     /// <summary>
-    /// Is account has confirmed Phone number.
+    /// Does the account have a confirmed Phone Number?.
     /// </summary>
     bool isPhoneAccepted() const;
         void setPhoneAccepted(bool value);

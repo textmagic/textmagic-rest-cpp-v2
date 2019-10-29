@@ -69,7 +69,7 @@ public:
     utility::string_t getSender() const;
         void setSender(utility::string_t value);
     /// <summary>
-    /// Time when message arrived at TextMagic.
+    /// Time when  the message arrived at TextMagic.
     /// </summary>
     utility::datetime getMessageTime() const;
         void setMessageTime(utility::datetime value);
@@ -79,7 +79,7 @@ public:
     utility::string_t getText() const;
         void setText(utility::string_t value);
     /// <summary>
-    /// Receiver phone number.
+    /// Receiver&#39;s phone number.
     /// </summary>
     utility::string_t getReceiver() const;
         void setReceiver(utility::string_t value);

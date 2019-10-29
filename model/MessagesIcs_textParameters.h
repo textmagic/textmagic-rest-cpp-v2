@@ -55,7 +55,7 @@ public:
     /// MessagesIcs_textParameters members
 
     /// <summary>
-    /// Cost to check one number is constant – 0.04 in your account currency.
+    /// Cost to check that one number is constant – 0.04 in your account currency.
     /// </summary>
     double getCost() const;
         void setCost(double value);
@@ -70,7 +70,7 @@ public:
     int32_t getChars() const;
         void setChars(int32_t value);
     /// <summary>
-    /// Message charset. Could be: * **ISO-8859-1** for plaintext SMS * **UTF-16BE** for Unicode SMS 
+    /// Message charset. Could be: * **ISO-8859-1** – for plaintext SMS; * **UTF-16BE** – for Unicode SMS. 
     /// </summary>
     utility::string_t getEncoding() const;
         void setEncoding(utility::string_t value);
@@ -80,7 +80,7 @@ public:
     std::vector<utility::string_t>& getCountries();
         void setCountries(std::vector<utility::string_t> value);
     /// <summary>
-    /// Human-readable message charset label. Could be: *   **ISO-8859-1** for plaintext SMS *   **UTF-16BE** for Unicode SMS *   **Voice** for voice services (Text-to-Speech or Voice Broadcast) messages 
+    /// Human-readable message charset label. Could be: *   **ISO-8859-1** for plaintext SMS; *   **UTF-16BE** for Unicode SMS; *   **Voice** for voice services (Text-to-Speech or Voice Broadcast) messages. 
     /// </summary>
     utility::string_t getCharsetLabel() const;
         void setCharsetLabel(utility::string_t value);

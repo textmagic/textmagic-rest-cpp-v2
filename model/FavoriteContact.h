@@ -59,7 +59,7 @@ public:
     int32_t getEntityId() const;
         void setEntityId(int32_t value);
     /// <summary>
-    /// Entity type which should be marked as **favourite**.
+    /// Entity type which should be marked as **favorite**.
     /// </summary>
     utility::string_t getEntityType() const;
         void setEntityType(utility::string_t value);

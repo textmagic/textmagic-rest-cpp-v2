@@ -62,7 +62,7 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// Next send date in [ISO 8601](https://en.wikipedia.org/?title&#x3D;ISO_8601) format. 
+    /// The next send date in [ISO 8601](https://en.wikipedia.org/?title&#x3D;ISO_8601) format. 
     /// </summary>
     utility::datetime getNextSend() const;
         void setNextSend(utility::datetime value);
@@ -77,12 +77,12 @@ public:
     std::shared_ptr<MessageSession> getSession() const;
         void setSession(std::shared_ptr<MessageSession> value);
     /// <summary>
-    /// Date and time when last message has been sent.
+    /// The date and time when the last message was sent.
     /// </summary>
     utility::datetime getLastSent() const;
         void setLastSent(utility::datetime value);
     /// <summary>
-    /// Aggregated contact information. If the message scheduled to be sent to a single contact, a full name will be returned here. Otherwise, a total amount contacts will be returned.
+    /// Aggregated contact information. If the message was scheduled to be sent to a single contact, a full name will be returned here. Otherwise, a total amount of contacts will be returned.
     /// </summary>
     utility::string_t getContactName() const;
         void setContactName(utility::string_t value);
@@ -127,7 +127,7 @@ public:
     utility::string_t getTimezone() const;
         void setTimezone(utility::string_t value);
     /// <summary>
-    /// Indicates that schedling has been completed.
+    /// Indicates that scheduling has been completed.
     /// </summary>
     bool isCompleted() const;
         void setCompleted(bool value);
