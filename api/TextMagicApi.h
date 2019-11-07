@@ -171,7 +171,7 @@ public:
     /// Assign contacts to a list
     /// </summary>
     /// <remarks>
-    /// &gt; Unlike all other PUT requests, this command does not need old contact IDs to be submitted. For example, if you have a list with contacts 150, 151 and 152 and you want to add contact ID 153, you only need to submit 153 as a parameter of PUT /api/v2/lists/{id}/contacts. 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/assignContactsToList\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;&gt; Unlike all other PUT requests, this command does not need old contact IDs to be submitted. For example, if you have a list with contacts 150, 151 and 152 and you want to add contact ID 153, you only need to submit 153 as a parameter of PUT /api/v2/lists/{id}/contacts. 
     /// </remarks>
     /// <param name="assignContactsToListInputObject"></param>
     /// <param name="id"></param>
@@ -183,7 +183,7 @@ public:
     /// Block a contact by phone number
     /// </summary>
     /// <remarks>
-    /// Block a contact from inbound and outbound communication by phone number.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/blockContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Block a contact from inbound and outbound communication by phone number.
     /// </remarks>
     /// <param name="blockContactInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> blockContact(
@@ -193,7 +193,7 @@ public:
     /// Buy a dedicated number
     /// </summary>
     /// <remarks>
-    /// To buy a dedicated number, you first need to find an available number matching your criteria using the &#x60;/api/v2/numbers/available&#x60; command described above.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/buyDedicatedNumber\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;To buy a dedicated number, you first need to find an available number matching your criteria using the &#x60;/api/v2/numbers/available&#x60; command described above.
     /// </remarks>
     /// <param name="buyDedicatedNumberInputObject"></param>
     pplx::task<void> buyDedicatedNumber(
@@ -203,7 +203,7 @@ public:
     /// Cancel verification process
     /// </summary>
     /// <remarks>
-    /// You can cancel the verification not earlier than 30 seconds after the initial request.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Two-factor%20authentication/cancelVerification\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;You can cancel the verification not earlier than 30 seconds after the initial request.
     /// </remarks>
     /// <param name="verifyId">The verifyId that you received in Step 1.</param>
     pplx::task<void> cancelVerification(
@@ -213,7 +213,7 @@ public:
     /// Step 2: Check the verification code 
     /// </summary>
     /// <remarks>
-    /// Check received code from user with the code which was actually sent.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Two-factor%20authentication/checkPhoneVerificationCodeTFA\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Check received code from user with the code which was actually sent.
     /// </remarks>
     /// <param name="checkPhoneVerificationCodeInputObject"></param>
     pplx::task<void> checkPhoneVerificationCodeTFA(
@@ -223,7 +223,7 @@ public:
     /// Reset list members to the specified contacts
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/clearAndAssignContactsToList\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="clearAndAssignContactsToListInputObject"></param>
     /// <param name="id"></param>
@@ -235,7 +235,7 @@ public:
     /// Close chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Close chats by chat IDs or close all chats
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/closeChatsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Close chats by chat IDs or close all chats
     /// </remarks>
     /// <param name="closeChatsBulkInputObject"></param>
     pplx::task<void> closeChatsBulk(
@@ -245,7 +245,7 @@ public:
     /// Close read chats
     /// </summary>
     /// <remarks>
-    /// Close all chats that have no unread messages.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/closeReadChats\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Close all chats that have no unread messages.
     /// </remarks>
     pplx::task<void> closeReadChats(
     );
@@ -253,7 +253,7 @@ public:
     /// Close sub-account
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sub-Accounts/closeSubaccount\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> closeSubaccount(
@@ -263,7 +263,7 @@ public:
     /// Add a new contact
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/createContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="createContactInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> createContact(
@@ -273,7 +273,7 @@ public:
     /// Create a new contact note
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contact%20Notes/createContactNote\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="createContactNoteInputObject"></param>
     /// <param name="id"></param>
@@ -285,7 +285,7 @@ public:
     /// Add a new custom field
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Custom%20Fields/createCustomField\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="createCustomFieldInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> createCustomField(
@@ -295,7 +295,7 @@ public:
     /// Create a new list
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/createList\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="createListInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> createList(
@@ -305,7 +305,7 @@ public:
     /// Create a template
     /// </summary>
     /// <remarks>
-    /// There are times when creating a new template makes sense (such as when targeting specific clients or improving your business strategies).  You can create new SMS templates for marketing purposes or SMS templates for business campaigns. 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Templates/createTemplate\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;There are times when creating a new template makes sense (such as when targeting specific clients or improving your business strategies).  You can create new SMS templates for marketing purposes or SMS templates for business campaigns. 
     /// </remarks>
     /// <param name="createTemplateInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> createTemplate(
@@ -315,7 +315,7 @@ public:
     /// Delete contacts (bulk)
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/deleteAllContacts\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     pplx::task<void> deleteAllContacts(
     );
@@ -323,7 +323,7 @@ public:
     /// Delete all messages
     /// </summary>
     /// <remarks>
-    /// Delete all messages.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/deleteAllOutboundMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete all messages.
     /// </remarks>
     pplx::task<void> deleteAllOutboundMessages(
     );
@@ -331,7 +331,7 @@ public:
     /// Delete an avatar
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Account/deleteAvatar\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     pplx::task<void> deleteAvatar(
     );
@@ -339,7 +339,7 @@ public:
     /// Delete chat messages by ID(s)
     /// </summary>
     /// <remarks>
-    /// Delete messages from chat by given message IDs.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/deleteChatMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete messages from chat by given message IDs.
     /// </remarks>
     /// <param name="deleteChatMessagesBulkInputObject"></param>
     /// <param name="id"></param>
@@ -351,7 +351,7 @@ public:
     /// Delete chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Delete chats by given IDs or delete all chats.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/deleteChatsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete chats by given IDs or delete all chats.
     /// </remarks>
     /// <param name="deleteChatsBulkInputObject"></param>
     pplx::task<void> deleteChatsBulk(
@@ -361,7 +361,7 @@ public:
     /// Delete a contact
     /// </summary>
     /// <remarks>
-    /// &gt; This command removes your contact completely. If it was assigned or saved to a shared list, it will disappear from there too. If you only need to remove a contact from selected lists, use the Contact assignment command in the Lists section instead, rather than deleting the contact. 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/deleteContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;&gt; This command removes your contact completely. If it was assigned or saved to a shared list, it will disappear from there too. If you only need to remove a contact from selected lists, use the Contact assignment command in the Lists section instead, rather than deleting the contact. 
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteContact(
@@ -371,7 +371,7 @@ public:
     /// Delete an avatar
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/deleteContactAvatar\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteContactAvatar(
@@ -381,7 +381,7 @@ public:
     /// Delete a contact note
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contact%20Notes/deleteContactNote\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteContactNote(
@@ -391,7 +391,7 @@ public:
     /// Delete contact notes (bulk)
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contact%20Notes/deleteContactNotesBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="deleteContactNotesBulkInputObject"></param>
@@ -403,7 +403,7 @@ public:
     /// Delete contacts by IDs (bulk)
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/deleteContactsByIds\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="deleteContactsByIdsInputObject"></param>
     pplx::task<void> deleteContactsByIds(
@@ -413,7 +413,7 @@ public:
     /// Unassign contacts from a list
     /// </summary>
     /// <remarks>
-    /// &gt; When you remove contacts from a specific list, they will be deleted permanently, unless they are first saved in another list. 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/deleteContactsFromList\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;&gt; When you remove contacts from a specific list, they will be deleted permanently, unless they are first saved in another list. 
     /// </remarks>
     /// <param name="deleteContacsFromListObject"></param>
     /// <param name="id"></param>
@@ -425,7 +425,7 @@ public:
     /// Delete a custom field
     /// </summary>
     /// <remarks>
-    /// &gt; When a custom field is deleted, all the information that was added to contacts under this custom field will also be lost. 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Custom%20Fields/deleteCustomField\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;&gt; When a custom field is deleted, all the information that was added to contacts under this custom field will also be lost. 
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteCustomField(
@@ -435,7 +435,7 @@ public:
     /// Cancel a dedicated number subscription
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/deleteDedicatedNumber\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteDedicatedNumber(
@@ -445,7 +445,7 @@ public:
     /// Delete a single inbound message
     /// </summary>
     /// <remarks>
-    /// &gt; Note: deleted inbound messages will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful! 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Receive%0A/deleteInboundMessage\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;&gt; Note: deleted inbound messages will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful! 
     /// </remarks>
     /// <param name="id">The unique numeric ID for the inbound message.</param>
     pplx::task<void> deleteInboundMessage(
@@ -455,7 +455,7 @@ public:
     /// Delete inbound messages (bulk)
     /// </summary>
     /// <remarks>
-    /// &gt; Note: deleted inbound messages will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful! 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Receive%0A/deleteInboundMessagesBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;&gt; Note: deleted inbound messages will disappear from TextMagic Online, chats, and any other place they are referenced.  So, be careful! 
     /// </remarks>
     /// <param name="deleteInboundMessagesBulkInputObject"></param>
     pplx::task<void> deleteInboundMessagesBulk(
@@ -465,7 +465,7 @@ public:
     /// Delete a list
     /// </summary>
     /// <remarks>
-    /// This command has no parameters. If successful, this command will return the standard delete response (204 No Content); otherwise, a standard error response will be returned.  When you delete a list, the contacts in it are deleted as well, unless they were saved in another list.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/deleteList\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;This command has no parameters. If successful, this command will return the standard delete response (204 No Content); otherwise, a standard error response will be returned.  When you delete a list, the contacts in it are deleted as well, unless they were saved in another list.
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteList(
@@ -475,7 +475,7 @@ public:
     /// Delete an avatar for a list
     /// </summary>
     /// <remarks>
-    /// Delete an avatar for a list
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/deleteListAvatar\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete an avatar for a list
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteListAvatar(
@@ -485,7 +485,7 @@ public:
     /// Delete contacts from a list (bulk)
     /// </summary>
     /// <remarks>
-    /// Delete contacts from a list (bulk)
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/deleteListContactsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete contacts from a list (bulk)
     /// </remarks>
     /// <param name="deleteListContactsBulkInputObject"></param>
     /// <param name="id"></param>
@@ -497,7 +497,7 @@ public:
     /// Delete lists (bulk)
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/deleteListsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="deleteListsBulkInputObject"></param>
     pplx::task<void> deleteListsBulk(
@@ -507,7 +507,7 @@ public:
     /// Delete a session
     /// </summary>
     /// <remarks>
-    /// Delete a message session, together with all nested messages. &gt; You will not be refunded for any deleted sent sessions. 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sessions/deleteMessageSession\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete a message session, together with all nested messages. &gt; You will not be refunded for any deleted sent sessions. 
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteMessageSession(
@@ -517,7 +517,7 @@ public:
     /// Delete sessions (bulk)
     /// </summary>
     /// <remarks>
-    /// Delete message sessions, together with all nested messages, by given ID(s) or delete all message sessions.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sessions/deleteMessageSessionsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete message sessions, together with all nested messages, by given ID(s) or delete all message sessions.
     /// </remarks>
     /// <param name="deleteMessageSessionsBulkInputObject"></param>
     pplx::task<void> deleteMessageSessionsBulk(
@@ -527,7 +527,7 @@ public:
     /// Delete message
     /// </summary>
     /// <remarks>
-    /// Delete a single message.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/deleteOutboundMessage\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete a single message.
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteOutboundMessage(
@@ -537,7 +537,7 @@ public:
     /// Delete messages (bulk)
     /// </summary>
     /// <remarks>
-    /// Delete outbound messages by the given ID(s) or delete all outbound messages.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/deleteOutboundMessagesBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete outbound messages by the given ID(s) or delete all outbound messages.
     /// </remarks>
     /// <param name="deleteOutboundMessagesBulkInputObject"></param>
     pplx::task<void> deleteOutboundMessagesBulk(
@@ -547,7 +547,7 @@ public:
     /// Delete a single scheduled message
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Schedule%0A/deleteScheduledMessage\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteScheduledMessage(
@@ -557,7 +557,7 @@ public:
     /// Delete scheduled messages (bulk)
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Schedule%0A/deleteScheduledMessagesBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="deleteScheduledMessagesBulkInputObject"></param>
     pplx::task<void> deleteScheduledMessagesBulk(
@@ -567,7 +567,7 @@ public:
     /// Delete a Sender ID
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sender%20IDs/deleteSenderId\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteSenderId(
@@ -577,7 +577,7 @@ public:
     /// Delete a template
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Templates/deleteTemplate\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<void> deleteTemplate(
@@ -587,7 +587,7 @@ public:
     /// Delete templates (bulk)
     /// </summary>
     /// <remarks>
-    /// Delete templates by given IDs or delete all templates.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Templates/deleteTemplatesBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Delete templates by given IDs or delete all templates.
     /// </remarks>
     /// <param name="deleteTemplatesBulkInputObject"></param>
     pplx::task<void> deleteTemplatesBulk(
@@ -597,7 +597,7 @@ public:
     /// Carrier Lookup
     /// </summary>
     /// <remarks>
-    /// This API call allows you to retrieve additional information about a phone number: region-specific phone number formatting, carrier, phone type (landline/mobile) and country information.  &gt; Numbers must be checked one by one. You cannot check multiple numbers in one request.   
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lookup/doCarrierLookup\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;This API call allows you to retrieve additional information about a phone number: region-specific phone number formatting, carrier, phone type (landline/mobile) and country information.  &gt; Numbers must be checked one by one. You cannot check multiple numbers in one request.   
     /// </remarks>
     /// <param name="phone">Phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164) or in [National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers). </param>
     /// <param name="country">This option must be specified only if the phone number is in a **[National format](https://en.wikipedia.org/wiki/National_conventions_for_writing_telephone_numbers)**.  (optional)</param>
@@ -609,7 +609,7 @@ public:
     /// Email Lookup
     /// </summary>
     /// <remarks>
-    /// To get more details about an email address or to check whether it is a valid email or not, you can use the Email Lookup command. To upload and check emails in bulk, please use our [Web app](https://my.textmagic.com/online/email-lookup/).  This API call allows you to retrieve additional information about an email address, such as mailbox detection, syntax checks, DNS validation, deliverability status, and many more helpful values (see the table below).  &gt; Emails must be checked one by one. You cannot check multiple emails in one request. To upload and check emails in bulk, please use our [Web app](https://my.textmagic.com/online/email-lookup/).
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lookup/doEmailLookup\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;To get more details about an email address or to check whether it is a valid email or not, you can use the Email Lookup command. To upload and check emails in bulk, please use our [Web app](https://my.textmagic.com/online/email-lookup/).  This API call allows you to retrieve additional information about an email address, such as mailbox detection, syntax checks, DNS validation, deliverability status, and many more helpful values (see the table below).  &gt; Emails must be checked one by one. You cannot check multiple emails in one request. To upload and check emails in bulk, please use our [Web app](https://my.textmagic.com/online/email-lookup/).
     /// </remarks>
     /// <param name="email">Email address.</param>
     pplx::task<std::shared_ptr<DoEmailLookupResponse>> doEmailLookup(
@@ -619,7 +619,7 @@ public:
     /// Get all bulk sessions
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/getAllBulkSessions\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -631,7 +631,7 @@ public:
     /// Get all chats
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/getAllChats\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="status">Fetch only (a)ctive, (c)losed or (d)eleted chats. (optional)</param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
@@ -651,7 +651,7 @@ public:
     /// Get all inbound messages
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Receive%0A/getAllInboundMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -667,7 +667,7 @@ public:
     /// Get all sessions
     /// </summary>
     /// <remarks>
-    /// Get all message sending sessions. &gt; This list contains all of your sessions, including those which were sent but not via API 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sessions/getAllMessageSessions\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get all message sending sessions. &gt; This list contains all of your sessions, including those which were sent but not via API 
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -679,7 +679,7 @@ public:
     /// Get all messages
     /// </summary>
     /// <remarks>
-    /// Get all user oubound messages.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/getAllOutboundMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get all user oubound messages.
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -693,7 +693,7 @@ public:
     /// Get all scheduled messages
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Schedule%0A/getAllScheduledMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -711,7 +711,7 @@ public:
     /// Get all templates
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Templates/getAllTemplates\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional)</param>
     /// <param name="limit">The number of results per page. (optional)</param>
@@ -723,7 +723,7 @@ public:
     /// Find dedicated numbers available for purchase
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/getAvailableDedicatedNumbers\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="country">The 2-letter dedicated number country ISO code.</param>
     /// <param name="prefix">Desired number prefix. Should include the country code (i.e. 447 for UK phone number format). Leave blank to get all the available numbers for the specified country. (optional)</param>
@@ -737,7 +737,7 @@ public:
     /// Get available sender settings
     /// </summary>
     /// <remarks>
-    /// Get all available sender setting options which can be used in the \&quot;from\&quot; parameter of the POST messages method.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Overview/getAvailableSenderSettingOptions\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get all available sender setting options which can be used in the \&quot;from\&quot; parameter of the POST messages method.
     /// </remarks>
     /// <param name="country">The 2-letter ISO country ID. If not specified, it returns all the available sender settings. (optional)</param>
     pplx::task<std::shared_ptr<GetAvailableSenderSettingOptionsResponse>> getAvailableSenderSettingOptions(
@@ -747,7 +747,7 @@ public:
     /// Returns the list of available balance options which can be used as a bound to determine when to send email to user with low balance notification. See https://my.textmagic.com/online/account/notifications/balance
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/getBalanceNotificationOptions\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     pplx::task<std::shared_ptr<GetBalanceNotificationOptionsResponse>> getBalanceNotificationOptions(
     );
@@ -755,7 +755,7 @@ public:
     /// Get balance notification settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/getBalanceNotificationSettings\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     pplx::task<std::shared_ptr<GetBalanceNotificationSettingsResponse>> getBalanceNotificationSettings(
     );
@@ -763,7 +763,7 @@ public:
     /// Get blocked contacts
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getBlockedContacts\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -781,7 +781,7 @@ public:
     /// Get bulk session status
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/getBulkSession\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<BulkSession>> getBulkSession(
@@ -791,7 +791,7 @@ public:
     /// Fetch callback URL settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/getCallbackSettings\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     pplx::task<std::shared_ptr<GetCallbackSettingsResponse>> getCallbackSettings(
     );
@@ -799,7 +799,7 @@ public:
     /// Get a single chat
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/getChat\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<Chat>> getChat(
@@ -809,7 +809,7 @@ public:
     /// Find chats by phone
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/getChatByPhone\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="phone"></param>
     /// <param name="upsert">Create a new chat if not found. (optional, default to 0)</param>
@@ -823,7 +823,7 @@ public:
     /// Get chat messages
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/getChatMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
@@ -847,7 +847,7 @@ public:
     /// Get the details of a specific contact
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id">Contact ID.</param>
     pplx::task<std::shared_ptr<Contact>> getContact(
@@ -857,7 +857,7 @@ public:
     /// Get the details of a specific contact by phone number
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getContactByPhone\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="phone"></param>
     pplx::task<std::shared_ptr<Contact>> getContactByPhone(
@@ -867,7 +867,7 @@ public:
     /// Check if a phone number is blocked
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getContactIfBlocked\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="phone">Phone number to check.</param>
     pplx::task<std::shared_ptr<Contact>> getContactIfBlocked(
@@ -877,7 +877,7 @@ public:
     /// Check import progress
     /// </summary>
     /// <remarks>
-    /// Get contact import session progress.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getContactImportSessionProgress\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get contact import session progress.
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<GetContactImportSessionProgressResponse>> getContactImportSessionProgress(
@@ -887,7 +887,7 @@ public:
     /// Get a contact note
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contact%20Notes/getContactNote\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<ContactNote>> getContactNote(
@@ -897,7 +897,7 @@ public:
     /// Fetch notes assigned to a given contact
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contact%20Notes/getContactNotes\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
@@ -911,7 +911,7 @@ public:
     /// Get all contacts
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getContacts\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -929,7 +929,7 @@ public:
     /// Get contacts autocomplete suggestions
     /// </summary>
     /// <remarks>
-    /// Get contacts autocomplete suggestions by given search terms.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getContactsAutocomplete\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get contacts autocomplete suggestions by given search terms.
     /// </remarks>
     /// <param name="query">Find recipients by specified search query.</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -943,7 +943,7 @@ public:
     /// Get all contacts in a list
     /// </summary>
     /// <remarks>
-    /// A useful synonym for the \&quot;contacts/search\&quot; command with the provided \&quot;listId\&quot; parameter.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/getContactsByListId\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;A useful synonym for the \&quot;contacts/search\&quot; command with the provided \&quot;listId\&quot; parameter.
     /// </remarks>
     /// <param name="id">Given group ID.</param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
@@ -961,7 +961,7 @@ public:
     /// Get countries
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Timezones%20and%20Countries/getCountries\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     pplx::task<std::shared_ptr<GetCountriesResponse>> getCountries(
     );
@@ -969,7 +969,7 @@ public:
     /// Get current account information
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Account/getCurrentUser\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     pplx::task<std::shared_ptr<User>> getCurrentUser(
     );
@@ -977,7 +977,7 @@ public:
     /// Get the details of a specific custom field
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Custom%20Fields/getCustomField\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<UserCustomField>> getCustomField(
@@ -987,7 +987,7 @@ public:
     /// Get all custom fields
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Custom%20Fields/getCustomFields\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -999,7 +999,7 @@ public:
     /// Get the details of a specific dedicated number
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/getDedicatedNumber\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<UsersInbound>> getDedicatedNumber(
@@ -1009,7 +1009,7 @@ public:
     /// Get favorite contacts and lists
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/getFavorites\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1023,7 +1023,7 @@ public:
     /// Get a single inbound message
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Receive%0A/getInboundMessage\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id">The unique numeric ID for the inbound message.</param>
     pplx::task<std::shared_ptr<MessageIn>> getInboundMessage(
@@ -1033,7 +1033,7 @@ public:
     /// Get inbound messages notification settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/getInboundMessagesNotificationSettings\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     pplx::task<std::shared_ptr<GetInboundMessagesNotificationSettingsResponse>> getInboundMessagesNotificationSettings(
     );
@@ -1041,7 +1041,7 @@ public:
     /// Get all invoices
     /// </summary>
     /// <remarks>
-    /// With the TextMagic API, you can check the invoices and transactions for your account.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Invoices/getInvoices\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;With the TextMagic API, you can check the invoices and transactions for your account.
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1053,7 +1053,7 @@ public:
     /// Get the details of a specific list
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/getList\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<List>> getList(
@@ -1063,7 +1063,7 @@ public:
     /// Get all contact IDs in a list
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/getListContactsIds\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<GetListContactsIdsResponse>> getListContactsIds(
@@ -1073,7 +1073,7 @@ public:
     /// Get all lists
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/getLists\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">The current fetched page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1093,7 +1093,7 @@ public:
     /// Get a contact&#39;s lists
     /// </summary>
     /// <remarks>
-    /// Get all the lists in which a contact is included.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/getListsOfContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get all the lists in which a contact is included.
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
@@ -1107,7 +1107,7 @@ public:
     /// Preview message
     /// </summary>
     /// <remarks>
-    /// Get a messages preview (with tags merged) of up to 100 messages per session.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/getMessagePreview\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get a messages preview (with tags merged) of up to 100 messages per session.
     /// </remarks>
     /// <param name="text">Message text. Required if **template_id** is not set. (optional)</param>
     /// <param name="templateId">Template used instead of message text. Required if **text** is not set. (optional)</param>
@@ -1149,7 +1149,7 @@ public:
     /// Check message price
     /// </summary>
     /// <remarks>
-    /// Check pricing for a new outbound message.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/getMessagePrice\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Check pricing for a new outbound message.
     /// </remarks>
     /// <param name="includeBlocked">Should we show the pricing for blocked contacts? (optional, default to 0)</param>
     /// <param name="text">Message text. Required if the **template_id** is not set. (optional)</param>
@@ -1193,7 +1193,7 @@ public:
     /// Get a session&#x60;s details
     /// </summary>
     /// <remarks>
-    /// Get a specific session’s details.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sessions/getMessageSession\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get a specific session’s details.
     /// </remarks>
     /// <param name="id">Session ID.</param>
     pplx::task<std::shared_ptr<MessageSession>> getMessageSession(
@@ -1203,7 +1203,7 @@ public:
     /// Get a session&#x60;s statistics
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sessions/getMessageSessionStat\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="includeDeleted">Search also in deleted messages. (optional, default to 0)</param>
@@ -1215,7 +1215,7 @@ public:
     /// Get a session&#x60;s messages
     /// </summary>
     /// <remarks>
-    /// A useful synonym for the \&quot;messages/search\&quot; command with the provided \&quot;sessionId\&quot; parameter.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sessions/getMessagesBySessionId\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;A useful synonym for the \&quot;messages/search\&quot; command with the provided \&quot;sessionId\&quot; parameter.
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
@@ -1233,7 +1233,7 @@ public:
     /// Get sent/received messages counters values
     /// </summary>
     /// <remarks>
-    /// Get total contacts, sent messages and received messages counters values.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Statistics/getMessagingCounters\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get total contacts, sent messages and received messages counters values.
     /// </remarks>
     pplx::task<std::shared_ptr<GetMessagingCountersResponse>> getMessagingCounters(
     );
@@ -1241,7 +1241,7 @@ public:
     /// Get messaging statistics
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Statistics/getMessagingStat\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="by">*   **off** - to get total values per specified time interval; *   **day** - to show values grouped by day; *   **month** - to show values grouped by month; *   **year** - to show values grouped by year.  (optional, default to off)</param>
     /// <param name="start">Time period start in [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) format. The default is 7 days prior.  (optional)</param>
@@ -1255,7 +1255,7 @@ public:
     /// Get a single message
     /// </summary>
     /// <remarks>
-    /// Get a single outgoing message.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/getOutboundMessage\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get a single outgoing message.
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<MessageOut>> getOutboundMessage(
@@ -1265,7 +1265,7 @@ public:
     /// Get history
     /// </summary>
     /// <remarks>
-    /// Get the outbound messages history.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/getOutboundMessagesHistory\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get the outbound messages history.
     /// </remarks>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="lastId">Filter results by ID, selecting all values lesser than the specified ID. (optional)</param>
@@ -1283,7 +1283,7 @@ public:
     /// Get a single scheduled message
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Schedule%0A/getScheduledMessage\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<MessagesIcs>> getScheduledMessage(
@@ -1293,7 +1293,7 @@ public:
     /// Get the details of a specific Sender ID
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sender%20IDs/getSenderId\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<SenderId>> getSenderId(
@@ -1303,7 +1303,7 @@ public:
     /// Get all your approved Sender IDs
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sender%20IDs/getSenderIds\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1315,7 +1315,7 @@ public:
     /// Get current sender settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Overview/getSenderSettings\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="country">Return sender settings enabled for sending to a specified country. Should be 2 upper-case characters. (optional)</param>
     pplx::task<std::shared_ptr<GetSenderSettingsResponse>> getSenderSettings(
@@ -1325,7 +1325,7 @@ public:
     /// Get spending statistics
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Statistics/getSpendingStat\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1341,7 +1341,7 @@ public:
     /// Get sub-account information
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sub-Accounts/getSubaccount\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<User>> getSubaccount(
@@ -1351,7 +1351,7 @@ public:
     /// Get a sub-accounts list
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sub-Accounts/getSubaccounts\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1363,7 +1363,7 @@ public:
     /// Get all sub-accounts with their REST API tokens associated with a specified app name
     /// </summary>
     /// <remarks>
-    /// Get all sub-accounts with their REST API tokens associated with specified app name. When more than one token related to app name, last key will be returned.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sub-Accounts/getSubaccountsWithTokens\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get all sub-accounts with their REST API tokens associated with specified app name. When more than one token related to app name, last key will be returned.
     /// </remarks>
     /// <param name="getSubaccountsWithTokensInputObject"></param>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
@@ -1377,7 +1377,7 @@ public:
     /// Get a template&#x60;s details
     /// </summary>
     /// <remarks>
-    /// Get a single template.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Templates/getTemplate\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get a single template.
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<MessageTemplate>> getTemplate(
@@ -1387,7 +1387,7 @@ public:
     /// Get timezones
     /// </summary>
     /// <remarks>
-    /// Return all available timezone IDs
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Timezones%20and%20Countries/getTimezones\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Return all available timezone IDs
     /// </remarks>
     /// <param name="full">Return full info about timezones in array (0 or 1). Default is 0. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetTimezonesResponse>> getTimezones(
@@ -1397,7 +1397,7 @@ public:
     /// Get unread messages number
     /// </summary>
     /// <remarks>
-    /// Get the total amount of unread messages in the current user chats.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/getUnreadMessagesTotal\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Get the total amount of unread messages in the current user chats.
     /// </remarks>
     pplx::task<std::shared_ptr<GetUnreadMessagesTotalResponse>> getUnreadMessagesTotal(
     );
@@ -1405,7 +1405,7 @@ public:
     /// Get the details of a specific unsubscribed contact
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getUnsubscribedContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     pplx::task<std::shared_ptr<UnsubscribedContact>> getUnsubscribedContact(
@@ -1415,7 +1415,7 @@ public:
     /// Get all unsubscribed contacts
     /// </summary>
     /// <remarks>
-    /// When one of your message recipients sends a request with one of the [STOP-words](https://www.textmagic.com/sms-stop-command/), they will be immediately opted-out of your send lists and their contact status will change to an unsubscribed contact. To retrieve information on all contacts who have unsubscribed status, use: 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/getUnsubscribers\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;When one of your message recipients sends a request with one of the [STOP-words](https://www.textmagic.com/sms-stop-command/), they will be immediately opted-out of your send lists and their contact status will change to an unsubscribed contact. To retrieve information on all contacts who have unsubscribed status, use: 
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1427,7 +1427,7 @@ public:
     /// Get all your dedicated numbers
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/getUserDedicatedNumbers\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1441,7 +1441,7 @@ public:
     /// Import contacts
     /// </summary>
     /// <remarks>
-    /// Import contacts from the CSV, XLS or XLSX file.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/importContacts\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Import contacts from the CSV, XLS or XLSX file.
     /// </remarks>
     /// <param name="file">File containing contacts in csv or xls(x) formats.</param>
     /// <param name="column">Import file column mapping. The string must contain sub-strings of mapping in format &#x60;columnNumber:field&#x60; glued by &#x60;;&#x60;. For example: &#x60;0:firstName;1:lastName;3:phone;4:email&#x60; where the value before &#x60;:&#x60; is a number of the column in the file, and the value after &#x60;:&#x60; is a field of the newly created contact or the ID of a custom field. Numbers of columns begin from zero. Allowed built-in contact fields are: &#x60;firstName&#x60;, &#x60;lastName&#x60;, &#x60;phone&#x60;, &#x60;email&#x60;. Existing of &#x60;phone&#x60; mapping is required. </param>
@@ -1457,7 +1457,7 @@ public:
     /// Invite a new sub-account
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sub-Accounts/inviteSubaccount\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="inviteSubaccountInputObject"></param>
     pplx::task<void> inviteSubaccount(
@@ -1467,7 +1467,7 @@ public:
     /// Mark chats as read (bulk)
     /// </summary>
     /// <remarks>
-    /// Mark several chats as read by chat IDs or mark all chats as read
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/markChatsReadBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Mark several chats as read by chat IDs or mark all chats as read
     /// </remarks>
     /// <param name="markChatsReadBulkInputObject"></param>
     pplx::task<void> markChatsReadBulk(
@@ -1477,7 +1477,7 @@ public:
     /// Mark chats as unread (bulk)
     /// </summary>
     /// <remarks>
-    /// Mark several chats as UNread by chat IDs or mark all chats as UNread
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/markChatsUnreadBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Mark several chats as UNread by chat IDs or mark all chats as UNread
     /// </remarks>
     /// <param name="markChatsUnreadBulkInputObject"></param>
     pplx::task<void> markChatsUnreadBulk(
@@ -1487,7 +1487,7 @@ public:
     /// Mute chat sounds
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/muteChat\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="muteChatInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> muteChat(
@@ -1497,7 +1497,7 @@ public:
     /// Mute chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Mute several chats by chat ids or mute all chats.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/muteChatsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Mute several chats by chat ids or mute all chats.
     /// </remarks>
     /// <param name="muteChatsBulkInputObject"></param>
     pplx::task<void> muteChatsBulk(
@@ -1507,7 +1507,7 @@ public:
     /// Ping
     /// </summary>
     /// <remarks>
-    /// Make a simple ping request.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Timezones%20and%20Countries/ping\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Make a simple ping request.
     /// </remarks>
     pplx::task<std::shared_ptr<PingResponse>> ping(
     );
@@ -1515,7 +1515,7 @@ public:
     /// Reopen chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Reopen chats by chat IDs or reopen all chats
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/reopenChatsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Reopen chats by chat IDs or reopen all chats
     /// </remarks>
     /// <param name="reopenChatsBulkInputObject"></param>
     pplx::task<void> reopenChatsBulk(
@@ -1525,7 +1525,7 @@ public:
     /// Request a new REST API token for sub-account
     /// </summary>
     /// <remarks>
-    /// Returning user object, key and app name.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sub-Accounts/requestNewSubaccountToken\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Returning user object, key and app name.
     /// </remarks>
     /// <param name="requestNewSubaccountTokenInputObject"></param>
     pplx::task<std::shared_ptr<User>> requestNewSubaccountToken(
@@ -1535,7 +1535,7 @@ public:
     /// Apply for a new Sender ID
     /// </summary>
     /// <remarks>
-    /// &gt; Sender IDs are shared among all of your sub-accounts.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Sender%20IDs/requestSenderId\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;&gt; Sender IDs are shared among all of your sub-accounts.
     /// </remarks>
     /// <param name="requestSenderIdInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> requestSenderId(
@@ -1545,7 +1545,7 @@ public:
     /// Find chats by message text
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/searchChats\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1559,7 +1559,7 @@ public:
     /// Find chats (bulk)
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/searchChatsByIds\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1573,7 +1573,7 @@ public:
     /// Find chats by recipient
     /// </summary>
     /// <remarks>
-    /// Find chats by recipient (contact, list name or phone number).
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/searchChatsByReceipent\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Find chats by recipient (contact, list name or phone number).
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1589,7 +1589,7 @@ public:
     /// Find contacts by given criteria
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/searchContacts\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1619,7 +1619,7 @@ public:
     /// Find inbound messages
     /// </summary>
     /// <remarks>
-    /// Find inbound messages by given parameters.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Receive%0A/searchInboundMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Find inbound messages by given parameters.
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1641,7 +1641,7 @@ public:
     /// Find lists by given criteria
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/searchLists\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1665,7 +1665,7 @@ public:
     /// Find messages
     /// </summary>
     /// <remarks>
-    /// Find outbound messages by given parameters.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/searchOutboundMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Find outbound messages by given parameters.
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1689,7 +1689,7 @@ public:
     /// Find scheduled messages
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Schedule%0A/searchScheduledMessages\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1711,7 +1711,7 @@ public:
     /// Find templates by criteria
     /// </summary>
     /// <remarks>
-    /// Find user templates by given parameters.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Templates/searchTemplates\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Find user templates by given parameters.
     /// </remarks>
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
@@ -1729,7 +1729,7 @@ public:
     /// Send message
     /// </summary>
     /// <remarks>
-    /// This is the main entrypoint to send messages. See the examples above for the reference.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/sendMessage\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;This is the main entrypoint to send messages. See the examples above for the reference.
     /// </remarks>
     /// <param name="sendMessageInputObject"></param>
     pplx::task<std::shared_ptr<SendMessageResponse>> sendMessage(
@@ -1739,7 +1739,7 @@ public:
     /// Step 1: Send a verification code 
     /// </summary>
     /// <remarks>
-    /// Sends a verification code to a specified phone number.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Two-factor%20authentication/sendPhoneVerificationCodeTFA\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Sends a verification code to a specified phone number.
     /// </remarks>
     /// <param name="sendPhoneVerificationCodeInputObject"></param>
     pplx::task<std::shared_ptr<SendPhoneVerificationCodeResponse>> sendPhoneVerificationCodeTFA(
@@ -1749,7 +1749,7 @@ public:
     /// Change chat status
     /// </summary>
     /// <remarks>
-    /// Set the status of the chat given by ID.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/setChatStatus\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Set the status of the chat given by ID.
     /// </remarks>
     /// <param name="setChatStatusInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> setChatStatus(
@@ -1759,7 +1759,7 @@ public:
     /// Unblock a contact by phone number
     /// </summary>
     /// <remarks>
-    /// Unblock a contact by phone number
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/unblockContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Unblock a contact by phone number
     /// </remarks>
     /// <param name="unblockContactInputObject"></param>
     pplx::task<void> unblockContact(
@@ -1769,7 +1769,7 @@ public:
     /// Unblock contacts (bulk)
     /// </summary>
     /// <remarks>
-    /// Unblock several contacts by blocked contact IDs or unblock all contacts.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/unblockContactsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Unblock several contacts by blocked contact IDs or unblock all contacts.
     /// </remarks>
     /// <param name="unblockContactsBulkInputObject"></param>
     pplx::task<void> unblockContactsBulk(
@@ -1779,7 +1779,7 @@ public:
     /// Unmute chats (bulk)
     /// </summary>
     /// <remarks>
-    /// Unmute several chats by chat ids or unmute all chats.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Chats/unmuteChatsBulk\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Unmute several chats by chat ids or unmute all chats.
     /// </remarks>
     /// <param name="unmuteChatsBulkInputObject"></param>
     pplx::task<void> unmuteChatsBulk(
@@ -1789,7 +1789,7 @@ public:
     /// Manually unsubscribe a contact
     /// </summary>
     /// <remarks>
-    /// &gt; Please note, if you unsubscribe a contact, this action cannot be reversed. 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/unsubscribeContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;&gt; Please note, if you unsubscribe a contact, this action cannot be reversed. 
     /// </remarks>
     /// <param name="unsubscribeContactInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> unsubscribeContact(
@@ -1799,7 +1799,7 @@ public:
     /// Update balance notification settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/updateBalanceNotificationSettings\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateBalanceNotificationSettingsInputObject"></param>
     pplx::task<void> updateBalanceNotificationSettings(
@@ -1809,7 +1809,7 @@ public:
     /// Update callback URL settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/updateCallbackSettings\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateCallbackSettingsInputObject"></param>
     pplx::task<void> updateCallbackSettings(
@@ -1819,7 +1819,7 @@ public:
     /// Update chat desktop notification settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/updateChatDesktopNotificationSettings\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateChatDesktopNotificationSettingsInputObject"></param>
     pplx::task<void> updateChatDesktopNotificationSettings(
@@ -1829,7 +1829,7 @@ public:
     /// Edit a contact
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/updateContact\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateContactInputObject"></param>
     /// <param name="id"></param>
@@ -1841,7 +1841,7 @@ public:
     /// Update a contact note
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contact%20Notes/updateContactNote\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateContactNoteInputObject"></param>
     /// <param name="id"></param>
@@ -1853,7 +1853,7 @@ public:
     /// Edit current account info
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Account/updateCurrentUser\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateCurrentUserInputObject"></param>
     pplx::task<std::shared_ptr<UpdateCurrentUserResponse>> updateCurrentUser(
@@ -1863,7 +1863,7 @@ public:
     /// Edit a custom field
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Custom%20Fields/updateCustomField\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateCustomFieldInputObject"></param>
     /// <param name="id"></param>
@@ -1875,7 +1875,7 @@ public:
     /// Edit the custom field value of a specified contact
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Custom%20Fields/updateCustomFieldValue\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateCustomFieldValueInputObject"></param>
     /// <param name="id"></param>
@@ -1887,7 +1887,7 @@ public:
     /// Update inbound messages notification settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/undefined/updateInboundMessagesNotificationSettings\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateInboundMessagesNotificationSettingsInputObject"></param>
     pplx::task<void> updateInboundMessagesNotificationSettings(
@@ -1897,7 +1897,7 @@ public:
     /// Edit a list
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/updateList\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="id"></param>
     /// <param name="updateListObject"> (optional)</param>
@@ -1909,7 +1909,7 @@ public:
     /// Change sender settings
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Overview/updateSenderSetting\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateSenderSettingInputObject"></param>
     pplx::task<void> updateSenderSetting(
@@ -1919,7 +1919,7 @@ public:
     /// Update a template
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Templates/updateTemplate\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="updateTemplateInputObject"></param>
     /// <param name="id"></param>
@@ -1931,7 +1931,7 @@ public:
     /// Upload an avatar
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Account/uploadAvatar\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="image">User avatar. Should be a PNG or JPG file not more than 10 MB.</param>
     pplx::task<void> uploadAvatar(
@@ -1941,7 +1941,7 @@ public:
     /// Upload an avatar
     /// </summary>
     /// <remarks>
-    /// 
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Contacts/uploadContactAvatar\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;
     /// </remarks>
     /// <param name="image">Contact avatar. Should be a PNG or JPG file not more than 10 MB.</param>
     /// <param name="id"></param>
@@ -1953,7 +1953,7 @@ public:
     /// Add an avatar for a list
     /// </summary>
     /// <remarks>
-    /// Add an avatar for a list
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Lists/uploadListAvatar\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Add an avatar for a list
     /// </remarks>
     /// <param name="image">List avatar. Should be a PNG or JPG file not more than 10 MB.</param>
     /// <param name="id"></param>
@@ -1965,7 +1965,7 @@ public:
     /// Upload message attachment
     /// </summary>
     /// <remarks>
-    /// Upload a new file to insert it as a link.
+    /// &lt;a class&#x3D;\&quot;try-sandbox-link\&quot; href&#x3D;\&quot;http://sandbox.textmagictesting.com/#/Messages%3A%20Send%0A/uploadMessageAttachment\&quot; target&#x3D;\&quot;_blank\&quot;&gt;Try in sandbox&lt;/a&gt;&lt;br&gt;Upload a new file to insert it as a link.
     /// </remarks>
     /// <param name="file">Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats.</param>
     pplx::task<std::shared_ptr<UploadMessageAttachmentResponse>> uploadMessageAttachment(
