@@ -104,6 +104,13 @@ public:
     /// </summary>
     utility::string_t getAvatar() const;
         void setAvatar(utility::string_t value);
+    /// <summary>
+    /// Sender email.
+    /// </summary>
+    utility::string_t getEmail() const;
+    bool emailIsSet() const;
+    void unsetEmail();
+    void setEmail(utility::string_t value);
 
 protected:
     int32_t m_Id;
@@ -118,7 +125,9 @@ protected:
     utility::string_t m_LastName;
     bool m_LastNameIsSet;
     utility::string_t m_Avatar;
-    };
+        utility::string_t m_Email;
+    bool m_EmailIsSet;
+};
 
 }
 }

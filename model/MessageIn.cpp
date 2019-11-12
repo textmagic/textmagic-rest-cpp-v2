@@ -33,6 +33,8 @@ MessageIn::MessageIn()
     m_LastName = utility::conversions::to_string_t("");
     m_LastNameIsSet = false;
     m_Avatar = utility::conversions::to_string_t("");
+    m_Email = utility::conversions::to_string_t("");
+    m_EmailIsSet = false;
 }
 
 MessageIn::~MessageIn()
@@ -66,6 +68,10 @@ web::json::value MessageIn::toJson() const
         val[utility::conversions::to_string_t("lastName")] = ModelBase::toJson(m_LastName);
     }
     val[utility::conversions::to_string_t("avatar")] = ModelBase::toJson(m_Avatar);
+    if(m_EmailIsSet)
+    {
+        val[utility::conversions::to_string_t("email")] = ModelBase::toJson(m_Email);
+    }
 
     return val;
 }
@@ -144,6 +150,14 @@ void MessageIn::fromJson(web::json::value& val)
             setAvatar(ModelBase::stringFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("email")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("email")];
+        if(!fieldValue.is_null())
+        {
+            setEmail(ModelBase::stringFromJson(fieldValue));
+        }
+    }
 }
 
 void MessageIn::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -174,6 +188,11 @@ void MessageIn::toMultipart(std::shared_ptr<MultipartFormData> multipart, const 
         
     }
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("avatar"), m_Avatar));
+    if(m_EmailIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("email"), m_Email));
+        
+    }
 }
 
 void MessageIn::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -202,6 +221,10 @@ void MessageIn::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, cons
         setLastName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lastName"))));
     }
     setAvatar(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("avatar"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("email")))
+    {
+        setEmail(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("email"))));
+    }
 }
 
 int32_t MessageIn::getId() const
@@ -333,6 +356,27 @@ void MessageIn::setAvatar(utility::string_t value)
     m_Avatar = value;
     
 }
+utility::string_t MessageIn::getEmail() const
+{
+    return m_Email;
+}
+
+
+void MessageIn::setEmail(utility::string_t value)
+{
+    m_Email = value;
+    m_EmailIsSet = true;
+}
+bool MessageIn::emailIsSet() const
+{
+    return m_EmailIsSet;
+}
+
+void MessageIn::unsetEmail()
+{
+    m_EmailIsSet = false;
+}
+
 }
 }
 }
