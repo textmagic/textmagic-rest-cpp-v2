@@ -131,7 +131,7 @@ public:
     void unsetReferenceId();
     void setReferenceId(int32_t value);
     /// <summary>
-    /// One of allowed Sender ID (phone number or alphanumeric sender ID). If specified Sender ID is not allowed for some destinations, a fallback default Sender ID will be used to ensure delivery. See [Get timezones](http://docs.textmagictesting.com/#tag/Sender-IDs).
+    /// One of allowed Sender ID (phone number or alphanumeric sender ID). If specified Sender ID is not allowed for some destinations, a fallback default Sender ID will be used to ensure delivery. See [Get timezones](https://docs.textmagic.com/#tag/Sender-IDs).
     /// </summary>
     utility::string_t getFrom() const;
     bool fromIsSet() const;

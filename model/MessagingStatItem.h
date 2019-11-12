@@ -69,7 +69,7 @@ public:
     float getDeliveryRate() const;
         void setDeliveryRate(float value);
     /// <summary>
-    /// Cost for sent messages during this period. The costs are in the [Account](http://docs.textmagictesting.com/#tag/User) currency. 
+    /// Cost for sent messages during this period. The costs are in the [Account](https://docs.textmagic.com/#tag/User) currency. 
     /// </summary>
     float getCosts() const;
         void setCosts(float value);

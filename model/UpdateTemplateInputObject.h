@@ -61,7 +61,7 @@ public:
     void unsetName();
     void setName(utility::string_t value);
     /// <summary>
-    /// Template text. May contain tags inside braces. See [Custom fields list](http://docs.textmagictesting.com/#section/Custom-fields-list-(Merge-tags)).
+    /// Template text. May contain tags inside braces. See [Custom fields list](https://docs.textmagic.com/#section/Custom-fields-list-(Merge-tags)).
     /// </summary>
     utility::string_t getContent() const;
     bool contentIsSet() const;

@@ -84,7 +84,7 @@ public:
     utility::string_t getReceiver() const;
         void setReceiver(utility::string_t value);
     /// <summary>
-    /// Message status (for chats outbound only). See [message delivery statuses](http://docs.textmagictesting.com/#section/Delivery-status-codes) for details.
+    /// Message status (for chats outbound only). See [message delivery statuses](https://docs.textmagic.com/#section/Delivery-status-codes) for details.
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
@@ -99,7 +99,7 @@ public:
     utility::string_t getLastName() const;
         void setLastName(utility::string_t value);
     /// <summary>
-    /// Session ID of a message. See [message sessions](http://docs.textmagictesting.com/#tag/Outbound-Message-Sessions) for details.
+    /// Session ID of a message. See [message sessions](https://docs.textmagic.com/#tag/Outbound-Message-Sessions) for details.
     /// </summary>
     int32_t getSessionId() const;
         void setSessionId(int32_t value);

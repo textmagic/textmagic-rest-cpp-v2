@@ -54,7 +54,7 @@ public:
     /// AssignContactsToListInputObject members
 
     /// <summary>
-    /// Comma-separated array of [Contacts](http://docs.textmagictesting.com/#tag/Contacts) IDs.
+    /// Comma-separated array of [Contacts](https://docs.textmagic.com/#tag/Contacts) IDs.
     /// </summary>
     utility::string_t getContacts() const;
     bool contactsIsSet() const;

@@ -78,7 +78,7 @@ public:
     utility::string_t getText() const;
         void setText(utility::string_t value);
     /// <summary>
-    /// Delivery status of the message. See [message delivery statuses](http://docs.textmagictesting.com/#section/Delivery-status-codes) for details. 
+    /// Delivery status of the message. See [message delivery statuses](https://docs.textmagic.com/#section/Delivery-status-codes) for details. 
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
@@ -120,7 +120,7 @@ public:
     utility::string_t getCharsetLabel() const;
         void setCharsetLabel(utility::string_t value);
     /// <summary>
-    /// Contact first name. Could be substituted from your [Contacts](http://docs.textmagictesting.com/#tag/Contacts) (even if you submitted the phone number instead of the contact ID). 
+    /// Contact first name. Could be substituted from your [Contacts](https://docs.textmagic.com/#tag/Contacts) (even if you submitted the phone number instead of the contact ID). 
     /// </summary>
     utility::string_t getFirstName() const;
         void setFirstName(utility::string_t value);

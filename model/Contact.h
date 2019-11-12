@@ -66,12 +66,12 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
-    /// Is the Contact favorite? [Favorite list](http://docs.textmagictesting.com/#operation/getFavorites).
+    /// Is the Contact favorite? [Favorite list](https://docs.textmagic.com/#operation/getFavorites).
     /// </summary>
     bool isFavorited() const;
         void setFavorited(bool value);
     /// <summary>
-    /// Is the Contact blocked? [Blocked contacts](http://docs.textmagictesting.com/#operation/getBlockedContacts).
+    /// Is the Contact blocked? [Blocked contacts](https://docs.textmagic.com/#operation/getBlockedContacts).
     /// </summary>
     bool isBlocked() const;
         void setBlocked(bool value);
@@ -106,7 +106,7 @@ public:
     std::shared_ptr<Country> getCountry() const;
         void setCountry(std::shared_ptr<Country> value);
     /// <summary>
-    /// See the [Custom Fields](http://docs.textmagictesting.com/#tag/Custom-Fields) section.
+    /// See the [Custom Fields](https://docs.textmagic.com/#tag/Custom-Fields) section.
     /// </summary>
     std::vector<std::shared_ptr<ContactCustomField>>& getCustomFields();
         void setCustomFields(std::vector<std::shared_ptr<ContactCustomField>> value);

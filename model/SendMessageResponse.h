@@ -64,7 +64,7 @@ public:
     utility::string_t getHref() const;
         void setHref(utility::string_t value);
     /// <summary>
-    /// Message response type: * **message** – when the message is sent to a single recipient. * **session** – when the message is sent is to multiple recipients. * **schedule** - when the message is scheduled for sending. * **bulk** - when the message is sent to multiple recipients and the number of recipients requires asynchronous processing See [Sending more than 1,000 messages in one session](http://docs.textmagictesting.com/#section/Tutorials/Sending-more-than-1000-messages-in-one-session). 
+    /// Message response type: * **message** – when the message is sent to a single recipient. * **session** – when the message is sent is to multiple recipients. * **schedule** - when the message is scheduled for sending. * **bulk** - when the message is sent to multiple recipients and the number of recipients requires asynchronous processing See [Sending more than 1,000 messages in one session](https://docs.textmagic.com/#section/Tutorials/Sending-more-than-1000-messages-in-one-session). 
     /// </summary>
     utility::string_t getType() const;
         void setType(utility::string_t value);
@@ -74,7 +74,7 @@ public:
     int32_t getSessionId() const;
         void setSessionId(int32_t value);
     /// <summary>
-    /// Bulk Session ID. See [Sending more than 1,000 messages in one session](http://docs.textmagictesting.com/#section/Tutorials/Sending-more-than-1000-messages-in-one-session).
+    /// Bulk Session ID. See [Sending more than 1,000 messages in one session](https://docs.textmagic.com/#section/Tutorials/Sending-more-than-1000-messages-in-one-session).
     /// </summary>
     int32_t getBulkId() const;
         void setBulkId(int32_t value);

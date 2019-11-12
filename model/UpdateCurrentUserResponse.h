@@ -96,7 +96,7 @@ public:
     void unsetCompany();
     void setCompany(utility::string_t value);
     /// <summary>
-    /// Internal timezone ID. See [Get timezones](http://docs.textmagictesting.com/#operation/getTimezones).
+    /// Internal timezone ID. See [Get timezones](https://docs.textmagic.com/#operation/getTimezones).
     /// </summary>
     int32_t getTimezone() const;
     bool timezoneIsSet() const;

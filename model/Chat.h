@@ -76,7 +76,7 @@ public:
     std::shared_ptr<Contact> getContact() const;
         void setContact(std::shared_ptr<Contact> value);
     /// <summary>
-    /// If this field has a value, it means that the chat phone number has been unsubscribed from you and this value is an ID of an Unsubscribed contact entity. See [Get all unsubscribed contacts](http://docs.textmagictesting.com/#operation/getUnsubscribers).
+    /// If this field has a value, it means that the chat phone number has been unsubscribed from you and this value is an ID of an Unsubscribed contact entity. See [Get all unsubscribed contacts](https://docs.textmagic.com/#operation/getUnsubscribers).
     /// </summary>
     int32_t getUnsubscribedContactId() const;
         void setUnsubscribedContactId(int32_t value);

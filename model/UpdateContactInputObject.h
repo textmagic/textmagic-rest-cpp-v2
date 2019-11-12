@@ -91,7 +91,7 @@ public:
     void unsetCompanyName();
     void setCompanyName(utility::string_t value);
     /// <summary>
-    /// Comma-separated [list](http://docs.textmagictesting.com/#section/Lists) ID. Each contact must be assigned to at least one list.
+    /// Comma-separated [list](https://docs.textmagic.com/#section/Lists) ID. Each contact must be assigned to at least one list.
     /// </summary>
     utility::string_t getLists() const;
     bool listsIsSet() const;

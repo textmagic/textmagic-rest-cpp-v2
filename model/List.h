@@ -71,7 +71,7 @@ public:
     utility::string_t getDescription() const;
         void setDescription(utility::string_t value);
     /// <summary>
-    /// Is the List favorited? See [Favorites list](http://docs.textmagictesting.com/#operation/getFavourites).
+    /// Is the List favorited? See [Favorites list](https://docs.textmagic.com/#operation/getFavourites).
     /// </summary>
     bool isFavorited() const;
         void setFavorited(bool value);

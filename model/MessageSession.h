@@ -64,17 +64,17 @@ public:
     utility::string_t getStartTime() const;
         void setStartTime(utility::string_t value);
     /// <summary>
-    /// Session text. If a template was used for the session text (see [Messages: Send](http://docs.textmagictesting.com/#tag/Outbound-Messages) for details), it may contain template tags. 
+    /// Session text. If a template was used for the session text (see [Messages: Send](https://docs.textmagic.com/#tag/Outbound-Messages) for details), it may contain template tags. 
     /// </summary>
     utility::string_t getText() const;
         void setText(utility::string_t value);
     /// <summary>
-    /// *   **O** – for TextMagic Online; *   **A** – for API; *   **M** – for TextMagic Messenger; *   **E** – for [Email to SMS](http://docs.textmagictesting.com/#tag/Send-Email-to-SMS); *   **X** – for [Distribution Lists](http://docs.textmagictesting.com/#tag/Distribution-Lists). 
+    /// *   **O** – for TextMagic Online; *   **A** – for API; *   **M** – for TextMagic Messenger; *   **E** – for [Email to SMS](https://docs.textmagic.com/#tag/Send-Email-to-SMS); *   **X** – for [Distribution Lists](https://docs.textmagic.com/#tag/Distribution-Lists). 
     /// </summary>
     utility::string_t getSource() const;
         void setSource(utility::string_t value);
     /// <summary>
-    /// Custom reference ID (see [Messages: Send](http://docs.textmagictesting.com/#tag/Send-Email-to-SMS) for details). 
+    /// Custom reference ID (see [Messages: Send](https://docs.textmagic.com/#tag/Send-Email-to-SMS) for details). 
     /// </summary>
     utility::string_t getReferenceId() const;
         void setReferenceId(utility::string_t value);
