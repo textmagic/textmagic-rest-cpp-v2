@@ -28,7 +28,7 @@
 #include "BulkSession.h"
 #include "BuyDedicatedNumberInputObject.h"
 #include "Chat.h"
-#include "CheckPhoneVerificationCodeInputObject.h"
+#include "CheckPhoneVerificationCodeTFAInputObject.h"
 #include "ClearAndAssignContactsToListInputObject.h"
 #include "CloseChatsBulkInputObject.h"
 #include "Contact.h"
@@ -124,8 +124,8 @@
 #include "SearchTemplatesPaginatedResponse.h"
 #include "SendMessageInputObject.h"
 #include "SendMessageResponse.h"
-#include "SendPhoneVerificationCodeInputObject.h"
 #include "SendPhoneVerificationCodeResponse.h"
+#include "SendPhoneVerificationCodeTFAInputObject.h"
 #include "SenderId.h"
 #include "SetChatStatusInputObject.h"
 #include "UnauthorizedResponse.h"
@@ -215,9 +215,9 @@ public:
     /// <remarks>
     /// Check received code from user with the code which was actually sent.
     /// </remarks>
-    /// <param name="checkPhoneVerificationCodeInputObject"></param>
+    /// <param name="checkPhoneVerificationCodeTFAInputObject"></param>
     pplx::task<void> checkPhoneVerificationCodeTFA(
-        std::shared_ptr<CheckPhoneVerificationCodeInputObject> checkPhoneVerificationCodeInputObject
+        std::shared_ptr<CheckPhoneVerificationCodeTFAInputObject> checkPhoneVerificationCodeTFAInputObject
     );
     /// <summary>
     /// Reset list members to the specified contacts
@@ -1741,9 +1741,9 @@ public:
     /// <remarks>
     /// Sends a verification code to a specified phone number.
     /// </remarks>
-    /// <param name="sendPhoneVerificationCodeInputObject"></param>
+    /// <param name="sendPhoneVerificationCodeTFAInputObject"></param>
     pplx::task<std::shared_ptr<SendPhoneVerificationCodeResponse>> sendPhoneVerificationCodeTFA(
-        std::shared_ptr<SendPhoneVerificationCodeInputObject> sendPhoneVerificationCodeInputObject
+        std::shared_ptr<SendPhoneVerificationCodeTFAInputObject> sendPhoneVerificationCodeTFAInputObject
     );
     /// <summary>
     /// Change chat status

@@ -11,13 +11,13 @@
  */
 
 /*
- * CheckPhoneVerificationCodeInputObject.h
+ * CheckPhoneVerificationCodeTFAInputObject.h
  *
  * 
  */
 
-#ifndef COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeInputObject_H_
-#define COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeInputObject_H_
+#ifndef COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeTFAInputObject_H_
+#define COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeTFAInputObject_H_
 
 
 #include "../ModelBase.h"
@@ -32,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  CheckPhoneVerificationCodeInputObject
+class  CheckPhoneVerificationCodeTFAInputObject
     : public ModelBase
 {
 public:
-    CheckPhoneVerificationCodeInputObject();
-    virtual ~CheckPhoneVerificationCodeInputObject();
+    CheckPhoneVerificationCodeTFAInputObject();
+    virtual ~CheckPhoneVerificationCodeTFAInputObject();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,7 +51,7 @@ public:
     void fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// CheckPhoneVerificationCodeInputObject members
+    /// CheckPhoneVerificationCodeTFAInputObject members
 
     /// <summary>
     /// Verification code received by the user and entered into the form field.
@@ -80,4 +80,4 @@ protected:
 }
 }
 
-#endif /* COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeInputObject_H_ */
+#endif /* COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeTFAInputObject_H_ */

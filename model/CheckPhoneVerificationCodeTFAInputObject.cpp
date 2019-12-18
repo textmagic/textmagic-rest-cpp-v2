@@ -12,14 +12,14 @@
 
 
 
-#include "CheckPhoneVerificationCodeInputObject.h"
+#include "CheckPhoneVerificationCodeTFAInputObject.h"
 
 namespace com {
 namespace textmagic {
 namespace client {
 namespace model {
 
-CheckPhoneVerificationCodeInputObject::CheckPhoneVerificationCodeInputObject()
+CheckPhoneVerificationCodeTFAInputObject::CheckPhoneVerificationCodeTFAInputObject()
 {
     m_Code = 0;
     m_CodeIsSet = false;
@@ -27,16 +27,16 @@ CheckPhoneVerificationCodeInputObject::CheckPhoneVerificationCodeInputObject()
     m_VerifyIdIsSet = false;
 }
 
-CheckPhoneVerificationCodeInputObject::~CheckPhoneVerificationCodeInputObject()
+CheckPhoneVerificationCodeTFAInputObject::~CheckPhoneVerificationCodeTFAInputObject()
 {
 }
 
-void CheckPhoneVerificationCodeInputObject::validate()
+void CheckPhoneVerificationCodeTFAInputObject::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value CheckPhoneVerificationCodeInputObject::toJson() const
+web::json::value CheckPhoneVerificationCodeTFAInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
@@ -52,7 +52,7 @@ web::json::value CheckPhoneVerificationCodeInputObject::toJson() const
     return val;
 }
 
-void CheckPhoneVerificationCodeInputObject::fromJson(web::json::value& val)
+void CheckPhoneVerificationCodeTFAInputObject::fromJson(web::json::value& val)
 {
     if(val.has_field(utility::conversions::to_string_t("code")))
     {
@@ -72,7 +72,7 @@ void CheckPhoneVerificationCodeInputObject::fromJson(web::json::value& val)
     }
 }
 
-void CheckPhoneVerificationCodeInputObject::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void CheckPhoneVerificationCodeTFAInputObject::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -91,7 +91,7 @@ void CheckPhoneVerificationCodeInputObject::toMultipart(std::shared_ptr<Multipar
     }
 }
 
-void CheckPhoneVerificationCodeInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+void CheckPhoneVerificationCodeTFAInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -109,44 +109,44 @@ void CheckPhoneVerificationCodeInputObject::fromMultiPart(std::shared_ptr<Multip
     }
 }
 
-int32_t CheckPhoneVerificationCodeInputObject::getCode() const
+int32_t CheckPhoneVerificationCodeTFAInputObject::getCode() const
 {
     return m_Code;
 }
 
 
-void CheckPhoneVerificationCodeInputObject::setCode(int32_t value)
+void CheckPhoneVerificationCodeTFAInputObject::setCode(int32_t value)
 {
     m_Code = value;
     m_CodeIsSet = true;
 }
-bool CheckPhoneVerificationCodeInputObject::codeIsSet() const
+bool CheckPhoneVerificationCodeTFAInputObject::codeIsSet() const
 {
     return m_CodeIsSet;
 }
 
-void CheckPhoneVerificationCodeInputObject::unsetCode()
+void CheckPhoneVerificationCodeTFAInputObject::unsetCode()
 {
     m_CodeIsSet = false;
 }
 
-utility::string_t CheckPhoneVerificationCodeInputObject::getVerifyId() const
+utility::string_t CheckPhoneVerificationCodeTFAInputObject::getVerifyId() const
 {
     return m_VerifyId;
 }
 
 
-void CheckPhoneVerificationCodeInputObject::setVerifyId(utility::string_t value)
+void CheckPhoneVerificationCodeTFAInputObject::setVerifyId(utility::string_t value)
 {
     m_VerifyId = value;
     m_VerifyIdIsSet = true;
 }
-bool CheckPhoneVerificationCodeInputObject::verifyIdIsSet() const
+bool CheckPhoneVerificationCodeTFAInputObject::verifyIdIsSet() const
 {
     return m_VerifyIdIsSet;
 }
 
-void CheckPhoneVerificationCodeInputObject::unsetVerifyId()
+void CheckPhoneVerificationCodeTFAInputObject::unsetVerifyId()
 {
     m_VerifyIdIsSet = false;
 }

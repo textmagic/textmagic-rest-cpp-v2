@@ -12,14 +12,14 @@
 
 
 
-#include "SendPhoneVerificationCodeInputObject.h"
+#include "SendPhoneVerificationCodeTFAInputObject.h"
 
 namespace com {
 namespace textmagic {
 namespace client {
 namespace model {
 
-SendPhoneVerificationCodeInputObject::SendPhoneVerificationCodeInputObject()
+SendPhoneVerificationCodeTFAInputObject::SendPhoneVerificationCodeTFAInputObject()
 {
     m_Phone = utility::conversions::to_string_t("");
     m_PhoneIsSet = false;
@@ -35,16 +35,16 @@ SendPhoneVerificationCodeInputObject::SendPhoneVerificationCodeInputObject()
     m_CountryIsSet = false;
 }
 
-SendPhoneVerificationCodeInputObject::~SendPhoneVerificationCodeInputObject()
+SendPhoneVerificationCodeTFAInputObject::~SendPhoneVerificationCodeTFAInputObject()
 {
 }
 
-void SendPhoneVerificationCodeInputObject::validate()
+void SendPhoneVerificationCodeTFAInputObject::validate()
 {
     // TODO: implement validation
 }
 
-web::json::value SendPhoneVerificationCodeInputObject::toJson() const
+web::json::value SendPhoneVerificationCodeTFAInputObject::toJson() const
 {
     web::json::value val = web::json::value::object();
 
@@ -76,7 +76,7 @@ web::json::value SendPhoneVerificationCodeInputObject::toJson() const
     return val;
 }
 
-void SendPhoneVerificationCodeInputObject::fromJson(web::json::value& val)
+void SendPhoneVerificationCodeTFAInputObject::fromJson(web::json::value& val)
 {
     if(val.has_field(utility::conversions::to_string_t("phone")))
     {
@@ -128,7 +128,7 @@ void SendPhoneVerificationCodeInputObject::fromJson(web::json::value& val)
     }
 }
 
-void SendPhoneVerificationCodeInputObject::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
+void SendPhoneVerificationCodeTFAInputObject::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -167,7 +167,7 @@ void SendPhoneVerificationCodeInputObject::toMultipart(std::shared_ptr<Multipart
     }
 }
 
-void SendPhoneVerificationCodeInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
+void SendPhoneVerificationCodeTFAInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
 {
     utility::string_t namePrefix = prefix;
     if(namePrefix.size() > 0 && namePrefix.substr(namePrefix.size() - 1) != utility::conversions::to_string_t("."))
@@ -201,128 +201,128 @@ void SendPhoneVerificationCodeInputObject::fromMultiPart(std::shared_ptr<Multipa
     }
 }
 
-utility::string_t SendPhoneVerificationCodeInputObject::getPhone() const
+utility::string_t SendPhoneVerificationCodeTFAInputObject::getPhone() const
 {
     return m_Phone;
 }
 
 
-void SendPhoneVerificationCodeInputObject::setPhone(utility::string_t value)
+void SendPhoneVerificationCodeTFAInputObject::setPhone(utility::string_t value)
 {
     m_Phone = value;
     m_PhoneIsSet = true;
 }
-bool SendPhoneVerificationCodeInputObject::phoneIsSet() const
+bool SendPhoneVerificationCodeTFAInputObject::phoneIsSet() const
 {
     return m_PhoneIsSet;
 }
 
-void SendPhoneVerificationCodeInputObject::unsetPhone()
+void SendPhoneVerificationCodeTFAInputObject::unsetPhone()
 {
     m_PhoneIsSet = false;
 }
 
-utility::string_t SendPhoneVerificationCodeInputObject::getBrand() const
+utility::string_t SendPhoneVerificationCodeTFAInputObject::getBrand() const
 {
     return m_Brand;
 }
 
 
-void SendPhoneVerificationCodeInputObject::setBrand(utility::string_t value)
+void SendPhoneVerificationCodeTFAInputObject::setBrand(utility::string_t value)
 {
     m_Brand = value;
     m_BrandIsSet = true;
 }
-bool SendPhoneVerificationCodeInputObject::brandIsSet() const
+bool SendPhoneVerificationCodeTFAInputObject::brandIsSet() const
 {
     return m_BrandIsSet;
 }
 
-void SendPhoneVerificationCodeInputObject::unsetBrand()
+void SendPhoneVerificationCodeTFAInputObject::unsetBrand()
 {
     m_BrandIsSet = false;
 }
 
-int32_t SendPhoneVerificationCodeInputObject::getCodeLength() const
+int32_t SendPhoneVerificationCodeTFAInputObject::getCodeLength() const
 {
     return m_CodeLength;
 }
 
 
-void SendPhoneVerificationCodeInputObject::setCodeLength(int32_t value)
+void SendPhoneVerificationCodeTFAInputObject::setCodeLength(int32_t value)
 {
     m_CodeLength = value;
     m_CodeLengthIsSet = true;
 }
-bool SendPhoneVerificationCodeInputObject::codeLengthIsSet() const
+bool SendPhoneVerificationCodeTFAInputObject::codeLengthIsSet() const
 {
     return m_CodeLengthIsSet;
 }
 
-void SendPhoneVerificationCodeInputObject::unsetCodeLength()
+void SendPhoneVerificationCodeTFAInputObject::unsetCodeLength()
 {
     m_CodeLengthIsSet = false;
 }
 
-utility::string_t SendPhoneVerificationCodeInputObject::getLanguage() const
+utility::string_t SendPhoneVerificationCodeTFAInputObject::getLanguage() const
 {
     return m_Language;
 }
 
 
-void SendPhoneVerificationCodeInputObject::setLanguage(utility::string_t value)
+void SendPhoneVerificationCodeTFAInputObject::setLanguage(utility::string_t value)
 {
     m_Language = value;
     m_LanguageIsSet = true;
 }
-bool SendPhoneVerificationCodeInputObject::languageIsSet() const
+bool SendPhoneVerificationCodeTFAInputObject::languageIsSet() const
 {
     return m_LanguageIsSet;
 }
 
-void SendPhoneVerificationCodeInputObject::unsetLanguage()
+void SendPhoneVerificationCodeTFAInputObject::unsetLanguage()
 {
     m_LanguageIsSet = false;
 }
 
-utility::string_t SendPhoneVerificationCodeInputObject::getSenderId() const
+utility::string_t SendPhoneVerificationCodeTFAInputObject::getSenderId() const
 {
     return m_SenderId;
 }
 
 
-void SendPhoneVerificationCodeInputObject::setSenderId(utility::string_t value)
+void SendPhoneVerificationCodeTFAInputObject::setSenderId(utility::string_t value)
 {
     m_SenderId = value;
     m_SenderIdIsSet = true;
 }
-bool SendPhoneVerificationCodeInputObject::senderIdIsSet() const
+bool SendPhoneVerificationCodeTFAInputObject::senderIdIsSet() const
 {
     return m_SenderIdIsSet;
 }
 
-void SendPhoneVerificationCodeInputObject::unsetSenderId()
+void SendPhoneVerificationCodeTFAInputObject::unsetSenderId()
 {
     m_SenderIdIsSet = false;
 }
 
-utility::string_t SendPhoneVerificationCodeInputObject::getCountry() const
+utility::string_t SendPhoneVerificationCodeTFAInputObject::getCountry() const
 {
     return m_Country;
 }
 
 
-void SendPhoneVerificationCodeInputObject::setCountry(utility::string_t value)
+void SendPhoneVerificationCodeTFAInputObject::setCountry(utility::string_t value)
 {
     m_Country = value;
     m_CountryIsSet = true;
 }
-bool SendPhoneVerificationCodeInputObject::countryIsSet() const
+bool SendPhoneVerificationCodeTFAInputObject::countryIsSet() const
 {
     return m_CountryIsSet;
 }
 
-void SendPhoneVerificationCodeInputObject::unsetCountry()
+void SendPhoneVerificationCodeTFAInputObject::unsetCountry()
 {
     m_CountryIsSet = false;
 }

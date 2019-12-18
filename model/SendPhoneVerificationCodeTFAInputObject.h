@@ -11,13 +11,13 @@
  */
 
 /*
- * SendPhoneVerificationCodeInputObject.h
+ * SendPhoneVerificationCodeTFAInputObject.h
  *
  * 
  */
 
-#ifndef COM_TEXTMAGIC_CLIENT_MODEL_SendPhoneVerificationCodeInputObject_H_
-#define COM_TEXTMAGIC_CLIENT_MODEL_SendPhoneVerificationCodeInputObject_H_
+#ifndef COM_TEXTMAGIC_CLIENT_MODEL_SendPhoneVerificationCodeTFAInputObject_H_
+#define COM_TEXTMAGIC_CLIENT_MODEL_SendPhoneVerificationCodeTFAInputObject_H_
 
 
 #include "../ModelBase.h"
@@ -32,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  SendPhoneVerificationCodeInputObject
+class  SendPhoneVerificationCodeTFAInputObject
     : public ModelBase
 {
 public:
-    SendPhoneVerificationCodeInputObject();
-    virtual ~SendPhoneVerificationCodeInputObject();
+    SendPhoneVerificationCodeTFAInputObject();
+    virtual ~SendPhoneVerificationCodeTFAInputObject();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,7 +51,7 @@ public:
     void fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// SendPhoneVerificationCodeInputObject members
+    /// SendPhoneVerificationCodeTFAInputObject members
 
     /// <summary>
     /// Use the phone number in international E.164 format. If you need to pass a phone number in the local format, please use it with the **country** parameter to specify the origin country of the phone number. 
@@ -116,4 +116,4 @@ protected:
 }
 }
 
-#endif /* COM_TEXTMAGIC_CLIENT_MODEL_SendPhoneVerificationCodeInputObject_H_ */
+#endif /* COM_TEXTMAGIC_CLIENT_MODEL_SendPhoneVerificationCodeTFAInputObject_H_ */

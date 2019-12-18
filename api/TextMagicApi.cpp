@@ -529,13 +529,13 @@ pplx::task<void> TextMagicApi::cancelVerification(utility::string_t verifyId)
         return void();
     });
 }
-pplx::task<void> TextMagicApi::checkPhoneVerificationCodeTFA(std::shared_ptr<CheckPhoneVerificationCodeInputObject> checkPhoneVerificationCodeInputObject)
+pplx::task<void> TextMagicApi::checkPhoneVerificationCodeTFA(std::shared_ptr<CheckPhoneVerificationCodeTFAInputObject> checkPhoneVerificationCodeTFAInputObject)
 {
 
-    // verify the required parameter 'checkPhoneVerificationCodeInputObject' is set
-    if (checkPhoneVerificationCodeInputObject == nullptr)
+    // verify the required parameter 'checkPhoneVerificationCodeTFAInputObject' is set
+    if (checkPhoneVerificationCodeTFAInputObject == nullptr)
     {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'checkPhoneVerificationCodeInputObject' when calling TextMagicApi->checkPhoneVerificationCodeTFA"));
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'checkPhoneVerificationCodeTFAInputObject' when calling TextMagicApi->checkPhoneVerificationCodeTFA"));
     }
 
 
@@ -587,7 +587,7 @@ pplx::task<void> TextMagicApi::checkPhoneVerificationCodeTFA(std::shared_ptr<Che
         requestHttpContentType = utility::conversions::to_string_t("application/json");
         web::json::value json;
 
-        json = ModelBase::toJson(checkPhoneVerificationCodeInputObject);
+        json = ModelBase::toJson(checkPhoneVerificationCodeTFAInputObject);
         
 
         httpBody = std::shared_ptr<IHttpBody>( new JsonBody( json ) );
@@ -598,9 +598,9 @@ pplx::task<void> TextMagicApi::checkPhoneVerificationCodeTFA(std::shared_ptr<Che
         requestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
         std::shared_ptr<MultipartFormData> multipart(new MultipartFormData);
 
-        if(checkPhoneVerificationCodeInputObject.get())
+        if(checkPhoneVerificationCodeTFAInputObject.get())
         {
-            checkPhoneVerificationCodeInputObject->toMultipart(multipart, utility::conversions::to_string_t("checkPhoneVerificationCodeInputObject"));
+            checkPhoneVerificationCodeTFAInputObject->toMultipart(multipart, utility::conversions::to_string_t("checkPhoneVerificationCodeTFAInputObject"));
         }
 
         httpBody = multipart;
@@ -15452,13 +15452,13 @@ pplx::task<std::shared_ptr<SendMessageResponse>> TextMagicApi::sendMessage(std::
         return result;
     });
 }
-pplx::task<std::shared_ptr<SendPhoneVerificationCodeResponse>> TextMagicApi::sendPhoneVerificationCodeTFA(std::shared_ptr<SendPhoneVerificationCodeInputObject> sendPhoneVerificationCodeInputObject)
+pplx::task<std::shared_ptr<SendPhoneVerificationCodeResponse>> TextMagicApi::sendPhoneVerificationCodeTFA(std::shared_ptr<SendPhoneVerificationCodeTFAInputObject> sendPhoneVerificationCodeTFAInputObject)
 {
 
-    // verify the required parameter 'sendPhoneVerificationCodeInputObject' is set
-    if (sendPhoneVerificationCodeInputObject == nullptr)
+    // verify the required parameter 'sendPhoneVerificationCodeTFAInputObject' is set
+    if (sendPhoneVerificationCodeTFAInputObject == nullptr)
     {
-        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'sendPhoneVerificationCodeInputObject' when calling TextMagicApi->sendPhoneVerificationCodeTFA"));
+        throw ApiException(400, utility::conversions::to_string_t("Missing required parameter 'sendPhoneVerificationCodeTFAInputObject' when calling TextMagicApi->sendPhoneVerificationCodeTFA"));
     }
 
 
@@ -15510,7 +15510,7 @@ pplx::task<std::shared_ptr<SendPhoneVerificationCodeResponse>> TextMagicApi::sen
         requestHttpContentType = utility::conversions::to_string_t("application/json");
         web::json::value json;
 
-        json = ModelBase::toJson(sendPhoneVerificationCodeInputObject);
+        json = ModelBase::toJson(sendPhoneVerificationCodeTFAInputObject);
         
 
         httpBody = std::shared_ptr<IHttpBody>( new JsonBody( json ) );
@@ -15521,9 +15521,9 @@ pplx::task<std::shared_ptr<SendPhoneVerificationCodeResponse>> TextMagicApi::sen
         requestHttpContentType = utility::conversions::to_string_t("multipart/form-data");
         std::shared_ptr<MultipartFormData> multipart(new MultipartFormData);
 
-        if(sendPhoneVerificationCodeInputObject.get())
+        if(sendPhoneVerificationCodeTFAInputObject.get())
         {
-            sendPhoneVerificationCodeInputObject->toMultipart(multipart, utility::conversions::to_string_t("sendPhoneVerificationCodeInputObject"));
+            sendPhoneVerificationCodeTFAInputObject->toMultipart(multipart, utility::conversions::to_string_t("sendPhoneVerificationCodeTFAInputObject"));
         }
 
         httpBody = multipart;
