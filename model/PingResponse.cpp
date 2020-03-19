@@ -21,6 +21,7 @@ namespace model {
 
 PingResponse::PingResponse()
 {
+    m_UserId = 0;
     m_Ping = utility::conversions::to_string_t("");
     m_UtcDateTime = utility::conversions::to_string_t("");
 }
@@ -38,6 +39,7 @@ web::json::value PingResponse::toJson() const
 {
     web::json::value val = web::json::value::object();
 
+    val[utility::conversions::to_string_t("userId")] = ModelBase::toJson(m_UserId);
     val[utility::conversions::to_string_t("ping")] = ModelBase::toJson(m_Ping);
     val[utility::conversions::to_string_t("utcDateTime")] = ModelBase::toJson(m_UtcDateTime);
 
@@ -46,6 +48,14 @@ web::json::value PingResponse::toJson() const
 
 void PingResponse::fromJson(web::json::value& val)
 {
+    if(val.has_field(utility::conversions::to_string_t("userId")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("userId")];
+        if(!fieldValue.is_null())
+        {
+            setUserId(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("ping")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("ping")];
@@ -72,6 +82,7 @@ void PingResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, con
         namePrefix += utility::conversions::to_string_t(".");
     }
 
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userId"), m_UserId));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ping"), m_Ping));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("utcDateTime"), m_UtcDateTime));
 }
@@ -84,10 +95,22 @@ void PingResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, c
         namePrefix += utility::conversions::to_string_t(".");
     }
 
+    setUserId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userId"))));
     setPing(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ping"))));
     setUtcDateTime(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("utcDateTime"))));
 }
 
+int32_t PingResponse::getUserId() const
+{
+    return m_UserId;
+}
+
+
+void PingResponse::setUserId(int32_t value)
+{
+    m_UserId = value;
+    
+}
 utility::string_t PingResponse::getPing() const
 {
     return m_Ping;

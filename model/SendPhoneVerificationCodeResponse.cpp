@@ -21,7 +21,7 @@ namespace model {
 
 SendPhoneVerificationCodeResponse::SendPhoneVerificationCodeResponse()
 {
-    m_VerifyId = nullptr;
+    m_VerifyId = utility::conversions::to_string_t("");
     m_Price = 0.0;
 }
 
@@ -88,13 +88,13 @@ void SendPhoneVerificationCodeResponse::fromMultiPart(std::shared_ptr<MultipartF
     setPrice(ModelBase::doubleFromHttpContent(multipart->getContent(utility::conversions::to_string_t("price"))));
 }
 
-std::shared_ptr<utility::string_t> SendPhoneVerificationCodeResponse::getVerifyId() const
+utility::string_t SendPhoneVerificationCodeResponse::getVerifyId() const
 {
     return m_VerifyId;
 }
 
 
-void SendPhoneVerificationCodeResponse::setVerifyId(std::shared_ptr<utility::string_t> value)
+void SendPhoneVerificationCodeResponse::setVerifyId(utility::string_t value)
 {
     m_VerifyId = value;
     

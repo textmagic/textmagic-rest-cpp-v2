@@ -54,6 +54,11 @@ public:
     /// PingResponse members
 
     /// <summary>
+    /// Current user Id.
+    /// </summary>
+    int32_t getUserId() const;
+        void setUserId(int32_t value);
+    /// <summary>
     /// Pong.
     /// </summary>
     utility::string_t getPing() const;
@@ -65,7 +70,8 @@ public:
         void setUtcDateTime(utility::string_t value);
 
 protected:
-    utility::string_t m_Ping;
+    int32_t m_UserId;
+        utility::string_t m_Ping;
         utility::string_t m_UtcDateTime;
     };
 

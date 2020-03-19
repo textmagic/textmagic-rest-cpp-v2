@@ -23,19 +23,19 @@ apt-get install build-essential cmake libcpprest-dev
 
 Download and extract lib archive:
 ```shell
-wget https://github.com/textmagic/textmagic-rest-cpp-v2/archive/v2.0.1067.tar.gz && \
-tar zxf v2.0.1067.tar.gz && \
-rm -f v2.0.1067.tar.gz && \
-cd textmagic-rest-cpp-v2-2.0.1067
+wget https://github.com/textmagic/textmagic-rest-cpp-v2/archive/v2.0.1307.tar.gz && \
+tar zxf v2.0.1307.tar.gz && \
+rm -f v2.0.1307.tar.gz && \
+cd textmagic-rest-cpp-v2-2.0.1307
 ```
 Build using cmake
 ```shell
 cmake . && cmake --build .
 ```
-The output library file will be placed in the `textmagic-rest-cpp-v2-2.0.1067/lib` directory:
+The output library file will be placed in the `textmagic-rest-cpp-v2-2.0.1307/lib` directory:
 
 ## Usage Example
-In the example below, we assume that you moved the library sources `textmagic-rest-cpp-v2-2.0.1067` directory to your test project root directory.
+In the example below, we assume that you moved the library sources `textmagic-rest-cpp-v2-2.0.1307` directory to your test project root directory.
 
 Configure your `CMakeLists.txt` as shown here:
 ```shell
@@ -47,9 +47,9 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(app main.cpp)
 
 add_library(textmagic_client SHARED IMPORTED)
-set_property(TARGET textmagic_client PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.1067/lib/libtextmagic_client.so")
+set_property(TARGET textmagic_client PROPERTY IMPORTED_LOCATION "${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.1307/lib/libtextmagic_client.so")
 
-target_include_directories (app PRIVATE ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.1067 ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.1067/model ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.1067/api)
+target_include_directories (app PRIVATE ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.1307 ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.1307/model ${PROJECT_SOURCE_DIR}/textmagic-rest-cpp-v2-2.0.1307/api)
 target_link_libraries(app boost_system cpprest crypto textmagic_client )
 ```
 
@@ -57,9 +57,9 @@ target_link_libraries(app boost_system cpprest crypto textmagic_client )
 ```cpp
 #include <iostream>
 #include <fstream>
-#include "textmagic-rest-cpp-v2-2.0.1067/ApiClient.h"
-#include "textmagic-rest-cpp-v2-2.0.1067/ApiConfiguration.h"
-#include "textmagic-rest-cpp-v2-2.0.1067/api/TextMagicApi.h"
+#include "textmagic-rest-cpp-v2-2.0.1307/ApiClient.h"
+#include "textmagic-rest-cpp-v2-2.0.1307/ApiConfiguration.h"
+#include "textmagic-rest-cpp-v2-2.0.1307/api/TextMagicApi.h"
 
 using namespace com::textmagic::client::api;
 
@@ -67,8 +67,9 @@ int main() {
     std::shared_ptr<ApiClient> apiClient(new ApiClient);
     std::shared_ptr<ApiConfiguration> apiConfig(new ApiConfiguration);
 
+    // put your Username and API Key from https://my.textmagic.com/online/api/rest-api/keys page.
     apiConfig->setBaseUrl("https://rest.textmagic.com");
-    apiConfig->getHttpConfig().set_credentials(web::credentials("YOUR_NAME", "YOUR_PASSWORD"));
+    apiConfig->getHttpConfig().set_credentials(web::credentials("YOUR_NAME", "YOUR_API_KEY"));
     apiClient->setConfiguration(apiConfig);
 
     TextMagicApi api(apiClient);
@@ -88,7 +89,7 @@ int main() {
     sendMessageInputObject->setPhones("+19998887766");
     sendMessageInputObject->setText("I love TextMagic!");
 
-    pplx::task<std::shared_ptr<SendMessageResponse>> sendMessageResponse = api.sendMessage(sendMessageInputObject, false);
+    pplx::task<std::shared_ptr<SendMessageResponse>> sendMessageResponse = api.sendMessage(sendMessageInputObject);
     sendMessageResponse.wait();
 
     try {
@@ -98,7 +99,7 @@ int main() {
     }
 
     // Get all outgoing messages request example
-    pplx::task<std::shared_ptr<GetAllOutboundMessagesResponse>> getAllOutboundMessagesResponse = api.getAllOutboundMessages(boost::none, boost::none, boost::none);
+    pplx::task<std::shared_ptr<GetAllOutboundMessagesPaginatedResponse>> getAllOutboundMessagesResponse = api.getAllOutboundMessages(boost::none, boost::none, boost::none);
     getAllOutboundMessagesResponse.wait();
 
     try {

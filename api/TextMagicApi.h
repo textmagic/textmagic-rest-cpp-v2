@@ -68,10 +68,8 @@
 #include "GetChatMessagesPaginatedResponse.h"
 #include "GetContactImportSessionProgressResponse.h"
 #include "GetContactNotesPaginatedResponse.h"
-#include "GetContactsAutocompleteResponse.h"
 #include "GetContactsByListIdPaginatedResponse.h"
 #include "GetContactsPaginatedResponse.h"
-#include "GetCountriesResponse.h"
 #include "GetCustomFieldsPaginatedResponse.h"
 #include "GetFavoritesPaginatedResponse.h"
 #include "GetInboundMessagesNotificationSettingsResponse.h"
@@ -926,20 +924,6 @@ public:
         boost::optional<utility::string_t> direction
     );
     /// <summary>
-    /// Get contacts autocomplete suggestions
-    /// </summary>
-    /// <remarks>
-    /// Get contacts autocomplete suggestions by given search terms.
-    /// </remarks>
-    /// <param name="query">Find recipients by specified search query.</param>
-    /// <param name="limit">The number of results per page. (optional, default to 10)</param>
-    /// <param name="lists">Should lists be returned or not? (optional, default to 0)</param>
-    pplx::task<std::shared_ptr<GetContactsAutocompleteResponse>> getContactsAutocomplete(
-        utility::string_t query,
-        boost::optional<int32_t> limit,
-        boost::optional<int32_t> lists
-    );
-    /// <summary>
     /// Get all contacts in a list
     /// </summary>
     /// <remarks>
@@ -956,14 +940,6 @@ public:
         boost::optional<int32_t> limit,
         boost::optional<utility::string_t> orderBy,
         boost::optional<utility::string_t> direction
-    );
-    /// <summary>
-    /// Get countries
-    /// </summary>
-    /// <remarks>
-    /// 
-    /// </remarks>
-    pplx::task<std::shared_ptr<GetCountriesResponse>> getCountries(
     );
     /// <summary>
     /// Get current account information
@@ -1599,6 +1575,7 @@ public:
     /// <param name="includeBlocked">Should blocked contacts be included? (optional)</param>
     /// <param name="query">Find contacts by specified search query. (optional)</param>
     /// <param name="local">Treat phone number passed in the \&quot;query\&quot; field as local. Default is 0. (optional, default to 0)</param>
+    /// <param name="exactMatch">Return only exactly matching contacts. Default is 0. (optional, default to 0)</param>
     /// <param name="country">The 2-letter ISO country code for local phone numbers, used when \&quot;local\&quot; is set to true. Default is the account country. (optional)</param>
     /// <param name="orderBy">Order results by some field. Default is id. (optional, default to id)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
@@ -1611,6 +1588,7 @@ public:
         boost::optional<int32_t> includeBlocked,
         boost::optional<utility::string_t> query,
         boost::optional<int32_t> local,
+        boost::optional<int32_t> exactMatch,
         boost::optional<utility::string_t> country,
         boost::optional<utility::string_t> orderBy,
         boost::optional<utility::string_t> direction
