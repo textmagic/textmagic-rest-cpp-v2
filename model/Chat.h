@@ -130,6 +130,11 @@ public:
     /// </summary>
     std::shared_ptr<Country> getCountry() const;
         void setCountry(std::shared_ptr<Country> value);
+    /// <summary>
+    /// Indicates when the chat is pinned.
+    /// </summary>
+    bool isPinned() const;
+        void setPinned(bool value);
 
 protected:
     int32_t m_Id;
@@ -147,6 +152,7 @@ protected:
         utility::datetime m_MutedUntil;
         int32_t m_TimeLeftMute;
         std::shared_ptr<Country> m_Country;
+        bool m_Pinned;
     };
 
 }

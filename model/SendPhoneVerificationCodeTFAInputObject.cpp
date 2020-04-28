@@ -23,6 +23,8 @@ SendPhoneVerificationCodeTFAInputObject::SendPhoneVerificationCodeTFAInputObject
 {
     m_Phone = utility::conversions::to_string_t("");
     m_PhoneIsSet = false;
+    m_WorkflowId = utility::conversions::to_string_t("");
+    m_WorkflowIdIsSet = false;
     m_Brand = utility::conversions::to_string_t("");
     m_BrandIsSet = false;
     m_CodeLength = 0;
@@ -51,6 +53,10 @@ web::json::value SendPhoneVerificationCodeTFAInputObject::toJson() const
     if(m_PhoneIsSet)
     {
         val[utility::conversions::to_string_t("phone")] = ModelBase::toJson(m_Phone);
+    }
+    if(m_WorkflowIdIsSet)
+    {
+        val[utility::conversions::to_string_t("workflowId")] = ModelBase::toJson(m_WorkflowId);
     }
     if(m_BrandIsSet)
     {
@@ -84,6 +90,14 @@ void SendPhoneVerificationCodeTFAInputObject::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setPhone(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("workflowId")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("workflowId")];
+        if(!fieldValue.is_null())
+        {
+            setWorkflowId(ModelBase::stringFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("brand")))
@@ -141,6 +155,11 @@ void SendPhoneVerificationCodeTFAInputObject::toMultipart(std::shared_ptr<Multip
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phone"), m_Phone));
         
     }
+    if(m_WorkflowIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("workflowId"), m_WorkflowId));
+        
+    }
     if(m_BrandIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("brand"), m_Brand));
@@ -178,6 +197,10 @@ void SendPhoneVerificationCodeTFAInputObject::fromMultiPart(std::shared_ptr<Mult
     if(multipart->hasContent(utility::conversions::to_string_t("phone")))
     {
         setPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phone"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("workflowId")))
+    {
+        setWorkflowId(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("workflowId"))));
     }
     if(multipart->hasContent(utility::conversions::to_string_t("brand")))
     {
@@ -220,6 +243,27 @@ bool SendPhoneVerificationCodeTFAInputObject::phoneIsSet() const
 void SendPhoneVerificationCodeTFAInputObject::unsetPhone()
 {
     m_PhoneIsSet = false;
+}
+
+utility::string_t SendPhoneVerificationCodeTFAInputObject::getWorkflowId() const
+{
+    return m_WorkflowId;
+}
+
+
+void SendPhoneVerificationCodeTFAInputObject::setWorkflowId(utility::string_t value)
+{
+    m_WorkflowId = value;
+    m_WorkflowIdIsSet = true;
+}
+bool SendPhoneVerificationCodeTFAInputObject::workflowIdIsSet() const
+{
+    return m_WorkflowIdIsSet;
+}
+
+void SendPhoneVerificationCodeTFAInputObject::unsetWorkflowId()
+{
+    m_WorkflowIdIsSet = false;
 }
 
 utility::string_t SendPhoneVerificationCodeTFAInputObject::getBrand() const

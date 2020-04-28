@@ -45,6 +45,8 @@ GetStateResponse::GetStateResponse()
     m_ChatMarkedAsRead = 0;
     m_ChatMuted = 0;
     m_ChatUnmuted = 0;
+    m_ChatPinned = 0;
+    m_ChatUnpinned = 0;
     m_ChatDeleted = 0;
     m_ChatClosed = 0;
     m_ChatReopened = 0;
@@ -99,6 +101,8 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("chatMarkedAsRead")] = ModelBase::toJson(m_ChatMarkedAsRead);
     val[utility::conversions::to_string_t("chatMuted")] = ModelBase::toJson(m_ChatMuted);
     val[utility::conversions::to_string_t("chatUnmuted")] = ModelBase::toJson(m_ChatUnmuted);
+    val[utility::conversions::to_string_t("chatPinned")] = ModelBase::toJson(m_ChatPinned);
+    val[utility::conversions::to_string_t("chatUnpinned")] = ModelBase::toJson(m_ChatUnpinned);
     val[utility::conversions::to_string_t("chatDeleted")] = ModelBase::toJson(m_ChatDeleted);
     val[utility::conversions::to_string_t("chatClosed")] = ModelBase::toJson(m_ChatClosed);
     val[utility::conversions::to_string_t("chatReopened")] = ModelBase::toJson(m_ChatReopened);
@@ -312,6 +316,22 @@ void GetStateResponse::fromJson(web::json::value& val)
             setChatUnmuted(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("chatPinned")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatPinned")];
+        if(!fieldValue.is_null())
+        {
+            setChatPinned(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatUnpinned")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatUnpinned")];
+        if(!fieldValue.is_null())
+        {
+            setChatUnpinned(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("chatDeleted")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("chatDeleted")];
@@ -466,6 +486,8 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatMarkedAsRead"), m_ChatMarkedAsRead));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatMuted"), m_ChatMuted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatUnmuted"), m_ChatUnmuted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatPinned"), m_ChatPinned));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatUnpinned"), m_ChatUnpinned));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatDeleted"), m_ChatDeleted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatClosed"), m_ChatClosed));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatReopened"), m_ChatReopened));
@@ -515,6 +537,8 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setChatMarkedAsRead(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatMarkedAsRead"))));
     setChatMuted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatMuted"))));
     setChatUnmuted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatUnmuted"))));
+    setChatPinned(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatPinned"))));
+    setChatUnpinned(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatUnpinned"))));
     setChatDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatDeleted"))));
     setChatClosed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatClosed"))));
     setChatReopened(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatReopened"))));
@@ -794,6 +818,28 @@ int32_t GetStateResponse::getChatUnmuted() const
 void GetStateResponse::setChatUnmuted(int32_t value)
 {
     m_ChatUnmuted = value;
+    
+}
+int32_t GetStateResponse::getChatPinned() const
+{
+    return m_ChatPinned;
+}
+
+
+void GetStateResponse::setChatPinned(int32_t value)
+{
+    m_ChatPinned = value;
+    
+}
+int32_t GetStateResponse::getChatUnpinned() const
+{
+    return m_ChatUnpinned;
+}
+
+
+void GetStateResponse::setChatUnpinned(int32_t value)
+{
+    m_ChatUnpinned = value;
     
 }
 int32_t GetStateResponse::getChatDeleted() const

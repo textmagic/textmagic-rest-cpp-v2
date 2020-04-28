@@ -61,6 +61,13 @@ public:
     void unsetPhone();
     void setPhone(utility::string_t value);
     /// <summary>
+    /// **Workflows**  The Verify API allows you to select the best workflow for your use case. This might depend on the type of verification taking place, your users&#39; preference, or their geographical location. You can specify which workflow to use for each Verify API request by setting the workflowId field to an integer value 1-7. The details of each of these preset workflows are detailed below.  &lt;br /&gt;  **Workflow 1 (Default Workflow): SMS -&gt; TTS -&gt; TTS**  &lt;br /&gt;  Send PIN code by text message, follow up with two subsequent voice calls if the request wasn&#39;t already verified.  Send SMS to user with PIN code Wait for 60 seconds Call user and give TTS PIN code Wait for 60 seconds Call user and give TTS PIN code  Request expires after 300 seconds  &lt;br /&gt;  **Workflow 2: SMS -&gt; SMS -&gt; TTS**  &lt;br /&gt;    Send PIN code by text message, follow up with a second text message and finally a voice call if the request has not been verified.  Send SMS to user with PIN code Wait for 60 seconds Send SMS to user with PIN code Wait for 60 seconds Call user and give TTS PIN code  Request expires after 300 seconds  &lt;br /&gt;  **Workflow 3: TTS -&gt; TTS**  &lt;br /&gt;   Call the user and speak a PIN code, follow up with a second call if the request wasn&#39;t already verified.  Call user and give TTS PIN code Wait for 60 seconds Call user and give TTS PIN code  Request expires after 300 seconds  &lt;br /&gt;  **Workflow 4: SMS -&gt; SMS**  &lt;br /&gt;    Send PIN code by text message, follow up with a second text message if the code hasn&#39;t been verified.  Send SMS to user with PIN code Wait for 60 seconds Send SMS to user with PIN code Wait for 60 seconds  Request expires after 300 seconds  &lt;br /&gt;  **Workflow 5: SMS -&gt; TTS**  &lt;br /&gt;   Send PIN code by text message, follow up with a voice call if the code hasn&#39;t been verified.  Send SMS to user with PIN code Wait for 60 seconds Call user and give TTS PIN code Wait for 60 seconds  Request expires after 300 seconds  &lt;br /&gt;  **Workflow 6: SMS**  &lt;br /&gt;   Send PIN code by text message once only.  Send SMS to user with PIN code Request expires after 300 seconds  &lt;br /&gt;  **Workflow 7: TTS**  &lt;br /&gt;  Call the user and speak a PIN code once only.  Call user and give TTS PIN code  Request expires after 300 seconds 
+    /// </summary>
+    utility::string_t getWorkflowId() const;
+    bool workflowIdIsSet() const;
+    void unsetWorkflowId();
+    void setWorkflowId(utility::string_t value);
+    /// <summary>
     /// An alphanumeric string with up to 18 characters you can use to personalize the verification text message body, to help users identify your company or application name. For example: “Your TextMagic PIN is …” 
     /// </summary>
     utility::string_t getBrand() const;
@@ -99,6 +106,8 @@ public:
 protected:
     utility::string_t m_Phone;
     bool m_PhoneIsSet;
+    utility::string_t m_WorkflowId;
+    bool m_WorkflowIdIsSet;
     utility::string_t m_Brand;
     bool m_BrandIsSet;
     int32_t m_CodeLength;

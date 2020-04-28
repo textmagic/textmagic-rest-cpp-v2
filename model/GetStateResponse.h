@@ -175,6 +175,16 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getChatPinned() const;
+        void setChatPinned(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChatUnpinned() const;
+        void setChatUnpinned(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getChatDeleted() const;
         void setChatDeleted(int32_t value);
     /// <summary>
@@ -273,6 +283,8 @@ protected:
         int32_t m_ChatMarkedAsRead;
         int32_t m_ChatMuted;
         int32_t m_ChatUnmuted;
+        int32_t m_ChatPinned;
+        int32_t m_ChatUnpinned;
         int32_t m_ChatDeleted;
         int32_t m_ChatClosed;
         int32_t m_ChatReopened;

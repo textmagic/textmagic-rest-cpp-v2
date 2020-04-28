@@ -34,6 +34,7 @@ Chat::Chat()
     m_From = utility::conversions::to_string_t("");
     m_MutedUntil = utility::datetime();
     m_TimeLeftMute = 0;
+    m_Pinned = false;
 }
 
 Chat::~Chat()
@@ -64,6 +65,7 @@ web::json::value Chat::toJson() const
     val[utility::conversions::to_string_t("mutedUntil")] = ModelBase::toJson(m_MutedUntil);
     val[utility::conversions::to_string_t("timeLeftMute")] = ModelBase::toJson(m_TimeLeftMute);
     val[utility::conversions::to_string_t("country")] = ModelBase::toJson(m_Country);
+    val[utility::conversions::to_string_t("pinned")] = ModelBase::toJson(m_Pinned);
 
     return val;
 }
@@ -194,6 +196,14 @@ void Chat::fromJson(web::json::value& val)
             setCountry( newItem );
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("pinned")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("pinned")];
+        if(!fieldValue.is_null())
+        {
+            setPinned(ModelBase::boolFromJson(fieldValue));
+        }
+    }
 }
 
 void Chat::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -219,6 +229,7 @@ void Chat::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utili
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("mutedUntil"), m_MutedUntil));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("timeLeftMute"), m_TimeLeftMute));
     m_Country->toMultipart(multipart, utility::conversions::to_string_t("country."));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("pinned"), m_Pinned));
 }
 
 void Chat::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -248,6 +259,7 @@ void Chat::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const uti
     std::shared_ptr<Country> newCountry(new Country());
     newCountry->fromMultiPart(multipart, utility::conversions::to_string_t("country."));
     setCountry( newCountry );
+    setPinned(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("pinned"))));
 }
 
 int32_t Chat::getId() const
@@ -413,6 +425,17 @@ std::shared_ptr<Country> Chat::getCountry() const
 void Chat::setCountry(std::shared_ptr<Country> value)
 {
     m_Country = value;
+    
+}
+bool Chat::isPinned() const
+{
+    return m_Pinned;
+}
+
+
+void Chat::setPinned(bool value)
+{
+    m_Pinned = value;
     
 }
 }
