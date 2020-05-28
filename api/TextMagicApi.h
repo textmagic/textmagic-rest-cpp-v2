@@ -1949,6 +1949,16 @@ public:
     pplx::task<std::shared_ptr<UploadMessageAttachmentResponse>> uploadMessageAttachment(
         std::shared_ptr<HttpContent> file
     );
+    /// <summary>
+    /// Upload message mms attachment
+    /// </summary>
+    /// <remarks>
+    /// Upload a new file to mms.
+    /// </remarks>
+    /// <param name="file">Attachment. Supports .jpg, .gif, .png, .pdf, .txt, .csv, .doc, .docx, .xls, .xlsx, .ppt, .pptx &amp; .vcf file formats.</param>
+    pplx::task<std::shared_ptr<UploadMessageAttachmentResponse>> uploadMessageMMSAttachment(
+        std::shared_ptr<HttpContent> file
+    );
 
 protected:
     std::shared_ptr<ApiClient> m_ApiClient;

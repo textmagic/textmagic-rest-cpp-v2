@@ -172,6 +172,20 @@ public:
     bool localCountryIsSet() const;
     void unsetLocalCountry();
     void setLocalCountry(utility::string_t value);
+    /// <summary>
+    /// Messsage destination type allowed [mms, tts].
+    /// </summary>
+    utility::string_t getDestination() const;
+    bool destinationIsSet() const;
+    void unsetDestination();
+    void setDestination(utility::string_t value);
+    /// <summary>
+    /// File name from mms attachment response (named as resource)
+    /// </summary>
+    utility::string_t getResources() const;
+    bool resourcesIsSet() const;
+    void unsetResources();
+    void setResources(utility::string_t value);
 
 protected:
     utility::string_t m_Text;
@@ -208,6 +222,10 @@ protected:
     bool m_LocalIsSet;
     utility::string_t m_LocalCountry;
     bool m_LocalCountryIsSet;
+    utility::string_t m_Destination;
+    bool m_DestinationIsSet;
+    utility::string_t m_Resources;
+    bool m_ResourcesIsSet;
 };
 
 }

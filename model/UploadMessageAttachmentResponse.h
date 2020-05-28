@@ -73,12 +73,18 @@ public:
     /// </summary>
     int32_t getSize() const;
         void setSize(int32_t value);
+    /// <summary>
+    /// Internal file name
+    /// </summary>
+    utility::string_t getResource() const;
+        void setResource(utility::string_t value);
 
 protected:
     int32_t m_Chars;
         utility::string_t m_Href;
         utility::string_t m_Name;
         int32_t m_Size;
+        utility::string_t m_Resource;
     };
 
 }

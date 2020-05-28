@@ -55,6 +55,10 @@ SendMessageInputObject::SendMessageInputObject()
     m_LocalIsSet = false;
     m_LocalCountry = utility::conversions::to_string_t("");
     m_LocalCountryIsSet = false;
+    m_Destination = utility::conversions::to_string_t("");
+    m_DestinationIsSet = false;
+    m_Resources = utility::conversions::to_string_t("");
+    m_ResourcesIsSet = false;
 }
 
 SendMessageInputObject::~SendMessageInputObject()
@@ -137,6 +141,14 @@ web::json::value SendMessageInputObject::toJson() const
     if(m_LocalCountryIsSet)
     {
         val[utility::conversions::to_string_t("localCountry")] = ModelBase::toJson(m_LocalCountry);
+    }
+    if(m_DestinationIsSet)
+    {
+        val[utility::conversions::to_string_t("destination")] = ModelBase::toJson(m_Destination);
+    }
+    if(m_ResourcesIsSet)
+    {
+        val[utility::conversions::to_string_t("resources")] = ModelBase::toJson(m_Resources);
     }
 
     return val;
@@ -280,6 +292,22 @@ void SendMessageInputObject::fromJson(web::json::value& val)
             setLocalCountry(ModelBase::stringFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("destination")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("destination")];
+        if(!fieldValue.is_null())
+        {
+            setDestination(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("resources")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("resources")];
+        if(!fieldValue.is_null())
+        {
+            setResources(ModelBase::stringFromJson(fieldValue));
+        }
+    }
 }
 
 void SendMessageInputObject::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -367,6 +395,16 @@ void SendMessageInputObject::toMultipart(std::shared_ptr<MultipartFormData> mult
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("localCountry"), m_LocalCountry));
         
     }
+    if(m_DestinationIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("destination"), m_Destination));
+        
+    }
+    if(m_ResourcesIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("resources"), m_Resources));
+        
+    }
 }
 
 void SendMessageInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -444,6 +482,14 @@ void SendMessageInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> mu
     if(multipart->hasContent(utility::conversions::to_string_t("localCountry")))
     {
         setLocalCountry(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("localCountry"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("destination")))
+    {
+        setDestination(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("destination"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("resources")))
+    {
+        setResources(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("resources"))));
     }
 }
 
@@ -802,6 +848,48 @@ bool SendMessageInputObject::localCountryIsSet() const
 void SendMessageInputObject::unsetLocalCountry()
 {
     m_LocalCountryIsSet = false;
+}
+
+utility::string_t SendMessageInputObject::getDestination() const
+{
+    return m_Destination;
+}
+
+
+void SendMessageInputObject::setDestination(utility::string_t value)
+{
+    m_Destination = value;
+    m_DestinationIsSet = true;
+}
+bool SendMessageInputObject::destinationIsSet() const
+{
+    return m_DestinationIsSet;
+}
+
+void SendMessageInputObject::unsetDestination()
+{
+    m_DestinationIsSet = false;
+}
+
+utility::string_t SendMessageInputObject::getResources() const
+{
+    return m_Resources;
+}
+
+
+void SendMessageInputObject::setResources(utility::string_t value)
+{
+    m_Resources = value;
+    m_ResourcesIsSet = true;
+}
+bool SendMessageInputObject::resourcesIsSet() const
+{
+    return m_ResourcesIsSet;
+}
+
+void SendMessageInputObject::unsetResources()
+{
+    m_ResourcesIsSet = false;
 }
 
 }

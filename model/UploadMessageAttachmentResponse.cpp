@@ -25,6 +25,7 @@ UploadMessageAttachmentResponse::UploadMessageAttachmentResponse()
     m_Href = utility::conversions::to_string_t("");
     m_Name = utility::conversions::to_string_t("");
     m_Size = 0;
+    m_Resource = utility::conversions::to_string_t("");
 }
 
 UploadMessageAttachmentResponse::~UploadMessageAttachmentResponse()
@@ -44,6 +45,7 @@ web::json::value UploadMessageAttachmentResponse::toJson() const
     val[utility::conversions::to_string_t("href")] = ModelBase::toJson(m_Href);
     val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
     val[utility::conversions::to_string_t("size")] = ModelBase::toJson(m_Size);
+    val[utility::conversions::to_string_t("resource")] = ModelBase::toJson(m_Resource);
 
     return val;
 }
@@ -82,6 +84,14 @@ void UploadMessageAttachmentResponse::fromJson(web::json::value& val)
             setSize(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("resource")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("resource")];
+        if(!fieldValue.is_null())
+        {
+            setResource(ModelBase::stringFromJson(fieldValue));
+        }
+    }
 }
 
 void UploadMessageAttachmentResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -96,6 +106,7 @@ void UploadMessageAttachmentResponse::toMultipart(std::shared_ptr<MultipartFormD
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("href"), m_Href));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("size"), m_Size));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("resource"), m_Resource));
 }
 
 void UploadMessageAttachmentResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -110,6 +121,7 @@ void UploadMessageAttachmentResponse::fromMultiPart(std::shared_ptr<MultipartFor
     setHref(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("href"))));
     setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
     setSize(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("size"))));
+    setResource(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("resource"))));
 }
 
 int32_t UploadMessageAttachmentResponse::getChars() const
@@ -154,6 +166,17 @@ int32_t UploadMessageAttachmentResponse::getSize() const
 void UploadMessageAttachmentResponse::setSize(int32_t value)
 {
     m_Size = value;
+    
+}
+utility::string_t UploadMessageAttachmentResponse::getResource() const
+{
+    return m_Resource;
+}
+
+
+void UploadMessageAttachmentResponse::setResource(utility::string_t value)
+{
+    m_Resource = value;
     
 }
 }
