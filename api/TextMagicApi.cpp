@@ -7008,7 +7008,7 @@ pplx::task<std::shared_ptr<Chat>> TextMagicApi::getChatByPhone(utility::string_t
         return result;
     });
 }
-pplx::task<std::shared_ptr<GetChatMessagesPaginatedResponse>> TextMagicApi::getChatMessages(int32_t id, boost::optional<int32_t> page, boost::optional<int32_t> limit, boost::optional<utility::string_t> query, boost::optional<int32_t> start, boost::optional<int32_t> end, boost::optional<utility::string_t> direction, boost::optional<int32_t> voice)
+pplx::task<std::shared_ptr<GetChatMessagesPaginatedResponse>> TextMagicApi::getChatMessages(int32_t id, boost::optional<int32_t> page, boost::optional<int32_t> limit, boost::optional<utility::string_t> query, boost::optional<utility::string_t> start, boost::optional<utility::string_t> end, boost::optional<utility::string_t> direction, boost::optional<int32_t> voice)
 {
 
 

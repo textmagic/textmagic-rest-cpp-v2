@@ -827,8 +827,8 @@ public:
     /// <param name="page">Fetch specified results page. (optional, default to 1)</param>
     /// <param name="limit">The number of results per page. (optional, default to 10)</param>
     /// <param name="query">Find messages by specified search query. (optional)</param>
-    /// <param name="start">Return messages since specified timestamp only. (optional)</param>
-    /// <param name="end">Return messages up to specified timestamp only. (optional)</param>
+    /// <param name="start">Return messages since specified timestamp only. Required when &#x60;end&#x60; parameter specified. (optional)</param>
+    /// <param name="end">Return messages up to specified timestamp only. Required when &#x60;start&#x60; parameter specified. (optional)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     /// <param name="voice">Fetch results with voice calls. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetChatMessagesPaginatedResponse>> getChatMessages(
@@ -836,8 +836,8 @@ public:
         boost::optional<int32_t> page,
         boost::optional<int32_t> limit,
         boost::optional<utility::string_t> query,
-        boost::optional<int32_t> start,
-        boost::optional<int32_t> end,
+        boost::optional<utility::string_t> start,
+        boost::optional<utility::string_t> end,
         boost::optional<utility::string_t> direction,
         boost::optional<int32_t> voice
     );
