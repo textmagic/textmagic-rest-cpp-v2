@@ -22,6 +22,7 @@
 
 #include "../ModelBase.h"
 
+#include <cpprest/details/basic_types.h>
 
 namespace com {
 namespace textmagic {
@@ -55,23 +56,23 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    int32_t getIos() const;
-        void setIos(int32_t value);
+    utility::string_t getIos() const;
+        void setIos(utility::string_t value);
     /// <summary>
     /// 
     /// </summary>
-    int32_t getAndroid() const;
-        void setAndroid(int32_t value);
+    utility::string_t getAndroid() const;
+        void setAndroid(utility::string_t value);
     /// <summary>
     /// 
     /// </summary>
-    int32_t getDesktop() const;
-        void setDesktop(int32_t value);
+    utility::string_t getDesktop() const;
+        void setDesktop(utility::string_t value);
 
 protected:
-    int32_t m_Ios;
-        int32_t m_Android;
-        int32_t m_Desktop;
+    utility::string_t m_Ios;
+        utility::string_t m_Android;
+        utility::string_t m_Desktop;
     };
 
 }

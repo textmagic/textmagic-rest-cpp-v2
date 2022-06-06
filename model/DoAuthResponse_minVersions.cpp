@@ -21,9 +21,9 @@ namespace model {
 
 DoAuthResponse_minVersions::DoAuthResponse_minVersions()
 {
-    m_Ios = 0;
-    m_Android = 0;
-    m_Desktop = 0;
+    m_Ios = utility::conversions::to_string_t("");
+    m_Android = utility::conversions::to_string_t("");
+    m_Desktop = utility::conversions::to_string_t("");
 }
 
 DoAuthResponse_minVersions::~DoAuthResponse_minVersions()
@@ -53,7 +53,7 @@ void DoAuthResponse_minVersions::fromJson(web::json::value& val)
         web::json::value& fieldValue = val[utility::conversions::to_string_t("ios")];
         if(!fieldValue.is_null())
         {
-            setIos(ModelBase::int32_tFromJson(fieldValue));
+            setIos(ModelBase::stringFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("android")))
@@ -61,7 +61,7 @@ void DoAuthResponse_minVersions::fromJson(web::json::value& val)
         web::json::value& fieldValue = val[utility::conversions::to_string_t("android")];
         if(!fieldValue.is_null())
         {
-            setAndroid(ModelBase::int32_tFromJson(fieldValue));
+            setAndroid(ModelBase::stringFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("desktop")))
@@ -69,7 +69,7 @@ void DoAuthResponse_minVersions::fromJson(web::json::value& val)
         web::json::value& fieldValue = val[utility::conversions::to_string_t("desktop")];
         if(!fieldValue.is_null())
         {
-            setDesktop(ModelBase::int32_tFromJson(fieldValue));
+            setDesktop(ModelBase::stringFromJson(fieldValue));
         }
     }
 }
@@ -95,40 +95,40 @@ void DoAuthResponse_minVersions::fromMultiPart(std::shared_ptr<MultipartFormData
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setIos(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ios"))));
-    setAndroid(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("android"))));
-    setDesktop(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("desktop"))));
+    setIos(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ios"))));
+    setAndroid(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("android"))));
+    setDesktop(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("desktop"))));
 }
 
-int32_t DoAuthResponse_minVersions::getIos() const
+utility::string_t DoAuthResponse_minVersions::getIos() const
 {
     return m_Ios;
 }
 
 
-void DoAuthResponse_minVersions::setIos(int32_t value)
+void DoAuthResponse_minVersions::setIos(utility::string_t value)
 {
     m_Ios = value;
     
 }
-int32_t DoAuthResponse_minVersions::getAndroid() const
+utility::string_t DoAuthResponse_minVersions::getAndroid() const
 {
     return m_Android;
 }
 
 
-void DoAuthResponse_minVersions::setAndroid(int32_t value)
+void DoAuthResponse_minVersions::setAndroid(utility::string_t value)
 {
     m_Android = value;
     
 }
-int32_t DoAuthResponse_minVersions::getDesktop() const
+utility::string_t DoAuthResponse_minVersions::getDesktop() const
 {
     return m_Desktop;
 }
 
 
-void DoAuthResponse_minVersions::setDesktop(int32_t value)
+void DoAuthResponse_minVersions::setDesktop(utility::string_t value)
 {
     m_Desktop = value;
     

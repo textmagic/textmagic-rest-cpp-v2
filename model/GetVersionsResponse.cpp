@@ -21,9 +21,9 @@ namespace model {
 
 GetVersionsResponse::GetVersionsResponse()
 {
-    m_Ios = 0;
-    m_Android = 0;
-    m_Desktop = 0;
+    m_Ios = utility::conversions::to_string_t("");
+    m_Android = utility::conversions::to_string_t("");
+    m_Desktop = utility::conversions::to_string_t("");
 }
 
 GetVersionsResponse::~GetVersionsResponse()
@@ -53,7 +53,7 @@ void GetVersionsResponse::fromJson(web::json::value& val)
         web::json::value& fieldValue = val[utility::conversions::to_string_t("ios")];
         if(!fieldValue.is_null())
         {
-            setIos(ModelBase::int32_tFromJson(fieldValue));
+            setIos(ModelBase::stringFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("android")))
@@ -61,7 +61,7 @@ void GetVersionsResponse::fromJson(web::json::value& val)
         web::json::value& fieldValue = val[utility::conversions::to_string_t("android")];
         if(!fieldValue.is_null())
         {
-            setAndroid(ModelBase::int32_tFromJson(fieldValue));
+            setAndroid(ModelBase::stringFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("desktop")))
@@ -69,7 +69,7 @@ void GetVersionsResponse::fromJson(web::json::value& val)
         web::json::value& fieldValue = val[utility::conversions::to_string_t("desktop")];
         if(!fieldValue.is_null())
         {
-            setDesktop(ModelBase::int32_tFromJson(fieldValue));
+            setDesktop(ModelBase::stringFromJson(fieldValue));
         }
     }
 }
@@ -95,40 +95,40 @@ void GetVersionsResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multi
         namePrefix += utility::conversions::to_string_t(".");
     }
 
-    setIos(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ios"))));
-    setAndroid(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("android"))));
-    setDesktop(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("desktop"))));
+    setIos(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ios"))));
+    setAndroid(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("android"))));
+    setDesktop(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("desktop"))));
 }
 
-int32_t GetVersionsResponse::getIos() const
+utility::string_t GetVersionsResponse::getIos() const
 {
     return m_Ios;
 }
 
 
-void GetVersionsResponse::setIos(int32_t value)
+void GetVersionsResponse::setIos(utility::string_t value)
 {
     m_Ios = value;
     
 }
-int32_t GetVersionsResponse::getAndroid() const
+utility::string_t GetVersionsResponse::getAndroid() const
 {
     return m_Android;
 }
 
 
-void GetVersionsResponse::setAndroid(int32_t value)
+void GetVersionsResponse::setAndroid(utility::string_t value)
 {
     m_Android = value;
     
 }
-int32_t GetVersionsResponse::getDesktop() const
+utility::string_t GetVersionsResponse::getDesktop() const
 {
     return m_Desktop;
 }
 
 
-void GetVersionsResponse::setDesktop(int32_t value)
+void GetVersionsResponse::setDesktop(utility::string_t value)
 {
     m_Desktop = value;
     
