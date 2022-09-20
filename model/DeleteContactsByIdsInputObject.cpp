@@ -23,7 +23,7 @@ DeleteContactsByIdsInputObject::DeleteContactsByIdsInputObject()
 {
     m_Ids = utility::conversions::to_string_t("");
     m_IdsIsSet = false;
-    m_All = false;
+    m_All = 0;
     m_AllIsSet = false;
 }
 
@@ -67,7 +67,7 @@ void DeleteContactsByIdsInputObject::fromJson(web::json::value& val)
         web::json::value& fieldValue = val[utility::conversions::to_string_t("all")];
         if(!fieldValue.is_null())
         {
-            setAll(ModelBase::boolFromJson(fieldValue));
+            setAll(ModelBase::int32_tFromJson(fieldValue));
         }
     }
 }
@@ -105,7 +105,7 @@ void DeleteContactsByIdsInputObject::fromMultiPart(std::shared_ptr<MultipartForm
     }
     if(multipart->hasContent(utility::conversions::to_string_t("all")))
     {
-        setAll(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("all"))));
+        setAll(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("all"))));
     }
 }
 
@@ -130,13 +130,13 @@ void DeleteContactsByIdsInputObject::unsetIds()
     m_IdsIsSet = false;
 }
 
-bool DeleteContactsByIdsInputObject::isAll() const
+int32_t DeleteContactsByIdsInputObject::getAll() const
 {
     return m_All;
 }
 
 
-void DeleteContactsByIdsInputObject::setAll(bool value)
+void DeleteContactsByIdsInputObject::setAll(int32_t value)
 {
     m_All = value;
     m_AllIsSet = true;

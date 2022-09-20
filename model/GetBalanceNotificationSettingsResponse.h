@@ -61,8 +61,8 @@ public:
     /// <summary>
     /// If balance is below this value, user receive low balance notification.
     /// </summary>
-    utility::string_t getAlertBalance() const;
-        void setAlertBalance(utility::string_t value);
+    double getAlertBalance() const;
+        void setAlertBalance(double value);
     /// <summary>
     /// Low balance notification phone number.
     /// </summary>
@@ -86,7 +86,7 @@ public:
 
 protected:
     bool m_LowBalanceNotification;
-        utility::string_t m_AlertBalance;
+        double m_AlertBalance;
         utility::string_t m_AlertPhone;
         utility::string_t m_AlertEmail1;
         utility::string_t m_AlertEmail2;

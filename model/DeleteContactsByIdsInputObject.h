@@ -61,17 +61,17 @@ public:
     void unsetIds();
     void setIds(utility::string_t value);
     /// <summary>
-    /// Entity ID(s), separated by comma.
+    /// Optional. Default is 0 (false). If set to 1 all the entities will be removed.
     /// </summary>
-    bool isAll() const;
+    int32_t getAll() const;
     bool allIsSet() const;
     void unsetAll();
-    void setAll(bool value);
+    void setAll(int32_t value);
 
 protected:
     utility::string_t m_Ids;
     bool m_IdsIsSet;
-    bool m_All;
+    int32_t m_All;
     bool m_AllIsSet;
 };
 

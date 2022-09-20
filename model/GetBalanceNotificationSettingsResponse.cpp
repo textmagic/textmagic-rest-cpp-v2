@@ -22,7 +22,7 @@ namespace model {
 GetBalanceNotificationSettingsResponse::GetBalanceNotificationSettingsResponse()
 {
     m_LowBalanceNotification = false;
-    m_AlertBalance = utility::conversions::to_string_t("");
+    m_AlertBalance = 0.0;
     m_AlertPhone = utility::conversions::to_string_t("");
     m_AlertEmail1 = utility::conversions::to_string_t("");
     m_AlertEmail2 = utility::conversions::to_string_t("");
@@ -67,7 +67,7 @@ void GetBalanceNotificationSettingsResponse::fromJson(web::json::value& val)
         web::json::value& fieldValue = val[utility::conversions::to_string_t("alertBalance")];
         if(!fieldValue.is_null())
         {
-            setAlertBalance(ModelBase::stringFromJson(fieldValue));
+            setAlertBalance(ModelBase::doubleFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("alertPhone")))
@@ -129,7 +129,7 @@ void GetBalanceNotificationSettingsResponse::fromMultiPart(std::shared_ptr<Multi
     }
 
     setLowBalanceNotification(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lowBalanceNotification"))));
-    setAlertBalance(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertBalance"))));
+    setAlertBalance(ModelBase::doubleFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertBalance"))));
     setAlertPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertPhone"))));
     setAlertEmail1(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertEmail1"))));
     setAlertEmail2(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("alertEmail2"))));
@@ -147,13 +147,13 @@ void GetBalanceNotificationSettingsResponse::setLowBalanceNotification(bool valu
     m_LowBalanceNotification = value;
     
 }
-utility::string_t GetBalanceNotificationSettingsResponse::getAlertBalance() const
+double GetBalanceNotificationSettingsResponse::getAlertBalance() const
 {
     return m_AlertBalance;
 }
 
 
-void GetBalanceNotificationSettingsResponse::setAlertBalance(utility::string_t value)
+void GetBalanceNotificationSettingsResponse::setAlertBalance(double value)
 {
     m_AlertBalance = value;
     
