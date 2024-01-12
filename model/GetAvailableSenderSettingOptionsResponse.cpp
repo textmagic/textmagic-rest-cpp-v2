@@ -68,6 +68,22 @@ web::json::value GetAvailableSenderSettingOptionsResponse::toJson() const
         }
         val[utility::conversions::to_string_t("senderIds")] = web::json::value::array(jsonArray);
     }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UserCarrierTwilio )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        val[utility::conversions::to_string_t("userCarrierTwilio")] = web::json::value::array(jsonArray);
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UserCarrierVonage )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        val[utility::conversions::to_string_t("userCarrierVonage")] = web::json::value::array(jsonArray);
+    }
 
     return val;
 }
@@ -118,6 +134,28 @@ void GetAvailableSenderSettingOptionsResponse::fromJson(web::json::value& val)
         }
         }
     }
+    {
+        m_UserCarrierTwilio.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("userCarrierTwilio")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("userCarrierTwilio")].as_array() )
+        {
+            m_UserCarrierTwilio.push_back(ModelBase::stringFromJson(item));
+        }
+        }
+    }
+    {
+        m_UserCarrierVonage.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("userCarrierVonage")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("userCarrierVonage")].as_array() )
+        {
+            m_UserCarrierVonage.push_back(ModelBase::stringFromJson(item));
+        }
+        }
+    }
 }
 
 void GetAvailableSenderSettingOptionsResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -159,6 +197,22 @@ void GetAvailableSenderSettingOptionsResponse::toMultipart(std::shared_ptr<Multi
             jsonArray.push_back(ModelBase::toJson(item));
         }
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("senderIds"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+            }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UserCarrierTwilio )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userCarrierTwilio"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+            }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UserCarrierVonage )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userCarrierVonage"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
             }
 }
 
@@ -206,6 +260,24 @@ void GetAvailableSenderSettingOptionsResponse::fromMultiPart(std::shared_ptr<Mul
             m_SenderIds.push_back(ModelBase::stringFromJson(item));
         }
     }
+    {
+        m_UserCarrierTwilio.clear();
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userCarrierTwilio"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            m_UserCarrierTwilio.push_back(ModelBase::stringFromJson(item));
+        }
+    }
+    {
+        m_UserCarrierVonage.clear();
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userCarrierVonage"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            m_UserCarrierVonage.push_back(ModelBase::stringFromJson(item));
+        }
+    }
 }
 
 std::vector<utility::string_t>& GetAvailableSenderSettingOptionsResponse::getDedicated()
@@ -246,6 +318,26 @@ std::vector<utility::string_t>& GetAvailableSenderSettingOptionsResponse::getSen
 void GetAvailableSenderSettingOptionsResponse::setSenderIds(std::vector<utility::string_t> value)
 {
     m_SenderIds = value;
+    
+}
+std::vector<utility::string_t>& GetAvailableSenderSettingOptionsResponse::getUserCarrierTwilio()
+{
+    return m_UserCarrierTwilio;
+}
+
+void GetAvailableSenderSettingOptionsResponse::setUserCarrierTwilio(std::vector<utility::string_t> value)
+{
+    m_UserCarrierTwilio = value;
+    
+}
+std::vector<utility::string_t>& GetAvailableSenderSettingOptionsResponse::getUserCarrierVonage()
+{
+    return m_UserCarrierVonage;
+}
+
+void GetAvailableSenderSettingOptionsResponse::setUserCarrierVonage(std::vector<utility::string_t> value)
+{
+    m_UserCarrierVonage = value;
     
 }
 }

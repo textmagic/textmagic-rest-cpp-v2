@@ -25,6 +25,9 @@ GetStateResponse::GetStateResponse()
     m_SystemExit = 0;
     m_SystemAlert = 0;
     m_SystemAccountStateChanged = 0;
+    m_SystemAccountAdditionalFields = 0;
+    m_SystemAccountPermissionsChanged = 0;
+    m_UserBalanceChanged = 0;
     m_MessageDeleted = 0;
     m_MessageIncoming = 0;
     m_MessageIncomingDeleted = 0;
@@ -38,6 +41,7 @@ GetStateResponse::GetStateResponse()
     m_MessageScheduleAdded = 0;
     m_MessageScheduleStateChanged = 0;
     m_MessageScheduleDeleted = 0;
+    m_MessageScheduleNotSentStateChanged = 0;
     m_MessageScheduleCacheClear = 0;
     m_MessageTemplateCacheClear = 0;
     m_CallFinished = 0;
@@ -51,6 +55,8 @@ GetStateResponse::GetStateResponse()
     m_ChatClosed = 0;
     m_ChatReopened = 0;
     m_ChatCacheClear = 0;
+    m_ChatRead = 0;
+    m_ChatUnread = 0;
     m_ContactAdded = 0;
     m_ContactDeleted = 0;
     m_ContactStateChanged = 0;
@@ -62,6 +68,14 @@ GetStateResponse::GetStateResponse()
     m_ContactCacheClear = 0;
     m_ListCacheClear = 0;
     m_CustomFieldsCacheClear = 0;
+    m_ProgressCarrierBulkLookup = 0;
+    m_ProgressEmailBulkLookup = 0;
+    m_ProgressSubAccountBulkImport = 0;
+    m_ProgressContactBulkImport = 0;
+    m_ForceRefreshWebApp = 0;
+    m_ChatSenderSettingsChanged = 0;
+    m_CountrySenderSettingsChanged = 0;
+    m_ChatSuggestedReplyChunk = 0;
 }
 
 GetStateResponse::~GetStateResponse()
@@ -81,6 +95,9 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("systemExit")] = ModelBase::toJson(m_SystemExit);
     val[utility::conversions::to_string_t("systemAlert")] = ModelBase::toJson(m_SystemAlert);
     val[utility::conversions::to_string_t("systemAccountStateChanged")] = ModelBase::toJson(m_SystemAccountStateChanged);
+    val[utility::conversions::to_string_t("systemAccountAdditionalFields")] = ModelBase::toJson(m_SystemAccountAdditionalFields);
+    val[utility::conversions::to_string_t("systemAccountPermissionsChanged")] = ModelBase::toJson(m_SystemAccountPermissionsChanged);
+    val[utility::conversions::to_string_t("userBalanceChanged")] = ModelBase::toJson(m_UserBalanceChanged);
     val[utility::conversions::to_string_t("messageDeleted")] = ModelBase::toJson(m_MessageDeleted);
     val[utility::conversions::to_string_t("messageIncoming")] = ModelBase::toJson(m_MessageIncoming);
     val[utility::conversions::to_string_t("messageIncomingDeleted")] = ModelBase::toJson(m_MessageIncomingDeleted);
@@ -94,6 +111,7 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("messageScheduleAdded")] = ModelBase::toJson(m_MessageScheduleAdded);
     val[utility::conversions::to_string_t("messageScheduleStateChanged")] = ModelBase::toJson(m_MessageScheduleStateChanged);
     val[utility::conversions::to_string_t("messageScheduleDeleted")] = ModelBase::toJson(m_MessageScheduleDeleted);
+    val[utility::conversions::to_string_t("messageScheduleNotSentStateChanged")] = ModelBase::toJson(m_MessageScheduleNotSentStateChanged);
     val[utility::conversions::to_string_t("messageScheduleCacheClear")] = ModelBase::toJson(m_MessageScheduleCacheClear);
     val[utility::conversions::to_string_t("messageTemplateCacheClear")] = ModelBase::toJson(m_MessageTemplateCacheClear);
     val[utility::conversions::to_string_t("callFinished")] = ModelBase::toJson(m_CallFinished);
@@ -107,6 +125,8 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("chatClosed")] = ModelBase::toJson(m_ChatClosed);
     val[utility::conversions::to_string_t("chatReopened")] = ModelBase::toJson(m_ChatReopened);
     val[utility::conversions::to_string_t("chatCacheClear")] = ModelBase::toJson(m_ChatCacheClear);
+    val[utility::conversions::to_string_t("chatRead")] = ModelBase::toJson(m_ChatRead);
+    val[utility::conversions::to_string_t("chatUnread")] = ModelBase::toJson(m_ChatUnread);
     val[utility::conversions::to_string_t("contactAdded")] = ModelBase::toJson(m_ContactAdded);
     val[utility::conversions::to_string_t("contactDeleted")] = ModelBase::toJson(m_ContactDeleted);
     val[utility::conversions::to_string_t("contactStateChanged")] = ModelBase::toJson(m_ContactStateChanged);
@@ -118,6 +138,14 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("contactCacheClear")] = ModelBase::toJson(m_ContactCacheClear);
     val[utility::conversions::to_string_t("listCacheClear")] = ModelBase::toJson(m_ListCacheClear);
     val[utility::conversions::to_string_t("customFieldsCacheClear")] = ModelBase::toJson(m_CustomFieldsCacheClear);
+    val[utility::conversions::to_string_t("progressCarrierBulkLookup")] = ModelBase::toJson(m_ProgressCarrierBulkLookup);
+    val[utility::conversions::to_string_t("progressEmailBulkLookup")] = ModelBase::toJson(m_ProgressEmailBulkLookup);
+    val[utility::conversions::to_string_t("progressSubAccountBulkImport")] = ModelBase::toJson(m_ProgressSubAccountBulkImport);
+    val[utility::conversions::to_string_t("progressContactBulkImport")] = ModelBase::toJson(m_ProgressContactBulkImport);
+    val[utility::conversions::to_string_t("forceRefreshWebApp")] = ModelBase::toJson(m_ForceRefreshWebApp);
+    val[utility::conversions::to_string_t("chatSenderSettingsChanged")] = ModelBase::toJson(m_ChatSenderSettingsChanged);
+    val[utility::conversions::to_string_t("countrySenderSettingsChanged")] = ModelBase::toJson(m_CountrySenderSettingsChanged);
+    val[utility::conversions::to_string_t("chatSuggestedReplyChunk")] = ModelBase::toJson(m_ChatSuggestedReplyChunk);
 
     return val;
 }
@@ -154,6 +182,30 @@ void GetStateResponse::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setSystemAccountStateChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("systemAccountAdditionalFields")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("systemAccountAdditionalFields")];
+        if(!fieldValue.is_null())
+        {
+            setSystemAccountAdditionalFields(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("systemAccountPermissionsChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("systemAccountPermissionsChanged")];
+        if(!fieldValue.is_null())
+        {
+            setSystemAccountPermissionsChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("userBalanceChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("userBalanceChanged")];
+        if(!fieldValue.is_null())
+        {
+            setUserBalanceChanged(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("messageDeleted")))
@@ -260,6 +312,14 @@ void GetStateResponse::fromJson(web::json::value& val)
             setMessageScheduleDeleted(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("messageScheduleNotSentStateChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("messageScheduleNotSentStateChanged")];
+        if(!fieldValue.is_null())
+        {
+            setMessageScheduleNotSentStateChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("messageScheduleCacheClear")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("messageScheduleCacheClear")];
@@ -364,6 +424,22 @@ void GetStateResponse::fromJson(web::json::value& val)
             setChatCacheClear(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("chatRead")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatRead")];
+        if(!fieldValue.is_null())
+        {
+            setChatRead(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatUnread")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatUnread")];
+        if(!fieldValue.is_null())
+        {
+            setChatUnread(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("contactAdded")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("contactAdded")];
@@ -452,6 +528,70 @@ void GetStateResponse::fromJson(web::json::value& val)
             setCustomFieldsCacheClear(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("progressCarrierBulkLookup")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("progressCarrierBulkLookup")];
+        if(!fieldValue.is_null())
+        {
+            setProgressCarrierBulkLookup(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("progressEmailBulkLookup")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("progressEmailBulkLookup")];
+        if(!fieldValue.is_null())
+        {
+            setProgressEmailBulkLookup(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("progressSubAccountBulkImport")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("progressSubAccountBulkImport")];
+        if(!fieldValue.is_null())
+        {
+            setProgressSubAccountBulkImport(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("progressContactBulkImport")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("progressContactBulkImport")];
+        if(!fieldValue.is_null())
+        {
+            setProgressContactBulkImport(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("forceRefreshWebApp")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("forceRefreshWebApp")];
+        if(!fieldValue.is_null())
+        {
+            setForceRefreshWebApp(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatSenderSettingsChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatSenderSettingsChanged")];
+        if(!fieldValue.is_null())
+        {
+            setChatSenderSettingsChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("countrySenderSettingsChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("countrySenderSettingsChanged")];
+        if(!fieldValue.is_null())
+        {
+            setCountrySenderSettingsChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatSuggestedReplyChunk")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatSuggestedReplyChunk")];
+        if(!fieldValue.is_null())
+        {
+            setChatSuggestedReplyChunk(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
 }
 
 void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -466,6 +606,9 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemExit"), m_SystemExit));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAlert"), m_SystemAlert));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountStateChanged"), m_SystemAccountStateChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountAdditionalFields"), m_SystemAccountAdditionalFields));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountPermissionsChanged"), m_SystemAccountPermissionsChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userBalanceChanged"), m_UserBalanceChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageDeleted"), m_MessageDeleted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageIncoming"), m_MessageIncoming));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageIncomingDeleted"), m_MessageIncomingDeleted));
@@ -479,6 +622,7 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageScheduleAdded"), m_MessageScheduleAdded));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageScheduleStateChanged"), m_MessageScheduleStateChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageScheduleDeleted"), m_MessageScheduleDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageScheduleNotSentStateChanged"), m_MessageScheduleNotSentStateChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageScheduleCacheClear"), m_MessageScheduleCacheClear));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageTemplateCacheClear"), m_MessageTemplateCacheClear));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("callFinished"), m_CallFinished));
@@ -492,6 +636,8 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatClosed"), m_ChatClosed));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatReopened"), m_ChatReopened));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatCacheClear"), m_ChatCacheClear));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatRead"), m_ChatRead));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatUnread"), m_ChatUnread));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactAdded"), m_ContactAdded));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactDeleted"), m_ContactDeleted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactStateChanged"), m_ContactStateChanged));
@@ -503,6 +649,14 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactCacheClear"), m_ContactCacheClear));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("listCacheClear"), m_ListCacheClear));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("customFieldsCacheClear"), m_CustomFieldsCacheClear));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressCarrierBulkLookup"), m_ProgressCarrierBulkLookup));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressEmailBulkLookup"), m_ProgressEmailBulkLookup));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressSubAccountBulkImport"), m_ProgressSubAccountBulkImport));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressContactBulkImport"), m_ProgressContactBulkImport));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("forceRefreshWebApp"), m_ForceRefreshWebApp));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatSenderSettingsChanged"), m_ChatSenderSettingsChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("countrySenderSettingsChanged"), m_CountrySenderSettingsChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatSuggestedReplyChunk"), m_ChatSuggestedReplyChunk));
 }
 
 void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -517,6 +671,9 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setSystemExit(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemExit"))));
     setSystemAlert(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAlert"))));
     setSystemAccountStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountStateChanged"))));
+    setSystemAccountAdditionalFields(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountAdditionalFields"))));
+    setSystemAccountPermissionsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountPermissionsChanged"))));
+    setUserBalanceChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userBalanceChanged"))));
     setMessageDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageDeleted"))));
     setMessageIncoming(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageIncoming"))));
     setMessageIncomingDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageIncomingDeleted"))));
@@ -530,6 +687,7 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setMessageScheduleAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageScheduleAdded"))));
     setMessageScheduleStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageScheduleStateChanged"))));
     setMessageScheduleDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageScheduleDeleted"))));
+    setMessageScheduleNotSentStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageScheduleNotSentStateChanged"))));
     setMessageScheduleCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageScheduleCacheClear"))));
     setMessageTemplateCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageTemplateCacheClear"))));
     setCallFinished(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("callFinished"))));
@@ -543,6 +701,8 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setChatClosed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatClosed"))));
     setChatReopened(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatReopened"))));
     setChatCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatCacheClear"))));
+    setChatRead(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatRead"))));
+    setChatUnread(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatUnread"))));
     setContactAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactAdded"))));
     setContactDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactDeleted"))));
     setContactStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactStateChanged"))));
@@ -554,6 +714,14 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setContactCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactCacheClear"))));
     setListCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("listCacheClear"))));
     setCustomFieldsCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("customFieldsCacheClear"))));
+    setProgressCarrierBulkLookup(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressCarrierBulkLookup"))));
+    setProgressEmailBulkLookup(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressEmailBulkLookup"))));
+    setProgressSubAccountBulkImport(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressSubAccountBulkImport"))));
+    setProgressContactBulkImport(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressContactBulkImport"))));
+    setForceRefreshWebApp(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("forceRefreshWebApp"))));
+    setChatSenderSettingsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatSenderSettingsChanged"))));
+    setCountrySenderSettingsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("countrySenderSettingsChanged"))));
+    setChatSuggestedReplyChunk(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatSuggestedReplyChunk"))));
 }
 
 int32_t GetStateResponse::getSystemCacheClear() const
@@ -598,6 +766,39 @@ int32_t GetStateResponse::getSystemAccountStateChanged() const
 void GetStateResponse::setSystemAccountStateChanged(int32_t value)
 {
     m_SystemAccountStateChanged = value;
+    
+}
+int32_t GetStateResponse::getSystemAccountAdditionalFields() const
+{
+    return m_SystemAccountAdditionalFields;
+}
+
+
+void GetStateResponse::setSystemAccountAdditionalFields(int32_t value)
+{
+    m_SystemAccountAdditionalFields = value;
+    
+}
+int32_t GetStateResponse::getSystemAccountPermissionsChanged() const
+{
+    return m_SystemAccountPermissionsChanged;
+}
+
+
+void GetStateResponse::setSystemAccountPermissionsChanged(int32_t value)
+{
+    m_SystemAccountPermissionsChanged = value;
+    
+}
+int32_t GetStateResponse::getUserBalanceChanged() const
+{
+    return m_UserBalanceChanged;
+}
+
+
+void GetStateResponse::setUserBalanceChanged(int32_t value)
+{
+    m_UserBalanceChanged = value;
     
 }
 int32_t GetStateResponse::getMessageDeleted() const
@@ -743,6 +944,17 @@ void GetStateResponse::setMessageScheduleDeleted(int32_t value)
     m_MessageScheduleDeleted = value;
     
 }
+int32_t GetStateResponse::getMessageScheduleNotSentStateChanged() const
+{
+    return m_MessageScheduleNotSentStateChanged;
+}
+
+
+void GetStateResponse::setMessageScheduleNotSentStateChanged(int32_t value)
+{
+    m_MessageScheduleNotSentStateChanged = value;
+    
+}
 int32_t GetStateResponse::getMessageScheduleCacheClear() const
 {
     return m_MessageScheduleCacheClear;
@@ -886,6 +1098,28 @@ void GetStateResponse::setChatCacheClear(int32_t value)
     m_ChatCacheClear = value;
     
 }
+int32_t GetStateResponse::getChatRead() const
+{
+    return m_ChatRead;
+}
+
+
+void GetStateResponse::setChatRead(int32_t value)
+{
+    m_ChatRead = value;
+    
+}
+int32_t GetStateResponse::getChatUnread() const
+{
+    return m_ChatUnread;
+}
+
+
+void GetStateResponse::setChatUnread(int32_t value)
+{
+    m_ChatUnread = value;
+    
+}
 int32_t GetStateResponse::getContactAdded() const
 {
     return m_ContactAdded;
@@ -1005,6 +1239,94 @@ int32_t GetStateResponse::getCustomFieldsCacheClear() const
 void GetStateResponse::setCustomFieldsCacheClear(int32_t value)
 {
     m_CustomFieldsCacheClear = value;
+    
+}
+int32_t GetStateResponse::getProgressCarrierBulkLookup() const
+{
+    return m_ProgressCarrierBulkLookup;
+}
+
+
+void GetStateResponse::setProgressCarrierBulkLookup(int32_t value)
+{
+    m_ProgressCarrierBulkLookup = value;
+    
+}
+int32_t GetStateResponse::getProgressEmailBulkLookup() const
+{
+    return m_ProgressEmailBulkLookup;
+}
+
+
+void GetStateResponse::setProgressEmailBulkLookup(int32_t value)
+{
+    m_ProgressEmailBulkLookup = value;
+    
+}
+int32_t GetStateResponse::getProgressSubAccountBulkImport() const
+{
+    return m_ProgressSubAccountBulkImport;
+}
+
+
+void GetStateResponse::setProgressSubAccountBulkImport(int32_t value)
+{
+    m_ProgressSubAccountBulkImport = value;
+    
+}
+int32_t GetStateResponse::getProgressContactBulkImport() const
+{
+    return m_ProgressContactBulkImport;
+}
+
+
+void GetStateResponse::setProgressContactBulkImport(int32_t value)
+{
+    m_ProgressContactBulkImport = value;
+    
+}
+int32_t GetStateResponse::getForceRefreshWebApp() const
+{
+    return m_ForceRefreshWebApp;
+}
+
+
+void GetStateResponse::setForceRefreshWebApp(int32_t value)
+{
+    m_ForceRefreshWebApp = value;
+    
+}
+int32_t GetStateResponse::getChatSenderSettingsChanged() const
+{
+    return m_ChatSenderSettingsChanged;
+}
+
+
+void GetStateResponse::setChatSenderSettingsChanged(int32_t value)
+{
+    m_ChatSenderSettingsChanged = value;
+    
+}
+int32_t GetStateResponse::getCountrySenderSettingsChanged() const
+{
+    return m_CountrySenderSettingsChanged;
+}
+
+
+void GetStateResponse::setCountrySenderSettingsChanged(int32_t value)
+{
+    m_CountrySenderSettingsChanged = value;
+    
+}
+int32_t GetStateResponse::getChatSuggestedReplyChunk() const
+{
+    return m_ChatSuggestedReplyChunk;
+}
+
+
+void GetStateResponse::setChatSuggestedReplyChunk(int32_t value)
+{
+    m_ChatSuggestedReplyChunk = value;
     
 }
 }

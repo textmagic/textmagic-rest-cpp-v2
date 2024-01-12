@@ -111,6 +111,11 @@ public:
     utility::string_t getDirection() const;
         void setDirection(utility::string_t value);
     /// <summary>
+    /// Used for chats prices.
+    /// </summary>
+    utility::string_t getReplyOptionsType() const;
+        void setReplyOptionsType(utility::string_t value);
+    /// <summary>
     /// If filled, the value will be used as a sender number for all outgoing messages of a chat.
     /// </summary>
     utility::string_t getFrom() const;
@@ -148,6 +153,7 @@ protected:
         int32_t m_Mute;
         utility::string_t m_LastMessage;
         utility::string_t m_Direction;
+        utility::string_t m_ReplyOptionsType;
         utility::string_t m_From;
         utility::datetime m_MutedUntil;
         int32_t m_TimeLeftMute;

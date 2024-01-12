@@ -31,6 +31,7 @@ Chat::Chat()
     m_Mute = 0;
     m_LastMessage = utility::conversions::to_string_t("");
     m_Direction = utility::conversions::to_string_t("");
+    m_ReplyOptionsType = utility::conversions::to_string_t("");
     m_From = utility::conversions::to_string_t("");
     m_MutedUntil = utility::datetime();
     m_TimeLeftMute = 0;
@@ -61,6 +62,7 @@ web::json::value Chat::toJson() const
     val[utility::conversions::to_string_t("mute")] = ModelBase::toJson(m_Mute);
     val[utility::conversions::to_string_t("lastMessage")] = ModelBase::toJson(m_LastMessage);
     val[utility::conversions::to_string_t("direction")] = ModelBase::toJson(m_Direction);
+    val[utility::conversions::to_string_t("replyOptionsType")] = ModelBase::toJson(m_ReplyOptionsType);
     val[utility::conversions::to_string_t("from")] = ModelBase::toJson(m_From);
     val[utility::conversions::to_string_t("mutedUntil")] = ModelBase::toJson(m_MutedUntil);
     val[utility::conversions::to_string_t("timeLeftMute")] = ModelBase::toJson(m_TimeLeftMute);
@@ -162,6 +164,14 @@ void Chat::fromJson(web::json::value& val)
             setDirection(ModelBase::stringFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("replyOptionsType")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("replyOptionsType")];
+        if(!fieldValue.is_null())
+        {
+            setReplyOptionsType(ModelBase::stringFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("from")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("from")];
@@ -225,6 +235,7 @@ void Chat::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utili
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("mute"), m_Mute));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("lastMessage"), m_LastMessage));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("direction"), m_Direction));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("replyOptionsType"), m_ReplyOptionsType));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("from"), m_From));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("mutedUntil"), m_MutedUntil));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("timeLeftMute"), m_TimeLeftMute));
@@ -253,6 +264,7 @@ void Chat::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const uti
     setMute(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("mute"))));
     setLastMessage(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lastMessage"))));
     setDirection(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("direction"))));
+    setReplyOptionsType(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("replyOptionsType"))));
     setFrom(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("from"))));
     setMutedUntil(ModelBase::dateFromHttpContent(multipart->getContent(utility::conversions::to_string_t("mutedUntil"))));
     setTimeLeftMute(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("timeLeftMute"))));
@@ -381,6 +393,17 @@ utility::string_t Chat::getDirection() const
 void Chat::setDirection(utility::string_t value)
 {
     m_Direction = value;
+    
+}
+utility::string_t Chat::getReplyOptionsType() const
+{
+    return m_ReplyOptionsType;
+}
+
+
+void Chat::setReplyOptionsType(utility::string_t value)
+{
+    m_ReplyOptionsType = value;
     
 }
 utility::string_t Chat::getFrom() const

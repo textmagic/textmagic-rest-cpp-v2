@@ -74,12 +74,24 @@ public:
     /// </summary>
     std::vector<utility::string_t>& getSenderIds();
         void setSenderIds(std::vector<utility::string_t> value);
+    /// <summary>
+    /// Array of alphanumeric sender IDs.
+    /// </summary>
+    std::vector<utility::string_t>& getUserCarrierTwilio();
+        void setUserCarrierTwilio(std::vector<utility::string_t> value);
+    /// <summary>
+    /// Array of alphanumeric sender IDs.
+    /// </summary>
+    std::vector<utility::string_t>& getUserCarrierVonage();
+        void setUserCarrierVonage(std::vector<utility::string_t> value);
 
 protected:
     std::vector<utility::string_t> m_Dedicated;
         std::vector<utility::string_t> m_User;
         std::vector<utility::string_t> m_Shared;
         std::vector<utility::string_t> m_SenderIds;
+        std::vector<utility::string_t> m_UserCarrierTwilio;
+        std::vector<utility::string_t> m_UserCarrierVonage;
     };
 
 }

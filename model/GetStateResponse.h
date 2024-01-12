@@ -75,6 +75,21 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getSystemAccountAdditionalFields() const;
+        void setSystemAccountAdditionalFields(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getSystemAccountPermissionsChanged() const;
+        void setSystemAccountPermissionsChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getUserBalanceChanged() const;
+        void setUserBalanceChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getMessageDeleted() const;
         void setMessageDeleted(int32_t value);
     /// <summary>
@@ -137,6 +152,11 @@ public:
     /// </summary>
     int32_t getMessageScheduleDeleted() const;
         void setMessageScheduleDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getMessageScheduleNotSentStateChanged() const;
+        void setMessageScheduleNotSentStateChanged(int32_t value);
     /// <summary>
     /// 
     /// </summary>
@@ -205,6 +225,16 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getChatRead() const;
+        void setChatRead(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChatUnread() const;
+        void setChatUnread(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getContactAdded() const;
         void setContactAdded(int32_t value);
     /// <summary>
@@ -257,12 +287,55 @@ public:
     /// </summary>
     int32_t getCustomFieldsCacheClear() const;
         void setCustomFieldsCacheClear(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getProgressCarrierBulkLookup() const;
+        void setProgressCarrierBulkLookup(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getProgressEmailBulkLookup() const;
+        void setProgressEmailBulkLookup(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getProgressSubAccountBulkImport() const;
+        void setProgressSubAccountBulkImport(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getProgressContactBulkImport() const;
+        void setProgressContactBulkImport(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getForceRefreshWebApp() const;
+        void setForceRefreshWebApp(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChatSenderSettingsChanged() const;
+        void setChatSenderSettingsChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getCountrySenderSettingsChanged() const;
+        void setCountrySenderSettingsChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChatSuggestedReplyChunk() const;
+        void setChatSuggestedReplyChunk(int32_t value);
 
 protected:
     int32_t m_SystemCacheClear;
         int32_t m_SystemExit;
         int32_t m_SystemAlert;
         int32_t m_SystemAccountStateChanged;
+        int32_t m_SystemAccountAdditionalFields;
+        int32_t m_SystemAccountPermissionsChanged;
+        int32_t m_UserBalanceChanged;
         int32_t m_MessageDeleted;
         int32_t m_MessageIncoming;
         int32_t m_MessageIncomingDeleted;
@@ -276,6 +349,7 @@ protected:
         int32_t m_MessageScheduleAdded;
         int32_t m_MessageScheduleStateChanged;
         int32_t m_MessageScheduleDeleted;
+        int32_t m_MessageScheduleNotSentStateChanged;
         int32_t m_MessageScheduleCacheClear;
         int32_t m_MessageTemplateCacheClear;
         int32_t m_CallFinished;
@@ -289,6 +363,8 @@ protected:
         int32_t m_ChatClosed;
         int32_t m_ChatReopened;
         int32_t m_ChatCacheClear;
+        int32_t m_ChatRead;
+        int32_t m_ChatUnread;
         int32_t m_ContactAdded;
         int32_t m_ContactDeleted;
         int32_t m_ContactStateChanged;
@@ -300,6 +376,14 @@ protected:
         int32_t m_ContactCacheClear;
         int32_t m_ListCacheClear;
         int32_t m_CustomFieldsCacheClear;
+        int32_t m_ProgressCarrierBulkLookup;
+        int32_t m_ProgressEmailBulkLookup;
+        int32_t m_ProgressSubAccountBulkImport;
+        int32_t m_ProgressContactBulkImport;
+        int32_t m_ForceRefreshWebApp;
+        int32_t m_ChatSenderSettingsChanged;
+        int32_t m_CountrySenderSettingsChanged;
+        int32_t m_ChatSuggestedReplyChunk;
     };
 
 }
