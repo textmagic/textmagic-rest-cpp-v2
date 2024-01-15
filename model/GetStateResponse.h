@@ -325,6 +325,16 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getChatSummaryChunk() const;
+        void setChatSummaryChunk(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChatWaysToReplyChunk() const;
+        void setChatWaysToReplyChunk(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getChatSuggestedReplyChunk() const;
         void setChatSuggestedReplyChunk(int32_t value);
 
@@ -383,6 +393,8 @@ protected:
         int32_t m_ForceRefreshWebApp;
         int32_t m_ChatSenderSettingsChanged;
         int32_t m_CountrySenderSettingsChanged;
+        int32_t m_ChatSummaryChunk;
+        int32_t m_ChatWaysToReplyChunk;
         int32_t m_ChatSuggestedReplyChunk;
     };
 

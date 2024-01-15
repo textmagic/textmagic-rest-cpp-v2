@@ -75,6 +75,8 @@ GetStateResponse::GetStateResponse()
     m_ForceRefreshWebApp = 0;
     m_ChatSenderSettingsChanged = 0;
     m_CountrySenderSettingsChanged = 0;
+    m_ChatSummaryChunk = 0;
+    m_ChatWaysToReplyChunk = 0;
     m_ChatSuggestedReplyChunk = 0;
 }
 
@@ -145,6 +147,8 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("forceRefreshWebApp")] = ModelBase::toJson(m_ForceRefreshWebApp);
     val[utility::conversions::to_string_t("chatSenderSettingsChanged")] = ModelBase::toJson(m_ChatSenderSettingsChanged);
     val[utility::conversions::to_string_t("countrySenderSettingsChanged")] = ModelBase::toJson(m_CountrySenderSettingsChanged);
+    val[utility::conversions::to_string_t("chatSummaryChunk")] = ModelBase::toJson(m_ChatSummaryChunk);
+    val[utility::conversions::to_string_t("chatWaysToReplyChunk")] = ModelBase::toJson(m_ChatWaysToReplyChunk);
     val[utility::conversions::to_string_t("chatSuggestedReplyChunk")] = ModelBase::toJson(m_ChatSuggestedReplyChunk);
 
     return val;
@@ -584,6 +588,22 @@ void GetStateResponse::fromJson(web::json::value& val)
             setCountrySenderSettingsChanged(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("chatSummaryChunk")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatSummaryChunk")];
+        if(!fieldValue.is_null())
+        {
+            setChatSummaryChunk(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatWaysToReplyChunk")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatWaysToReplyChunk")];
+        if(!fieldValue.is_null())
+        {
+            setChatWaysToReplyChunk(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("chatSuggestedReplyChunk")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("chatSuggestedReplyChunk")];
@@ -656,6 +676,8 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("forceRefreshWebApp"), m_ForceRefreshWebApp));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatSenderSettingsChanged"), m_ChatSenderSettingsChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("countrySenderSettingsChanged"), m_CountrySenderSettingsChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatSummaryChunk"), m_ChatSummaryChunk));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatWaysToReplyChunk"), m_ChatWaysToReplyChunk));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatSuggestedReplyChunk"), m_ChatSuggestedReplyChunk));
 }
 
@@ -721,6 +743,8 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setForceRefreshWebApp(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("forceRefreshWebApp"))));
     setChatSenderSettingsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatSenderSettingsChanged"))));
     setCountrySenderSettingsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("countrySenderSettingsChanged"))));
+    setChatSummaryChunk(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatSummaryChunk"))));
+    setChatWaysToReplyChunk(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatWaysToReplyChunk"))));
     setChatSuggestedReplyChunk(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatSuggestedReplyChunk"))));
 }
 
@@ -1316,6 +1340,28 @@ int32_t GetStateResponse::getCountrySenderSettingsChanged() const
 void GetStateResponse::setCountrySenderSettingsChanged(int32_t value)
 {
     m_CountrySenderSettingsChanged = value;
+    
+}
+int32_t GetStateResponse::getChatSummaryChunk() const
+{
+    return m_ChatSummaryChunk;
+}
+
+
+void GetStateResponse::setChatSummaryChunk(int32_t value)
+{
+    m_ChatSummaryChunk = value;
+    
+}
+int32_t GetStateResponse::getChatWaysToReplyChunk() const
+{
+    return m_ChatWaysToReplyChunk;
+}
+
+
+void GetStateResponse::setChatWaysToReplyChunk(int32_t value)
+{
+    m_ChatWaysToReplyChunk = value;
     
 }
 int32_t GetStateResponse::getChatSuggestedReplyChunk() const
