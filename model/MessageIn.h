@@ -111,6 +111,20 @@ public:
     bool emailIsSet() const;
     void unsetEmail();
     void setEmail(utility::string_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getContactUserId() const;
+    bool contactUserIdIsSet() const;
+    void unsetContactUserId();
+    void setContactUserId(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getUserId() const;
+    bool userIdIsSet() const;
+    void unsetUserId();
+    void setUserId(int32_t value);
 
 protected:
     int32_t m_Id;
@@ -127,6 +141,10 @@ protected:
     utility::string_t m_Avatar;
         utility::string_t m_Email;
     bool m_EmailIsSet;
+    int32_t m_ContactUserId;
+    bool m_ContactUserIdIsSet;
+    int32_t m_UserId;
+    bool m_UserIdIsSet;
 };
 
 }

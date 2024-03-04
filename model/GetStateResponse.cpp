@@ -25,6 +25,7 @@ GetStateResponse::GetStateResponse()
     m_SystemExit = 0;
     m_SystemAlert = 0;
     m_SystemAccountStateChanged = 0;
+    m_SystemAccountClosed = 0;
     m_SystemAccountAdditionalFields = 0;
     m_SystemAccountPermissionsChanged = 0;
     m_UserBalanceChanged = 0;
@@ -97,6 +98,7 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("systemExit")] = ModelBase::toJson(m_SystemExit);
     val[utility::conversions::to_string_t("systemAlert")] = ModelBase::toJson(m_SystemAlert);
     val[utility::conversions::to_string_t("systemAccountStateChanged")] = ModelBase::toJson(m_SystemAccountStateChanged);
+    val[utility::conversions::to_string_t("systemAccountClosed")] = ModelBase::toJson(m_SystemAccountClosed);
     val[utility::conversions::to_string_t("systemAccountAdditionalFields")] = ModelBase::toJson(m_SystemAccountAdditionalFields);
     val[utility::conversions::to_string_t("systemAccountPermissionsChanged")] = ModelBase::toJson(m_SystemAccountPermissionsChanged);
     val[utility::conversions::to_string_t("userBalanceChanged")] = ModelBase::toJson(m_UserBalanceChanged);
@@ -186,6 +188,14 @@ void GetStateResponse::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setSystemAccountStateChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("systemAccountClosed")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("systemAccountClosed")];
+        if(!fieldValue.is_null())
+        {
+            setSystemAccountClosed(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("systemAccountAdditionalFields")))
@@ -626,6 +636,7 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemExit"), m_SystemExit));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAlert"), m_SystemAlert));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountStateChanged"), m_SystemAccountStateChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountClosed"), m_SystemAccountClosed));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountAdditionalFields"), m_SystemAccountAdditionalFields));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountPermissionsChanged"), m_SystemAccountPermissionsChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userBalanceChanged"), m_UserBalanceChanged));
@@ -693,6 +704,7 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setSystemExit(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemExit"))));
     setSystemAlert(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAlert"))));
     setSystemAccountStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountStateChanged"))));
+    setSystemAccountClosed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountClosed"))));
     setSystemAccountAdditionalFields(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountAdditionalFields"))));
     setSystemAccountPermissionsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountPermissionsChanged"))));
     setUserBalanceChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userBalanceChanged"))));
@@ -790,6 +802,17 @@ int32_t GetStateResponse::getSystemAccountStateChanged() const
 void GetStateResponse::setSystemAccountStateChanged(int32_t value)
 {
     m_SystemAccountStateChanged = value;
+    
+}
+int32_t GetStateResponse::getSystemAccountClosed() const
+{
+    return m_SystemAccountClosed;
+}
+
+
+void GetStateResponse::setSystemAccountClosed(int32_t value)
+{
+    m_SystemAccountClosed = value;
     
 }
 int32_t GetStateResponse::getSystemAccountAdditionalFields() const

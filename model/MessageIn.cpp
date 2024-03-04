@@ -35,6 +35,10 @@ MessageIn::MessageIn()
     m_Avatar = utility::conversions::to_string_t("");
     m_Email = utility::conversions::to_string_t("");
     m_EmailIsSet = false;
+    m_ContactUserId = 0;
+    m_ContactUserIdIsSet = false;
+    m_UserId = 0;
+    m_UserIdIsSet = false;
 }
 
 MessageIn::~MessageIn()
@@ -71,6 +75,14 @@ web::json::value MessageIn::toJson() const
     if(m_EmailIsSet)
     {
         val[utility::conversions::to_string_t("email")] = ModelBase::toJson(m_Email);
+    }
+    if(m_ContactUserIdIsSet)
+    {
+        val[utility::conversions::to_string_t("contactUserId")] = ModelBase::toJson(m_ContactUserId);
+    }
+    if(m_UserIdIsSet)
+    {
+        val[utility::conversions::to_string_t("userId")] = ModelBase::toJson(m_UserId);
     }
 
     return val;
@@ -158,6 +170,22 @@ void MessageIn::fromJson(web::json::value& val)
             setEmail(ModelBase::stringFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("contactUserId")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("contactUserId")];
+        if(!fieldValue.is_null())
+        {
+            setContactUserId(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("userId")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("userId")];
+        if(!fieldValue.is_null())
+        {
+            setUserId(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
 }
 
 void MessageIn::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -193,6 +221,14 @@ void MessageIn::toMultipart(std::shared_ptr<MultipartFormData> multipart, const 
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("email"), m_Email));
         
     }
+    if(m_ContactUserIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactUserId"), m_ContactUserId));
+    }
+    if(m_UserIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userId"), m_UserId));
+    }
 }
 
 void MessageIn::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -224,6 +260,14 @@ void MessageIn::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, cons
     if(multipart->hasContent(utility::conversions::to_string_t("email")))
     {
         setEmail(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("email"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("contactUserId")))
+    {
+        setContactUserId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactUserId"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("userId")))
+    {
+        setUserId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userId"))));
     }
 }
 
@@ -375,6 +419,48 @@ bool MessageIn::emailIsSet() const
 void MessageIn::unsetEmail()
 {
     m_EmailIsSet = false;
+}
+
+int32_t MessageIn::getContactUserId() const
+{
+    return m_ContactUserId;
+}
+
+
+void MessageIn::setContactUserId(int32_t value)
+{
+    m_ContactUserId = value;
+    m_ContactUserIdIsSet = true;
+}
+bool MessageIn::contactUserIdIsSet() const
+{
+    return m_ContactUserIdIsSet;
+}
+
+void MessageIn::unsetContactUserId()
+{
+    m_ContactUserIdIsSet = false;
+}
+
+int32_t MessageIn::getUserId() const
+{
+    return m_UserId;
+}
+
+
+void MessageIn::setUserId(int32_t value)
+{
+    m_UserId = value;
+    m_UserIdIsSet = true;
+}
+bool MessageIn::userIdIsSet() const
+{
+    return m_UserIdIsSet;
+}
+
+void MessageIn::unsetUserId()
+{
+    m_UserIdIsSet = false;
 }
 
 }

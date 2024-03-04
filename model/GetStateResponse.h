@@ -75,6 +75,11 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getSystemAccountClosed() const;
+        void setSystemAccountClosed(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getSystemAccountAdditionalFields() const;
         void setSystemAccountAdditionalFields(int32_t value);
     /// <summary>
@@ -343,6 +348,7 @@ protected:
         int32_t m_SystemExit;
         int32_t m_SystemAlert;
         int32_t m_SystemAccountStateChanged;
+        int32_t m_SystemAccountClosed;
         int32_t m_SystemAccountAdditionalFields;
         int32_t m_SystemAccountPermissionsChanged;
         int32_t m_UserBalanceChanged;
