@@ -64,10 +64,16 @@ public:
     /// </summary>
     float getPrice() const;
         void setPrice(float value);
+    /// <summary>
+    /// 
+    /// </summary>
+    utility::string_t getGiftType() const;
+        void setGiftType(utility::string_t value);
 
 protected:
     std::vector<utility::string_t> m_Numbers;
         float m_Price;
+        utility::string_t m_GiftType;
     };
 
 }

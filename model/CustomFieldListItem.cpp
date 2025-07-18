@@ -22,7 +22,10 @@ namespace model {
 CustomFieldListItem::CustomFieldListItem()
 {
     m_Id = 0;
+    m_UserCustomFieldId = 0;
+    m_Name = utility::conversions::to_string_t("");
     m_Value = utility::conversions::to_string_t("");
+    m_CreatedAt = utility::datetime();
 }
 
 CustomFieldListItem::~CustomFieldListItem()
@@ -39,7 +42,10 @@ web::json::value CustomFieldListItem::toJson() const
     web::json::value val = web::json::value::object();
 
     val[utility::conversions::to_string_t("id")] = ModelBase::toJson(m_Id);
+    val[utility::conversions::to_string_t("userCustomFieldId")] = ModelBase::toJson(m_UserCustomFieldId);
+    val[utility::conversions::to_string_t("name")] = ModelBase::toJson(m_Name);
     val[utility::conversions::to_string_t("value")] = ModelBase::toJson(m_Value);
+    val[utility::conversions::to_string_t("createdAt")] = ModelBase::toJson(m_CreatedAt);
 
     return val;
 }
@@ -54,12 +60,36 @@ void CustomFieldListItem::fromJson(web::json::value& val)
             setId(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("userCustomFieldId")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("userCustomFieldId")];
+        if(!fieldValue.is_null())
+        {
+            setUserCustomFieldId(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("name")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("name")];
+        if(!fieldValue.is_null())
+        {
+            setName(ModelBase::stringFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("value")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("value")];
         if(!fieldValue.is_null())
         {
             setValue(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("createdAt")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("createdAt")];
+        if(!fieldValue.is_null())
+        {
+            setCreatedAt(ModelBase::dateFromJson(fieldValue));
         }
     }
 }
@@ -73,7 +103,10 @@ void CustomFieldListItem::toMultipart(std::shared_ptr<MultipartFormData> multipa
     }
 
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("id"), m_Id));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userCustomFieldId"), m_UserCustomFieldId));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("name"), m_Name));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("value"), m_Value));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("createdAt"), m_CreatedAt));
 }
 
 void CustomFieldListItem::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -85,7 +118,10 @@ void CustomFieldListItem::fromMultiPart(std::shared_ptr<MultipartFormData> multi
     }
 
     setId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("id"))));
+    setUserCustomFieldId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userCustomFieldId"))));
+    setName(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("name"))));
     setValue(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("value"))));
+    setCreatedAt(ModelBase::dateFromHttpContent(multipart->getContent(utility::conversions::to_string_t("createdAt"))));
 }
 
 int32_t CustomFieldListItem::getId() const
@@ -99,6 +135,28 @@ void CustomFieldListItem::setId(int32_t value)
     m_Id = value;
     
 }
+int32_t CustomFieldListItem::getUserCustomFieldId() const
+{
+    return m_UserCustomFieldId;
+}
+
+
+void CustomFieldListItem::setUserCustomFieldId(int32_t value)
+{
+    m_UserCustomFieldId = value;
+    
+}
+utility::string_t CustomFieldListItem::getName() const
+{
+    return m_Name;
+}
+
+
+void CustomFieldListItem::setName(utility::string_t value)
+{
+    m_Name = value;
+    
+}
 utility::string_t CustomFieldListItem::getValue() const
 {
     return m_Value;
@@ -108,6 +166,17 @@ utility::string_t CustomFieldListItem::getValue() const
 void CustomFieldListItem::setValue(utility::string_t value)
 {
     m_Value = value;
+    
+}
+utility::datetime CustomFieldListItem::getCreatedAt() const
+{
+    return m_CreatedAt;
+}
+
+
+void CustomFieldListItem::setCreatedAt(utility::datetime value)
+{
+    m_CreatedAt = value;
     
 }
 }

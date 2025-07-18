@@ -33,6 +33,22 @@ Conversation::Conversation()
     m_SessionId = 0;
     m_InitiatorId = 0;
     m_InitiatorIdIsSet = false;
+    m_MessageFileId = 0;
+    m_MessageFileIdIsSet = false;
+    m_Type = utility::conversions::to_string_t("");
+    m_TypeIsSet = false;
+    m_ChatType = utility::conversions::to_string_t("");
+    m_ChatTypeIsSet = false;
+    m_ChatId = 0;
+    m_ChatIdIsSet = false;
+    m_IsEdited = false;
+    m_IsEditedIsSet = false;
+    m_ErrorCode = utility::conversions::to_string_t("");
+    m_ErrorCodeIsSet = false;
+    m_FilesIsSet = false;
+    m_PayloadIsSet = false;
+    m_Avatar = utility::conversions::to_string_t("");
+    m_AvatarIsSet = false;
 }
 
 Conversation::~Conversation()
@@ -61,6 +77,49 @@ web::json::value Conversation::toJson() const
     if(m_InitiatorIdIsSet)
     {
         val[utility::conversions::to_string_t("initiatorId")] = ModelBase::toJson(m_InitiatorId);
+    }
+    if(m_MessageFileIdIsSet)
+    {
+        val[utility::conversions::to_string_t("messageFileId")] = ModelBase::toJson(m_MessageFileId);
+    }
+    if(m_TypeIsSet)
+    {
+        val[utility::conversions::to_string_t("type")] = ModelBase::toJson(m_Type);
+    }
+    if(m_ChatTypeIsSet)
+    {
+        val[utility::conversions::to_string_t("chatType")] = ModelBase::toJson(m_ChatType);
+    }
+    if(m_ChatIdIsSet)
+    {
+        val[utility::conversions::to_string_t("chatId")] = ModelBase::toJson(m_ChatId);
+    }
+    if(m_IsEditedIsSet)
+    {
+        val[utility::conversions::to_string_t("isEdited")] = ModelBase::toJson(m_IsEdited);
+    }
+    if(m_ErrorCodeIsSet)
+    {
+        val[utility::conversions::to_string_t("errorCode")] = ModelBase::toJson(m_ErrorCode);
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Files )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        if(jsonArray.size() > 0)
+        {
+            val[utility::conversions::to_string_t("files")] = web::json::value::array(jsonArray);
+        }
+    }
+    if(m_PayloadIsSet)
+    {
+        val[utility::conversions::to_string_t("payload")] = ModelBase::toJson(m_Payload);
+    }
+    if(m_AvatarIsSet)
+    {
+        val[utility::conversions::to_string_t("avatar")] = ModelBase::toJson(m_Avatar);
     }
 
     return val;
@@ -156,6 +215,92 @@ void Conversation::fromJson(web::json::value& val)
             setInitiatorId(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("messageFileId")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("messageFileId")];
+        if(!fieldValue.is_null())
+        {
+            setMessageFileId(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("type")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("type")];
+        if(!fieldValue.is_null())
+        {
+            setType(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatType")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatType")];
+        if(!fieldValue.is_null())
+        {
+            setChatType(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatId")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatId")];
+        if(!fieldValue.is_null())
+        {
+            setChatId(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("isEdited")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("isEdited")];
+        if(!fieldValue.is_null())
+        {
+            setIsEdited(ModelBase::boolFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("errorCode")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("errorCode")];
+        if(!fieldValue.is_null())
+        {
+            setErrorCode(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    {
+        m_Files.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("files")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("files")].as_array() )
+        {
+            if(item.is_null())
+            {
+                m_Files.push_back( std::shared_ptr<File>(nullptr) );
+            }
+            else
+            {
+                std::shared_ptr<File> newItem(new File());
+                newItem->fromJson(item);
+                m_Files.push_back( newItem );
+            }
+        }
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("payload")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("payload")];
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<MessagePayload> newItem(new MessagePayload());
+            newItem->fromJson(fieldValue);
+            setPayload( newItem );
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("avatar")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("avatar")];
+        if(!fieldValue.is_null())
+        {
+            setAvatar(ModelBase::stringFromJson(fieldValue));
+        }
+    }
 }
 
 void Conversation::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -180,6 +325,58 @@ void Conversation::toMultipart(std::shared_ptr<MultipartFormData> multipart, con
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("initiatorId"), m_InitiatorId));
     }
+    if(m_MessageFileIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageFileId"), m_MessageFileId));
+    }
+    if(m_TypeIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("type"), m_Type));
+        
+    }
+    if(m_ChatTypeIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatType"), m_ChatType));
+        
+    }
+    if(m_ChatIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatId"), m_ChatId));
+    }
+    if(m_IsEditedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("isEdited"), m_IsEdited));
+    }
+    if(m_ErrorCodeIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("errorCode"), m_ErrorCode));
+        
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Files )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        
+        if(jsonArray.size() > 0)
+        {
+            multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("files"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+        }
+    }
+    if(m_PayloadIsSet)
+    {
+        if (m_Payload.get())
+        {
+            m_Payload->toMultipart(multipart, utility::conversions::to_string_t("payload."));
+        }
+        
+    }
+    if(m_AvatarIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("avatar"), m_Avatar));
+        
+    }
 }
 
 void Conversation::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -203,6 +400,64 @@ void Conversation::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, c
     if(multipart->hasContent(utility::conversions::to_string_t("initiatorId")))
     {
         setInitiatorId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("initiatorId"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("messageFileId")))
+    {
+        setMessageFileId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageFileId"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("type")))
+    {
+        setType(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("type"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("chatType")))
+    {
+        setChatType(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatType"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("chatId")))
+    {
+        setChatId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatId"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("isEdited")))
+    {
+        setIsEdited(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("isEdited"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("errorCode")))
+    {
+        setErrorCode(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("errorCode"))));
+    }
+    {
+        m_Files.clear();
+        if(multipart->hasContent(utility::conversions::to_string_t("files")))
+        {
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("files"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            if(item.is_null())
+            {
+                m_Files.push_back( std::shared_ptr<File>(nullptr) );
+            }
+            else
+            {
+                std::shared_ptr<File> newItem(new File());
+                newItem->fromJson(item);
+                m_Files.push_back( newItem );
+            }
+        }
+        }
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("payload")))
+    {
+        if(multipart->hasContent(utility::conversions::to_string_t("payload")))
+        {
+            std::shared_ptr<MessagePayload> newItem(new MessagePayload());
+            newItem->fromMultiPart(multipart, utility::conversions::to_string_t("payload."));
+            setPayload( newItem );
+        }
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("avatar")))
+    {
+        setAvatar(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("avatar"))));
     }
 }
 
@@ -335,6 +590,194 @@ bool Conversation::initiatorIdIsSet() const
 void Conversation::unsetInitiatorId()
 {
     m_InitiatorIdIsSet = false;
+}
+
+int32_t Conversation::getMessageFileId() const
+{
+    return m_MessageFileId;
+}
+
+
+void Conversation::setMessageFileId(int32_t value)
+{
+    m_MessageFileId = value;
+    m_MessageFileIdIsSet = true;
+}
+bool Conversation::messageFileIdIsSet() const
+{
+    return m_MessageFileIdIsSet;
+}
+
+void Conversation::unsetMessageFileId()
+{
+    m_MessageFileIdIsSet = false;
+}
+
+utility::string_t Conversation::getType() const
+{
+    return m_Type;
+}
+
+
+void Conversation::setType(utility::string_t value)
+{
+    m_Type = value;
+    m_TypeIsSet = true;
+}
+bool Conversation::typeIsSet() const
+{
+    return m_TypeIsSet;
+}
+
+void Conversation::unsetType()
+{
+    m_TypeIsSet = false;
+}
+
+utility::string_t Conversation::getChatType() const
+{
+    return m_ChatType;
+}
+
+
+void Conversation::setChatType(utility::string_t value)
+{
+    m_ChatType = value;
+    m_ChatTypeIsSet = true;
+}
+bool Conversation::chatTypeIsSet() const
+{
+    return m_ChatTypeIsSet;
+}
+
+void Conversation::unsetChatType()
+{
+    m_ChatTypeIsSet = false;
+}
+
+int32_t Conversation::getChatId() const
+{
+    return m_ChatId;
+}
+
+
+void Conversation::setChatId(int32_t value)
+{
+    m_ChatId = value;
+    m_ChatIdIsSet = true;
+}
+bool Conversation::chatIdIsSet() const
+{
+    return m_ChatIdIsSet;
+}
+
+void Conversation::unsetChatId()
+{
+    m_ChatIdIsSet = false;
+}
+
+bool Conversation::isIsEdited() const
+{
+    return m_IsEdited;
+}
+
+
+void Conversation::setIsEdited(bool value)
+{
+    m_IsEdited = value;
+    m_IsEditedIsSet = true;
+}
+bool Conversation::isEditedIsSet() const
+{
+    return m_IsEditedIsSet;
+}
+
+void Conversation::unsetIsEdited()
+{
+    m_IsEditedIsSet = false;
+}
+
+utility::string_t Conversation::getErrorCode() const
+{
+    return m_ErrorCode;
+}
+
+
+void Conversation::setErrorCode(utility::string_t value)
+{
+    m_ErrorCode = value;
+    m_ErrorCodeIsSet = true;
+}
+bool Conversation::errorCodeIsSet() const
+{
+    return m_ErrorCodeIsSet;
+}
+
+void Conversation::unsetErrorCode()
+{
+    m_ErrorCodeIsSet = false;
+}
+
+std::vector<std::shared_ptr<File>>& Conversation::getFiles()
+{
+    return m_Files;
+}
+
+void Conversation::setFiles(std::vector<std::shared_ptr<File>> value)
+{
+    m_Files = value;
+    m_FilesIsSet = true;
+}
+bool Conversation::filesIsSet() const
+{
+    return m_FilesIsSet;
+}
+
+void Conversation::unsetFiles()
+{
+    m_FilesIsSet = false;
+}
+
+std::shared_ptr<MessagePayload> Conversation::getPayload() const
+{
+    return m_Payload;
+}
+
+
+void Conversation::setPayload(std::shared_ptr<MessagePayload> value)
+{
+    m_Payload = value;
+    m_PayloadIsSet = true;
+}
+bool Conversation::payloadIsSet() const
+{
+    return m_PayloadIsSet;
+}
+
+void Conversation::unsetPayload()
+{
+    m_PayloadIsSet = false;
+}
+
+utility::string_t Conversation::getAvatar() const
+{
+    return m_Avatar;
+}
+
+
+void Conversation::setAvatar(utility::string_t value)
+{
+    m_Avatar = value;
+    m_AvatarIsSet = true;
+}
+bool Conversation::avatarIsSet() const
+{
+    return m_AvatarIsSet;
+}
+
+void Conversation::unsetAvatar()
+{
+    m_AvatarIsSet = false;
 }
 
 }

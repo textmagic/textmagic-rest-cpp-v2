@@ -29,7 +29,11 @@ Contact::Contact()
     m_CompanyName = utility::conversions::to_string_t("");
     m_Phone = utility::conversions::to_string_t("");
     m_Email = utility::conversions::to_string_t("");
+    m_OwnerIsSet = false;
+    m_TagsIsSet = false;
     m_PhoneType = utility::conversions::to_string_t("");
+    m_WhatsappPhone = utility::conversions::to_string_t("");
+    m_WhatsappPhoneIsSet = false;
 }
 
 Contact::~Contact()
@@ -71,6 +75,21 @@ web::json::value Contact::toJson() const
         }
         val[utility::conversions::to_string_t("lists")] = web::json::value::array(jsonArray);
     }
+    if(m_OwnerIsSet)
+    {
+        val[utility::conversions::to_string_t("owner")] = ModelBase::toJson(m_Owner);
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Tags )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        if(jsonArray.size() > 0)
+        {
+            val[utility::conversions::to_string_t("tags")] = web::json::value::array(jsonArray);
+        }
+    }
     val[utility::conversions::to_string_t("phoneType")] = ModelBase::toJson(m_PhoneType);
     val[utility::conversions::to_string_t("avatar")] = ModelBase::toJson(m_Avatar);
     {
@@ -80,6 +99,10 @@ web::json::value Contact::toJson() const
             jsonArray.push_back(ModelBase::toJson(item));
         }
         val[utility::conversions::to_string_t("notes")] = web::json::value::array(jsonArray);
+    }
+    if(m_WhatsappPhoneIsSet)
+    {
+        val[utility::conversions::to_string_t("whatsappPhone")] = ModelBase::toJson(m_WhatsappPhone);
     }
 
     return val;
@@ -170,11 +193,11 @@ void Contact::fromJson(web::json::value& val)
         {
             if(item.is_null())
             {
-                m_CustomFields.push_back( std::shared_ptr<ContactCustomField>(nullptr) );
+                m_CustomFields.push_back( std::shared_ptr<CustomFieldListItem>(nullptr) );
             }
             else
             {
-                std::shared_ptr<ContactCustomField> newItem(new ContactCustomField());
+                std::shared_ptr<CustomFieldListItem> newItem(new CustomFieldListItem());
                 newItem->fromJson(item);
                 m_CustomFields.push_back( newItem );
             }
@@ -207,6 +230,36 @@ void Contact::fromJson(web::json::value& val)
                 std::shared_ptr<List> newItem(new List());
                 newItem->fromJson(item);
                 m_Lists.push_back( newItem );
+            }
+        }
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("owner")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("owner")];
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<User> newItem(new User());
+            newItem->fromJson(fieldValue);
+            setOwner( newItem );
+        }
+    }
+    {
+        m_Tags.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("tags")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("tags")].as_array() )
+        {
+            if(item.is_null())
+            {
+                m_Tags.push_back( std::shared_ptr<Tag>(nullptr) );
+            }
+            else
+            {
+                std::shared_ptr<Tag> newItem(new Tag());
+                newItem->fromJson(item);
+                m_Tags.push_back( newItem );
             }
         }
         }
@@ -249,6 +302,14 @@ void Contact::fromJson(web::json::value& val)
         }
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("whatsappPhone")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("whatsappPhone")];
+        if(!fieldValue.is_null())
+        {
+            setWhatsappPhone(ModelBase::stringFromJson(fieldValue));
+        }
+    }
 }
 
 void Contact::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -285,6 +346,26 @@ void Contact::toMultipart(std::shared_ptr<MultipartFormData> multipart, const ut
         }
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("lists"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
             }
+    if(m_OwnerIsSet)
+    {
+        if (m_Owner.get())
+        {
+            m_Owner->toMultipart(multipart, utility::conversions::to_string_t("owner."));
+        }
+        
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Tags )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        
+        if(jsonArray.size() > 0)
+        {
+            multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tags"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+        }
+    }
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("phoneType"), m_PhoneType));
     m_Avatar->toMultipart(multipart, utility::conversions::to_string_t("avatar."));
     {
@@ -295,6 +376,11 @@ void Contact::toMultipart(std::shared_ptr<MultipartFormData> multipart, const ut
         }
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("notes"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
             }
+    if(m_WhatsappPhoneIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("whatsappPhone"), m_WhatsappPhone));
+        
+    }
 }
 
 void Contact::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -324,11 +410,11 @@ void Contact::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const 
         {
             if(item.is_null())
             {
-                m_CustomFields.push_back( std::shared_ptr<ContactCustomField>(nullptr) );
+                m_CustomFields.push_back( std::shared_ptr<CustomFieldListItem>(nullptr) );
             }
             else
             {
-                std::shared_ptr<ContactCustomField> newItem(new ContactCustomField());
+                std::shared_ptr<CustomFieldListItem> newItem(new CustomFieldListItem());
                 newItem->fromJson(item);
                 m_CustomFields.push_back( newItem );
             }
@@ -355,6 +441,36 @@ void Contact::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const 
             }
         }
     }
+    if(multipart->hasContent(utility::conversions::to_string_t("owner")))
+    {
+        if(multipart->hasContent(utility::conversions::to_string_t("owner")))
+        {
+            std::shared_ptr<User> newItem(new User());
+            newItem->fromMultiPart(multipart, utility::conversions::to_string_t("owner."));
+            setOwner( newItem );
+        }
+    }
+    {
+        m_Tags.clear();
+        if(multipart->hasContent(utility::conversions::to_string_t("tags")))
+        {
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("tags"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            if(item.is_null())
+            {
+                m_Tags.push_back( std::shared_ptr<Tag>(nullptr) );
+            }
+            else
+            {
+                std::shared_ptr<Tag> newItem(new Tag());
+                newItem->fromJson(item);
+                m_Tags.push_back( newItem );
+            }
+        }
+        }
+    }
     setPhoneType(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("phoneType"))));
     std::shared_ptr<ContactImage> newAvatar(new ContactImage());
     newAvatar->fromMultiPart(multipart, utility::conversions::to_string_t("avatar."));
@@ -376,6 +492,10 @@ void Contact::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const 
                 m_Notes.push_back( newItem );
             }
         }
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("whatsappPhone")))
+    {
+        setWhatsappPhone(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("whatsappPhone"))));
     }
 }
 
@@ -478,12 +598,12 @@ void Contact::setCountry(std::shared_ptr<Country> value)
     m_Country = value;
     
 }
-std::vector<std::shared_ptr<ContactCustomField>>& Contact::getCustomFields()
+std::vector<std::shared_ptr<CustomFieldListItem>>& Contact::getCustomFields()
 {
     return m_CustomFields;
 }
 
-void Contact::setCustomFields(std::vector<std::shared_ptr<ContactCustomField>> value)
+void Contact::setCustomFields(std::vector<std::shared_ptr<CustomFieldListItem>> value)
 {
     m_CustomFields = value;
     
@@ -509,6 +629,47 @@ void Contact::setLists(std::vector<std::shared_ptr<List>> value)
     m_Lists = value;
     
 }
+std::shared_ptr<User> Contact::getOwner() const
+{
+    return m_Owner;
+}
+
+
+void Contact::setOwner(std::shared_ptr<User> value)
+{
+    m_Owner = value;
+    m_OwnerIsSet = true;
+}
+bool Contact::ownerIsSet() const
+{
+    return m_OwnerIsSet;
+}
+
+void Contact::unsetOwner()
+{
+    m_OwnerIsSet = false;
+}
+
+std::vector<std::shared_ptr<Tag>>& Contact::getTags()
+{
+    return m_Tags;
+}
+
+void Contact::setTags(std::vector<std::shared_ptr<Tag>> value)
+{
+    m_Tags = value;
+    m_TagsIsSet = true;
+}
+bool Contact::tagsIsSet() const
+{
+    return m_TagsIsSet;
+}
+
+void Contact::unsetTags()
+{
+    m_TagsIsSet = false;
+}
+
 utility::string_t Contact::getPhoneType() const
 {
     return m_PhoneType;
@@ -541,6 +702,27 @@ void Contact::setNotes(std::vector<std::shared_ptr<ContactNote>> value)
     m_Notes = value;
     
 }
+utility::string_t Contact::getWhatsappPhone() const
+{
+    return m_WhatsappPhone;
+}
+
+
+void Contact::setWhatsappPhone(utility::string_t value)
+{
+    m_WhatsappPhone = value;
+    m_WhatsappPhoneIsSet = true;
+}
+bool Contact::whatsappPhoneIsSet() const
+{
+    return m_WhatsappPhoneIsSet;
+}
+
+void Contact::unsetWhatsappPhone()
+{
+    m_WhatsappPhoneIsSet = false;
+}
+
 }
 }
 }

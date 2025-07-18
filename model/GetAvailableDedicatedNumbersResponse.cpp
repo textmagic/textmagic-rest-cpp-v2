@@ -22,6 +22,7 @@ namespace model {
 GetAvailableDedicatedNumbersResponse::GetAvailableDedicatedNumbersResponse()
 {
     m_Price = 0.0f;
+    m_GiftType = utility::conversions::to_string_t("");
 }
 
 GetAvailableDedicatedNumbersResponse::~GetAvailableDedicatedNumbersResponse()
@@ -46,6 +47,7 @@ web::json::value GetAvailableDedicatedNumbersResponse::toJson() const
         val[utility::conversions::to_string_t("numbers")] = web::json::value::array(jsonArray);
     }
     val[utility::conversions::to_string_t("price")] = ModelBase::toJson(m_Price);
+    val[utility::conversions::to_string_t("giftType")] = ModelBase::toJson(m_GiftType);
 
     return val;
 }
@@ -71,6 +73,14 @@ void GetAvailableDedicatedNumbersResponse::fromJson(web::json::value& val)
             setPrice(ModelBase::floatFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("giftType")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("giftType")];
+        if(!fieldValue.is_null())
+        {
+            setGiftType(ModelBase::stringFromJson(fieldValue));
+        }
+    }
 }
 
 void GetAvailableDedicatedNumbersResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -90,6 +100,7 @@ void GetAvailableDedicatedNumbersResponse::toMultipart(std::shared_ptr<Multipart
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("numbers"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
             }
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("price"), m_Price));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("giftType"), m_GiftType));
 }
 
 void GetAvailableDedicatedNumbersResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -110,6 +121,7 @@ void GetAvailableDedicatedNumbersResponse::fromMultiPart(std::shared_ptr<Multipa
         }
     }
     setPrice(ModelBase::floatFromHttpContent(multipart->getContent(utility::conversions::to_string_t("price"))));
+    setGiftType(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("giftType"))));
 }
 
 std::vector<utility::string_t>& GetAvailableDedicatedNumbersResponse::getNumbers()
@@ -131,6 +143,17 @@ float GetAvailableDedicatedNumbersResponse::getPrice() const
 void GetAvailableDedicatedNumbersResponse::setPrice(float value)
 {
     m_Price = value;
+    
+}
+utility::string_t GetAvailableDedicatedNumbersResponse::getGiftType() const
+{
+    return m_GiftType;
+}
+
+
+void GetAvailableDedicatedNumbersResponse::setGiftType(utility::string_t value)
+{
+    m_GiftType = value;
     
 }
 }

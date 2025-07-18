@@ -11,17 +11,18 @@
  */
 
 /*
- * MessageTemplate.h
+ * FileMetadata.h
  *
  * 
  */
 
-#ifndef COM_TEXTMAGIC_CLIENT_MODEL_MessageTemplate_H_
-#define COM_TEXTMAGIC_CLIENT_MODEL_MessageTemplate_H_
+#ifndef COM_TEXTMAGIC_CLIENT_MODEL_FileMetadata_H_
+#define COM_TEXTMAGIC_CLIENT_MODEL_FileMetadata_H_
 
 
 #include "../ModelBase.h"
 
+#include "FileMetadataPreview.h"
 #include <cpprest/details/basic_types.h>
 
 namespace com {
@@ -32,12 +33,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  MessageTemplate
+class  FileMetadata
     : public ModelBase
 {
 public:
-    MessageTemplate();
-    virtual ~MessageTemplate();
+    FileMetadata();
+    virtual ~FileMetadata();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,34 +52,34 @@ public:
     void fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// MessageTemplate members
+    /// FileMetadata members
 
     /// <summary>
-    /// Template ID.
+    /// File metadata type.
     /// </summary>
-    int32_t getId() const;
-        void setId(int32_t value);
+    utility::string_t getType() const;
+        void setType(utility::string_t value);
     /// <summary>
-    /// Template name.
+    /// 
     /// </summary>
-    utility::string_t getName() const;
-        void setName(utility::string_t value);
+    int32_t getHeight() const;
+        void setHeight(int32_t value);
     /// <summary>
-    /// Template text. May contain dynamic fields inside braces. See the [Custom fields list](https://docs.textmagic.com/#tag/Templates/Custom-fields-list-(Merge-dynamic-fields)).
+    /// 
     /// </summary>
-    utility::string_t getContent() const;
-        void setContent(utility::string_t value);
+    int32_t getWidth() const;
+        void setWidth(int32_t value);
     /// <summary>
-    /// Time when the template was last modified.
+    /// 
     /// </summary>
-    utility::datetime getLastModified() const;
-        void setLastModified(utility::datetime value);
+    std::shared_ptr<FileMetadataPreview> getPreview() const;
+        void setPreview(std::shared_ptr<FileMetadataPreview> value);
 
 protected:
-    int32_t m_Id;
-        utility::string_t m_Name;
-        utility::string_t m_Content;
-        utility::datetime m_LastModified;
+    utility::string_t m_Type;
+        int32_t m_Height;
+        int32_t m_Width;
+        std::shared_ptr<FileMetadataPreview> m_Preview;
     };
 
 }
@@ -86,4 +87,4 @@ protected:
 }
 }
 
-#endif /* COM_TEXTMAGIC_CLIENT_MODEL_MessageTemplate_H_ */
+#endif /* COM_TEXTMAGIC_CLIENT_MODEL_FileMetadata_H_ */

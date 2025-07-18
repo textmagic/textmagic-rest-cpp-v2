@@ -84,6 +84,25 @@ public:
     /// </summary>
     std::vector<utility::string_t>& getUserCarrierVonage();
         void setUserCarrierVonage(std::vector<utility::string_t> value);
+    /// <summary>
+    /// Array of alphanumeric sender IDs.
+    /// </summary>
+    std::vector<utility::string_t>& getUserCarrierSinch();
+        void setUserCarrierSinch(std::vector<utility::string_t> value);
+    /// <summary>
+    /// Array of alphanumeric sender IDs.
+    /// </summary>
+    std::vector<utility::string_t>& getUCarrierBandwidth();
+    bool uCarrierBandwidthIsSet() const;
+    void unsetUCarrierBandwidth();
+    void setUCarrierBandwidth(std::vector<utility::string_t> value);
+    /// <summary>
+    /// Array of alphanumeric sender IDs.
+    /// </summary>
+    std::vector<utility::string_t>& getUcTwilioSenderId();
+    bool ucTwilioSenderIdIsSet() const;
+    void unsetUcTwilioSenderId();
+    void setUcTwilioSenderId(std::vector<utility::string_t> value);
 
 protected:
     std::vector<utility::string_t> m_Dedicated;
@@ -92,7 +111,12 @@ protected:
         std::vector<utility::string_t> m_SenderIds;
         std::vector<utility::string_t> m_UserCarrierTwilio;
         std::vector<utility::string_t> m_UserCarrierVonage;
-    };
+        std::vector<utility::string_t> m_UserCarrierSinch;
+        std::vector<utility::string_t> m_UCarrierBandwidth;
+    bool m_UCarrierBandwidthIsSet;
+    std::vector<utility::string_t> m_UcTwilioSenderId;
+    bool m_UcTwilioSenderIdIsSet;
+};
 
 }
 }

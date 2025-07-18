@@ -11,18 +11,17 @@
  */
 
 /*
- * UpdateTemplateInputObject.h
+ * FileMetadataPreview.h
  *
  * 
  */
 
-#ifndef COM_TEXTMAGIC_CLIENT_MODEL_UpdateTemplateInputObject_H_
-#define COM_TEXTMAGIC_CLIENT_MODEL_UpdateTemplateInputObject_H_
+#ifndef COM_TEXTMAGIC_CLIENT_MODEL_FileMetadataPreview_H_
+#define COM_TEXTMAGIC_CLIENT_MODEL_FileMetadataPreview_H_
 
 
 #include "../ModelBase.h"
 
-#include <cpprest/details/basic_types.h>
 
 namespace com {
 namespace textmagic {
@@ -32,12 +31,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  UpdateTemplateInputObject
+class  FileMetadataPreview
     : public ModelBase
 {
 public:
-    UpdateTemplateInputObject();
-    virtual ~UpdateTemplateInputObject();
+    FileMetadataPreview();
+    virtual ~FileMetadataPreview();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,33 +50,27 @@ public:
     void fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// UpdateTemplateInputObject members
+    /// FileMetadataPreview members
 
     /// <summary>
-    /// Template name.
+    /// 
     /// </summary>
-    utility::string_t getName() const;
-    bool nameIsSet() const;
-    void unsetName();
-    void setName(utility::string_t value);
+    int32_t getHeight() const;
+        void setHeight(int32_t value);
     /// <summary>
-    /// Template text. May contain dynamic fields inside braces. See [Custom fields list](https://docs.textmagic.com/#tag/Templates/Custom-fields-list-(Merge-dynamic-fields)).
+    /// 
     /// </summary>
-    utility::string_t getContent() const;
-    bool contentIsSet() const;
-    void unsetContent();
-    void setContent(utility::string_t value);
+    int32_t getWidth() const;
+        void setWidth(int32_t value);
 
 protected:
-    utility::string_t m_Name;
-    bool m_NameIsSet;
-    utility::string_t m_Content;
-    bool m_ContentIsSet;
-};
+    int32_t m_Height;
+        int32_t m_Width;
+    };
 
 }
 }
 }
 }
 
-#endif /* COM_TEXTMAGIC_CLIENT_MODEL_UpdateTemplateInputObject_H_ */
+#endif /* COM_TEXTMAGIC_CLIENT_MODEL_FileMetadataPreview_H_ */

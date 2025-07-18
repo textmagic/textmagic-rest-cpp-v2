@@ -21,6 +21,8 @@ namespace model {
 
 GetAvailableSenderSettingOptionsResponse::GetAvailableSenderSettingOptionsResponse()
 {
+    m_UCarrierBandwidthIsSet = false;
+    m_UcTwilioSenderIdIsSet = false;
 }
 
 GetAvailableSenderSettingOptionsResponse::~GetAvailableSenderSettingOptionsResponse()
@@ -83,6 +85,36 @@ web::json::value GetAvailableSenderSettingOptionsResponse::toJson() const
             jsonArray.push_back(ModelBase::toJson(item));
         }
         val[utility::conversions::to_string_t("userCarrierVonage")] = web::json::value::array(jsonArray);
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UserCarrierSinch )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        val[utility::conversions::to_string_t("userCarrierSinch")] = web::json::value::array(jsonArray);
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UCarrierBandwidth )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        if(jsonArray.size() > 0)
+        {
+            val[utility::conversions::to_string_t("uCarrierBandwidth")] = web::json::value::array(jsonArray);
+        }
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UcTwilioSenderId )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        if(jsonArray.size() > 0)
+        {
+            val[utility::conversions::to_string_t("ucTwilioSenderId")] = web::json::value::array(jsonArray);
+        }
     }
 
     return val;
@@ -156,6 +188,39 @@ void GetAvailableSenderSettingOptionsResponse::fromJson(web::json::value& val)
         }
         }
     }
+    {
+        m_UserCarrierSinch.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("userCarrierSinch")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("userCarrierSinch")].as_array() )
+        {
+            m_UserCarrierSinch.push_back(ModelBase::stringFromJson(item));
+        }
+        }
+    }
+    {
+        m_UCarrierBandwidth.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("uCarrierBandwidth")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("uCarrierBandwidth")].as_array() )
+        {
+            m_UCarrierBandwidth.push_back(ModelBase::stringFromJson(item));
+        }
+        }
+    }
+    {
+        m_UcTwilioSenderId.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("ucTwilioSenderId")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("ucTwilioSenderId")].as_array() )
+        {
+            m_UcTwilioSenderId.push_back(ModelBase::stringFromJson(item));
+        }
+        }
+    }
 }
 
 void GetAvailableSenderSettingOptionsResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -214,6 +279,38 @@ void GetAvailableSenderSettingOptionsResponse::toMultipart(std::shared_ptr<Multi
         }
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userCarrierVonage"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
             }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UserCarrierSinch )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userCarrierSinch"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+            }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UCarrierBandwidth )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        
+        if(jsonArray.size() > 0)
+        {
+            multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("uCarrierBandwidth"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+        }
+    }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_UcTwilioSenderId )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        
+        if(jsonArray.size() > 0)
+        {
+            multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ucTwilioSenderId"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+        }
+    }
 }
 
 void GetAvailableSenderSettingOptionsResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -278,6 +375,39 @@ void GetAvailableSenderSettingOptionsResponse::fromMultiPart(std::shared_ptr<Mul
             m_UserCarrierVonage.push_back(ModelBase::stringFromJson(item));
         }
     }
+    {
+        m_UserCarrierSinch.clear();
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userCarrierSinch"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            m_UserCarrierSinch.push_back(ModelBase::stringFromJson(item));
+        }
+    }
+    {
+        m_UCarrierBandwidth.clear();
+        if(multipart->hasContent(utility::conversions::to_string_t("uCarrierBandwidth")))
+        {
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("uCarrierBandwidth"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            m_UCarrierBandwidth.push_back(ModelBase::stringFromJson(item));
+        }
+        }
+    }
+    {
+        m_UcTwilioSenderId.clear();
+        if(multipart->hasContent(utility::conversions::to_string_t("ucTwilioSenderId")))
+        {
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ucTwilioSenderId"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            m_UcTwilioSenderId.push_back(ModelBase::stringFromJson(item));
+        }
+        }
+    }
 }
 
 std::vector<utility::string_t>& GetAvailableSenderSettingOptionsResponse::getDedicated()
@@ -340,6 +470,56 @@ void GetAvailableSenderSettingOptionsResponse::setUserCarrierVonage(std::vector<
     m_UserCarrierVonage = value;
     
 }
+std::vector<utility::string_t>& GetAvailableSenderSettingOptionsResponse::getUserCarrierSinch()
+{
+    return m_UserCarrierSinch;
+}
+
+void GetAvailableSenderSettingOptionsResponse::setUserCarrierSinch(std::vector<utility::string_t> value)
+{
+    m_UserCarrierSinch = value;
+    
+}
+std::vector<utility::string_t>& GetAvailableSenderSettingOptionsResponse::getUCarrierBandwidth()
+{
+    return m_UCarrierBandwidth;
+}
+
+void GetAvailableSenderSettingOptionsResponse::setUCarrierBandwidth(std::vector<utility::string_t> value)
+{
+    m_UCarrierBandwidth = value;
+    m_UCarrierBandwidthIsSet = true;
+}
+bool GetAvailableSenderSettingOptionsResponse::uCarrierBandwidthIsSet() const
+{
+    return m_UCarrierBandwidthIsSet;
+}
+
+void GetAvailableSenderSettingOptionsResponse::unsetUCarrierBandwidth()
+{
+    m_UCarrierBandwidthIsSet = false;
+}
+
+std::vector<utility::string_t>& GetAvailableSenderSettingOptionsResponse::getUcTwilioSenderId()
+{
+    return m_UcTwilioSenderId;
+}
+
+void GetAvailableSenderSettingOptionsResponse::setUcTwilioSenderId(std::vector<utility::string_t> value)
+{
+    m_UcTwilioSenderId = value;
+    m_UcTwilioSenderIdIsSet = true;
+}
+bool GetAvailableSenderSettingOptionsResponse::ucTwilioSenderIdIsSet() const
+{
+    return m_UcTwilioSenderIdIsSet;
+}
+
+void GetAvailableSenderSettingOptionsResponse::unsetUcTwilioSenderId()
+{
+    m_UcTwilioSenderIdIsSet = false;
+}
+
 }
 }
 }

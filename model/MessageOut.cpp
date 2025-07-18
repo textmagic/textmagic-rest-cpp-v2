@@ -28,6 +28,8 @@ MessageOut::MessageOut()
     m_ReceiverIsSet = false;
     m_Text = utility::conversions::to_string_t("");
     m_Status = utility::conversions::to_string_t("");
+    m_RejectReason = utility::conversions::to_string_t("");
+    m_RejectReasonIsSet = false;
     m_ContactId = 0;
     m_SessionId = 0;
     m_MessageTime = utility::datetime();
@@ -48,6 +50,8 @@ MessageOut::MessageOut()
     m_FromEmailIsSet = false;
     m_FromNumber = utility::conversions::to_string_t("");
     m_FromNumberIsSet = false;
+    m_SenderSourceIsSet = false;
+    m_SessionIsSet = false;
 }
 
 MessageOut::~MessageOut()
@@ -74,6 +78,10 @@ web::json::value MessageOut::toJson() const
     }
     val[utility::conversions::to_string_t("text")] = ModelBase::toJson(m_Text);
     val[utility::conversions::to_string_t("status")] = ModelBase::toJson(m_Status);
+    if(m_RejectReasonIsSet)
+    {
+        val[utility::conversions::to_string_t("rejectReason")] = ModelBase::toJson(m_RejectReason);
+    }
     val[utility::conversions::to_string_t("contactId")] = ModelBase::toJson(m_ContactId);
     val[utility::conversions::to_string_t("sessionId")] = ModelBase::toJson(m_SessionId);
     val[utility::conversions::to_string_t("messageTime")] = ModelBase::toJson(m_MessageTime);
@@ -103,6 +111,14 @@ web::json::value MessageOut::toJson() const
     if(m_FromNumberIsSet)
     {
         val[utility::conversions::to_string_t("fromNumber")] = ModelBase::toJson(m_FromNumber);
+    }
+    if(m_SenderSourceIsSet)
+    {
+        val[utility::conversions::to_string_t("senderSource")] = ModelBase::toJson(m_SenderSource);
+    }
+    if(m_SessionIsSet)
+    {
+        val[utility::conversions::to_string_t("session")] = ModelBase::toJson(m_Session);
     }
 
     return val;
@@ -148,6 +164,14 @@ void MessageOut::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setStatus(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("rejectReason")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("rejectReason")];
+        if(!fieldValue.is_null())
+        {
+            setRejectReason(ModelBase::stringFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("contactId")))
@@ -270,6 +294,26 @@ void MessageOut::fromJson(web::json::value& val)
             setFromNumber(ModelBase::stringFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("senderSource")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("senderSource")];
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<MessageOut_senderSource> newItem(new MessageOut_senderSource());
+            newItem->fromJson(fieldValue);
+            setSenderSource( newItem );
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("session")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("session")];
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<MessageOut_session> newItem(new MessageOut_session());
+            newItem->fromJson(fieldValue);
+            setSession( newItem );
+        }
+    }
 }
 
 void MessageOut::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -293,6 +337,11 @@ void MessageOut::toMultipart(std::shared_ptr<MultipartFormData> multipart, const
     }
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("text"), m_Text));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("status"), m_Status));
+    if(m_RejectReasonIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("rejectReason"), m_RejectReason));
+        
+    }
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactId"), m_ContactId));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("sessionId"), m_SessionId));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageTime"), m_MessageTime));
@@ -326,6 +375,22 @@ void MessageOut::toMultipart(std::shared_ptr<MultipartFormData> multipart, const
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("fromNumber"), m_FromNumber));
         
     }
+    if(m_SenderSourceIsSet)
+    {
+        if (m_SenderSource.get())
+        {
+            m_SenderSource->toMultipart(multipart, utility::conversions::to_string_t("senderSource."));
+        }
+        
+    }
+    if(m_SessionIsSet)
+    {
+        if (m_Session.get())
+        {
+            m_Session->toMultipart(multipart, utility::conversions::to_string_t("session."));
+        }
+        
+    }
 }
 
 void MessageOut::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -347,6 +412,10 @@ void MessageOut::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
     }
     setText(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("text"))));
     setStatus(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("status"))));
+    if(multipart->hasContent(utility::conversions::to_string_t("rejectReason")))
+    {
+        setRejectReason(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("rejectReason"))));
+    }
     setContactId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactId"))));
     setSessionId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("sessionId"))));
     setMessageTime(ModelBase::dateFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageTime"))));
@@ -376,6 +445,24 @@ void MessageOut::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
     if(multipart->hasContent(utility::conversions::to_string_t("fromNumber")))
     {
         setFromNumber(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("fromNumber"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("senderSource")))
+    {
+        if(multipart->hasContent(utility::conversions::to_string_t("senderSource")))
+        {
+            std::shared_ptr<MessageOut_senderSource> newItem(new MessageOut_senderSource());
+            newItem->fromMultiPart(multipart, utility::conversions::to_string_t("senderSource."));
+            setSenderSource( newItem );
+        }
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("session")))
+    {
+        if(multipart->hasContent(utility::conversions::to_string_t("session")))
+        {
+            std::shared_ptr<MessageOut_session> newItem(new MessageOut_session());
+            newItem->fromMultiPart(multipart, utility::conversions::to_string_t("session."));
+            setSession( newItem );
+        }
     }
 }
 
@@ -454,6 +541,27 @@ void MessageOut::setStatus(utility::string_t value)
     m_Status = value;
     
 }
+utility::string_t MessageOut::getRejectReason() const
+{
+    return m_RejectReason;
+}
+
+
+void MessageOut::setRejectReason(utility::string_t value)
+{
+    m_RejectReason = value;
+    m_RejectReasonIsSet = true;
+}
+bool MessageOut::rejectReasonIsSet() const
+{
+    return m_RejectReasonIsSet;
+}
+
+void MessageOut::unsetRejectReason()
+{
+    m_RejectReasonIsSet = false;
+}
+
 int32_t MessageOut::getContactId() const
 {
     return m_ContactId;
@@ -667,6 +775,48 @@ bool MessageOut::fromNumberIsSet() const
 void MessageOut::unsetFromNumber()
 {
     m_FromNumberIsSet = false;
+}
+
+std::shared_ptr<MessageOut_senderSource> MessageOut::getSenderSource() const
+{
+    return m_SenderSource;
+}
+
+
+void MessageOut::setSenderSource(std::shared_ptr<MessageOut_senderSource> value)
+{
+    m_SenderSource = value;
+    m_SenderSourceIsSet = true;
+}
+bool MessageOut::senderSourceIsSet() const
+{
+    return m_SenderSourceIsSet;
+}
+
+void MessageOut::unsetSenderSource()
+{
+    m_SenderSourceIsSet = false;
+}
+
+std::shared_ptr<MessageOut_session> MessageOut::getSession() const
+{
+    return m_Session;
+}
+
+
+void MessageOut::setSession(std::shared_ptr<MessageOut_session> value)
+{
+    m_Session = value;
+    m_SessionIsSet = true;
+}
+bool MessageOut::sessionIsSet() const
+{
+    return m_SessionIsSet;
+}
+
+void MessageOut::unsetSession()
+{
+    m_SessionIsSet = false;
 }
 
 }

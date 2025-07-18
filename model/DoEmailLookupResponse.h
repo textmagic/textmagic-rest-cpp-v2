@@ -59,12 +59,12 @@ public:
     utility::string_t getAddress() const;
         void setAddress(utility::string_t value);
     /// <summary>
-    /// The email is &#x60;valid&#x60; or &#x60;invalid&#x60;.
+    /// The email is &#x60;valid&#x60; or &#x60;invalid&#x60;.
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
     /// <summary>
-    /// The delivery status of the email address is&#x60;deliverable&#x60;, &#x60;undeliverable&#x60;. or &#x60;unknown&#x60;.
+    /// The delivery status of the email address is&#x60;deliverable&#x60;, &#x60;undeliverable&#x60;. or &#x60;unknown&#x60;.
     /// </summary>
     utility::string_t getDeliverability() const;
         void setDeliverability(utility::string_t value);
@@ -74,17 +74,17 @@ public:
     utility::string_t getReason() const;
         void setReason(utility::string_t value);
     /// <summary>
-    /// The risk score of the email is&#x60;high&#x60;, &#x60;medium&#x60;, &#x60;low&#x60; or &#x60;null&#x60;.
+    /// The risk score of the email is&#x60;high&#x60;, &#x60;medium&#x60;, &#x60;low&#x60; or &#x60;null&#x60;.
     /// </summary>
     utility::string_t getRisk() const;
         void setRisk(utility::string_t value);
     /// <summary>
-    /// The email address type (domain) is &#x60;free&#x60; or &#x60;corporate&#x60;.
+    /// The email address type (domain) is &#x60;free&#x60; or &#x60;corporate&#x60;.
     /// </summary>
     utility::string_t getAddressType() const;
         void setAddressType(utility::string_t value);
     /// <summary>
-    /// This is &#x60;true&#x60; if the domain is in the list of disposable email addresses; otherwise, it returns as &#x60;false&#x60;.
+    /// This is &#x60;true&#x60; if the domain is in the list of disposable email addresses; otherwise, it returns as &#x60;false&#x60;.
     /// </summary>
     bool isIsDisposableAddress() const;
         void setIsDisposableAddress(bool value);

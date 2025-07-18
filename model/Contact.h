@@ -23,8 +23,9 @@
 #include "../ModelBase.h"
 
 #include "Country.h"
+#include "CustomFieldListItem.h"
+#include "Tag.h"
 #include "List.h"
-#include "ContactCustomField.h"
 #include <cpprest/details/basic_types.h>
 #include "ContactImage.h"
 #include "ContactNote.h"
@@ -106,10 +107,10 @@ public:
     std::shared_ptr<Country> getCountry() const;
         void setCountry(std::shared_ptr<Country> value);
     /// <summary>
-    /// See the [Custom Fields](https://docs.textmagic.com/#tag/Custom-Fields) section.
+    /// 
     /// </summary>
-    std::vector<std::shared_ptr<ContactCustomField>>& getCustomFields();
-        void setCustomFields(std::vector<std::shared_ptr<ContactCustomField>> value);
+    std::vector<std::shared_ptr<CustomFieldListItem>>& getCustomFields();
+        void setCustomFields(std::vector<std::shared_ptr<CustomFieldListItem>> value);
     /// <summary>
     /// 
     /// </summary>
@@ -120,6 +121,20 @@ public:
     /// </summary>
     std::vector<std::shared_ptr<List>>& getLists();
         void setLists(std::vector<std::shared_ptr<List>> value);
+    /// <summary>
+    /// Contact Owner User ID.
+    /// </summary>
+    std::shared_ptr<User> getOwner() const;
+    bool ownerIsSet() const;
+    void unsetOwner();
+    void setOwner(std::shared_ptr<User> value);
+    /// <summary>
+    /// 
+    /// </summary>
+    std::vector<std::shared_ptr<Tag>>& getTags();
+    bool tagsIsSet() const;
+    void unsetTags();
+    void setTags(std::vector<std::shared_ptr<Tag>> value);
     /// <summary>
     /// Phone number type: * **0** if it is fixed-line; * **1** if it is mobile; * **2** if it is mobile or fixed-line (in case we cannot distingush between fixed-line or mobile); * **3** if it is toll-free; * **4** if it is a premium rate phone; * **5** if it is a shared cost phone; * **6** if it is a VoIP; * **7** if it is a [Personal Number](); * **8** if it is a pager; * **9** if it is a Universal Access Number; * **10** if the phone type is unknown; * **-1** if the phone type is not yet processed or cannot be determined. 
     /// </summary>
@@ -135,6 +150,13 @@ public:
     /// </summary>
     std::vector<std::shared_ptr<ContactNote>>& getNotes();
         void setNotes(std::vector<std::shared_ptr<ContactNote>> value);
+    /// <summary>
+    /// Whatsapp phone number in [E.164 format](https://en.wikipedia.org/wiki/E.164).
+    /// </summary>
+    utility::string_t getWhatsappPhone() const;
+    bool whatsappPhoneIsSet() const;
+    void unsetWhatsappPhone();
+    void setWhatsappPhone(utility::string_t value);
 
 protected:
     int32_t m_Id;
@@ -146,13 +168,19 @@ protected:
         utility::string_t m_Phone;
         utility::string_t m_Email;
         std::shared_ptr<Country> m_Country;
-        std::vector<std::shared_ptr<ContactCustomField>> m_CustomFields;
+        std::vector<std::shared_ptr<CustomFieldListItem>> m_CustomFields;
         std::shared_ptr<User> m_User;
         std::vector<std::shared_ptr<List>> m_Lists;
-        utility::string_t m_PhoneType;
+        std::shared_ptr<User> m_Owner;
+    bool m_OwnerIsSet;
+    std::vector<std::shared_ptr<Tag>> m_Tags;
+    bool m_TagsIsSet;
+    utility::string_t m_PhoneType;
         std::shared_ptr<ContactImage> m_Avatar;
         std::vector<std::shared_ptr<ContactNote>> m_Notes;
-    };
+        utility::string_t m_WhatsappPhone;
+    bool m_WhatsappPhoneIsSet;
+};
 
 }
 }

@@ -11,13 +11,13 @@
  */
 
 /*
- * MessageTemplate.h
+ * MessagePayload.h
  *
  * 
  */
 
-#ifndef COM_TEXTMAGIC_CLIENT_MODEL_MessageTemplate_H_
-#define COM_TEXTMAGIC_CLIENT_MODEL_MessageTemplate_H_
+#ifndef COM_TEXTMAGIC_CLIENT_MODEL_MessagePayload_H_
+#define COM_TEXTMAGIC_CLIENT_MODEL_MessagePayload_H_
 
 
 #include "../ModelBase.h"
@@ -32,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  MessageTemplate
+class  MessagePayload
     : public ModelBase
 {
 public:
-    MessageTemplate();
-    virtual ~MessageTemplate();
+    MessagePayload();
+    virtual ~MessagePayload();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,34 +51,22 @@ public:
     void fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// MessageTemplate members
+    /// MessagePayload members
 
     /// <summary>
-    /// Template ID.
+    /// Payload type.
     /// </summary>
-    int32_t getId() const;
-        void setId(int32_t value);
+    utility::string_t getType() const;
+        void setType(utility::string_t value);
     /// <summary>
-    /// Template name.
+    /// Media preview link.
     /// </summary>
-    utility::string_t getName() const;
-        void setName(utility::string_t value);
-    /// <summary>
-    /// Template text. May contain dynamic fields inside braces. See the [Custom fields list](https://docs.textmagic.com/#tag/Templates/Custom-fields-list-(Merge-dynamic-fields)).
-    /// </summary>
-    utility::string_t getContent() const;
-        void setContent(utility::string_t value);
-    /// <summary>
-    /// Time when the template was last modified.
-    /// </summary>
-    utility::datetime getLastModified() const;
-        void setLastModified(utility::datetime value);
+    utility::string_t getMediaPreview() const;
+        void setMediaPreview(utility::string_t value);
 
 protected:
-    int32_t m_Id;
-        utility::string_t m_Name;
-        utility::string_t m_Content;
-        utility::datetime m_LastModified;
+    utility::string_t m_Type;
+        utility::string_t m_MediaPreview;
     };
 
 }
@@ -86,4 +74,4 @@ protected:
 }
 }
 
-#endif /* COM_TEXTMAGIC_CLIENT_MODEL_MessageTemplate_H_ */
+#endif /* COM_TEXTMAGIC_CLIENT_MODEL_MessagePayload_H_ */

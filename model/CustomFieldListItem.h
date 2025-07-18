@@ -59,14 +59,32 @@ public:
     int32_t getId() const;
         void setId(int32_t value);
     /// <summary>
+    /// Old property custom Field ID.
+    /// </summary>
+    int32_t getUserCustomFieldId() const;
+        void setUserCustomFieldId(int32_t value);
+    /// <summary>
+    /// Custom Field name.
+    /// </summary>
+    utility::string_t getName() const;
+        void setName(utility::string_t value);
+    /// <summary>
     /// Custom Field value.
     /// </summary>
     utility::string_t getValue() const;
         void setValue(utility::string_t value);
+    /// <summary>
+    /// Custom field creation time.
+    /// </summary>
+    utility::datetime getCreatedAt() const;
+        void setCreatedAt(utility::datetime value);
 
 protected:
     int32_t m_Id;
+        int32_t m_UserCustomFieldId;
+        utility::string_t m_Name;
         utility::string_t m_Value;
+        utility::datetime m_CreatedAt;
     };
 
 }

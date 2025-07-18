@@ -93,6 +93,16 @@ public:
     /// </summary>
     utility::string_t getDestination() const;
         void setDestination(utility::string_t value);
+    /// <summary>
+    /// Initiator ID.
+    /// </summary>
+    int32_t getInitiatorId() const;
+        void setInitiatorId(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    utility::string_t getTitle() const;
+        void setTitle(utility::string_t value);
 
 protected:
     int32_t m_Id;
@@ -103,6 +113,8 @@ protected:
         double m_Price;
         int32_t m_NumbersCount;
         utility::string_t m_Destination;
+        int32_t m_InitiatorId;
+        utility::string_t m_Title;
     };
 
 }

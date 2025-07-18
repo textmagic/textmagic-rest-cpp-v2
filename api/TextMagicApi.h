@@ -28,7 +28,6 @@
 #include "BulkSession.h"
 #include "BuyDedicatedNumberInputObject.h"
 #include "Chat.h"
-#include "CheckPhoneVerificationCodeTFAInputObject.h"
 #include "ClearAndAssignContactsToListInputObject.h"
 #include "CloseChatsBulkInputObject.h"
 #include "Contact.h"
@@ -122,8 +121,6 @@
 #include "SearchTemplatesPaginatedResponse.h"
 #include "SendMessageInputObject.h"
 #include "SendMessageResponse.h"
-#include "SendPhoneVerificationCodeResponse.h"
-#include "SendPhoneVerificationCodeTFAInputObject.h"
 #include "SenderId.h"
 #include "SetChatStatusInputObject.h"
 #include "UnauthorizedResponse.h"
@@ -196,26 +193,6 @@ public:
     /// <param name="buyDedicatedNumberInputObject"></param>
     pplx::task<void> buyDedicatedNumber(
         std::shared_ptr<BuyDedicatedNumberInputObject> buyDedicatedNumberInputObject
-    );
-    /// <summary>
-    /// Cancel verification process
-    /// </summary>
-    /// <remarks>
-    /// You can cancel the verification not earlier than 30 seconds after the initial request.
-    /// </remarks>
-    /// <param name="verifyId">The verifyId that you received in Step 1.</param>
-    pplx::task<void> cancelVerification(
-        utility::string_t verifyId
-    );
-    /// <summary>
-    /// Step 2: Check the verification code 
-    /// </summary>
-    /// <remarks>
-    /// Check received code from user with the code which was actually sent.
-    /// </remarks>
-    /// <param name="checkPhoneVerificationCodeTFAInputObject"></param>
-    pplx::task<void> checkPhoneVerificationCodeTFA(
-        std::shared_ptr<CheckPhoneVerificationCodeTFAInputObject> checkPhoneVerificationCodeTFAInputObject
     );
     /// <summary>
     /// Reset list members to the specified contacts
@@ -831,6 +808,7 @@ public:
     /// <param name="end">Return messages up to specified timestamp only. Required when &#x60;start&#x60; parameter specified. (optional)</param>
     /// <param name="direction">Order direction. Default is desc. (optional, default to desc)</param>
     /// <param name="voice">Fetch results with voice calls. (optional, default to 0)</param>
+    /// <param name="includeNotes">Fetch results with messenger notes. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<GetChatMessagesPaginatedResponse>> getChatMessages(
         int32_t id,
         boost::optional<int32_t> page,
@@ -839,7 +817,8 @@ public:
         boost::optional<utility::string_t> start,
         boost::optional<utility::string_t> end,
         boost::optional<utility::string_t> direction,
-        boost::optional<int32_t> voice
+        boost::optional<int32_t> voice,
+        boost::optional<int32_t> includeNotes
     );
     /// <summary>
     /// Get the details of a specific contact
@@ -1083,7 +1062,7 @@ public:
     /// Preview message
     /// </summary>
     /// <remarks>
-    /// Get a messages preview (with tags merged) of up to 100 messages per session.
+    /// Get a messages preview (with dynamic fields merged) of up to 100 messages per session. 
     /// </remarks>
     /// <param name="text">Message text. Required if **template_id** is not set. (optional)</param>
     /// <param name="templateId">Template used instead of message text. Required if **text** is not set. (optional)</param>
@@ -1712,16 +1691,6 @@ public:
     /// <param name="sendMessageInputObject"></param>
     pplx::task<std::shared_ptr<SendMessageResponse>> sendMessage(
         std::shared_ptr<SendMessageInputObject> sendMessageInputObject
-    );
-    /// <summary>
-    /// Step 1: Send a verification code 
-    /// </summary>
-    /// <remarks>
-    /// Sends a verification code to a specified phone number.
-    /// </remarks>
-    /// <param name="sendPhoneVerificationCodeTFAInputObject"></param>
-    pplx::task<std::shared_ptr<SendPhoneVerificationCodeResponse>> sendPhoneVerificationCodeTFA(
-        std::shared_ptr<SendPhoneVerificationCodeTFAInputObject> sendPhoneVerificationCodeTFAInputObject
     );
     /// <summary>
     /// Change chat status

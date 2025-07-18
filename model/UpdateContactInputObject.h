@@ -139,6 +139,20 @@ public:
     bool countryIsSet() const;
     void unsetCountry();
     void setCountry(utility::string_t value);
+    /// <summary>
+    /// Contact [list](https://docs.textmagic.com/#tag/Tag) ID. Each contact must be assigned to at least one list.
+    /// </summary>
+    utility::string_t getTags() const;
+    bool tagsIsSet() const;
+    void unsetTags();
+    void setTags(utility::string_t value);
+    /// <summary>
+    /// Contact Owner ID
+    /// </summary>
+    int32_t getOwner() const;
+    bool ownerIsSet() const;
+    void unsetOwner();
+    void setOwner(int32_t value);
 
 protected:
     utility::string_t m_FirstName;
@@ -165,6 +179,10 @@ protected:
     bool m_LocalIsSet;
     utility::string_t m_Country;
     bool m_CountryIsSet;
+    utility::string_t m_Tags;
+    bool m_TagsIsSet;
+    int32_t m_Owner;
+    bool m_OwnerIsSet;
 };
 
 }

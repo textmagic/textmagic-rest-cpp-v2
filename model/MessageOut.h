@@ -22,6 +22,8 @@
 
 #include "../ModelBase.h"
 
+#include "MessageOut_session.h"
+#include "MessageOut_senderSource.h"
 #include <cpprest/details/basic_types.h>
 
 namespace com {
@@ -82,6 +84,13 @@ public:
     /// </summary>
     utility::string_t getStatus() const;
         void setStatus(utility::string_t value);
+    /// <summary>
+    /// Rejection reason.
+    /// </summary>
+    utility::string_t getRejectReason() const;
+    bool rejectReasonIsSet() const;
+    void unsetRejectReason();
+    void setRejectReason(utility::string_t value);
     /// <summary>
     /// Recipient contact ID.
     /// </summary>
@@ -167,6 +176,20 @@ public:
     bool fromNumberIsSet() const;
     void unsetFromNumber();
     void setFromNumber(utility::string_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<MessageOut_senderSource> getSenderSource() const;
+    bool senderSourceIsSet() const;
+    void unsetSenderSource();
+    void setSenderSource(std::shared_ptr<MessageOut_senderSource> value);
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<MessageOut_session> getSession() const;
+    bool sessionIsSet() const;
+    void unsetSession();
+    void setSession(std::shared_ptr<MessageOut_session> value);
 
 protected:
     int32_t m_Id;
@@ -176,7 +199,9 @@ protected:
     bool m_ReceiverIsSet;
     utility::string_t m_Text;
         utility::string_t m_Status;
-        int32_t m_ContactId;
+        utility::string_t m_RejectReason;
+    bool m_RejectReasonIsSet;
+    int32_t m_ContactId;
         int32_t m_SessionId;
         utility::datetime m_MessageTime;
         utility::string_t m_Avatar;
@@ -196,6 +221,10 @@ protected:
     bool m_FromEmailIsSet;
     utility::string_t m_FromNumber;
     bool m_FromNumberIsSet;
+    std::shared_ptr<MessageOut_senderSource> m_SenderSource;
+    bool m_SenderSourceIsSet;
+    std::shared_ptr<MessageOut_session> m_Session;
+    bool m_SessionIsSet;
 };
 
 }

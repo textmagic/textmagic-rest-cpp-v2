@@ -69,11 +69,17 @@ public:
     /// </summary>
     std::vector<utility::string_t>& getNumbers();
         void setNumbers(std::vector<utility::string_t> value);
+    /// <summary>
+    /// 
+    /// </summary>
+    std::vector<int32_t>& getFilteredViews();
+        void setFilteredViews(std::vector<int32_t> value);
 
 protected:
     std::vector<int32_t> m_Contacts;
         std::vector<int32_t> m_Groups;
         std::vector<utility::string_t> m_Numbers;
+        std::vector<int32_t> m_FilteredViews;
     };
 
 }

@@ -23,6 +23,9 @@
 #include "../ModelBase.h"
 
 #include <cpprest/details/basic_types.h>
+#include "File.h"
+#include <vector>
+#include "MessagePayload.h"
 
 namespace com {
 namespace textmagic {
@@ -110,6 +113,69 @@ public:
     bool initiatorIdIsSet() const;
     void unsetInitiatorId();
     void setInitiatorId(int32_t value);
+    /// <summary>
+    /// Message file id.
+    /// </summary>
+    int32_t getMessageFileId() const;
+    bool messageFileIdIsSet() const;
+    void unsetMessageFileId();
+    void setMessageFileId(int32_t value);
+    /// <summary>
+    /// Message type.
+    /// </summary>
+    utility::string_t getType() const;
+    bool typeIsSet() const;
+    void unsetType();
+    void setType(utility::string_t value);
+    /// <summary>
+    /// Chat type.
+    /// </summary>
+    utility::string_t getChatType() const;
+    bool chatTypeIsSet() const;
+    void unsetChatType();
+    void setChatType(utility::string_t value);
+    /// <summary>
+    /// Chat id.
+    /// </summary>
+    int32_t getChatId() const;
+    bool chatIdIsSet() const;
+    void unsetChatId();
+    void setChatId(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    bool isIsEdited() const;
+    bool isEditedIsSet() const;
+    void unsetIsEdited();
+    void setIsEdited(bool value);
+    /// <summary>
+    /// Error code.
+    /// </summary>
+    utility::string_t getErrorCode() const;
+    bool errorCodeIsSet() const;
+    void unsetErrorCode();
+    void setErrorCode(utility::string_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    std::vector<std::shared_ptr<File>>& getFiles();
+    bool filesIsSet() const;
+    void unsetFiles();
+    void setFiles(std::vector<std::shared_ptr<File>> value);
+    /// <summary>
+    /// 
+    /// </summary>
+    std::shared_ptr<MessagePayload> getPayload() const;
+    bool payloadIsSet() const;
+    void unsetPayload();
+    void setPayload(std::shared_ptr<MessagePayload> value);
+    /// <summary>
+    /// 
+    /// </summary>
+    utility::string_t getAvatar() const;
+    bool avatarIsSet() const;
+    void unsetAvatar();
+    void setAvatar(utility::string_t value);
 
 protected:
     int32_t m_Id;
@@ -124,6 +190,24 @@ protected:
         int32_t m_SessionId;
         int32_t m_InitiatorId;
     bool m_InitiatorIdIsSet;
+    int32_t m_MessageFileId;
+    bool m_MessageFileIdIsSet;
+    utility::string_t m_Type;
+    bool m_TypeIsSet;
+    utility::string_t m_ChatType;
+    bool m_ChatTypeIsSet;
+    int32_t m_ChatId;
+    bool m_ChatIdIsSet;
+    bool m_IsEdited;
+    bool m_IsEditedIsSet;
+    utility::string_t m_ErrorCode;
+    bool m_ErrorCodeIsSet;
+    std::vector<std::shared_ptr<File>> m_Files;
+    bool m_FilesIsSet;
+    std::shared_ptr<MessagePayload> m_Payload;
+    bool m_PayloadIsSet;
+    utility::string_t m_Avatar;
+    bool m_AvatarIsSet;
 };
 
 }

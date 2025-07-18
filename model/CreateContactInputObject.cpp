@@ -44,6 +44,10 @@ CreateContactInputObject::CreateContactInputObject()
     m_LocalIsSet = false;
     m_Country = utility::conversions::to_string_t("");
     m_CountryIsSet = false;
+    m_Tags = utility::conversions::to_string_t("");
+    m_TagsIsSet = false;
+    m_Owner = 0;
+    m_OwnerIsSet = false;
 }
 
 CreateContactInputObject::~CreateContactInputObject()
@@ -113,6 +117,14 @@ web::json::value CreateContactInputObject::toJson() const
     if(m_CountryIsSet)
     {
         val[utility::conversions::to_string_t("country")] = ModelBase::toJson(m_Country);
+    }
+    if(m_TagsIsSet)
+    {
+        val[utility::conversions::to_string_t("tags")] = ModelBase::toJson(m_Tags);
+    }
+    if(m_OwnerIsSet)
+    {
+        val[utility::conversions::to_string_t("owner")] = ModelBase::toJson(m_Owner);
     }
 
     return val;
@@ -228,6 +240,22 @@ void CreateContactInputObject::fromJson(web::json::value& val)
             setCountry(ModelBase::stringFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("tags")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("tags")];
+        if(!fieldValue.is_null())
+        {
+            setTags(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("owner")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("owner")];
+        if(!fieldValue.is_null())
+        {
+            setOwner(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
 }
 
 void CreateContactInputObject::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -300,6 +328,15 @@ void CreateContactInputObject::toMultipart(std::shared_ptr<MultipartFormData> mu
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("country"), m_Country));
         
+    }
+    if(m_TagsIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tags"), m_Tags));
+        
+    }
+    if(m_OwnerIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("owner"), m_Owner));
     }
 }
 
@@ -375,6 +412,14 @@ void CreateContactInputObject::fromMultiPart(std::shared_ptr<MultipartFormData> 
     if(multipart->hasContent(utility::conversions::to_string_t("country")))
     {
         setCountry(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("country"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("tags")))
+    {
+        setTags(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("tags"))));
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t("owner")))
+    {
+        setOwner(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("owner"))));
     }
 }
 
@@ -627,6 +672,48 @@ bool CreateContactInputObject::countryIsSet() const
 void CreateContactInputObject::unsetCountry()
 {
     m_CountryIsSet = false;
+}
+
+utility::string_t CreateContactInputObject::getTags() const
+{
+    return m_Tags;
+}
+
+
+void CreateContactInputObject::setTags(utility::string_t value)
+{
+    m_Tags = value;
+    m_TagsIsSet = true;
+}
+bool CreateContactInputObject::tagsIsSet() const
+{
+    return m_TagsIsSet;
+}
+
+void CreateContactInputObject::unsetTags()
+{
+    m_TagsIsSet = false;
+}
+
+int32_t CreateContactInputObject::getOwner() const
+{
+    return m_Owner;
+}
+
+
+void CreateContactInputObject::setOwner(int32_t value)
+{
+    m_Owner = value;
+    m_OwnerIsSet = true;
+}
+bool CreateContactInputObject::ownerIsSet() const
+{
+    return m_OwnerIsSet;
+}
+
+void CreateContactInputObject::unsetOwner()
+{
+    m_OwnerIsSet = false;
 }
 
 }

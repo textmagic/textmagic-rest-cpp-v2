@@ -60,6 +60,14 @@ web::json::value MessagesIcs_parameters_recipients::toJson() const
         }
         val[utility::conversions::to_string_t("numbers")] = web::json::value::array(jsonArray);
     }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_FilteredViews )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        val[utility::conversions::to_string_t("filteredViews")] = web::json::value::array(jsonArray);
+    }
 
     return val;
 }
@@ -99,6 +107,17 @@ void MessagesIcs_parameters_recipients::fromJson(web::json::value& val)
         }
         }
     }
+    {
+        m_FilteredViews.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("filteredViews")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("filteredViews")].as_array() )
+        {
+            m_FilteredViews.push_back(ModelBase::int32_tFromJson(item));
+        }
+        }
+    }
 }
 
 void MessagesIcs_parameters_recipients::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -132,6 +151,14 @@ void MessagesIcs_parameters_recipients::toMultipart(std::shared_ptr<MultipartFor
             jsonArray.push_back(ModelBase::toJson(item));
         }
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("numbers"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+            }
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_FilteredViews )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("filteredViews"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
             }
 }
 
@@ -170,6 +197,15 @@ void MessagesIcs_parameters_recipients::fromMultiPart(std::shared_ptr<MultipartF
             m_Numbers.push_back(ModelBase::stringFromJson(item));
         }
     }
+    {
+        m_FilteredViews.clear();
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("filteredViews"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            m_FilteredViews.push_back(ModelBase::int32_tFromJson(item));
+        }
+    }
 }
 
 std::vector<int32_t>& MessagesIcs_parameters_recipients::getContacts()
@@ -200,6 +236,16 @@ std::vector<utility::string_t>& MessagesIcs_parameters_recipients::getNumbers()
 void MessagesIcs_parameters_recipients::setNumbers(std::vector<utility::string_t> value)
 {
     m_Numbers = value;
+    
+}
+std::vector<int32_t>& MessagesIcs_parameters_recipients::getFilteredViews()
+{
+    return m_FilteredViews;
+}
+
+void MessagesIcs_parameters_recipients::setFilteredViews(std::vector<int32_t> value)
+{
+    m_FilteredViews = value;
     
 }
 }

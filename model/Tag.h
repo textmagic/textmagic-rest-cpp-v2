@@ -11,13 +11,13 @@
  */
 
 /*
- * CheckPhoneVerificationCodeTFAInputObject.h
+ * Tag.h
  *
  * 
  */
 
-#ifndef COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeTFAInputObject_H_
-#define COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeTFAInputObject_H_
+#ifndef COM_TEXTMAGIC_CLIENT_MODEL_Tag_H_
+#define COM_TEXTMAGIC_CLIENT_MODEL_Tag_H_
 
 
 #include "../ModelBase.h"
@@ -32,12 +32,12 @@ namespace model {
 /// <summary>
 /// 
 /// </summary>
-class  CheckPhoneVerificationCodeTFAInputObject
+class  Tag
     : public ModelBase
 {
 public:
-    CheckPhoneVerificationCodeTFAInputObject();
-    virtual ~CheckPhoneVerificationCodeTFAInputObject();
+    Tag();
+    virtual ~Tag();
 
     /////////////////////////////////////////////
     /// ModelBase overrides
@@ -51,33 +51,27 @@ public:
     void fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& namePrefix) override;
 
     /////////////////////////////////////////////
-    /// CheckPhoneVerificationCodeTFAInputObject members
+    /// Tag members
 
     /// <summary>
-    /// Verification code received by the user and entered into the form field.
+    /// Tag ID.
     /// </summary>
-    int32_t getCode() const;
-    bool codeIsSet() const;
-    void unsetCode();
-    void setCode(int32_t value);
+    int32_t getId() const;
+        void setId(int32_t value);
     /// <summary>
-    /// VerifyId from Step 1 to match both requests together.
+    /// Tag title.
     /// </summary>
-    utility::string_t getVerifyId() const;
-    bool verifyIdIsSet() const;
-    void unsetVerifyId();
-    void setVerifyId(utility::string_t value);
+    utility::string_t getTitle() const;
+        void setTitle(utility::string_t value);
 
 protected:
-    int32_t m_Code;
-    bool m_CodeIsSet;
-    utility::string_t m_VerifyId;
-    bool m_VerifyIdIsSet;
-};
+    int32_t m_Id;
+        utility::string_t m_Title;
+    };
 
 }
 }
 }
 }
 
-#endif /* COM_TEXTMAGIC_CLIENT_MODEL_CheckPhoneVerificationCodeTFAInputObject_H_ */
+#endif /* COM_TEXTMAGIC_CLIENT_MODEL_Tag_H_ */

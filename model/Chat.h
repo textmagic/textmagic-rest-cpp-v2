@@ -23,8 +23,10 @@
 #include "../ModelBase.h"
 
 #include "Country.h"
+#include "Tag.h"
 #include <cpprest/details/basic_types.h>
 #include "Contact.h"
+#include <vector>
 
 namespace com {
 namespace textmagic {
@@ -140,6 +142,28 @@ public:
     /// </summary>
     bool isPinned() const;
         void setPinned(bool value);
+    /// <summary>
+    /// Chat type.
+    /// </summary>
+    utility::string_t getType() const;
+        void setType(utility::string_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    double getSmsPrice() const;
+        void setSmsPrice(double value);
+    /// <summary>
+    /// 
+    /// </summary>
+    double getMmsPrice() const;
+        void setMmsPrice(double value);
+    /// <summary>
+    /// 
+    /// </summary>
+    std::vector<std::shared_ptr<Tag>>& getTags();
+    bool tagsIsSet() const;
+    void unsetTags();
+    void setTags(std::vector<std::shared_ptr<Tag>> value);
 
 protected:
     int32_t m_Id;
@@ -159,7 +183,12 @@ protected:
         int32_t m_TimeLeftMute;
         std::shared_ptr<Country> m_Country;
         bool m_Pinned;
-    };
+        utility::string_t m_Type;
+        double m_SmsPrice;
+        double m_MmsPrice;
+        std::vector<std::shared_ptr<Tag>> m_Tags;
+    bool m_TagsIsSet;
+};
 
 }
 }

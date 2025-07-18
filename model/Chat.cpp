@@ -36,6 +36,10 @@ Chat::Chat()
     m_MutedUntil = utility::datetime();
     m_TimeLeftMute = 0;
     m_Pinned = false;
+    m_Type = utility::conversions::to_string_t("");
+    m_SmsPrice = 0.0;
+    m_MmsPrice = 0.0;
+    m_TagsIsSet = false;
 }
 
 Chat::~Chat()
@@ -68,6 +72,20 @@ web::json::value Chat::toJson() const
     val[utility::conversions::to_string_t("timeLeftMute")] = ModelBase::toJson(m_TimeLeftMute);
     val[utility::conversions::to_string_t("country")] = ModelBase::toJson(m_Country);
     val[utility::conversions::to_string_t("pinned")] = ModelBase::toJson(m_Pinned);
+    val[utility::conversions::to_string_t("type")] = ModelBase::toJson(m_Type);
+    val[utility::conversions::to_string_t("smsPrice")] = ModelBase::toJson(m_SmsPrice);
+    val[utility::conversions::to_string_t("mmsPrice")] = ModelBase::toJson(m_MmsPrice);
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Tags )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        if(jsonArray.size() > 0)
+        {
+            val[utility::conversions::to_string_t("tags")] = web::json::value::array(jsonArray);
+        }
+    }
 
     return val;
 }
@@ -214,6 +232,50 @@ void Chat::fromJson(web::json::value& val)
             setPinned(ModelBase::boolFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("type")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("type")];
+        if(!fieldValue.is_null())
+        {
+            setType(ModelBase::stringFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("smsPrice")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("smsPrice")];
+        if(!fieldValue.is_null())
+        {
+            setSmsPrice(ModelBase::doubleFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("mmsPrice")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("mmsPrice")];
+        if(!fieldValue.is_null())
+        {
+            setMmsPrice(ModelBase::doubleFromJson(fieldValue));
+        }
+    }
+    {
+        m_Tags.clear();
+        std::vector<web::json::value> jsonArray;
+        if(val.has_field(utility::conversions::to_string_t("tags")))
+        {
+        for( auto& item : val[utility::conversions::to_string_t("tags")].as_array() )
+        {
+            if(item.is_null())
+            {
+                m_Tags.push_back( std::shared_ptr<Tag>(nullptr) );
+            }
+            else
+            {
+                std::shared_ptr<Tag> newItem(new Tag());
+                newItem->fromJson(item);
+                m_Tags.push_back( newItem );
+            }
+        }
+        }
+    }
 }
 
 void Chat::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -241,6 +303,21 @@ void Chat::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utili
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("timeLeftMute"), m_TimeLeftMute));
     m_Country->toMultipart(multipart, utility::conversions::to_string_t("country."));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("pinned"), m_Pinned));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("type"), m_Type));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("smsPrice"), m_SmsPrice));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("mmsPrice"), m_MmsPrice));
+    {
+        std::vector<web::json::value> jsonArray;
+        for( auto& item : m_Tags )
+        {
+            jsonArray.push_back(ModelBase::toJson(item));
+        }
+        
+        if(jsonArray.size() > 0)
+        {
+            multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tags"), web::json::value::array(jsonArray), utility::conversions::to_string_t("application/json")));
+        }
+    }
 }
 
 void Chat::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -272,6 +349,30 @@ void Chat::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const uti
     newCountry->fromMultiPart(multipart, utility::conversions::to_string_t("country."));
     setCountry( newCountry );
     setPinned(ModelBase::boolFromHttpContent(multipart->getContent(utility::conversions::to_string_t("pinned"))));
+    setType(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("type"))));
+    setSmsPrice(ModelBase::doubleFromHttpContent(multipart->getContent(utility::conversions::to_string_t("smsPrice"))));
+    setMmsPrice(ModelBase::doubleFromHttpContent(multipart->getContent(utility::conversions::to_string_t("mmsPrice"))));
+    {
+        m_Tags.clear();
+        if(multipart->hasContent(utility::conversions::to_string_t("tags")))
+        {
+
+        web::json::value jsonArray = web::json::value::parse(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("tags"))));
+        for( auto& item : jsonArray.as_array() )
+        {
+            if(item.is_null())
+            {
+                m_Tags.push_back( std::shared_ptr<Tag>(nullptr) );
+            }
+            else
+            {
+                std::shared_ptr<Tag> newItem(new Tag());
+                newItem->fromJson(item);
+                m_Tags.push_back( newItem );
+            }
+        }
+        }
+    }
 }
 
 int32_t Chat::getId() const
@@ -461,6 +562,59 @@ void Chat::setPinned(bool value)
     m_Pinned = value;
     
 }
+utility::string_t Chat::getType() const
+{
+    return m_Type;
+}
+
+
+void Chat::setType(utility::string_t value)
+{
+    m_Type = value;
+    
+}
+double Chat::getSmsPrice() const
+{
+    return m_SmsPrice;
+}
+
+
+void Chat::setSmsPrice(double value)
+{
+    m_SmsPrice = value;
+    
+}
+double Chat::getMmsPrice() const
+{
+    return m_MmsPrice;
+}
+
+
+void Chat::setMmsPrice(double value)
+{
+    m_MmsPrice = value;
+    
+}
+std::vector<std::shared_ptr<Tag>>& Chat::getTags()
+{
+    return m_Tags;
+}
+
+void Chat::setTags(std::vector<std::shared_ptr<Tag>> value)
+{
+    m_Tags = value;
+    m_TagsIsSet = true;
+}
+bool Chat::tagsIsSet() const
+{
+    return m_TagsIsSet;
+}
+
+void Chat::unsetTags()
+{
+    m_TagsIsSet = false;
+}
+
 }
 }
 }

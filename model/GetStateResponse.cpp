@@ -25,11 +25,13 @@ GetStateResponse::GetStateResponse()
     m_SystemExit = 0;
     m_SystemAlert = 0;
     m_SystemAccountStateChanged = 0;
+    m_SystemAccountAcceptTermsUpdate = 0;
     m_SystemAccountClosed = 0;
     m_SystemAccountAdditionalFields = 0;
     m_SystemAccountPermissionsChanged = 0;
     m_UserProfileChanged = 0;
     m_UserBalanceChanged = 0;
+    m_UserPresenceStatusChanged = 0;
     m_UserImpersonationEnd = 0;
     m_MessageDeleted = 0;
     m_MessageIncoming = 0;
@@ -38,6 +40,10 @@ GetStateResponse::GetStateResponse()
     m_MessageBulkEnd = 0;
     m_MessageWipeEnd = 0;
     m_MessageSent = 0;
+    m_MessageLog = 0;
+    m_MessageNote = 0;
+    m_MessageInitial = 0;
+    m_LastMessageSet = 0;
     m_MessageSessionDeleted = 0;
     m_MessageCacheClear = 0;
     m_MessageIncomingCacheClear = 0;
@@ -57,15 +63,31 @@ GetStateResponse::GetStateResponse()
     m_ChatDeleted = 0;
     m_ChatClosed = 0;
     m_ChatReopened = 0;
+    m_ChatActivated = 0;
     m_ChatCacheClear = 0;
     m_ChatRead = 0;
     m_ChatUnread = 0;
+    m_ChatAssigneeChanged = 0;
+    m_ChatTagsChanged = 0;
+    m_ChatConversationEnded = 0;
+    m_ChatUpdated = 0;
+    m_LiveChatAgentChanged = 0;
+    m_LiveChatRated = 0;
+    m_WebWidgetUpdated = 0;
+    m_WebWidgetDeleted = 0;
     m_ContactAdded = 0;
     m_ContactDeleted = 0;
+    m_ContactBulkUpdated = 0;
     m_ContactStateChanged = 0;
+    m_ContactUnsubscribed = 0;
+    m_ContactResubscribed = 0;
+    m_ContactNoteAdded = 0;
+    m_ContactNoteDeleted = 0;
+    m_ContactNoteStateChanged = 0;
     m_ListAdded = 0;
     m_ListDeleted = 0;
     m_ListStateChanged = 0;
+    m_ListCountMembersUpdated = 0;
     m_ContactWipeEnd = 0;
     m_ContactImportEnd = 0;
     m_ContactCacheClear = 0;
@@ -74,7 +96,7 @@ GetStateResponse::GetStateResponse()
     m_ProgressCarrierBulkLookup = 0;
     m_ProgressEmailBulkLookup = 0;
     m_ProgressSubAccountBulkImport = 0;
-    m_ProgressContactBulkImport = 0;
+    m_ImportProgressState = 0;
     m_ForceRefreshWebApp = 0;
     m_ChatSenderSettingsChanged = 0;
     m_CountrySenderSettingsChanged = 0;
@@ -83,6 +105,108 @@ GetStateResponse::GetStateResponse()
     m_ChatSuggestedReplyChunk = 0;
     m_UserSubscriptionChanged = 0;
     m_UserSubscriptionDeleted = 0;
+    m_TaskCreated = 0;
+    m_TaskUpdated = 0;
+    m_TaskReordered = 0;
+    m_TaskDeleted = 0;
+    m_TaskMovedAll = 0;
+    m_TaskStageCreated = 0;
+    m_TaskStageUpdated = 0;
+    m_TaskStageDeleted = 0;
+    m_TaskBoardCreated = 0;
+    m_TaskBoardUpdated = 0;
+    m_TaskBoardReordered = 0;
+    m_TaskBoardDeleted = 0;
+    m_TaskBoardArchived = 0;
+    m_TaskChecklistCreated = 0;
+    m_TaskChecklistUpdated = 0;
+    m_TaskChecklistDeleted = 0;
+    m_TaskChecklistBulkMarked = 0;
+    m_TaskChecklistItemCreated = 0;
+    m_TaskChecklistItemUpdated = 0;
+    m_TaskChecklistItemDeleted = 0;
+    m_TaskCommentCreated = 0;
+    m_TaskCommentDeleted = 0;
+    m_PinnedContactAdded = 0;
+    m_PinnedContactRemoved = 0;
+    m_PinnedContactReordered = 0;
+    m_PinnedContactStateChanged = 0;
+    m_WhatsappAccountAdded = 0;
+    m_WhatsappAccountRemoved = 0;
+    m_WhatsappAccountChanged = 0;
+    m_FacebookPageAdded = 0;
+    m_FacebookPageRemoved = 0;
+    m_FacebookPageChanged = 0;
+    m_InstagramAccountAdded = 0;
+    m_InstagramAccountRemoved = 0;
+    m_InstagramAccountChanged = 0;
+    m_UnreadTicketsCountUpdated = 0;
+    m_TicketDeleted = 0;
+    m_TicketUpdated = 0;
+    m_TicketCreated = 0;
+    m_TicketBulkUpdated = 0;
+    m_TicketBulkDeleted = 0;
+    m_TicketMessageCreated = 0;
+    m_TicketMessageUpdated = 0;
+    m_TicketMessageDeleted = 0;
+    m_SubAccountsClosed = 0;
+    m_UserInvited = 0;
+    m_FilteredViewCreated = 0;
+    m_FilteredViewCountUpdated = 0;
+    m_FilteredViewDeleted = 0;
+    m_ForwardingInboxWasVerified = 0;
+    m_ForwardingInboxCheckWasFailed = 0;
+    m_ForwardingInboxVerificationLinkWasParsed = 0;
+    m_TendlcLinkNumberStatusUpdated = 0;
+    m_ChannelPresence = 0;
+    m_DealCreated = 0;
+    m_DealUpdated = 0;
+    m_DealDeleted = 0;
+    m_DealMoved = 0;
+    m_DealStageCreated = 0;
+    m_DealStageUpdated = 0;
+    m_DealStageDeleted = 0;
+    m_DealPipelineCreated = 0;
+    m_DealPipelineUpdated = 0;
+    m_DealPipelineDeleted = 0;
+    m_DealPipelineArchived = 0;
+    m_DealPipelineReordered = 0;
+    m_DealActivityUpdated = 0;
+    m_DealActivityItemCreated = 0;
+    m_DealActivityItemUpdated = 0;
+    m_DealActivityItemDeleted = 0;
+    m_DealActivityItemBulkMarked = 0;
+    m_DealTimelineItemDeleted = 0;
+    m_DealTimelineItemCreated = 0;
+    m_AIAssistantCreated = 0;
+    m_AIAssistantState = 0;
+    m_AIAssistantDeleted = 0;
+    m_AIAssistantLinkDeleted = 0;
+    m_AIAssistantLinkState = 0;
+    m_AIAssistantLinkCreated = 0;
+    m_AIAssistantSubLinkState = 0;
+    m_AIAssistantSubLinkCreated = 0;
+    m_EmailCampaignEmailSenderCreated = 0;
+    m_EmailCampaignEmailSenderUpdated = 0;
+    m_EmailCampaignEmailSenderDeleted = 0;
+    m_EmailCampaignDomainCreated = 0;
+    m_EmailCampaignDomainDeleted = 0;
+    m_EmailCampaignDomainVerified = 0;
+    m_EmailCampaignDomainStatusChanged = 0;
+    m_EmailCampaignDomainDkimVerified = 0;
+    m_EmailCampaignDomainReturnPathVerified = 0;
+    m_EmailCampaignDomainDmarcVerified = 0;
+    m_EmailCampaignDomainEntryVerificationChanged = 0;
+    m_EmailCampaignProgressState = 0;
+    m_EmailCampaignUpdated = 0;
+    m_SmsCampaignInvalidated = 0;
+    m_ScheduledEmailCampaignCreated = 0;
+    m_ScheduledEmailCampaignUpdated = 0;
+    m_ScheduledEmailCampaignStatusUpdated = 0;
+    m_ScheduledEmailCampaignDeleted = 0;
+    m_EmailCampaignFailedAttemptCreated = 0;
+    m_EmailCampaignFailedAttemptDeleted = 0;
+    m_EmailCampaignFailedAttemptStateUpdated = 0;
 }
 
 GetStateResponse::~GetStateResponse()
@@ -102,11 +226,13 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("systemExit")] = ModelBase::toJson(m_SystemExit);
     val[utility::conversions::to_string_t("systemAlert")] = ModelBase::toJson(m_SystemAlert);
     val[utility::conversions::to_string_t("systemAccountStateChanged")] = ModelBase::toJson(m_SystemAccountStateChanged);
+    val[utility::conversions::to_string_t("systemAccountAcceptTermsUpdate")] = ModelBase::toJson(m_SystemAccountAcceptTermsUpdate);
     val[utility::conversions::to_string_t("systemAccountClosed")] = ModelBase::toJson(m_SystemAccountClosed);
     val[utility::conversions::to_string_t("systemAccountAdditionalFields")] = ModelBase::toJson(m_SystemAccountAdditionalFields);
     val[utility::conversions::to_string_t("systemAccountPermissionsChanged")] = ModelBase::toJson(m_SystemAccountPermissionsChanged);
     val[utility::conversions::to_string_t("userProfileChanged")] = ModelBase::toJson(m_UserProfileChanged);
     val[utility::conversions::to_string_t("userBalanceChanged")] = ModelBase::toJson(m_UserBalanceChanged);
+    val[utility::conversions::to_string_t("userPresenceStatusChanged")] = ModelBase::toJson(m_UserPresenceStatusChanged);
     val[utility::conversions::to_string_t("userImpersonationEnd")] = ModelBase::toJson(m_UserImpersonationEnd);
     val[utility::conversions::to_string_t("messageDeleted")] = ModelBase::toJson(m_MessageDeleted);
     val[utility::conversions::to_string_t("messageIncoming")] = ModelBase::toJson(m_MessageIncoming);
@@ -115,6 +241,10 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("messageBulkEnd")] = ModelBase::toJson(m_MessageBulkEnd);
     val[utility::conversions::to_string_t("messageWipeEnd")] = ModelBase::toJson(m_MessageWipeEnd);
     val[utility::conversions::to_string_t("messageSent")] = ModelBase::toJson(m_MessageSent);
+    val[utility::conversions::to_string_t("messageLog")] = ModelBase::toJson(m_MessageLog);
+    val[utility::conversions::to_string_t("messageNote")] = ModelBase::toJson(m_MessageNote);
+    val[utility::conversions::to_string_t("messageInitial")] = ModelBase::toJson(m_MessageInitial);
+    val[utility::conversions::to_string_t("lastMessageSet")] = ModelBase::toJson(m_LastMessageSet);
     val[utility::conversions::to_string_t("messageSessionDeleted")] = ModelBase::toJson(m_MessageSessionDeleted);
     val[utility::conversions::to_string_t("messageCacheClear")] = ModelBase::toJson(m_MessageCacheClear);
     val[utility::conversions::to_string_t("messageIncomingCacheClear")] = ModelBase::toJson(m_MessageIncomingCacheClear);
@@ -134,15 +264,31 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("chatDeleted")] = ModelBase::toJson(m_ChatDeleted);
     val[utility::conversions::to_string_t("chatClosed")] = ModelBase::toJson(m_ChatClosed);
     val[utility::conversions::to_string_t("chatReopened")] = ModelBase::toJson(m_ChatReopened);
+    val[utility::conversions::to_string_t("chatActivated")] = ModelBase::toJson(m_ChatActivated);
     val[utility::conversions::to_string_t("chatCacheClear")] = ModelBase::toJson(m_ChatCacheClear);
     val[utility::conversions::to_string_t("chatRead")] = ModelBase::toJson(m_ChatRead);
     val[utility::conversions::to_string_t("chatUnread")] = ModelBase::toJson(m_ChatUnread);
+    val[utility::conversions::to_string_t("chatAssigneeChanged")] = ModelBase::toJson(m_ChatAssigneeChanged);
+    val[utility::conversions::to_string_t("chatTagsChanged")] = ModelBase::toJson(m_ChatTagsChanged);
+    val[utility::conversions::to_string_t("chatConversationEnded")] = ModelBase::toJson(m_ChatConversationEnded);
+    val[utility::conversions::to_string_t("chatUpdated")] = ModelBase::toJson(m_ChatUpdated);
+    val[utility::conversions::to_string_t("liveChatAgentChanged")] = ModelBase::toJson(m_LiveChatAgentChanged);
+    val[utility::conversions::to_string_t("liveChatRated")] = ModelBase::toJson(m_LiveChatRated);
+    val[utility::conversions::to_string_t("webWidgetUpdated")] = ModelBase::toJson(m_WebWidgetUpdated);
+    val[utility::conversions::to_string_t("webWidgetDeleted")] = ModelBase::toJson(m_WebWidgetDeleted);
     val[utility::conversions::to_string_t("contactAdded")] = ModelBase::toJson(m_ContactAdded);
     val[utility::conversions::to_string_t("contactDeleted")] = ModelBase::toJson(m_ContactDeleted);
+    val[utility::conversions::to_string_t("contactBulkUpdated")] = ModelBase::toJson(m_ContactBulkUpdated);
     val[utility::conversions::to_string_t("contactStateChanged")] = ModelBase::toJson(m_ContactStateChanged);
+    val[utility::conversions::to_string_t("contactUnsubscribed")] = ModelBase::toJson(m_ContactUnsubscribed);
+    val[utility::conversions::to_string_t("contactResubscribed")] = ModelBase::toJson(m_ContactResubscribed);
+    val[utility::conversions::to_string_t("contactNoteAdded")] = ModelBase::toJson(m_ContactNoteAdded);
+    val[utility::conversions::to_string_t("contactNoteDeleted")] = ModelBase::toJson(m_ContactNoteDeleted);
+    val[utility::conversions::to_string_t("contactNoteStateChanged")] = ModelBase::toJson(m_ContactNoteStateChanged);
     val[utility::conversions::to_string_t("listAdded")] = ModelBase::toJson(m_ListAdded);
     val[utility::conversions::to_string_t("listDeleted")] = ModelBase::toJson(m_ListDeleted);
     val[utility::conversions::to_string_t("listStateChanged")] = ModelBase::toJson(m_ListStateChanged);
+    val[utility::conversions::to_string_t("listCountMembersUpdated")] = ModelBase::toJson(m_ListCountMembersUpdated);
     val[utility::conversions::to_string_t("contactWipeEnd")] = ModelBase::toJson(m_ContactWipeEnd);
     val[utility::conversions::to_string_t("contactImportEnd")] = ModelBase::toJson(m_ContactImportEnd);
     val[utility::conversions::to_string_t("contactCacheClear")] = ModelBase::toJson(m_ContactCacheClear);
@@ -151,7 +297,7 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("progressCarrierBulkLookup")] = ModelBase::toJson(m_ProgressCarrierBulkLookup);
     val[utility::conversions::to_string_t("progressEmailBulkLookup")] = ModelBase::toJson(m_ProgressEmailBulkLookup);
     val[utility::conversions::to_string_t("progressSubAccountBulkImport")] = ModelBase::toJson(m_ProgressSubAccountBulkImport);
-    val[utility::conversions::to_string_t("progressContactBulkImport")] = ModelBase::toJson(m_ProgressContactBulkImport);
+    val[utility::conversions::to_string_t("importProgressState")] = ModelBase::toJson(m_ImportProgressState);
     val[utility::conversions::to_string_t("forceRefreshWebApp")] = ModelBase::toJson(m_ForceRefreshWebApp);
     val[utility::conversions::to_string_t("chatSenderSettingsChanged")] = ModelBase::toJson(m_ChatSenderSettingsChanged);
     val[utility::conversions::to_string_t("countrySenderSettingsChanged")] = ModelBase::toJson(m_CountrySenderSettingsChanged);
@@ -160,6 +306,108 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("chatSuggestedReplyChunk")] = ModelBase::toJson(m_ChatSuggestedReplyChunk);
     val[utility::conversions::to_string_t("userSubscriptionChanged")] = ModelBase::toJson(m_UserSubscriptionChanged);
     val[utility::conversions::to_string_t("userSubscriptionDeleted")] = ModelBase::toJson(m_UserSubscriptionDeleted);
+    val[utility::conversions::to_string_t("taskCreated")] = ModelBase::toJson(m_TaskCreated);
+    val[utility::conversions::to_string_t("taskUpdated")] = ModelBase::toJson(m_TaskUpdated);
+    val[utility::conversions::to_string_t("taskReordered")] = ModelBase::toJson(m_TaskReordered);
+    val[utility::conversions::to_string_t("taskDeleted")] = ModelBase::toJson(m_TaskDeleted);
+    val[utility::conversions::to_string_t("taskMovedAll")] = ModelBase::toJson(m_TaskMovedAll);
+    val[utility::conversions::to_string_t("taskStageCreated")] = ModelBase::toJson(m_TaskStageCreated);
+    val[utility::conversions::to_string_t("taskStageUpdated")] = ModelBase::toJson(m_TaskStageUpdated);
+    val[utility::conversions::to_string_t("taskStageDeleted")] = ModelBase::toJson(m_TaskStageDeleted);
+    val[utility::conversions::to_string_t("taskBoardCreated")] = ModelBase::toJson(m_TaskBoardCreated);
+    val[utility::conversions::to_string_t("taskBoardUpdated")] = ModelBase::toJson(m_TaskBoardUpdated);
+    val[utility::conversions::to_string_t("taskBoardReordered")] = ModelBase::toJson(m_TaskBoardReordered);
+    val[utility::conversions::to_string_t("taskBoardDeleted")] = ModelBase::toJson(m_TaskBoardDeleted);
+    val[utility::conversions::to_string_t("taskBoardArchived")] = ModelBase::toJson(m_TaskBoardArchived);
+    val[utility::conversions::to_string_t("taskChecklistCreated")] = ModelBase::toJson(m_TaskChecklistCreated);
+    val[utility::conversions::to_string_t("taskChecklistUpdated")] = ModelBase::toJson(m_TaskChecklistUpdated);
+    val[utility::conversions::to_string_t("taskChecklistDeleted")] = ModelBase::toJson(m_TaskChecklistDeleted);
+    val[utility::conversions::to_string_t("taskChecklistBulkMarked")] = ModelBase::toJson(m_TaskChecklistBulkMarked);
+    val[utility::conversions::to_string_t("taskChecklistItemCreated")] = ModelBase::toJson(m_TaskChecklistItemCreated);
+    val[utility::conversions::to_string_t("taskChecklistItemUpdated")] = ModelBase::toJson(m_TaskChecklistItemUpdated);
+    val[utility::conversions::to_string_t("taskChecklistItemDeleted")] = ModelBase::toJson(m_TaskChecklistItemDeleted);
+    val[utility::conversions::to_string_t("taskCommentCreated")] = ModelBase::toJson(m_TaskCommentCreated);
+    val[utility::conversions::to_string_t("taskCommentDeleted")] = ModelBase::toJson(m_TaskCommentDeleted);
+    val[utility::conversions::to_string_t("pinnedContactAdded")] = ModelBase::toJson(m_PinnedContactAdded);
+    val[utility::conversions::to_string_t("pinnedContactRemoved")] = ModelBase::toJson(m_PinnedContactRemoved);
+    val[utility::conversions::to_string_t("pinnedContactReordered")] = ModelBase::toJson(m_PinnedContactReordered);
+    val[utility::conversions::to_string_t("pinnedContactStateChanged")] = ModelBase::toJson(m_PinnedContactStateChanged);
+    val[utility::conversions::to_string_t("whatsappAccountAdded")] = ModelBase::toJson(m_WhatsappAccountAdded);
+    val[utility::conversions::to_string_t("whatsappAccountRemoved")] = ModelBase::toJson(m_WhatsappAccountRemoved);
+    val[utility::conversions::to_string_t("whatsappAccountChanged")] = ModelBase::toJson(m_WhatsappAccountChanged);
+    val[utility::conversions::to_string_t("facebookPageAdded")] = ModelBase::toJson(m_FacebookPageAdded);
+    val[utility::conversions::to_string_t("facebookPageRemoved")] = ModelBase::toJson(m_FacebookPageRemoved);
+    val[utility::conversions::to_string_t("facebookPageChanged")] = ModelBase::toJson(m_FacebookPageChanged);
+    val[utility::conversions::to_string_t("instagramAccountAdded")] = ModelBase::toJson(m_InstagramAccountAdded);
+    val[utility::conversions::to_string_t("instagramAccountRemoved")] = ModelBase::toJson(m_InstagramAccountRemoved);
+    val[utility::conversions::to_string_t("instagramAccountChanged")] = ModelBase::toJson(m_InstagramAccountChanged);
+    val[utility::conversions::to_string_t("unreadTicketsCountUpdated")] = ModelBase::toJson(m_UnreadTicketsCountUpdated);
+    val[utility::conversions::to_string_t("ticketDeleted")] = ModelBase::toJson(m_TicketDeleted);
+    val[utility::conversions::to_string_t("ticketUpdated")] = ModelBase::toJson(m_TicketUpdated);
+    val[utility::conversions::to_string_t("ticketCreated")] = ModelBase::toJson(m_TicketCreated);
+    val[utility::conversions::to_string_t("ticketBulkUpdated")] = ModelBase::toJson(m_TicketBulkUpdated);
+    val[utility::conversions::to_string_t("ticketBulkDeleted")] = ModelBase::toJson(m_TicketBulkDeleted);
+    val[utility::conversions::to_string_t("ticketMessageCreated")] = ModelBase::toJson(m_TicketMessageCreated);
+    val[utility::conversions::to_string_t("ticketMessageUpdated")] = ModelBase::toJson(m_TicketMessageUpdated);
+    val[utility::conversions::to_string_t("ticketMessageDeleted")] = ModelBase::toJson(m_TicketMessageDeleted);
+    val[utility::conversions::to_string_t("subAccountsClosed")] = ModelBase::toJson(m_SubAccountsClosed);
+    val[utility::conversions::to_string_t("userInvited")] = ModelBase::toJson(m_UserInvited);
+    val[utility::conversions::to_string_t("filteredViewCreated")] = ModelBase::toJson(m_FilteredViewCreated);
+    val[utility::conversions::to_string_t("filteredViewCountUpdated")] = ModelBase::toJson(m_FilteredViewCountUpdated);
+    val[utility::conversions::to_string_t("filteredViewDeleted")] = ModelBase::toJson(m_FilteredViewDeleted);
+    val[utility::conversions::to_string_t("forwardingInboxWasVerified")] = ModelBase::toJson(m_ForwardingInboxWasVerified);
+    val[utility::conversions::to_string_t("forwardingInboxCheckWasFailed")] = ModelBase::toJson(m_ForwardingInboxCheckWasFailed);
+    val[utility::conversions::to_string_t("forwardingInboxVerificationLinkWasParsed")] = ModelBase::toJson(m_ForwardingInboxVerificationLinkWasParsed);
+    val[utility::conversions::to_string_t("tendlcLinkNumberStatusUpdated")] = ModelBase::toJson(m_TendlcLinkNumberStatusUpdated);
+    val[utility::conversions::to_string_t("channelPresence")] = ModelBase::toJson(m_ChannelPresence);
+    val[utility::conversions::to_string_t("dealCreated")] = ModelBase::toJson(m_DealCreated);
+    val[utility::conversions::to_string_t("dealUpdated")] = ModelBase::toJson(m_DealUpdated);
+    val[utility::conversions::to_string_t("dealDeleted")] = ModelBase::toJson(m_DealDeleted);
+    val[utility::conversions::to_string_t("dealMoved")] = ModelBase::toJson(m_DealMoved);
+    val[utility::conversions::to_string_t("dealStageCreated")] = ModelBase::toJson(m_DealStageCreated);
+    val[utility::conversions::to_string_t("dealStageUpdated")] = ModelBase::toJson(m_DealStageUpdated);
+    val[utility::conversions::to_string_t("dealStageDeleted")] = ModelBase::toJson(m_DealStageDeleted);
+    val[utility::conversions::to_string_t("dealPipelineCreated")] = ModelBase::toJson(m_DealPipelineCreated);
+    val[utility::conversions::to_string_t("dealPipelineUpdated")] = ModelBase::toJson(m_DealPipelineUpdated);
+    val[utility::conversions::to_string_t("dealPipelineDeleted")] = ModelBase::toJson(m_DealPipelineDeleted);
+    val[utility::conversions::to_string_t("dealPipelineArchived")] = ModelBase::toJson(m_DealPipelineArchived);
+    val[utility::conversions::to_string_t("dealPipelineReordered")] = ModelBase::toJson(m_DealPipelineReordered);
+    val[utility::conversions::to_string_t("dealActivityUpdated")] = ModelBase::toJson(m_DealActivityUpdated);
+    val[utility::conversions::to_string_t("dealActivityItemCreated")] = ModelBase::toJson(m_DealActivityItemCreated);
+    val[utility::conversions::to_string_t("dealActivityItemUpdated")] = ModelBase::toJson(m_DealActivityItemUpdated);
+    val[utility::conversions::to_string_t("dealActivityItemDeleted")] = ModelBase::toJson(m_DealActivityItemDeleted);
+    val[utility::conversions::to_string_t("dealActivityItemBulkMarked")] = ModelBase::toJson(m_DealActivityItemBulkMarked);
+    val[utility::conversions::to_string_t("dealTimelineItemDeleted")] = ModelBase::toJson(m_DealTimelineItemDeleted);
+    val[utility::conversions::to_string_t("dealTimelineItemCreated")] = ModelBase::toJson(m_DealTimelineItemCreated);
+    val[utility::conversions::to_string_t("AIAssistantCreated")] = ModelBase::toJson(m_AIAssistantCreated);
+    val[utility::conversions::to_string_t("AIAssistantState")] = ModelBase::toJson(m_AIAssistantState);
+    val[utility::conversions::to_string_t("AIAssistantDeleted")] = ModelBase::toJson(m_AIAssistantDeleted);
+    val[utility::conversions::to_string_t("AIAssistantLinkDeleted")] = ModelBase::toJson(m_AIAssistantLinkDeleted);
+    val[utility::conversions::to_string_t("AIAssistantLinkState")] = ModelBase::toJson(m_AIAssistantLinkState);
+    val[utility::conversions::to_string_t("AIAssistantLinkCreated")] = ModelBase::toJson(m_AIAssistantLinkCreated);
+    val[utility::conversions::to_string_t("AIAssistantSubLinkState")] = ModelBase::toJson(m_AIAssistantSubLinkState);
+    val[utility::conversions::to_string_t("AIAssistantSubLinkCreated")] = ModelBase::toJson(m_AIAssistantSubLinkCreated);
+    val[utility::conversions::to_string_t("emailCampaignEmailSenderCreated")] = ModelBase::toJson(m_EmailCampaignEmailSenderCreated);
+    val[utility::conversions::to_string_t("emailCampaignEmailSenderUpdated")] = ModelBase::toJson(m_EmailCampaignEmailSenderUpdated);
+    val[utility::conversions::to_string_t("emailCampaignEmailSenderDeleted")] = ModelBase::toJson(m_EmailCampaignEmailSenderDeleted);
+    val[utility::conversions::to_string_t("emailCampaignDomainCreated")] = ModelBase::toJson(m_EmailCampaignDomainCreated);
+    val[utility::conversions::to_string_t("emailCampaignDomainDeleted")] = ModelBase::toJson(m_EmailCampaignDomainDeleted);
+    val[utility::conversions::to_string_t("emailCampaignDomainVerified")] = ModelBase::toJson(m_EmailCampaignDomainVerified);
+    val[utility::conversions::to_string_t("emailCampaignDomainStatusChanged")] = ModelBase::toJson(m_EmailCampaignDomainStatusChanged);
+    val[utility::conversions::to_string_t("emailCampaignDomainDkimVerified")] = ModelBase::toJson(m_EmailCampaignDomainDkimVerified);
+    val[utility::conversions::to_string_t("emailCampaignDomainReturnPathVerified")] = ModelBase::toJson(m_EmailCampaignDomainReturnPathVerified);
+    val[utility::conversions::to_string_t("emailCampaignDomainDmarcVerified")] = ModelBase::toJson(m_EmailCampaignDomainDmarcVerified);
+    val[utility::conversions::to_string_t("emailCampaignDomainEntryVerificationChanged")] = ModelBase::toJson(m_EmailCampaignDomainEntryVerificationChanged);
+    val[utility::conversions::to_string_t("emailCampaignProgressState")] = ModelBase::toJson(m_EmailCampaignProgressState);
+    val[utility::conversions::to_string_t("emailCampaignUpdated")] = ModelBase::toJson(m_EmailCampaignUpdated);
+    val[utility::conversions::to_string_t("smsCampaignInvalidated")] = ModelBase::toJson(m_SmsCampaignInvalidated);
+    val[utility::conversions::to_string_t("scheduledEmailCampaignCreated")] = ModelBase::toJson(m_ScheduledEmailCampaignCreated);
+    val[utility::conversions::to_string_t("scheduledEmailCampaignUpdated")] = ModelBase::toJson(m_ScheduledEmailCampaignUpdated);
+    val[utility::conversions::to_string_t("scheduledEmailCampaignStatusUpdated")] = ModelBase::toJson(m_ScheduledEmailCampaignStatusUpdated);
+    val[utility::conversions::to_string_t("scheduledEmailCampaignDeleted")] = ModelBase::toJson(m_ScheduledEmailCampaignDeleted);
+    val[utility::conversions::to_string_t("emailCampaignFailedAttemptCreated")] = ModelBase::toJson(m_EmailCampaignFailedAttemptCreated);
+    val[utility::conversions::to_string_t("emailCampaignFailedAttemptDeleted")] = ModelBase::toJson(m_EmailCampaignFailedAttemptDeleted);
+    val[utility::conversions::to_string_t("emailCampaignFailedAttemptStateUpdated")] = ModelBase::toJson(m_EmailCampaignFailedAttemptStateUpdated);
 
     return val;
 }
@@ -196,6 +444,14 @@ void GetStateResponse::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setSystemAccountStateChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("systemAccountAcceptTermsUpdate")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("systemAccountAcceptTermsUpdate")];
+        if(!fieldValue.is_null())
+        {
+            setSystemAccountAcceptTermsUpdate(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("systemAccountClosed")))
@@ -236,6 +492,14 @@ void GetStateResponse::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setUserBalanceChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("userPresenceStatusChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("userPresenceStatusChanged")];
+        if(!fieldValue.is_null())
+        {
+            setUserPresenceStatusChanged(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("userImpersonationEnd")))
@@ -300,6 +564,38 @@ void GetStateResponse::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setMessageSent(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("messageLog")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("messageLog")];
+        if(!fieldValue.is_null())
+        {
+            setMessageLog(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("messageNote")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("messageNote")];
+        if(!fieldValue.is_null())
+        {
+            setMessageNote(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("messageInitial")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("messageInitial")];
+        if(!fieldValue.is_null())
+        {
+            setMessageInitial(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("lastMessageSet")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("lastMessageSet")];
+        if(!fieldValue.is_null())
+        {
+            setLastMessageSet(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("messageSessionDeleted")))
@@ -454,6 +750,14 @@ void GetStateResponse::fromJson(web::json::value& val)
             setChatReopened(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("chatActivated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatActivated")];
+        if(!fieldValue.is_null())
+        {
+            setChatActivated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("chatCacheClear")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("chatCacheClear")];
@@ -478,6 +782,70 @@ void GetStateResponse::fromJson(web::json::value& val)
             setChatUnread(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("chatAssigneeChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatAssigneeChanged")];
+        if(!fieldValue.is_null())
+        {
+            setChatAssigneeChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatTagsChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatTagsChanged")];
+        if(!fieldValue.is_null())
+        {
+            setChatTagsChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatConversationEnded")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatConversationEnded")];
+        if(!fieldValue.is_null())
+        {
+            setChatConversationEnded(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("chatUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("chatUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setChatUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("liveChatAgentChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("liveChatAgentChanged")];
+        if(!fieldValue.is_null())
+        {
+            setLiveChatAgentChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("liveChatRated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("liveChatRated")];
+        if(!fieldValue.is_null())
+        {
+            setLiveChatRated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("webWidgetUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("webWidgetUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setWebWidgetUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("webWidgetDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("webWidgetDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setWebWidgetDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("contactAdded")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("contactAdded")];
@@ -494,12 +862,60 @@ void GetStateResponse::fromJson(web::json::value& val)
             setContactDeleted(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("contactBulkUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("contactBulkUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setContactBulkUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("contactStateChanged")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("contactStateChanged")];
         if(!fieldValue.is_null())
         {
             setContactStateChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("contactUnsubscribed")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("contactUnsubscribed")];
+        if(!fieldValue.is_null())
+        {
+            setContactUnsubscribed(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("contactResubscribed")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("contactResubscribed")];
+        if(!fieldValue.is_null())
+        {
+            setContactResubscribed(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("contactNoteAdded")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("contactNoteAdded")];
+        if(!fieldValue.is_null())
+        {
+            setContactNoteAdded(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("contactNoteDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("contactNoteDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setContactNoteDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("contactNoteStateChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("contactNoteStateChanged")];
+        if(!fieldValue.is_null())
+        {
+            setContactNoteStateChanged(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("listAdded")))
@@ -524,6 +940,14 @@ void GetStateResponse::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setListStateChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("listCountMembersUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("listCountMembersUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setListCountMembersUpdated(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("contactWipeEnd")))
@@ -590,12 +1014,12 @@ void GetStateResponse::fromJson(web::json::value& val)
             setProgressSubAccountBulkImport(ModelBase::int32_tFromJson(fieldValue));
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("progressContactBulkImport")))
+    if(val.has_field(utility::conversions::to_string_t("importProgressState")))
     {
-        web::json::value& fieldValue = val[utility::conversions::to_string_t("progressContactBulkImport")];
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("importProgressState")];
         if(!fieldValue.is_null())
         {
-            setProgressContactBulkImport(ModelBase::int32_tFromJson(fieldValue));
+            setImportProgressState(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("forceRefreshWebApp")))
@@ -662,6 +1086,822 @@ void GetStateResponse::fromJson(web::json::value& val)
             setUserSubscriptionDeleted(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("taskCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskCreated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskReordered")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskReordered")];
+        if(!fieldValue.is_null())
+        {
+            setTaskReordered(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTaskDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskMovedAll")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskMovedAll")];
+        if(!fieldValue.is_null())
+        {
+            setTaskMovedAll(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskStageCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskStageCreated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskStageCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskStageUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskStageUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskStageUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskStageDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskStageDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTaskStageDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskBoardCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskBoardCreated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskBoardCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskBoardUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskBoardUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskBoardUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskBoardReordered")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskBoardReordered")];
+        if(!fieldValue.is_null())
+        {
+            setTaskBoardReordered(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskBoardDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskBoardDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTaskBoardDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskBoardArchived")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskBoardArchived")];
+        if(!fieldValue.is_null())
+        {
+            setTaskBoardArchived(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskChecklistCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskChecklistCreated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskChecklistCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskChecklistUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskChecklistUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskChecklistUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskChecklistDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskChecklistDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTaskChecklistDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskChecklistBulkMarked")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskChecklistBulkMarked")];
+        if(!fieldValue.is_null())
+        {
+            setTaskChecklistBulkMarked(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskChecklistItemCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskChecklistItemCreated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskChecklistItemCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskChecklistItemUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskChecklistItemUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskChecklistItemUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskChecklistItemDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskChecklistItemDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTaskChecklistItemDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskCommentCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskCommentCreated")];
+        if(!fieldValue.is_null())
+        {
+            setTaskCommentCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("taskCommentDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("taskCommentDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTaskCommentDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("pinnedContactAdded")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("pinnedContactAdded")];
+        if(!fieldValue.is_null())
+        {
+            setPinnedContactAdded(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("pinnedContactRemoved")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("pinnedContactRemoved")];
+        if(!fieldValue.is_null())
+        {
+            setPinnedContactRemoved(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("pinnedContactReordered")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("pinnedContactReordered")];
+        if(!fieldValue.is_null())
+        {
+            setPinnedContactReordered(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("pinnedContactStateChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("pinnedContactStateChanged")];
+        if(!fieldValue.is_null())
+        {
+            setPinnedContactStateChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("whatsappAccountAdded")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("whatsappAccountAdded")];
+        if(!fieldValue.is_null())
+        {
+            setWhatsappAccountAdded(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("whatsappAccountRemoved")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("whatsappAccountRemoved")];
+        if(!fieldValue.is_null())
+        {
+            setWhatsappAccountRemoved(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("whatsappAccountChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("whatsappAccountChanged")];
+        if(!fieldValue.is_null())
+        {
+            setWhatsappAccountChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("facebookPageAdded")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("facebookPageAdded")];
+        if(!fieldValue.is_null())
+        {
+            setFacebookPageAdded(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("facebookPageRemoved")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("facebookPageRemoved")];
+        if(!fieldValue.is_null())
+        {
+            setFacebookPageRemoved(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("facebookPageChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("facebookPageChanged")];
+        if(!fieldValue.is_null())
+        {
+            setFacebookPageChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("instagramAccountAdded")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("instagramAccountAdded")];
+        if(!fieldValue.is_null())
+        {
+            setInstagramAccountAdded(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("instagramAccountRemoved")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("instagramAccountRemoved")];
+        if(!fieldValue.is_null())
+        {
+            setInstagramAccountRemoved(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("instagramAccountChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("instagramAccountChanged")];
+        if(!fieldValue.is_null())
+        {
+            setInstagramAccountChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("unreadTicketsCountUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("unreadTicketsCountUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setUnreadTicketsCountUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("ticketDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("ticketDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTicketDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("ticketUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("ticketUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTicketUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("ticketCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("ticketCreated")];
+        if(!fieldValue.is_null())
+        {
+            setTicketCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("ticketBulkUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("ticketBulkUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTicketBulkUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("ticketBulkDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("ticketBulkDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTicketBulkDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("ticketMessageCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("ticketMessageCreated")];
+        if(!fieldValue.is_null())
+        {
+            setTicketMessageCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("ticketMessageUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("ticketMessageUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTicketMessageUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("ticketMessageDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("ticketMessageDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setTicketMessageDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("subAccountsClosed")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("subAccountsClosed")];
+        if(!fieldValue.is_null())
+        {
+            setSubAccountsClosed(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("userInvited")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("userInvited")];
+        if(!fieldValue.is_null())
+        {
+            setUserInvited(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("filteredViewCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("filteredViewCreated")];
+        if(!fieldValue.is_null())
+        {
+            setFilteredViewCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("filteredViewCountUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("filteredViewCountUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setFilteredViewCountUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("filteredViewDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("filteredViewDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setFilteredViewDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("forwardingInboxWasVerified")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("forwardingInboxWasVerified")];
+        if(!fieldValue.is_null())
+        {
+            setForwardingInboxWasVerified(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("forwardingInboxCheckWasFailed")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("forwardingInboxCheckWasFailed")];
+        if(!fieldValue.is_null())
+        {
+            setForwardingInboxCheckWasFailed(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("forwardingInboxVerificationLinkWasParsed")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("forwardingInboxVerificationLinkWasParsed")];
+        if(!fieldValue.is_null())
+        {
+            setForwardingInboxVerificationLinkWasParsed(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("tendlcLinkNumberStatusUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("tendlcLinkNumberStatusUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setTendlcLinkNumberStatusUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("channelPresence")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("channelPresence")];
+        if(!fieldValue.is_null())
+        {
+            setChannelPresence(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealCreated")];
+        if(!fieldValue.is_null())
+        {
+            setDealCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setDealUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setDealDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealMoved")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealMoved")];
+        if(!fieldValue.is_null())
+        {
+            setDealMoved(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealStageCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealStageCreated")];
+        if(!fieldValue.is_null())
+        {
+            setDealStageCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealStageUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealStageUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setDealStageUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealStageDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealStageDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setDealStageDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealPipelineCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealPipelineCreated")];
+        if(!fieldValue.is_null())
+        {
+            setDealPipelineCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealPipelineUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealPipelineUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setDealPipelineUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealPipelineDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealPipelineDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setDealPipelineDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealPipelineArchived")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealPipelineArchived")];
+        if(!fieldValue.is_null())
+        {
+            setDealPipelineArchived(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealPipelineReordered")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealPipelineReordered")];
+        if(!fieldValue.is_null())
+        {
+            setDealPipelineReordered(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealActivityUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealActivityUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setDealActivityUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealActivityItemCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealActivityItemCreated")];
+        if(!fieldValue.is_null())
+        {
+            setDealActivityItemCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealActivityItemUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealActivityItemUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setDealActivityItemUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealActivityItemDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealActivityItemDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setDealActivityItemDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealActivityItemBulkMarked")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealActivityItemBulkMarked")];
+        if(!fieldValue.is_null())
+        {
+            setDealActivityItemBulkMarked(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealTimelineItemDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealTimelineItemDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setDealTimelineItemDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("dealTimelineItemCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("dealTimelineItemCreated")];
+        if(!fieldValue.is_null())
+        {
+            setDealTimelineItemCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("AIAssistantCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("AIAssistantCreated")];
+        if(!fieldValue.is_null())
+        {
+            setAIAssistantCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("AIAssistantState")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("AIAssistantState")];
+        if(!fieldValue.is_null())
+        {
+            setAIAssistantState(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("AIAssistantDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("AIAssistantDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setAIAssistantDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("AIAssistantLinkDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("AIAssistantLinkDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setAIAssistantLinkDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("AIAssistantLinkState")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("AIAssistantLinkState")];
+        if(!fieldValue.is_null())
+        {
+            setAIAssistantLinkState(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("AIAssistantLinkCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("AIAssistantLinkCreated")];
+        if(!fieldValue.is_null())
+        {
+            setAIAssistantLinkCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("AIAssistantSubLinkState")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("AIAssistantSubLinkState")];
+        if(!fieldValue.is_null())
+        {
+            setAIAssistantSubLinkState(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("AIAssistantSubLinkCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("AIAssistantSubLinkCreated")];
+        if(!fieldValue.is_null())
+        {
+            setAIAssistantSubLinkCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignEmailSenderCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignEmailSenderCreated")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignEmailSenderCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignEmailSenderUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignEmailSenderUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignEmailSenderUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignEmailSenderDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignEmailSenderDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignEmailSenderDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignDomainCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignDomainCreated")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignDomainCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignDomainDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignDomainDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignDomainDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignDomainVerified")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignDomainVerified")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignDomainVerified(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignDomainStatusChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignDomainStatusChanged")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignDomainStatusChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignDomainDkimVerified")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignDomainDkimVerified")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignDomainDkimVerified(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignDomainReturnPathVerified")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignDomainReturnPathVerified")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignDomainReturnPathVerified(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignDomainDmarcVerified")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignDomainDmarcVerified")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignDomainDmarcVerified(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignDomainEntryVerificationChanged")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignDomainEntryVerificationChanged")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignDomainEntryVerificationChanged(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignProgressState")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignProgressState")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignProgressState(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("smsCampaignInvalidated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("smsCampaignInvalidated")];
+        if(!fieldValue.is_null())
+        {
+            setSmsCampaignInvalidated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("scheduledEmailCampaignCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("scheduledEmailCampaignCreated")];
+        if(!fieldValue.is_null())
+        {
+            setScheduledEmailCampaignCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("scheduledEmailCampaignUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("scheduledEmailCampaignUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setScheduledEmailCampaignUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("scheduledEmailCampaignStatusUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("scheduledEmailCampaignStatusUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setScheduledEmailCampaignStatusUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("scheduledEmailCampaignDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("scheduledEmailCampaignDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setScheduledEmailCampaignDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignFailedAttemptCreated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignFailedAttemptCreated")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignFailedAttemptCreated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignFailedAttemptDeleted")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignFailedAttemptDeleted")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignFailedAttemptDeleted(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailCampaignFailedAttemptStateUpdated")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailCampaignFailedAttemptStateUpdated")];
+        if(!fieldValue.is_null())
+        {
+            setEmailCampaignFailedAttemptStateUpdated(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
 }
 
 void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -676,11 +1916,13 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemExit"), m_SystemExit));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAlert"), m_SystemAlert));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountStateChanged"), m_SystemAccountStateChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountAcceptTermsUpdate"), m_SystemAccountAcceptTermsUpdate));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountClosed"), m_SystemAccountClosed));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountAdditionalFields"), m_SystemAccountAdditionalFields));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountPermissionsChanged"), m_SystemAccountPermissionsChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userProfileChanged"), m_UserProfileChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userBalanceChanged"), m_UserBalanceChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userPresenceStatusChanged"), m_UserPresenceStatusChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userImpersonationEnd"), m_UserImpersonationEnd));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageDeleted"), m_MessageDeleted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageIncoming"), m_MessageIncoming));
@@ -689,6 +1931,10 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageBulkEnd"), m_MessageBulkEnd));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageWipeEnd"), m_MessageWipeEnd));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageSent"), m_MessageSent));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageLog"), m_MessageLog));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageNote"), m_MessageNote));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageInitial"), m_MessageInitial));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("lastMessageSet"), m_LastMessageSet));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageSessionDeleted"), m_MessageSessionDeleted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageCacheClear"), m_MessageCacheClear));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("messageIncomingCacheClear"), m_MessageIncomingCacheClear));
@@ -708,15 +1954,31 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatDeleted"), m_ChatDeleted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatClosed"), m_ChatClosed));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatReopened"), m_ChatReopened));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatActivated"), m_ChatActivated));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatCacheClear"), m_ChatCacheClear));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatRead"), m_ChatRead));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatUnread"), m_ChatUnread));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatAssigneeChanged"), m_ChatAssigneeChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatTagsChanged"), m_ChatTagsChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatConversationEnded"), m_ChatConversationEnded));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatUpdated"), m_ChatUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("liveChatAgentChanged"), m_LiveChatAgentChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("liveChatRated"), m_LiveChatRated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("webWidgetUpdated"), m_WebWidgetUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("webWidgetDeleted"), m_WebWidgetDeleted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactAdded"), m_ContactAdded));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactDeleted"), m_ContactDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactBulkUpdated"), m_ContactBulkUpdated));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactStateChanged"), m_ContactStateChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactUnsubscribed"), m_ContactUnsubscribed));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactResubscribed"), m_ContactResubscribed));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactNoteAdded"), m_ContactNoteAdded));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactNoteDeleted"), m_ContactNoteDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactNoteStateChanged"), m_ContactNoteStateChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("listAdded"), m_ListAdded));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("listDeleted"), m_ListDeleted));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("listStateChanged"), m_ListStateChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("listCountMembersUpdated"), m_ListCountMembersUpdated));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactWipeEnd"), m_ContactWipeEnd));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactImportEnd"), m_ContactImportEnd));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("contactCacheClear"), m_ContactCacheClear));
@@ -725,7 +1987,7 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressCarrierBulkLookup"), m_ProgressCarrierBulkLookup));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressEmailBulkLookup"), m_ProgressEmailBulkLookup));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressSubAccountBulkImport"), m_ProgressSubAccountBulkImport));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressContactBulkImport"), m_ProgressContactBulkImport));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("importProgressState"), m_ImportProgressState));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("forceRefreshWebApp"), m_ForceRefreshWebApp));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatSenderSettingsChanged"), m_ChatSenderSettingsChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("countrySenderSettingsChanged"), m_CountrySenderSettingsChanged));
@@ -734,6 +1996,108 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatSuggestedReplyChunk"), m_ChatSuggestedReplyChunk));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userSubscriptionChanged"), m_UserSubscriptionChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userSubscriptionDeleted"), m_UserSubscriptionDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskCreated"), m_TaskCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskUpdated"), m_TaskUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskReordered"), m_TaskReordered));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskDeleted"), m_TaskDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskMovedAll"), m_TaskMovedAll));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskStageCreated"), m_TaskStageCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskStageUpdated"), m_TaskStageUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskStageDeleted"), m_TaskStageDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskBoardCreated"), m_TaskBoardCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskBoardUpdated"), m_TaskBoardUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskBoardReordered"), m_TaskBoardReordered));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskBoardDeleted"), m_TaskBoardDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskBoardArchived"), m_TaskBoardArchived));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskChecklistCreated"), m_TaskChecklistCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskChecklistUpdated"), m_TaskChecklistUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskChecklistDeleted"), m_TaskChecklistDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskChecklistBulkMarked"), m_TaskChecklistBulkMarked));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskChecklistItemCreated"), m_TaskChecklistItemCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskChecklistItemUpdated"), m_TaskChecklistItemUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskChecklistItemDeleted"), m_TaskChecklistItemDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskCommentCreated"), m_TaskCommentCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("taskCommentDeleted"), m_TaskCommentDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("pinnedContactAdded"), m_PinnedContactAdded));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("pinnedContactRemoved"), m_PinnedContactRemoved));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("pinnedContactReordered"), m_PinnedContactReordered));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("pinnedContactStateChanged"), m_PinnedContactStateChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("whatsappAccountAdded"), m_WhatsappAccountAdded));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("whatsappAccountRemoved"), m_WhatsappAccountRemoved));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("whatsappAccountChanged"), m_WhatsappAccountChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("facebookPageAdded"), m_FacebookPageAdded));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("facebookPageRemoved"), m_FacebookPageRemoved));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("facebookPageChanged"), m_FacebookPageChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("instagramAccountAdded"), m_InstagramAccountAdded));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("instagramAccountRemoved"), m_InstagramAccountRemoved));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("instagramAccountChanged"), m_InstagramAccountChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("unreadTicketsCountUpdated"), m_UnreadTicketsCountUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ticketDeleted"), m_TicketDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ticketUpdated"), m_TicketUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ticketCreated"), m_TicketCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ticketBulkUpdated"), m_TicketBulkUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ticketBulkDeleted"), m_TicketBulkDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ticketMessageCreated"), m_TicketMessageCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ticketMessageUpdated"), m_TicketMessageUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("ticketMessageDeleted"), m_TicketMessageDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("subAccountsClosed"), m_SubAccountsClosed));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userInvited"), m_UserInvited));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("filteredViewCreated"), m_FilteredViewCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("filteredViewCountUpdated"), m_FilteredViewCountUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("filteredViewDeleted"), m_FilteredViewDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("forwardingInboxWasVerified"), m_ForwardingInboxWasVerified));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("forwardingInboxCheckWasFailed"), m_ForwardingInboxCheckWasFailed));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("forwardingInboxVerificationLinkWasParsed"), m_ForwardingInboxVerificationLinkWasParsed));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("tendlcLinkNumberStatusUpdated"), m_TendlcLinkNumberStatusUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("channelPresence"), m_ChannelPresence));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealCreated"), m_DealCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealUpdated"), m_DealUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealDeleted"), m_DealDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealMoved"), m_DealMoved));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealStageCreated"), m_DealStageCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealStageUpdated"), m_DealStageUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealStageDeleted"), m_DealStageDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealPipelineCreated"), m_DealPipelineCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealPipelineUpdated"), m_DealPipelineUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealPipelineDeleted"), m_DealPipelineDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealPipelineArchived"), m_DealPipelineArchived));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealPipelineReordered"), m_DealPipelineReordered));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealActivityUpdated"), m_DealActivityUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealActivityItemCreated"), m_DealActivityItemCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealActivityItemUpdated"), m_DealActivityItemUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealActivityItemDeleted"), m_DealActivityItemDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealActivityItemBulkMarked"), m_DealActivityItemBulkMarked));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealTimelineItemDeleted"), m_DealTimelineItemDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("dealTimelineItemCreated"), m_DealTimelineItemCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("AIAssistantCreated"), m_AIAssistantCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("AIAssistantState"), m_AIAssistantState));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("AIAssistantDeleted"), m_AIAssistantDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("AIAssistantLinkDeleted"), m_AIAssistantLinkDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("AIAssistantLinkState"), m_AIAssistantLinkState));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("AIAssistantLinkCreated"), m_AIAssistantLinkCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("AIAssistantSubLinkState"), m_AIAssistantSubLinkState));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("AIAssistantSubLinkCreated"), m_AIAssistantSubLinkCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignEmailSenderCreated"), m_EmailCampaignEmailSenderCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignEmailSenderUpdated"), m_EmailCampaignEmailSenderUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignEmailSenderDeleted"), m_EmailCampaignEmailSenderDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainCreated"), m_EmailCampaignDomainCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainDeleted"), m_EmailCampaignDomainDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainVerified"), m_EmailCampaignDomainVerified));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainStatusChanged"), m_EmailCampaignDomainStatusChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainDkimVerified"), m_EmailCampaignDomainDkimVerified));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainReturnPathVerified"), m_EmailCampaignDomainReturnPathVerified));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainDmarcVerified"), m_EmailCampaignDomainDmarcVerified));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainEntryVerificationChanged"), m_EmailCampaignDomainEntryVerificationChanged));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignProgressState"), m_EmailCampaignProgressState));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignUpdated"), m_EmailCampaignUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("smsCampaignInvalidated"), m_SmsCampaignInvalidated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("scheduledEmailCampaignCreated"), m_ScheduledEmailCampaignCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("scheduledEmailCampaignUpdated"), m_ScheduledEmailCampaignUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("scheduledEmailCampaignStatusUpdated"), m_ScheduledEmailCampaignStatusUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("scheduledEmailCampaignDeleted"), m_ScheduledEmailCampaignDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignFailedAttemptCreated"), m_EmailCampaignFailedAttemptCreated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignFailedAttemptDeleted"), m_EmailCampaignFailedAttemptDeleted));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignFailedAttemptStateUpdated"), m_EmailCampaignFailedAttemptStateUpdated));
 }
 
 void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -748,11 +2112,13 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setSystemExit(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemExit"))));
     setSystemAlert(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAlert"))));
     setSystemAccountStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountStateChanged"))));
+    setSystemAccountAcceptTermsUpdate(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountAcceptTermsUpdate"))));
     setSystemAccountClosed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountClosed"))));
     setSystemAccountAdditionalFields(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountAdditionalFields"))));
     setSystemAccountPermissionsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountPermissionsChanged"))));
     setUserProfileChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userProfileChanged"))));
     setUserBalanceChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userBalanceChanged"))));
+    setUserPresenceStatusChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userPresenceStatusChanged"))));
     setUserImpersonationEnd(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userImpersonationEnd"))));
     setMessageDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageDeleted"))));
     setMessageIncoming(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageIncoming"))));
@@ -761,6 +2127,10 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setMessageBulkEnd(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageBulkEnd"))));
     setMessageWipeEnd(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageWipeEnd"))));
     setMessageSent(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageSent"))));
+    setMessageLog(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageLog"))));
+    setMessageNote(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageNote"))));
+    setMessageInitial(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageInitial"))));
+    setLastMessageSet(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("lastMessageSet"))));
     setMessageSessionDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageSessionDeleted"))));
     setMessageCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageCacheClear"))));
     setMessageIncomingCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("messageIncomingCacheClear"))));
@@ -780,15 +2150,31 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setChatDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatDeleted"))));
     setChatClosed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatClosed"))));
     setChatReopened(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatReopened"))));
+    setChatActivated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatActivated"))));
     setChatCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatCacheClear"))));
     setChatRead(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatRead"))));
     setChatUnread(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatUnread"))));
+    setChatAssigneeChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatAssigneeChanged"))));
+    setChatTagsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatTagsChanged"))));
+    setChatConversationEnded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatConversationEnded"))));
+    setChatUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatUpdated"))));
+    setLiveChatAgentChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("liveChatAgentChanged"))));
+    setLiveChatRated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("liveChatRated"))));
+    setWebWidgetUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("webWidgetUpdated"))));
+    setWebWidgetDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("webWidgetDeleted"))));
     setContactAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactAdded"))));
     setContactDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactDeleted"))));
+    setContactBulkUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactBulkUpdated"))));
     setContactStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactStateChanged"))));
+    setContactUnsubscribed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactUnsubscribed"))));
+    setContactResubscribed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactResubscribed"))));
+    setContactNoteAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactNoteAdded"))));
+    setContactNoteDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactNoteDeleted"))));
+    setContactNoteStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactNoteStateChanged"))));
     setListAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("listAdded"))));
     setListDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("listDeleted"))));
     setListStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("listStateChanged"))));
+    setListCountMembersUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("listCountMembersUpdated"))));
     setContactWipeEnd(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactWipeEnd"))));
     setContactImportEnd(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactImportEnd"))));
     setContactCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("contactCacheClear"))));
@@ -797,7 +2183,7 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setProgressCarrierBulkLookup(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressCarrierBulkLookup"))));
     setProgressEmailBulkLookup(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressEmailBulkLookup"))));
     setProgressSubAccountBulkImport(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressSubAccountBulkImport"))));
-    setProgressContactBulkImport(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressContactBulkImport"))));
+    setImportProgressState(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("importProgressState"))));
     setForceRefreshWebApp(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("forceRefreshWebApp"))));
     setChatSenderSettingsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatSenderSettingsChanged"))));
     setCountrySenderSettingsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("countrySenderSettingsChanged"))));
@@ -806,6 +2192,108 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setChatSuggestedReplyChunk(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatSuggestedReplyChunk"))));
     setUserSubscriptionChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userSubscriptionChanged"))));
     setUserSubscriptionDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userSubscriptionDeleted"))));
+    setTaskCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskCreated"))));
+    setTaskUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskUpdated"))));
+    setTaskReordered(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskReordered"))));
+    setTaskDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskDeleted"))));
+    setTaskMovedAll(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskMovedAll"))));
+    setTaskStageCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskStageCreated"))));
+    setTaskStageUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskStageUpdated"))));
+    setTaskStageDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskStageDeleted"))));
+    setTaskBoardCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskBoardCreated"))));
+    setTaskBoardUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskBoardUpdated"))));
+    setTaskBoardReordered(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskBoardReordered"))));
+    setTaskBoardDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskBoardDeleted"))));
+    setTaskBoardArchived(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskBoardArchived"))));
+    setTaskChecklistCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskChecklistCreated"))));
+    setTaskChecklistUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskChecklistUpdated"))));
+    setTaskChecklistDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskChecklistDeleted"))));
+    setTaskChecklistBulkMarked(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskChecklistBulkMarked"))));
+    setTaskChecklistItemCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskChecklistItemCreated"))));
+    setTaskChecklistItemUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskChecklistItemUpdated"))));
+    setTaskChecklistItemDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskChecklistItemDeleted"))));
+    setTaskCommentCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskCommentCreated"))));
+    setTaskCommentDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("taskCommentDeleted"))));
+    setPinnedContactAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("pinnedContactAdded"))));
+    setPinnedContactRemoved(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("pinnedContactRemoved"))));
+    setPinnedContactReordered(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("pinnedContactReordered"))));
+    setPinnedContactStateChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("pinnedContactStateChanged"))));
+    setWhatsappAccountAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("whatsappAccountAdded"))));
+    setWhatsappAccountRemoved(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("whatsappAccountRemoved"))));
+    setWhatsappAccountChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("whatsappAccountChanged"))));
+    setFacebookPageAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("facebookPageAdded"))));
+    setFacebookPageRemoved(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("facebookPageRemoved"))));
+    setFacebookPageChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("facebookPageChanged"))));
+    setInstagramAccountAdded(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("instagramAccountAdded"))));
+    setInstagramAccountRemoved(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("instagramAccountRemoved"))));
+    setInstagramAccountChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("instagramAccountChanged"))));
+    setUnreadTicketsCountUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("unreadTicketsCountUpdated"))));
+    setTicketDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ticketDeleted"))));
+    setTicketUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ticketUpdated"))));
+    setTicketCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ticketCreated"))));
+    setTicketBulkUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ticketBulkUpdated"))));
+    setTicketBulkDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ticketBulkDeleted"))));
+    setTicketMessageCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ticketMessageCreated"))));
+    setTicketMessageUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ticketMessageUpdated"))));
+    setTicketMessageDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("ticketMessageDeleted"))));
+    setSubAccountsClosed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("subAccountsClosed"))));
+    setUserInvited(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userInvited"))));
+    setFilteredViewCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("filteredViewCreated"))));
+    setFilteredViewCountUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("filteredViewCountUpdated"))));
+    setFilteredViewDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("filteredViewDeleted"))));
+    setForwardingInboxWasVerified(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("forwardingInboxWasVerified"))));
+    setForwardingInboxCheckWasFailed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("forwardingInboxCheckWasFailed"))));
+    setForwardingInboxVerificationLinkWasParsed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("forwardingInboxVerificationLinkWasParsed"))));
+    setTendlcLinkNumberStatusUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("tendlcLinkNumberStatusUpdated"))));
+    setChannelPresence(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("channelPresence"))));
+    setDealCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealCreated"))));
+    setDealUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealUpdated"))));
+    setDealDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealDeleted"))));
+    setDealMoved(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealMoved"))));
+    setDealStageCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealStageCreated"))));
+    setDealStageUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealStageUpdated"))));
+    setDealStageDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealStageDeleted"))));
+    setDealPipelineCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealPipelineCreated"))));
+    setDealPipelineUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealPipelineUpdated"))));
+    setDealPipelineDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealPipelineDeleted"))));
+    setDealPipelineArchived(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealPipelineArchived"))));
+    setDealPipelineReordered(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealPipelineReordered"))));
+    setDealActivityUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealActivityUpdated"))));
+    setDealActivityItemCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealActivityItemCreated"))));
+    setDealActivityItemUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealActivityItemUpdated"))));
+    setDealActivityItemDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealActivityItemDeleted"))));
+    setDealActivityItemBulkMarked(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealActivityItemBulkMarked"))));
+    setDealTimelineItemDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealTimelineItemDeleted"))));
+    setDealTimelineItemCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("dealTimelineItemCreated"))));
+    setAIAssistantCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("AIAssistantCreated"))));
+    setAIAssistantState(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("AIAssistantState"))));
+    setAIAssistantDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("AIAssistantDeleted"))));
+    setAIAssistantLinkDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("AIAssistantLinkDeleted"))));
+    setAIAssistantLinkState(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("AIAssistantLinkState"))));
+    setAIAssistantLinkCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("AIAssistantLinkCreated"))));
+    setAIAssistantSubLinkState(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("AIAssistantSubLinkState"))));
+    setAIAssistantSubLinkCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("AIAssistantSubLinkCreated"))));
+    setEmailCampaignEmailSenderCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignEmailSenderCreated"))));
+    setEmailCampaignEmailSenderUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignEmailSenderUpdated"))));
+    setEmailCampaignEmailSenderDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignEmailSenderDeleted"))));
+    setEmailCampaignDomainCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainCreated"))));
+    setEmailCampaignDomainDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainDeleted"))));
+    setEmailCampaignDomainVerified(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainVerified"))));
+    setEmailCampaignDomainStatusChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainStatusChanged"))));
+    setEmailCampaignDomainDkimVerified(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainDkimVerified"))));
+    setEmailCampaignDomainReturnPathVerified(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainReturnPathVerified"))));
+    setEmailCampaignDomainDmarcVerified(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainDmarcVerified"))));
+    setEmailCampaignDomainEntryVerificationChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainEntryVerificationChanged"))));
+    setEmailCampaignProgressState(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignProgressState"))));
+    setEmailCampaignUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignUpdated"))));
+    setSmsCampaignInvalidated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("smsCampaignInvalidated"))));
+    setScheduledEmailCampaignCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("scheduledEmailCampaignCreated"))));
+    setScheduledEmailCampaignUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("scheduledEmailCampaignUpdated"))));
+    setScheduledEmailCampaignStatusUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("scheduledEmailCampaignStatusUpdated"))));
+    setScheduledEmailCampaignDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("scheduledEmailCampaignDeleted"))));
+    setEmailCampaignFailedAttemptCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignFailedAttemptCreated"))));
+    setEmailCampaignFailedAttemptDeleted(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignFailedAttemptDeleted"))));
+    setEmailCampaignFailedAttemptStateUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignFailedAttemptStateUpdated"))));
 }
 
 int32_t GetStateResponse::getSystemCacheClear() const
@@ -850,6 +2338,17 @@ int32_t GetStateResponse::getSystemAccountStateChanged() const
 void GetStateResponse::setSystemAccountStateChanged(int32_t value)
 {
     m_SystemAccountStateChanged = value;
+    
+}
+int32_t GetStateResponse::getSystemAccountAcceptTermsUpdate() const
+{
+    return m_SystemAccountAcceptTermsUpdate;
+}
+
+
+void GetStateResponse::setSystemAccountAcceptTermsUpdate(int32_t value)
+{
+    m_SystemAccountAcceptTermsUpdate = value;
     
 }
 int32_t GetStateResponse::getSystemAccountClosed() const
@@ -905,6 +2404,17 @@ int32_t GetStateResponse::getUserBalanceChanged() const
 void GetStateResponse::setUserBalanceChanged(int32_t value)
 {
     m_UserBalanceChanged = value;
+    
+}
+int32_t GetStateResponse::getUserPresenceStatusChanged() const
+{
+    return m_UserPresenceStatusChanged;
+}
+
+
+void GetStateResponse::setUserPresenceStatusChanged(int32_t value)
+{
+    m_UserPresenceStatusChanged = value;
     
 }
 int32_t GetStateResponse::getUserImpersonationEnd() const
@@ -993,6 +2503,50 @@ int32_t GetStateResponse::getMessageSent() const
 void GetStateResponse::setMessageSent(int32_t value)
 {
     m_MessageSent = value;
+    
+}
+int32_t GetStateResponse::getMessageLog() const
+{
+    return m_MessageLog;
+}
+
+
+void GetStateResponse::setMessageLog(int32_t value)
+{
+    m_MessageLog = value;
+    
+}
+int32_t GetStateResponse::getMessageNote() const
+{
+    return m_MessageNote;
+}
+
+
+void GetStateResponse::setMessageNote(int32_t value)
+{
+    m_MessageNote = value;
+    
+}
+int32_t GetStateResponse::getMessageInitial() const
+{
+    return m_MessageInitial;
+}
+
+
+void GetStateResponse::setMessageInitial(int32_t value)
+{
+    m_MessageInitial = value;
+    
+}
+int32_t GetStateResponse::getLastMessageSet() const
+{
+    return m_LastMessageSet;
+}
+
+
+void GetStateResponse::setLastMessageSet(int32_t value)
+{
+    m_LastMessageSet = value;
     
 }
 int32_t GetStateResponse::getMessageSessionDeleted() const
@@ -1204,6 +2758,17 @@ void GetStateResponse::setChatReopened(int32_t value)
     m_ChatReopened = value;
     
 }
+int32_t GetStateResponse::getChatActivated() const
+{
+    return m_ChatActivated;
+}
+
+
+void GetStateResponse::setChatActivated(int32_t value)
+{
+    m_ChatActivated = value;
+    
+}
 int32_t GetStateResponse::getChatCacheClear() const
 {
     return m_ChatCacheClear;
@@ -1237,6 +2802,94 @@ void GetStateResponse::setChatUnread(int32_t value)
     m_ChatUnread = value;
     
 }
+int32_t GetStateResponse::getChatAssigneeChanged() const
+{
+    return m_ChatAssigneeChanged;
+}
+
+
+void GetStateResponse::setChatAssigneeChanged(int32_t value)
+{
+    m_ChatAssigneeChanged = value;
+    
+}
+int32_t GetStateResponse::getChatTagsChanged() const
+{
+    return m_ChatTagsChanged;
+}
+
+
+void GetStateResponse::setChatTagsChanged(int32_t value)
+{
+    m_ChatTagsChanged = value;
+    
+}
+int32_t GetStateResponse::getChatConversationEnded() const
+{
+    return m_ChatConversationEnded;
+}
+
+
+void GetStateResponse::setChatConversationEnded(int32_t value)
+{
+    m_ChatConversationEnded = value;
+    
+}
+int32_t GetStateResponse::getChatUpdated() const
+{
+    return m_ChatUpdated;
+}
+
+
+void GetStateResponse::setChatUpdated(int32_t value)
+{
+    m_ChatUpdated = value;
+    
+}
+int32_t GetStateResponse::getLiveChatAgentChanged() const
+{
+    return m_LiveChatAgentChanged;
+}
+
+
+void GetStateResponse::setLiveChatAgentChanged(int32_t value)
+{
+    m_LiveChatAgentChanged = value;
+    
+}
+int32_t GetStateResponse::getLiveChatRated() const
+{
+    return m_LiveChatRated;
+}
+
+
+void GetStateResponse::setLiveChatRated(int32_t value)
+{
+    m_LiveChatRated = value;
+    
+}
+int32_t GetStateResponse::getWebWidgetUpdated() const
+{
+    return m_WebWidgetUpdated;
+}
+
+
+void GetStateResponse::setWebWidgetUpdated(int32_t value)
+{
+    m_WebWidgetUpdated = value;
+    
+}
+int32_t GetStateResponse::getWebWidgetDeleted() const
+{
+    return m_WebWidgetDeleted;
+}
+
+
+void GetStateResponse::setWebWidgetDeleted(int32_t value)
+{
+    m_WebWidgetDeleted = value;
+    
+}
 int32_t GetStateResponse::getContactAdded() const
 {
     return m_ContactAdded;
@@ -1259,6 +2912,17 @@ void GetStateResponse::setContactDeleted(int32_t value)
     m_ContactDeleted = value;
     
 }
+int32_t GetStateResponse::getContactBulkUpdated() const
+{
+    return m_ContactBulkUpdated;
+}
+
+
+void GetStateResponse::setContactBulkUpdated(int32_t value)
+{
+    m_ContactBulkUpdated = value;
+    
+}
 int32_t GetStateResponse::getContactStateChanged() const
 {
     return m_ContactStateChanged;
@@ -1268,6 +2932,61 @@ int32_t GetStateResponse::getContactStateChanged() const
 void GetStateResponse::setContactStateChanged(int32_t value)
 {
     m_ContactStateChanged = value;
+    
+}
+int32_t GetStateResponse::getContactUnsubscribed() const
+{
+    return m_ContactUnsubscribed;
+}
+
+
+void GetStateResponse::setContactUnsubscribed(int32_t value)
+{
+    m_ContactUnsubscribed = value;
+    
+}
+int32_t GetStateResponse::getContactResubscribed() const
+{
+    return m_ContactResubscribed;
+}
+
+
+void GetStateResponse::setContactResubscribed(int32_t value)
+{
+    m_ContactResubscribed = value;
+    
+}
+int32_t GetStateResponse::getContactNoteAdded() const
+{
+    return m_ContactNoteAdded;
+}
+
+
+void GetStateResponse::setContactNoteAdded(int32_t value)
+{
+    m_ContactNoteAdded = value;
+    
+}
+int32_t GetStateResponse::getContactNoteDeleted() const
+{
+    return m_ContactNoteDeleted;
+}
+
+
+void GetStateResponse::setContactNoteDeleted(int32_t value)
+{
+    m_ContactNoteDeleted = value;
+    
+}
+int32_t GetStateResponse::getContactNoteStateChanged() const
+{
+    return m_ContactNoteStateChanged;
+}
+
+
+void GetStateResponse::setContactNoteStateChanged(int32_t value)
+{
+    m_ContactNoteStateChanged = value;
     
 }
 int32_t GetStateResponse::getListAdded() const
@@ -1301,6 +3020,17 @@ int32_t GetStateResponse::getListStateChanged() const
 void GetStateResponse::setListStateChanged(int32_t value)
 {
     m_ListStateChanged = value;
+    
+}
+int32_t GetStateResponse::getListCountMembersUpdated() const
+{
+    return m_ListCountMembersUpdated;
+}
+
+
+void GetStateResponse::setListCountMembersUpdated(int32_t value)
+{
+    m_ListCountMembersUpdated = value;
     
 }
 int32_t GetStateResponse::getContactWipeEnd() const
@@ -1391,15 +3121,15 @@ void GetStateResponse::setProgressSubAccountBulkImport(int32_t value)
     m_ProgressSubAccountBulkImport = value;
     
 }
-int32_t GetStateResponse::getProgressContactBulkImport() const
+int32_t GetStateResponse::getImportProgressState() const
 {
-    return m_ProgressContactBulkImport;
+    return m_ImportProgressState;
 }
 
 
-void GetStateResponse::setProgressContactBulkImport(int32_t value)
+void GetStateResponse::setImportProgressState(int32_t value)
 {
-    m_ProgressContactBulkImport = value;
+    m_ImportProgressState = value;
     
 }
 int32_t GetStateResponse::getForceRefreshWebApp() const
@@ -1488,6 +3218,1128 @@ int32_t GetStateResponse::getUserSubscriptionDeleted() const
 void GetStateResponse::setUserSubscriptionDeleted(int32_t value)
 {
     m_UserSubscriptionDeleted = value;
+    
+}
+int32_t GetStateResponse::getTaskCreated() const
+{
+    return m_TaskCreated;
+}
+
+
+void GetStateResponse::setTaskCreated(int32_t value)
+{
+    m_TaskCreated = value;
+    
+}
+int32_t GetStateResponse::getTaskUpdated() const
+{
+    return m_TaskUpdated;
+}
+
+
+void GetStateResponse::setTaskUpdated(int32_t value)
+{
+    m_TaskUpdated = value;
+    
+}
+int32_t GetStateResponse::getTaskReordered() const
+{
+    return m_TaskReordered;
+}
+
+
+void GetStateResponse::setTaskReordered(int32_t value)
+{
+    m_TaskReordered = value;
+    
+}
+int32_t GetStateResponse::getTaskDeleted() const
+{
+    return m_TaskDeleted;
+}
+
+
+void GetStateResponse::setTaskDeleted(int32_t value)
+{
+    m_TaskDeleted = value;
+    
+}
+int32_t GetStateResponse::getTaskMovedAll() const
+{
+    return m_TaskMovedAll;
+}
+
+
+void GetStateResponse::setTaskMovedAll(int32_t value)
+{
+    m_TaskMovedAll = value;
+    
+}
+int32_t GetStateResponse::getTaskStageCreated() const
+{
+    return m_TaskStageCreated;
+}
+
+
+void GetStateResponse::setTaskStageCreated(int32_t value)
+{
+    m_TaskStageCreated = value;
+    
+}
+int32_t GetStateResponse::getTaskStageUpdated() const
+{
+    return m_TaskStageUpdated;
+}
+
+
+void GetStateResponse::setTaskStageUpdated(int32_t value)
+{
+    m_TaskStageUpdated = value;
+    
+}
+int32_t GetStateResponse::getTaskStageDeleted() const
+{
+    return m_TaskStageDeleted;
+}
+
+
+void GetStateResponse::setTaskStageDeleted(int32_t value)
+{
+    m_TaskStageDeleted = value;
+    
+}
+int32_t GetStateResponse::getTaskBoardCreated() const
+{
+    return m_TaskBoardCreated;
+}
+
+
+void GetStateResponse::setTaskBoardCreated(int32_t value)
+{
+    m_TaskBoardCreated = value;
+    
+}
+int32_t GetStateResponse::getTaskBoardUpdated() const
+{
+    return m_TaskBoardUpdated;
+}
+
+
+void GetStateResponse::setTaskBoardUpdated(int32_t value)
+{
+    m_TaskBoardUpdated = value;
+    
+}
+int32_t GetStateResponse::getTaskBoardReordered() const
+{
+    return m_TaskBoardReordered;
+}
+
+
+void GetStateResponse::setTaskBoardReordered(int32_t value)
+{
+    m_TaskBoardReordered = value;
+    
+}
+int32_t GetStateResponse::getTaskBoardDeleted() const
+{
+    return m_TaskBoardDeleted;
+}
+
+
+void GetStateResponse::setTaskBoardDeleted(int32_t value)
+{
+    m_TaskBoardDeleted = value;
+    
+}
+int32_t GetStateResponse::getTaskBoardArchived() const
+{
+    return m_TaskBoardArchived;
+}
+
+
+void GetStateResponse::setTaskBoardArchived(int32_t value)
+{
+    m_TaskBoardArchived = value;
+    
+}
+int32_t GetStateResponse::getTaskChecklistCreated() const
+{
+    return m_TaskChecklistCreated;
+}
+
+
+void GetStateResponse::setTaskChecklistCreated(int32_t value)
+{
+    m_TaskChecklistCreated = value;
+    
+}
+int32_t GetStateResponse::getTaskChecklistUpdated() const
+{
+    return m_TaskChecklistUpdated;
+}
+
+
+void GetStateResponse::setTaskChecklistUpdated(int32_t value)
+{
+    m_TaskChecklistUpdated = value;
+    
+}
+int32_t GetStateResponse::getTaskChecklistDeleted() const
+{
+    return m_TaskChecklistDeleted;
+}
+
+
+void GetStateResponse::setTaskChecklistDeleted(int32_t value)
+{
+    m_TaskChecklistDeleted = value;
+    
+}
+int32_t GetStateResponse::getTaskChecklistBulkMarked() const
+{
+    return m_TaskChecklistBulkMarked;
+}
+
+
+void GetStateResponse::setTaskChecklistBulkMarked(int32_t value)
+{
+    m_TaskChecklistBulkMarked = value;
+    
+}
+int32_t GetStateResponse::getTaskChecklistItemCreated() const
+{
+    return m_TaskChecklistItemCreated;
+}
+
+
+void GetStateResponse::setTaskChecklistItemCreated(int32_t value)
+{
+    m_TaskChecklistItemCreated = value;
+    
+}
+int32_t GetStateResponse::getTaskChecklistItemUpdated() const
+{
+    return m_TaskChecklistItemUpdated;
+}
+
+
+void GetStateResponse::setTaskChecklistItemUpdated(int32_t value)
+{
+    m_TaskChecklistItemUpdated = value;
+    
+}
+int32_t GetStateResponse::getTaskChecklistItemDeleted() const
+{
+    return m_TaskChecklistItemDeleted;
+}
+
+
+void GetStateResponse::setTaskChecklistItemDeleted(int32_t value)
+{
+    m_TaskChecklistItemDeleted = value;
+    
+}
+int32_t GetStateResponse::getTaskCommentCreated() const
+{
+    return m_TaskCommentCreated;
+}
+
+
+void GetStateResponse::setTaskCommentCreated(int32_t value)
+{
+    m_TaskCommentCreated = value;
+    
+}
+int32_t GetStateResponse::getTaskCommentDeleted() const
+{
+    return m_TaskCommentDeleted;
+}
+
+
+void GetStateResponse::setTaskCommentDeleted(int32_t value)
+{
+    m_TaskCommentDeleted = value;
+    
+}
+int32_t GetStateResponse::getPinnedContactAdded() const
+{
+    return m_PinnedContactAdded;
+}
+
+
+void GetStateResponse::setPinnedContactAdded(int32_t value)
+{
+    m_PinnedContactAdded = value;
+    
+}
+int32_t GetStateResponse::getPinnedContactRemoved() const
+{
+    return m_PinnedContactRemoved;
+}
+
+
+void GetStateResponse::setPinnedContactRemoved(int32_t value)
+{
+    m_PinnedContactRemoved = value;
+    
+}
+int32_t GetStateResponse::getPinnedContactReordered() const
+{
+    return m_PinnedContactReordered;
+}
+
+
+void GetStateResponse::setPinnedContactReordered(int32_t value)
+{
+    m_PinnedContactReordered = value;
+    
+}
+int32_t GetStateResponse::getPinnedContactStateChanged() const
+{
+    return m_PinnedContactStateChanged;
+}
+
+
+void GetStateResponse::setPinnedContactStateChanged(int32_t value)
+{
+    m_PinnedContactStateChanged = value;
+    
+}
+int32_t GetStateResponse::getWhatsappAccountAdded() const
+{
+    return m_WhatsappAccountAdded;
+}
+
+
+void GetStateResponse::setWhatsappAccountAdded(int32_t value)
+{
+    m_WhatsappAccountAdded = value;
+    
+}
+int32_t GetStateResponse::getWhatsappAccountRemoved() const
+{
+    return m_WhatsappAccountRemoved;
+}
+
+
+void GetStateResponse::setWhatsappAccountRemoved(int32_t value)
+{
+    m_WhatsappAccountRemoved = value;
+    
+}
+int32_t GetStateResponse::getWhatsappAccountChanged() const
+{
+    return m_WhatsappAccountChanged;
+}
+
+
+void GetStateResponse::setWhatsappAccountChanged(int32_t value)
+{
+    m_WhatsappAccountChanged = value;
+    
+}
+int32_t GetStateResponse::getFacebookPageAdded() const
+{
+    return m_FacebookPageAdded;
+}
+
+
+void GetStateResponse::setFacebookPageAdded(int32_t value)
+{
+    m_FacebookPageAdded = value;
+    
+}
+int32_t GetStateResponse::getFacebookPageRemoved() const
+{
+    return m_FacebookPageRemoved;
+}
+
+
+void GetStateResponse::setFacebookPageRemoved(int32_t value)
+{
+    m_FacebookPageRemoved = value;
+    
+}
+int32_t GetStateResponse::getFacebookPageChanged() const
+{
+    return m_FacebookPageChanged;
+}
+
+
+void GetStateResponse::setFacebookPageChanged(int32_t value)
+{
+    m_FacebookPageChanged = value;
+    
+}
+int32_t GetStateResponse::getInstagramAccountAdded() const
+{
+    return m_InstagramAccountAdded;
+}
+
+
+void GetStateResponse::setInstagramAccountAdded(int32_t value)
+{
+    m_InstagramAccountAdded = value;
+    
+}
+int32_t GetStateResponse::getInstagramAccountRemoved() const
+{
+    return m_InstagramAccountRemoved;
+}
+
+
+void GetStateResponse::setInstagramAccountRemoved(int32_t value)
+{
+    m_InstagramAccountRemoved = value;
+    
+}
+int32_t GetStateResponse::getInstagramAccountChanged() const
+{
+    return m_InstagramAccountChanged;
+}
+
+
+void GetStateResponse::setInstagramAccountChanged(int32_t value)
+{
+    m_InstagramAccountChanged = value;
+    
+}
+int32_t GetStateResponse::getUnreadTicketsCountUpdated() const
+{
+    return m_UnreadTicketsCountUpdated;
+}
+
+
+void GetStateResponse::setUnreadTicketsCountUpdated(int32_t value)
+{
+    m_UnreadTicketsCountUpdated = value;
+    
+}
+int32_t GetStateResponse::getTicketDeleted() const
+{
+    return m_TicketDeleted;
+}
+
+
+void GetStateResponse::setTicketDeleted(int32_t value)
+{
+    m_TicketDeleted = value;
+    
+}
+int32_t GetStateResponse::getTicketUpdated() const
+{
+    return m_TicketUpdated;
+}
+
+
+void GetStateResponse::setTicketUpdated(int32_t value)
+{
+    m_TicketUpdated = value;
+    
+}
+int32_t GetStateResponse::getTicketCreated() const
+{
+    return m_TicketCreated;
+}
+
+
+void GetStateResponse::setTicketCreated(int32_t value)
+{
+    m_TicketCreated = value;
+    
+}
+int32_t GetStateResponse::getTicketBulkUpdated() const
+{
+    return m_TicketBulkUpdated;
+}
+
+
+void GetStateResponse::setTicketBulkUpdated(int32_t value)
+{
+    m_TicketBulkUpdated = value;
+    
+}
+int32_t GetStateResponse::getTicketBulkDeleted() const
+{
+    return m_TicketBulkDeleted;
+}
+
+
+void GetStateResponse::setTicketBulkDeleted(int32_t value)
+{
+    m_TicketBulkDeleted = value;
+    
+}
+int32_t GetStateResponse::getTicketMessageCreated() const
+{
+    return m_TicketMessageCreated;
+}
+
+
+void GetStateResponse::setTicketMessageCreated(int32_t value)
+{
+    m_TicketMessageCreated = value;
+    
+}
+int32_t GetStateResponse::getTicketMessageUpdated() const
+{
+    return m_TicketMessageUpdated;
+}
+
+
+void GetStateResponse::setTicketMessageUpdated(int32_t value)
+{
+    m_TicketMessageUpdated = value;
+    
+}
+int32_t GetStateResponse::getTicketMessageDeleted() const
+{
+    return m_TicketMessageDeleted;
+}
+
+
+void GetStateResponse::setTicketMessageDeleted(int32_t value)
+{
+    m_TicketMessageDeleted = value;
+    
+}
+int32_t GetStateResponse::getSubAccountsClosed() const
+{
+    return m_SubAccountsClosed;
+}
+
+
+void GetStateResponse::setSubAccountsClosed(int32_t value)
+{
+    m_SubAccountsClosed = value;
+    
+}
+int32_t GetStateResponse::getUserInvited() const
+{
+    return m_UserInvited;
+}
+
+
+void GetStateResponse::setUserInvited(int32_t value)
+{
+    m_UserInvited = value;
+    
+}
+int32_t GetStateResponse::getFilteredViewCreated() const
+{
+    return m_FilteredViewCreated;
+}
+
+
+void GetStateResponse::setFilteredViewCreated(int32_t value)
+{
+    m_FilteredViewCreated = value;
+    
+}
+int32_t GetStateResponse::getFilteredViewCountUpdated() const
+{
+    return m_FilteredViewCountUpdated;
+}
+
+
+void GetStateResponse::setFilteredViewCountUpdated(int32_t value)
+{
+    m_FilteredViewCountUpdated = value;
+    
+}
+int32_t GetStateResponse::getFilteredViewDeleted() const
+{
+    return m_FilteredViewDeleted;
+}
+
+
+void GetStateResponse::setFilteredViewDeleted(int32_t value)
+{
+    m_FilteredViewDeleted = value;
+    
+}
+int32_t GetStateResponse::getForwardingInboxWasVerified() const
+{
+    return m_ForwardingInboxWasVerified;
+}
+
+
+void GetStateResponse::setForwardingInboxWasVerified(int32_t value)
+{
+    m_ForwardingInboxWasVerified = value;
+    
+}
+int32_t GetStateResponse::getForwardingInboxCheckWasFailed() const
+{
+    return m_ForwardingInboxCheckWasFailed;
+}
+
+
+void GetStateResponse::setForwardingInboxCheckWasFailed(int32_t value)
+{
+    m_ForwardingInboxCheckWasFailed = value;
+    
+}
+int32_t GetStateResponse::getForwardingInboxVerificationLinkWasParsed() const
+{
+    return m_ForwardingInboxVerificationLinkWasParsed;
+}
+
+
+void GetStateResponse::setForwardingInboxVerificationLinkWasParsed(int32_t value)
+{
+    m_ForwardingInboxVerificationLinkWasParsed = value;
+    
+}
+int32_t GetStateResponse::getTendlcLinkNumberStatusUpdated() const
+{
+    return m_TendlcLinkNumberStatusUpdated;
+}
+
+
+void GetStateResponse::setTendlcLinkNumberStatusUpdated(int32_t value)
+{
+    m_TendlcLinkNumberStatusUpdated = value;
+    
+}
+int32_t GetStateResponse::getChannelPresence() const
+{
+    return m_ChannelPresence;
+}
+
+
+void GetStateResponse::setChannelPresence(int32_t value)
+{
+    m_ChannelPresence = value;
+    
+}
+int32_t GetStateResponse::getDealCreated() const
+{
+    return m_DealCreated;
+}
+
+
+void GetStateResponse::setDealCreated(int32_t value)
+{
+    m_DealCreated = value;
+    
+}
+int32_t GetStateResponse::getDealUpdated() const
+{
+    return m_DealUpdated;
+}
+
+
+void GetStateResponse::setDealUpdated(int32_t value)
+{
+    m_DealUpdated = value;
+    
+}
+int32_t GetStateResponse::getDealDeleted() const
+{
+    return m_DealDeleted;
+}
+
+
+void GetStateResponse::setDealDeleted(int32_t value)
+{
+    m_DealDeleted = value;
+    
+}
+int32_t GetStateResponse::getDealMoved() const
+{
+    return m_DealMoved;
+}
+
+
+void GetStateResponse::setDealMoved(int32_t value)
+{
+    m_DealMoved = value;
+    
+}
+int32_t GetStateResponse::getDealStageCreated() const
+{
+    return m_DealStageCreated;
+}
+
+
+void GetStateResponse::setDealStageCreated(int32_t value)
+{
+    m_DealStageCreated = value;
+    
+}
+int32_t GetStateResponse::getDealStageUpdated() const
+{
+    return m_DealStageUpdated;
+}
+
+
+void GetStateResponse::setDealStageUpdated(int32_t value)
+{
+    m_DealStageUpdated = value;
+    
+}
+int32_t GetStateResponse::getDealStageDeleted() const
+{
+    return m_DealStageDeleted;
+}
+
+
+void GetStateResponse::setDealStageDeleted(int32_t value)
+{
+    m_DealStageDeleted = value;
+    
+}
+int32_t GetStateResponse::getDealPipelineCreated() const
+{
+    return m_DealPipelineCreated;
+}
+
+
+void GetStateResponse::setDealPipelineCreated(int32_t value)
+{
+    m_DealPipelineCreated = value;
+    
+}
+int32_t GetStateResponse::getDealPipelineUpdated() const
+{
+    return m_DealPipelineUpdated;
+}
+
+
+void GetStateResponse::setDealPipelineUpdated(int32_t value)
+{
+    m_DealPipelineUpdated = value;
+    
+}
+int32_t GetStateResponse::getDealPipelineDeleted() const
+{
+    return m_DealPipelineDeleted;
+}
+
+
+void GetStateResponse::setDealPipelineDeleted(int32_t value)
+{
+    m_DealPipelineDeleted = value;
+    
+}
+int32_t GetStateResponse::getDealPipelineArchived() const
+{
+    return m_DealPipelineArchived;
+}
+
+
+void GetStateResponse::setDealPipelineArchived(int32_t value)
+{
+    m_DealPipelineArchived = value;
+    
+}
+int32_t GetStateResponse::getDealPipelineReordered() const
+{
+    return m_DealPipelineReordered;
+}
+
+
+void GetStateResponse::setDealPipelineReordered(int32_t value)
+{
+    m_DealPipelineReordered = value;
+    
+}
+int32_t GetStateResponse::getDealActivityUpdated() const
+{
+    return m_DealActivityUpdated;
+}
+
+
+void GetStateResponse::setDealActivityUpdated(int32_t value)
+{
+    m_DealActivityUpdated = value;
+    
+}
+int32_t GetStateResponse::getDealActivityItemCreated() const
+{
+    return m_DealActivityItemCreated;
+}
+
+
+void GetStateResponse::setDealActivityItemCreated(int32_t value)
+{
+    m_DealActivityItemCreated = value;
+    
+}
+int32_t GetStateResponse::getDealActivityItemUpdated() const
+{
+    return m_DealActivityItemUpdated;
+}
+
+
+void GetStateResponse::setDealActivityItemUpdated(int32_t value)
+{
+    m_DealActivityItemUpdated = value;
+    
+}
+int32_t GetStateResponse::getDealActivityItemDeleted() const
+{
+    return m_DealActivityItemDeleted;
+}
+
+
+void GetStateResponse::setDealActivityItemDeleted(int32_t value)
+{
+    m_DealActivityItemDeleted = value;
+    
+}
+int32_t GetStateResponse::getDealActivityItemBulkMarked() const
+{
+    return m_DealActivityItemBulkMarked;
+}
+
+
+void GetStateResponse::setDealActivityItemBulkMarked(int32_t value)
+{
+    m_DealActivityItemBulkMarked = value;
+    
+}
+int32_t GetStateResponse::getDealTimelineItemDeleted() const
+{
+    return m_DealTimelineItemDeleted;
+}
+
+
+void GetStateResponse::setDealTimelineItemDeleted(int32_t value)
+{
+    m_DealTimelineItemDeleted = value;
+    
+}
+int32_t GetStateResponse::getDealTimelineItemCreated() const
+{
+    return m_DealTimelineItemCreated;
+}
+
+
+void GetStateResponse::setDealTimelineItemCreated(int32_t value)
+{
+    m_DealTimelineItemCreated = value;
+    
+}
+int32_t GetStateResponse::getAIAssistantCreated() const
+{
+    return m_AIAssistantCreated;
+}
+
+
+void GetStateResponse::setAIAssistantCreated(int32_t value)
+{
+    m_AIAssistantCreated = value;
+    
+}
+int32_t GetStateResponse::getAIAssistantState() const
+{
+    return m_AIAssistantState;
+}
+
+
+void GetStateResponse::setAIAssistantState(int32_t value)
+{
+    m_AIAssistantState = value;
+    
+}
+int32_t GetStateResponse::getAIAssistantDeleted() const
+{
+    return m_AIAssistantDeleted;
+}
+
+
+void GetStateResponse::setAIAssistantDeleted(int32_t value)
+{
+    m_AIAssistantDeleted = value;
+    
+}
+int32_t GetStateResponse::getAIAssistantLinkDeleted() const
+{
+    return m_AIAssistantLinkDeleted;
+}
+
+
+void GetStateResponse::setAIAssistantLinkDeleted(int32_t value)
+{
+    m_AIAssistantLinkDeleted = value;
+    
+}
+int32_t GetStateResponse::getAIAssistantLinkState() const
+{
+    return m_AIAssistantLinkState;
+}
+
+
+void GetStateResponse::setAIAssistantLinkState(int32_t value)
+{
+    m_AIAssistantLinkState = value;
+    
+}
+int32_t GetStateResponse::getAIAssistantLinkCreated() const
+{
+    return m_AIAssistantLinkCreated;
+}
+
+
+void GetStateResponse::setAIAssistantLinkCreated(int32_t value)
+{
+    m_AIAssistantLinkCreated = value;
+    
+}
+int32_t GetStateResponse::getAIAssistantSubLinkState() const
+{
+    return m_AIAssistantSubLinkState;
+}
+
+
+void GetStateResponse::setAIAssistantSubLinkState(int32_t value)
+{
+    m_AIAssistantSubLinkState = value;
+    
+}
+int32_t GetStateResponse::getAIAssistantSubLinkCreated() const
+{
+    return m_AIAssistantSubLinkCreated;
+}
+
+
+void GetStateResponse::setAIAssistantSubLinkCreated(int32_t value)
+{
+    m_AIAssistantSubLinkCreated = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignEmailSenderCreated() const
+{
+    return m_EmailCampaignEmailSenderCreated;
+}
+
+
+void GetStateResponse::setEmailCampaignEmailSenderCreated(int32_t value)
+{
+    m_EmailCampaignEmailSenderCreated = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignEmailSenderUpdated() const
+{
+    return m_EmailCampaignEmailSenderUpdated;
+}
+
+
+void GetStateResponse::setEmailCampaignEmailSenderUpdated(int32_t value)
+{
+    m_EmailCampaignEmailSenderUpdated = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignEmailSenderDeleted() const
+{
+    return m_EmailCampaignEmailSenderDeleted;
+}
+
+
+void GetStateResponse::setEmailCampaignEmailSenderDeleted(int32_t value)
+{
+    m_EmailCampaignEmailSenderDeleted = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignDomainCreated() const
+{
+    return m_EmailCampaignDomainCreated;
+}
+
+
+void GetStateResponse::setEmailCampaignDomainCreated(int32_t value)
+{
+    m_EmailCampaignDomainCreated = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignDomainDeleted() const
+{
+    return m_EmailCampaignDomainDeleted;
+}
+
+
+void GetStateResponse::setEmailCampaignDomainDeleted(int32_t value)
+{
+    m_EmailCampaignDomainDeleted = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignDomainVerified() const
+{
+    return m_EmailCampaignDomainVerified;
+}
+
+
+void GetStateResponse::setEmailCampaignDomainVerified(int32_t value)
+{
+    m_EmailCampaignDomainVerified = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignDomainStatusChanged() const
+{
+    return m_EmailCampaignDomainStatusChanged;
+}
+
+
+void GetStateResponse::setEmailCampaignDomainStatusChanged(int32_t value)
+{
+    m_EmailCampaignDomainStatusChanged = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignDomainDkimVerified() const
+{
+    return m_EmailCampaignDomainDkimVerified;
+}
+
+
+void GetStateResponse::setEmailCampaignDomainDkimVerified(int32_t value)
+{
+    m_EmailCampaignDomainDkimVerified = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignDomainReturnPathVerified() const
+{
+    return m_EmailCampaignDomainReturnPathVerified;
+}
+
+
+void GetStateResponse::setEmailCampaignDomainReturnPathVerified(int32_t value)
+{
+    m_EmailCampaignDomainReturnPathVerified = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignDomainDmarcVerified() const
+{
+    return m_EmailCampaignDomainDmarcVerified;
+}
+
+
+void GetStateResponse::setEmailCampaignDomainDmarcVerified(int32_t value)
+{
+    m_EmailCampaignDomainDmarcVerified = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignDomainEntryVerificationChanged() const
+{
+    return m_EmailCampaignDomainEntryVerificationChanged;
+}
+
+
+void GetStateResponse::setEmailCampaignDomainEntryVerificationChanged(int32_t value)
+{
+    m_EmailCampaignDomainEntryVerificationChanged = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignProgressState() const
+{
+    return m_EmailCampaignProgressState;
+}
+
+
+void GetStateResponse::setEmailCampaignProgressState(int32_t value)
+{
+    m_EmailCampaignProgressState = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignUpdated() const
+{
+    return m_EmailCampaignUpdated;
+}
+
+
+void GetStateResponse::setEmailCampaignUpdated(int32_t value)
+{
+    m_EmailCampaignUpdated = value;
+    
+}
+int32_t GetStateResponse::getSmsCampaignInvalidated() const
+{
+    return m_SmsCampaignInvalidated;
+}
+
+
+void GetStateResponse::setSmsCampaignInvalidated(int32_t value)
+{
+    m_SmsCampaignInvalidated = value;
+    
+}
+int32_t GetStateResponse::getScheduledEmailCampaignCreated() const
+{
+    return m_ScheduledEmailCampaignCreated;
+}
+
+
+void GetStateResponse::setScheduledEmailCampaignCreated(int32_t value)
+{
+    m_ScheduledEmailCampaignCreated = value;
+    
+}
+int32_t GetStateResponse::getScheduledEmailCampaignUpdated() const
+{
+    return m_ScheduledEmailCampaignUpdated;
+}
+
+
+void GetStateResponse::setScheduledEmailCampaignUpdated(int32_t value)
+{
+    m_ScheduledEmailCampaignUpdated = value;
+    
+}
+int32_t GetStateResponse::getScheduledEmailCampaignStatusUpdated() const
+{
+    return m_ScheduledEmailCampaignStatusUpdated;
+}
+
+
+void GetStateResponse::setScheduledEmailCampaignStatusUpdated(int32_t value)
+{
+    m_ScheduledEmailCampaignStatusUpdated = value;
+    
+}
+int32_t GetStateResponse::getScheduledEmailCampaignDeleted() const
+{
+    return m_ScheduledEmailCampaignDeleted;
+}
+
+
+void GetStateResponse::setScheduledEmailCampaignDeleted(int32_t value)
+{
+    m_ScheduledEmailCampaignDeleted = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignFailedAttemptCreated() const
+{
+    return m_EmailCampaignFailedAttemptCreated;
+}
+
+
+void GetStateResponse::setEmailCampaignFailedAttemptCreated(int32_t value)
+{
+    m_EmailCampaignFailedAttemptCreated = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignFailedAttemptDeleted() const
+{
+    return m_EmailCampaignFailedAttemptDeleted;
+}
+
+
+void GetStateResponse::setEmailCampaignFailedAttemptDeleted(int32_t value)
+{
+    m_EmailCampaignFailedAttemptDeleted = value;
+    
+}
+int32_t GetStateResponse::getEmailCampaignFailedAttemptStateUpdated() const
+{
+    return m_EmailCampaignFailedAttemptStateUpdated;
+}
+
+
+void GetStateResponse::setEmailCampaignFailedAttemptStateUpdated(int32_t value)
+{
+    m_EmailCampaignFailedAttemptStateUpdated = value;
     
 }
 }

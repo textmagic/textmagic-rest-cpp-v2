@@ -29,6 +29,8 @@ MessageSession::MessageSession()
     m_Price = 0.0;
     m_NumbersCount = 0;
     m_Destination = utility::conversions::to_string_t("");
+    m_InitiatorId = 0;
+    m_Title = utility::conversions::to_string_t("");
 }
 
 MessageSession::~MessageSession()
@@ -52,6 +54,8 @@ web::json::value MessageSession::toJson() const
     val[utility::conversions::to_string_t("price")] = ModelBase::toJson(m_Price);
     val[utility::conversions::to_string_t("numbersCount")] = ModelBase::toJson(m_NumbersCount);
     val[utility::conversions::to_string_t("destination")] = ModelBase::toJson(m_Destination);
+    val[utility::conversions::to_string_t("initiatorId")] = ModelBase::toJson(m_InitiatorId);
+    val[utility::conversions::to_string_t("title")] = ModelBase::toJson(m_Title);
 
     return val;
 }
@@ -122,6 +126,22 @@ void MessageSession::fromJson(web::json::value& val)
             setDestination(ModelBase::stringFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("initiatorId")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("initiatorId")];
+        if(!fieldValue.is_null())
+        {
+            setInitiatorId(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("title")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("title")];
+        if(!fieldValue.is_null())
+        {
+            setTitle(ModelBase::stringFromJson(fieldValue));
+        }
+    }
 }
 
 void MessageSession::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix) const
@@ -140,6 +160,8 @@ void MessageSession::toMultipart(std::shared_ptr<MultipartFormData> multipart, c
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("price"), m_Price));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("numbersCount"), m_NumbersCount));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("destination"), m_Destination));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("initiatorId"), m_InitiatorId));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("title"), m_Title));
 }
 
 void MessageSession::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -158,6 +180,8 @@ void MessageSession::fromMultiPart(std::shared_ptr<MultipartFormData> multipart,
     setPrice(ModelBase::doubleFromHttpContent(multipart->getContent(utility::conversions::to_string_t("price"))));
     setNumbersCount(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("numbersCount"))));
     setDestination(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("destination"))));
+    setInitiatorId(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("initiatorId"))));
+    setTitle(ModelBase::stringFromHttpContent(multipart->getContent(utility::conversions::to_string_t("title"))));
 }
 
 int32_t MessageSession::getId() const
@@ -246,6 +270,28 @@ utility::string_t MessageSession::getDestination() const
 void MessageSession::setDestination(utility::string_t value)
 {
     m_Destination = value;
+    
+}
+int32_t MessageSession::getInitiatorId() const
+{
+    return m_InitiatorId;
+}
+
+
+void MessageSession::setInitiatorId(int32_t value)
+{
+    m_InitiatorId = value;
+    
+}
+utility::string_t MessageSession::getTitle() const
+{
+    return m_Title;
+}
+
+
+void MessageSession::setTitle(utility::string_t value)
+{
+    m_Title = value;
     
 }
 }

@@ -75,6 +75,11 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getSystemAccountAcceptTermsUpdate() const;
+        void setSystemAccountAcceptTermsUpdate(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getSystemAccountClosed() const;
         void setSystemAccountClosed(int32_t value);
     /// <summary>
@@ -97,6 +102,11 @@ public:
     /// </summary>
     int32_t getUserBalanceChanged() const;
         void setUserBalanceChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getUserPresenceStatusChanged() const;
+        void setUserPresenceStatusChanged(int32_t value);
     /// <summary>
     /// 
     /// </summary>
@@ -137,6 +147,26 @@ public:
     /// </summary>
     int32_t getMessageSent() const;
         void setMessageSent(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getMessageLog() const;
+        void setMessageLog(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getMessageNote() const;
+        void setMessageNote(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getMessageInitial() const;
+        void setMessageInitial(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getLastMessageSet() const;
+        void setLastMessageSet(int32_t value);
     /// <summary>
     /// 
     /// </summary>
@@ -235,6 +265,11 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getChatActivated() const;
+        void setChatActivated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getChatCacheClear() const;
         void setChatCacheClear(int32_t value);
     /// <summary>
@@ -250,6 +285,46 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getChatAssigneeChanged() const;
+        void setChatAssigneeChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChatTagsChanged() const;
+        void setChatTagsChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChatConversationEnded() const;
+        void setChatConversationEnded(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChatUpdated() const;
+        void setChatUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getLiveChatAgentChanged() const;
+        void setLiveChatAgentChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getLiveChatRated() const;
+        void setLiveChatRated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getWebWidgetUpdated() const;
+        void setWebWidgetUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getWebWidgetDeleted() const;
+        void setWebWidgetDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getContactAdded() const;
         void setContactAdded(int32_t value);
     /// <summary>
@@ -260,8 +335,38 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getContactBulkUpdated() const;
+        void setContactBulkUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getContactStateChanged() const;
         void setContactStateChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getContactUnsubscribed() const;
+        void setContactUnsubscribed(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getContactResubscribed() const;
+        void setContactResubscribed(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getContactNoteAdded() const;
+        void setContactNoteAdded(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getContactNoteDeleted() const;
+        void setContactNoteDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getContactNoteStateChanged() const;
+        void setContactNoteStateChanged(int32_t value);
     /// <summary>
     /// 
     /// </summary>
@@ -277,6 +382,11 @@ public:
     /// </summary>
     int32_t getListStateChanged() const;
         void setListStateChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getListCountMembersUpdated() const;
+        void setListCountMembersUpdated(int32_t value);
     /// <summary>
     /// 
     /// </summary>
@@ -320,8 +430,8 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    int32_t getProgressContactBulkImport() const;
-        void setProgressContactBulkImport(int32_t value);
+    int32_t getImportProgressState() const;
+        void setImportProgressState(int32_t value);
     /// <summary>
     /// 
     /// </summary>
@@ -362,17 +472,529 @@ public:
     /// </summary>
     int32_t getUserSubscriptionDeleted() const;
         void setUserSubscriptionDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskCreated() const;
+        void setTaskCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskUpdated() const;
+        void setTaskUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskReordered() const;
+        void setTaskReordered(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskDeleted() const;
+        void setTaskDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskMovedAll() const;
+        void setTaskMovedAll(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskStageCreated() const;
+        void setTaskStageCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskStageUpdated() const;
+        void setTaskStageUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskStageDeleted() const;
+        void setTaskStageDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskBoardCreated() const;
+        void setTaskBoardCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskBoardUpdated() const;
+        void setTaskBoardUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskBoardReordered() const;
+        void setTaskBoardReordered(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskBoardDeleted() const;
+        void setTaskBoardDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskBoardArchived() const;
+        void setTaskBoardArchived(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskChecklistCreated() const;
+        void setTaskChecklistCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskChecklistUpdated() const;
+        void setTaskChecklistUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskChecklistDeleted() const;
+        void setTaskChecklistDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskChecklistBulkMarked() const;
+        void setTaskChecklistBulkMarked(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskChecklistItemCreated() const;
+        void setTaskChecklistItemCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskChecklistItemUpdated() const;
+        void setTaskChecklistItemUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskChecklistItemDeleted() const;
+        void setTaskChecklistItemDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskCommentCreated() const;
+        void setTaskCommentCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTaskCommentDeleted() const;
+        void setTaskCommentDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getPinnedContactAdded() const;
+        void setPinnedContactAdded(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getPinnedContactRemoved() const;
+        void setPinnedContactRemoved(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getPinnedContactReordered() const;
+        void setPinnedContactReordered(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getPinnedContactStateChanged() const;
+        void setPinnedContactStateChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getWhatsappAccountAdded() const;
+        void setWhatsappAccountAdded(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getWhatsappAccountRemoved() const;
+        void setWhatsappAccountRemoved(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getWhatsappAccountChanged() const;
+        void setWhatsappAccountChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getFacebookPageAdded() const;
+        void setFacebookPageAdded(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getFacebookPageRemoved() const;
+        void setFacebookPageRemoved(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getFacebookPageChanged() const;
+        void setFacebookPageChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getInstagramAccountAdded() const;
+        void setInstagramAccountAdded(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getInstagramAccountRemoved() const;
+        void setInstagramAccountRemoved(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getInstagramAccountChanged() const;
+        void setInstagramAccountChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getUnreadTicketsCountUpdated() const;
+        void setUnreadTicketsCountUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTicketDeleted() const;
+        void setTicketDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTicketUpdated() const;
+        void setTicketUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTicketCreated() const;
+        void setTicketCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTicketBulkUpdated() const;
+        void setTicketBulkUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTicketBulkDeleted() const;
+        void setTicketBulkDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTicketMessageCreated() const;
+        void setTicketMessageCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTicketMessageUpdated() const;
+        void setTicketMessageUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTicketMessageDeleted() const;
+        void setTicketMessageDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getSubAccountsClosed() const;
+        void setSubAccountsClosed(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getUserInvited() const;
+        void setUserInvited(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getFilteredViewCreated() const;
+        void setFilteredViewCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getFilteredViewCountUpdated() const;
+        void setFilteredViewCountUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getFilteredViewDeleted() const;
+        void setFilteredViewDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getForwardingInboxWasVerified() const;
+        void setForwardingInboxWasVerified(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getForwardingInboxCheckWasFailed() const;
+        void setForwardingInboxCheckWasFailed(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getForwardingInboxVerificationLinkWasParsed() const;
+        void setForwardingInboxVerificationLinkWasParsed(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getTendlcLinkNumberStatusUpdated() const;
+        void setTendlcLinkNumberStatusUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getChannelPresence() const;
+        void setChannelPresence(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealCreated() const;
+        void setDealCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealUpdated() const;
+        void setDealUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealDeleted() const;
+        void setDealDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealMoved() const;
+        void setDealMoved(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealStageCreated() const;
+        void setDealStageCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealStageUpdated() const;
+        void setDealStageUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealStageDeleted() const;
+        void setDealStageDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealPipelineCreated() const;
+        void setDealPipelineCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealPipelineUpdated() const;
+        void setDealPipelineUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealPipelineDeleted() const;
+        void setDealPipelineDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealPipelineArchived() const;
+        void setDealPipelineArchived(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealPipelineReordered() const;
+        void setDealPipelineReordered(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealActivityUpdated() const;
+        void setDealActivityUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealActivityItemCreated() const;
+        void setDealActivityItemCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealActivityItemUpdated() const;
+        void setDealActivityItemUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealActivityItemDeleted() const;
+        void setDealActivityItemDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealActivityItemBulkMarked() const;
+        void setDealActivityItemBulkMarked(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealTimelineItemDeleted() const;
+        void setDealTimelineItemDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getDealTimelineItemCreated() const;
+        void setDealTimelineItemCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getAIAssistantCreated() const;
+        void setAIAssistantCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getAIAssistantState() const;
+        void setAIAssistantState(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getAIAssistantDeleted() const;
+        void setAIAssistantDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getAIAssistantLinkDeleted() const;
+        void setAIAssistantLinkDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getAIAssistantLinkState() const;
+        void setAIAssistantLinkState(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getAIAssistantLinkCreated() const;
+        void setAIAssistantLinkCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getAIAssistantSubLinkState() const;
+        void setAIAssistantSubLinkState(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getAIAssistantSubLinkCreated() const;
+        void setAIAssistantSubLinkCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignEmailSenderCreated() const;
+        void setEmailCampaignEmailSenderCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignEmailSenderUpdated() const;
+        void setEmailCampaignEmailSenderUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignEmailSenderDeleted() const;
+        void setEmailCampaignEmailSenderDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignDomainCreated() const;
+        void setEmailCampaignDomainCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignDomainDeleted() const;
+        void setEmailCampaignDomainDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignDomainVerified() const;
+        void setEmailCampaignDomainVerified(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignDomainStatusChanged() const;
+        void setEmailCampaignDomainStatusChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignDomainDkimVerified() const;
+        void setEmailCampaignDomainDkimVerified(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignDomainReturnPathVerified() const;
+        void setEmailCampaignDomainReturnPathVerified(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignDomainDmarcVerified() const;
+        void setEmailCampaignDomainDmarcVerified(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignDomainEntryVerificationChanged() const;
+        void setEmailCampaignDomainEntryVerificationChanged(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignProgressState() const;
+        void setEmailCampaignProgressState(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignUpdated() const;
+        void setEmailCampaignUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getSmsCampaignInvalidated() const;
+        void setSmsCampaignInvalidated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getScheduledEmailCampaignCreated() const;
+        void setScheduledEmailCampaignCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getScheduledEmailCampaignUpdated() const;
+        void setScheduledEmailCampaignUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getScheduledEmailCampaignStatusUpdated() const;
+        void setScheduledEmailCampaignStatusUpdated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getScheduledEmailCampaignDeleted() const;
+        void setScheduledEmailCampaignDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignFailedAttemptCreated() const;
+        void setEmailCampaignFailedAttemptCreated(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignFailedAttemptDeleted() const;
+        void setEmailCampaignFailedAttemptDeleted(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailCampaignFailedAttemptStateUpdated() const;
+        void setEmailCampaignFailedAttemptStateUpdated(int32_t value);
 
 protected:
     int32_t m_SystemCacheClear;
         int32_t m_SystemExit;
         int32_t m_SystemAlert;
         int32_t m_SystemAccountStateChanged;
+        int32_t m_SystemAccountAcceptTermsUpdate;
         int32_t m_SystemAccountClosed;
         int32_t m_SystemAccountAdditionalFields;
         int32_t m_SystemAccountPermissionsChanged;
         int32_t m_UserProfileChanged;
         int32_t m_UserBalanceChanged;
+        int32_t m_UserPresenceStatusChanged;
         int32_t m_UserImpersonationEnd;
         int32_t m_MessageDeleted;
         int32_t m_MessageIncoming;
@@ -381,6 +1003,10 @@ protected:
         int32_t m_MessageBulkEnd;
         int32_t m_MessageWipeEnd;
         int32_t m_MessageSent;
+        int32_t m_MessageLog;
+        int32_t m_MessageNote;
+        int32_t m_MessageInitial;
+        int32_t m_LastMessageSet;
         int32_t m_MessageSessionDeleted;
         int32_t m_MessageCacheClear;
         int32_t m_MessageIncomingCacheClear;
@@ -400,15 +1026,31 @@ protected:
         int32_t m_ChatDeleted;
         int32_t m_ChatClosed;
         int32_t m_ChatReopened;
+        int32_t m_ChatActivated;
         int32_t m_ChatCacheClear;
         int32_t m_ChatRead;
         int32_t m_ChatUnread;
+        int32_t m_ChatAssigneeChanged;
+        int32_t m_ChatTagsChanged;
+        int32_t m_ChatConversationEnded;
+        int32_t m_ChatUpdated;
+        int32_t m_LiveChatAgentChanged;
+        int32_t m_LiveChatRated;
+        int32_t m_WebWidgetUpdated;
+        int32_t m_WebWidgetDeleted;
         int32_t m_ContactAdded;
         int32_t m_ContactDeleted;
+        int32_t m_ContactBulkUpdated;
         int32_t m_ContactStateChanged;
+        int32_t m_ContactUnsubscribed;
+        int32_t m_ContactResubscribed;
+        int32_t m_ContactNoteAdded;
+        int32_t m_ContactNoteDeleted;
+        int32_t m_ContactNoteStateChanged;
         int32_t m_ListAdded;
         int32_t m_ListDeleted;
         int32_t m_ListStateChanged;
+        int32_t m_ListCountMembersUpdated;
         int32_t m_ContactWipeEnd;
         int32_t m_ContactImportEnd;
         int32_t m_ContactCacheClear;
@@ -417,7 +1059,7 @@ protected:
         int32_t m_ProgressCarrierBulkLookup;
         int32_t m_ProgressEmailBulkLookup;
         int32_t m_ProgressSubAccountBulkImport;
-        int32_t m_ProgressContactBulkImport;
+        int32_t m_ImportProgressState;
         int32_t m_ForceRefreshWebApp;
         int32_t m_ChatSenderSettingsChanged;
         int32_t m_CountrySenderSettingsChanged;
@@ -426,6 +1068,108 @@ protected:
         int32_t m_ChatSuggestedReplyChunk;
         int32_t m_UserSubscriptionChanged;
         int32_t m_UserSubscriptionDeleted;
+        int32_t m_TaskCreated;
+        int32_t m_TaskUpdated;
+        int32_t m_TaskReordered;
+        int32_t m_TaskDeleted;
+        int32_t m_TaskMovedAll;
+        int32_t m_TaskStageCreated;
+        int32_t m_TaskStageUpdated;
+        int32_t m_TaskStageDeleted;
+        int32_t m_TaskBoardCreated;
+        int32_t m_TaskBoardUpdated;
+        int32_t m_TaskBoardReordered;
+        int32_t m_TaskBoardDeleted;
+        int32_t m_TaskBoardArchived;
+        int32_t m_TaskChecklistCreated;
+        int32_t m_TaskChecklistUpdated;
+        int32_t m_TaskChecklistDeleted;
+        int32_t m_TaskChecklistBulkMarked;
+        int32_t m_TaskChecklistItemCreated;
+        int32_t m_TaskChecklistItemUpdated;
+        int32_t m_TaskChecklistItemDeleted;
+        int32_t m_TaskCommentCreated;
+        int32_t m_TaskCommentDeleted;
+        int32_t m_PinnedContactAdded;
+        int32_t m_PinnedContactRemoved;
+        int32_t m_PinnedContactReordered;
+        int32_t m_PinnedContactStateChanged;
+        int32_t m_WhatsappAccountAdded;
+        int32_t m_WhatsappAccountRemoved;
+        int32_t m_WhatsappAccountChanged;
+        int32_t m_FacebookPageAdded;
+        int32_t m_FacebookPageRemoved;
+        int32_t m_FacebookPageChanged;
+        int32_t m_InstagramAccountAdded;
+        int32_t m_InstagramAccountRemoved;
+        int32_t m_InstagramAccountChanged;
+        int32_t m_UnreadTicketsCountUpdated;
+        int32_t m_TicketDeleted;
+        int32_t m_TicketUpdated;
+        int32_t m_TicketCreated;
+        int32_t m_TicketBulkUpdated;
+        int32_t m_TicketBulkDeleted;
+        int32_t m_TicketMessageCreated;
+        int32_t m_TicketMessageUpdated;
+        int32_t m_TicketMessageDeleted;
+        int32_t m_SubAccountsClosed;
+        int32_t m_UserInvited;
+        int32_t m_FilteredViewCreated;
+        int32_t m_FilteredViewCountUpdated;
+        int32_t m_FilteredViewDeleted;
+        int32_t m_ForwardingInboxWasVerified;
+        int32_t m_ForwardingInboxCheckWasFailed;
+        int32_t m_ForwardingInboxVerificationLinkWasParsed;
+        int32_t m_TendlcLinkNumberStatusUpdated;
+        int32_t m_ChannelPresence;
+        int32_t m_DealCreated;
+        int32_t m_DealUpdated;
+        int32_t m_DealDeleted;
+        int32_t m_DealMoved;
+        int32_t m_DealStageCreated;
+        int32_t m_DealStageUpdated;
+        int32_t m_DealStageDeleted;
+        int32_t m_DealPipelineCreated;
+        int32_t m_DealPipelineUpdated;
+        int32_t m_DealPipelineDeleted;
+        int32_t m_DealPipelineArchived;
+        int32_t m_DealPipelineReordered;
+        int32_t m_DealActivityUpdated;
+        int32_t m_DealActivityItemCreated;
+        int32_t m_DealActivityItemUpdated;
+        int32_t m_DealActivityItemDeleted;
+        int32_t m_DealActivityItemBulkMarked;
+        int32_t m_DealTimelineItemDeleted;
+        int32_t m_DealTimelineItemCreated;
+        int32_t m_AIAssistantCreated;
+        int32_t m_AIAssistantState;
+        int32_t m_AIAssistantDeleted;
+        int32_t m_AIAssistantLinkDeleted;
+        int32_t m_AIAssistantLinkState;
+        int32_t m_AIAssistantLinkCreated;
+        int32_t m_AIAssistantSubLinkState;
+        int32_t m_AIAssistantSubLinkCreated;
+        int32_t m_EmailCampaignEmailSenderCreated;
+        int32_t m_EmailCampaignEmailSenderUpdated;
+        int32_t m_EmailCampaignEmailSenderDeleted;
+        int32_t m_EmailCampaignDomainCreated;
+        int32_t m_EmailCampaignDomainDeleted;
+        int32_t m_EmailCampaignDomainVerified;
+        int32_t m_EmailCampaignDomainStatusChanged;
+        int32_t m_EmailCampaignDomainDkimVerified;
+        int32_t m_EmailCampaignDomainReturnPathVerified;
+        int32_t m_EmailCampaignDomainDmarcVerified;
+        int32_t m_EmailCampaignDomainEntryVerificationChanged;
+        int32_t m_EmailCampaignProgressState;
+        int32_t m_EmailCampaignUpdated;
+        int32_t m_SmsCampaignInvalidated;
+        int32_t m_ScheduledEmailCampaignCreated;
+        int32_t m_ScheduledEmailCampaignUpdated;
+        int32_t m_ScheduledEmailCampaignStatusUpdated;
+        int32_t m_ScheduledEmailCampaignDeleted;
+        int32_t m_EmailCampaignFailedAttemptCreated;
+        int32_t m_EmailCampaignFailedAttemptDeleted;
+        int32_t m_EmailCampaignFailedAttemptStateUpdated;
     };
 
 }
