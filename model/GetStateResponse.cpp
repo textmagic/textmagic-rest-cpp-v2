@@ -28,6 +28,7 @@ GetStateResponse::GetStateResponse()
     m_SystemAccountAcceptTermsUpdate = 0;
     m_SystemAccountClosed = 0;
     m_SystemAccountAdditionalFields = 0;
+    m_SystemAccountNumbersListChange = 0;
     m_SystemAccountPermissionsChanged = 0;
     m_UserProfileChanged = 0;
     m_UserBalanceChanged = 0;
@@ -94,8 +95,8 @@ GetStateResponse::GetStateResponse()
     m_ListCacheClear = 0;
     m_CustomFieldsCacheClear = 0;
     m_ProgressCarrierBulkLookup = 0;
-    m_ProgressEmailBulkLookup = 0;
     m_ProgressSubAccountBulkImport = 0;
+    m_EmailLookupProgressState = 0;
     m_ImportProgressState = 0;
     m_ForceRefreshWebApp = 0;
     m_ChatSenderSettingsChanged = 0;
@@ -199,6 +200,8 @@ GetStateResponse::GetStateResponse()
     m_EmailCampaignDomainEntryVerificationChanged = 0;
     m_EmailCampaignProgressState = 0;
     m_EmailCampaignUpdated = 0;
+    m_EmailTemplateImproved = 0;
+    m_EmailTemplateImprovingFailed = 0;
     m_SmsCampaignInvalidated = 0;
     m_ScheduledEmailCampaignCreated = 0;
     m_ScheduledEmailCampaignUpdated = 0;
@@ -229,6 +232,7 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("systemAccountAcceptTermsUpdate")] = ModelBase::toJson(m_SystemAccountAcceptTermsUpdate);
     val[utility::conversions::to_string_t("systemAccountClosed")] = ModelBase::toJson(m_SystemAccountClosed);
     val[utility::conversions::to_string_t("systemAccountAdditionalFields")] = ModelBase::toJson(m_SystemAccountAdditionalFields);
+    val[utility::conversions::to_string_t("systemAccountNumbersListChange")] = ModelBase::toJson(m_SystemAccountNumbersListChange);
     val[utility::conversions::to_string_t("systemAccountPermissionsChanged")] = ModelBase::toJson(m_SystemAccountPermissionsChanged);
     val[utility::conversions::to_string_t("userProfileChanged")] = ModelBase::toJson(m_UserProfileChanged);
     val[utility::conversions::to_string_t("userBalanceChanged")] = ModelBase::toJson(m_UserBalanceChanged);
@@ -295,8 +299,8 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("listCacheClear")] = ModelBase::toJson(m_ListCacheClear);
     val[utility::conversions::to_string_t("customFieldsCacheClear")] = ModelBase::toJson(m_CustomFieldsCacheClear);
     val[utility::conversions::to_string_t("progressCarrierBulkLookup")] = ModelBase::toJson(m_ProgressCarrierBulkLookup);
-    val[utility::conversions::to_string_t("progressEmailBulkLookup")] = ModelBase::toJson(m_ProgressEmailBulkLookup);
     val[utility::conversions::to_string_t("progressSubAccountBulkImport")] = ModelBase::toJson(m_ProgressSubAccountBulkImport);
+    val[utility::conversions::to_string_t("emailLookupProgressState")] = ModelBase::toJson(m_EmailLookupProgressState);
     val[utility::conversions::to_string_t("importProgressState")] = ModelBase::toJson(m_ImportProgressState);
     val[utility::conversions::to_string_t("forceRefreshWebApp")] = ModelBase::toJson(m_ForceRefreshWebApp);
     val[utility::conversions::to_string_t("chatSenderSettingsChanged")] = ModelBase::toJson(m_ChatSenderSettingsChanged);
@@ -400,6 +404,8 @@ web::json::value GetStateResponse::toJson() const
     val[utility::conversions::to_string_t("emailCampaignDomainEntryVerificationChanged")] = ModelBase::toJson(m_EmailCampaignDomainEntryVerificationChanged);
     val[utility::conversions::to_string_t("emailCampaignProgressState")] = ModelBase::toJson(m_EmailCampaignProgressState);
     val[utility::conversions::to_string_t("emailCampaignUpdated")] = ModelBase::toJson(m_EmailCampaignUpdated);
+    val[utility::conversions::to_string_t("emailTemplateImproved")] = ModelBase::toJson(m_EmailTemplateImproved);
+    val[utility::conversions::to_string_t("emailTemplateImprovingFailed")] = ModelBase::toJson(m_EmailTemplateImprovingFailed);
     val[utility::conversions::to_string_t("smsCampaignInvalidated")] = ModelBase::toJson(m_SmsCampaignInvalidated);
     val[utility::conversions::to_string_t("scheduledEmailCampaignCreated")] = ModelBase::toJson(m_ScheduledEmailCampaignCreated);
     val[utility::conversions::to_string_t("scheduledEmailCampaignUpdated")] = ModelBase::toJson(m_ScheduledEmailCampaignUpdated);
@@ -468,6 +474,14 @@ void GetStateResponse::fromJson(web::json::value& val)
         if(!fieldValue.is_null())
         {
             setSystemAccountAdditionalFields(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("systemAccountNumbersListChange")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("systemAccountNumbersListChange")];
+        if(!fieldValue.is_null())
+        {
+            setSystemAccountNumbersListChange(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("systemAccountPermissionsChanged")))
@@ -998,20 +1012,20 @@ void GetStateResponse::fromJson(web::json::value& val)
             setProgressCarrierBulkLookup(ModelBase::int32_tFromJson(fieldValue));
         }
     }
-    if(val.has_field(utility::conversions::to_string_t("progressEmailBulkLookup")))
-    {
-        web::json::value& fieldValue = val[utility::conversions::to_string_t("progressEmailBulkLookup")];
-        if(!fieldValue.is_null())
-        {
-            setProgressEmailBulkLookup(ModelBase::int32_tFromJson(fieldValue));
-        }
-    }
     if(val.has_field(utility::conversions::to_string_t("progressSubAccountBulkImport")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("progressSubAccountBulkImport")];
         if(!fieldValue.is_null())
         {
             setProgressSubAccountBulkImport(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailLookupProgressState")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailLookupProgressState")];
+        if(!fieldValue.is_null())
+        {
+            setEmailLookupProgressState(ModelBase::int32_tFromJson(fieldValue));
         }
     }
     if(val.has_field(utility::conversions::to_string_t("importProgressState")))
@@ -1838,6 +1852,22 @@ void GetStateResponse::fromJson(web::json::value& val)
             setEmailCampaignUpdated(ModelBase::int32_tFromJson(fieldValue));
         }
     }
+    if(val.has_field(utility::conversions::to_string_t("emailTemplateImproved")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailTemplateImproved")];
+        if(!fieldValue.is_null())
+        {
+            setEmailTemplateImproved(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t("emailTemplateImprovingFailed")))
+    {
+        web::json::value& fieldValue = val[utility::conversions::to_string_t("emailTemplateImprovingFailed")];
+        if(!fieldValue.is_null())
+        {
+            setEmailTemplateImprovingFailed(ModelBase::int32_tFromJson(fieldValue));
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t("smsCampaignInvalidated")))
     {
         web::json::value& fieldValue = val[utility::conversions::to_string_t("smsCampaignInvalidated")];
@@ -1919,6 +1949,7 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountAcceptTermsUpdate"), m_SystemAccountAcceptTermsUpdate));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountClosed"), m_SystemAccountClosed));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountAdditionalFields"), m_SystemAccountAdditionalFields));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountNumbersListChange"), m_SystemAccountNumbersListChange));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("systemAccountPermissionsChanged"), m_SystemAccountPermissionsChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userProfileChanged"), m_UserProfileChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("userBalanceChanged"), m_UserBalanceChanged));
@@ -1985,8 +2016,8 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("listCacheClear"), m_ListCacheClear));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("customFieldsCacheClear"), m_CustomFieldsCacheClear));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressCarrierBulkLookup"), m_ProgressCarrierBulkLookup));
-    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressEmailBulkLookup"), m_ProgressEmailBulkLookup));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("progressSubAccountBulkImport"), m_ProgressSubAccountBulkImport));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailLookupProgressState"), m_EmailLookupProgressState));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("importProgressState"), m_ImportProgressState));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("forceRefreshWebApp"), m_ForceRefreshWebApp));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("chatSenderSettingsChanged"), m_ChatSenderSettingsChanged));
@@ -2090,6 +2121,8 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignDomainEntryVerificationChanged"), m_EmailCampaignDomainEntryVerificationChanged));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignProgressState"), m_EmailCampaignProgressState));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailCampaignUpdated"), m_EmailCampaignUpdated));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailTemplateImproved"), m_EmailTemplateImproved));
+    multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("emailTemplateImprovingFailed"), m_EmailTemplateImprovingFailed));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("smsCampaignInvalidated"), m_SmsCampaignInvalidated));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("scheduledEmailCampaignCreated"), m_ScheduledEmailCampaignCreated));
     multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t("scheduledEmailCampaignUpdated"), m_ScheduledEmailCampaignUpdated));
@@ -2115,6 +2148,7 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setSystemAccountAcceptTermsUpdate(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountAcceptTermsUpdate"))));
     setSystemAccountClosed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountClosed"))));
     setSystemAccountAdditionalFields(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountAdditionalFields"))));
+    setSystemAccountNumbersListChange(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountNumbersListChange"))));
     setSystemAccountPermissionsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("systemAccountPermissionsChanged"))));
     setUserProfileChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userProfileChanged"))));
     setUserBalanceChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("userBalanceChanged"))));
@@ -2181,8 +2215,8 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setListCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("listCacheClear"))));
     setCustomFieldsCacheClear(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("customFieldsCacheClear"))));
     setProgressCarrierBulkLookup(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressCarrierBulkLookup"))));
-    setProgressEmailBulkLookup(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressEmailBulkLookup"))));
     setProgressSubAccountBulkImport(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("progressSubAccountBulkImport"))));
+    setEmailLookupProgressState(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailLookupProgressState"))));
     setImportProgressState(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("importProgressState"))));
     setForceRefreshWebApp(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("forceRefreshWebApp"))));
     setChatSenderSettingsChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("chatSenderSettingsChanged"))));
@@ -2286,6 +2320,8 @@ void GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
     setEmailCampaignDomainEntryVerificationChanged(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignDomainEntryVerificationChanged"))));
     setEmailCampaignProgressState(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignProgressState"))));
     setEmailCampaignUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailCampaignUpdated"))));
+    setEmailTemplateImproved(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailTemplateImproved"))));
+    setEmailTemplateImprovingFailed(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("emailTemplateImprovingFailed"))));
     setSmsCampaignInvalidated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("smsCampaignInvalidated"))));
     setScheduledEmailCampaignCreated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("scheduledEmailCampaignCreated"))));
     setScheduledEmailCampaignUpdated(ModelBase::int32_tFromHttpContent(multipart->getContent(utility::conversions::to_string_t("scheduledEmailCampaignUpdated"))));
@@ -2371,6 +2407,17 @@ int32_t GetStateResponse::getSystemAccountAdditionalFields() const
 void GetStateResponse::setSystemAccountAdditionalFields(int32_t value)
 {
     m_SystemAccountAdditionalFields = value;
+    
+}
+int32_t GetStateResponse::getSystemAccountNumbersListChange() const
+{
+    return m_SystemAccountNumbersListChange;
+}
+
+
+void GetStateResponse::setSystemAccountNumbersListChange(int32_t value)
+{
+    m_SystemAccountNumbersListChange = value;
     
 }
 int32_t GetStateResponse::getSystemAccountPermissionsChanged() const
@@ -3099,17 +3146,6 @@ void GetStateResponse::setProgressCarrierBulkLookup(int32_t value)
     m_ProgressCarrierBulkLookup = value;
     
 }
-int32_t GetStateResponse::getProgressEmailBulkLookup() const
-{
-    return m_ProgressEmailBulkLookup;
-}
-
-
-void GetStateResponse::setProgressEmailBulkLookup(int32_t value)
-{
-    m_ProgressEmailBulkLookup = value;
-    
-}
 int32_t GetStateResponse::getProgressSubAccountBulkImport() const
 {
     return m_ProgressSubAccountBulkImport;
@@ -3119,6 +3155,17 @@ int32_t GetStateResponse::getProgressSubAccountBulkImport() const
 void GetStateResponse::setProgressSubAccountBulkImport(int32_t value)
 {
     m_ProgressSubAccountBulkImport = value;
+    
+}
+int32_t GetStateResponse::getEmailLookupProgressState() const
+{
+    return m_EmailLookupProgressState;
+}
+
+
+void GetStateResponse::setEmailLookupProgressState(int32_t value)
+{
+    m_EmailLookupProgressState = value;
     
 }
 int32_t GetStateResponse::getImportProgressState() const
@@ -4252,6 +4299,28 @@ int32_t GetStateResponse::getEmailCampaignUpdated() const
 void GetStateResponse::setEmailCampaignUpdated(int32_t value)
 {
     m_EmailCampaignUpdated = value;
+    
+}
+int32_t GetStateResponse::getEmailTemplateImproved() const
+{
+    return m_EmailTemplateImproved;
+}
+
+
+void GetStateResponse::setEmailTemplateImproved(int32_t value)
+{
+    m_EmailTemplateImproved = value;
+    
+}
+int32_t GetStateResponse::getEmailTemplateImprovingFailed() const
+{
+    return m_EmailTemplateImprovingFailed;
+}
+
+
+void GetStateResponse::setEmailTemplateImprovingFailed(int32_t value)
+{
+    m_EmailTemplateImprovingFailed = value;
     
 }
 int32_t GetStateResponse::getSmsCampaignInvalidated() const

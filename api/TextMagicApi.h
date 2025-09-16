@@ -35,6 +35,8 @@
 #include "CreateContactInputObject.h"
 #include "CreateContactNoteInputObject.h"
 #include "CreateCustomFieldInputObject.h"
+#include "CreateEmailCampaignInputObject.h"
+#include "CreateEmailCampaignResponse.h"
 #include "CreateListInputObject.h"
 #include "CreateTemplateInputObject.h"
 #include "DeleteChatMessagesBulkInputObject.h"
@@ -70,6 +72,7 @@
 #include "GetContactsByListIdPaginatedResponse.h"
 #include "GetContactsPaginatedResponse.h"
 #include "GetCustomFieldsPaginatedResponse.h"
+#include "GetEmailSendersResponse.h"
 #include "GetFavoritesPaginatedResponse.h"
 #include "GetInboundMessagesNotificationSettingsResponse.h"
 #include "GetInvoicesPaginatedResponse.h"
@@ -110,6 +113,8 @@
 #include "RequestNewSubaccountTokenInputObject.h"
 #include "RequestSenderIdInputObject.h"
 #include "ResourceLinkResponse.h"
+#include "ScheduleEmailCampaignInputObject.h"
+#include "ScheduleEmailCampaignResponse.h"
 #include "SearchChatsByIdsPaginatedResponse.h"
 #include "SearchChatsByReceipentPaginatedResponse.h"
 #include "SearchChatsPaginatedResponse.h"
@@ -265,6 +270,16 @@ public:
     /// <param name="createCustomFieldInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> createCustomField(
         std::shared_ptr<CreateCustomFieldInputObject> createCustomFieldInputObject
+    );
+    /// <summary>
+    /// Create new email campaign
+    /// </summary>
+    /// <remarks>
+    /// Creates a new email campaign and sends it to the specified recipients.  This endpoint allows you to create and immediately send an email marketing campaign to your contacts, groups, or direct email addresses. The campaign will be processed asynchronously, and you&#39;ll receive a campaign object with tracking information.  ## Request Requirements  - **Email Sender ID**: Must be a valid, configured email sender from your account - **Recipients**: At least one recipient type must be specified (contacts, groups, or emails) - **Content**: Subject and HTML message content are required - **Balance**: Sufficient account balance for the estimated campaign cost  ## Recipient Types  You can target multiple recipient types in a single campaign:  - **Contact IDs**: Send to specific contacts from your contact list - **Group IDs**: Send to all contacts within specified groups   - **Direct Emails**: Send to email addresses not in your contact list  ## Content Guidelines  - **Subject**: Maximum 998 characters, should be engaging and relevant - **Message**: HTML content supported, including images, links, and formatting - **From Name**: Optional custom sender name (max 500 characters) - **Reply-To**: Optional custom reply-to email address  ## Cost and Balance  The API automatically calculates campaign costs based on: - Total number of unique recipients across all specified groups, contacts, and emails - Your account&#39;s email pricing tier - Any additional features or premium content  If your account balance is insufficient, the request will be rejected with a low balance error.  ## Response Information  Successful campaigns return: - Campaign ID for tracking and analytics - Current campaign status and progress - Cost breakdown and recipient counts - Sender information and content preview - Statistical totals and engagement metrics  ## Error Scenarios  Common error conditions include: - **Validation Errors**: Invalid email addresses, missing required fields, or content that exceeds limits - **Insufficient Balance**: Account balance too low for campaign cost - **Invalid Recipients**: Non-existent contact/group IDs or invalid email formats - **Sender Configuration**: Invalid or unconfigured email sender ID - **No Recipients**: All recipient arrays are empty or invalid 
+    /// </remarks>
+    /// <param name="createEmailCampaignInputObject"></param>
+    pplx::task<std::shared_ptr<CreateEmailCampaignResponse>> createEmailCampaign(
+        std::shared_ptr<CreateEmailCampaignInputObject> createEmailCampaignInputObject
     );
     /// <summary>
     /// Create a new list
@@ -961,6 +976,16 @@ public:
         int32_t id
     );
     /// <summary>
+    /// Get list of email senders
+    /// </summary>
+    /// <remarks>
+    /// Retrieves a list of configured email senders available for creating email campaigns.
+    /// </remarks>
+    /// <param name="domainId">Filter email senders by specific domain ID. (optional)</param>
+    pplx::task<std::shared_ptr<GetEmailSendersResponse>> getEmailSenders(
+        boost::optional<int32_t> domainId
+    );
+    /// <summary>
     /// Get favorite contacts and lists
     /// </summary>
     /// <remarks>
@@ -1495,6 +1520,16 @@ public:
     /// <param name="requestSenderIdInputObject"></param>
     pplx::task<std::shared_ptr<ResourceLinkResponse>> requestSenderId(
         std::shared_ptr<RequestSenderIdInputObject> requestSenderIdInputObject
+    );
+    /// <summary>
+    /// Schedule new email campaign
+    /// </summary>
+    /// <remarks>
+    /// Creates a new scheduled email campaign that will be sent at a specified time or according to a recurring schedule.
+    /// </remarks>
+    /// <param name="scheduleEmailCampaignInputObject"></param>
+    pplx::task<std::shared_ptr<ScheduleEmailCampaignResponse>> scheduleEmailCampaign(
+        std::shared_ptr<ScheduleEmailCampaignInputObject> scheduleEmailCampaignInputObject
     );
     /// <summary>
     /// Find chats by message text

@@ -90,6 +90,11 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getSystemAccountNumbersListChange() const;
+        void setSystemAccountNumbersListChange(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getSystemAccountPermissionsChanged() const;
         void setSystemAccountPermissionsChanged(int32_t value);
     /// <summary>
@@ -420,13 +425,13 @@ public:
     /// <summary>
     /// 
     /// </summary>
-    int32_t getProgressEmailBulkLookup() const;
-        void setProgressEmailBulkLookup(int32_t value);
+    int32_t getProgressSubAccountBulkImport() const;
+        void setProgressSubAccountBulkImport(int32_t value);
     /// <summary>
     /// 
     /// </summary>
-    int32_t getProgressSubAccountBulkImport() const;
-        void setProgressSubAccountBulkImport(int32_t value);
+    int32_t getEmailLookupProgressState() const;
+        void setEmailLookupProgressState(int32_t value);
     /// <summary>
     /// 
     /// </summary>
@@ -945,6 +950,16 @@ public:
     /// <summary>
     /// 
     /// </summary>
+    int32_t getEmailTemplateImproved() const;
+        void setEmailTemplateImproved(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
+    int32_t getEmailTemplateImprovingFailed() const;
+        void setEmailTemplateImprovingFailed(int32_t value);
+    /// <summary>
+    /// 
+    /// </summary>
     int32_t getSmsCampaignInvalidated() const;
         void setSmsCampaignInvalidated(int32_t value);
     /// <summary>
@@ -991,6 +1006,7 @@ protected:
         int32_t m_SystemAccountAcceptTermsUpdate;
         int32_t m_SystemAccountClosed;
         int32_t m_SystemAccountAdditionalFields;
+        int32_t m_SystemAccountNumbersListChange;
         int32_t m_SystemAccountPermissionsChanged;
         int32_t m_UserProfileChanged;
         int32_t m_UserBalanceChanged;
@@ -1057,8 +1073,8 @@ protected:
         int32_t m_ListCacheClear;
         int32_t m_CustomFieldsCacheClear;
         int32_t m_ProgressCarrierBulkLookup;
-        int32_t m_ProgressEmailBulkLookup;
         int32_t m_ProgressSubAccountBulkImport;
+        int32_t m_EmailLookupProgressState;
         int32_t m_ImportProgressState;
         int32_t m_ForceRefreshWebApp;
         int32_t m_ChatSenderSettingsChanged;
@@ -1162,6 +1178,8 @@ protected:
         int32_t m_EmailCampaignDomainEntryVerificationChanged;
         int32_t m_EmailCampaignProgressState;
         int32_t m_EmailCampaignUpdated;
+        int32_t m_EmailTemplateImproved;
+        int32_t m_EmailTemplateImprovingFailed;
         int32_t m_SmsCampaignInvalidated;
         int32_t m_ScheduledEmailCampaignCreated;
         int32_t m_ScheduledEmailCampaignUpdated;
