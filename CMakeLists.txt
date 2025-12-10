@@ -1,19 +1,80 @@
-cmake_minimum_required (VERSION 2.8)
+cmake_minimum_required(VERSION 3.15)
 
-#PROJECT's NAME
-project(textmagic_client)
+project(TextMagic CXX)
 
-# THE LOCATION OF OUTPUT BINARIES
-set(CMAKE_LIBRARY_DIR ${PROJECT_SOURCE_DIR}/lib)
-set(LIBRARY_OUTPUT_PATH ${CMAKE_LIBRARY_DIR})
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+# Force -fPIC even if the project is configured for building a static library.
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 
-#SUPPORTING FILES
-set(SUPPORTING_FILES  "ApiClient" "ApiConfiguration" "ApiException" "HttpContent" "IHttpBody" "JsonBody" "ModelBase" "MultipartFormData" "Object")
-#SOURCE FILES
-file(GLOB SOURCE_FILES  "api/*"  "model/*")
+# C++ Standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_library(${PROJECT_NAME} SHARED ${SUPPORTING_FILES} ${SOURCE_FILES})
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE Release)
+endif()
 
-target_link_libraries(${PROJECT_NAME} PUBLIC boost_system PUBLIC cpprest PUBLIC crypto)
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR} api model)
+# Find dependencies
+find_package(cpprestsdk REQUIRED)
+target_compile_definitions(cpprestsdk::cpprest INTERFACE _TURN_OFF_PLATFORM_STRING)
+find_package(Boost REQUIRED)
+
+include(GNUInstallDirs)
+include(CMakePackageConfigHelpers)
+
+# Collect source files
+file(GLOB_RECURSE HEADER_FILES "include/*.h")
+file(GLOB_RECURSE SOURCE_FILES "src/*.cpp")
+
+# Create library
+add_library(${PROJECT_NAME} ${HEADER_FILES} ${SOURCE_FILES})
+
+# Compiler options
+target_compile_options(${PROJECT_NAME}
+    PRIVATE
+        $<$<OR:$<CXX_COMPILER_ID:Clang>,$<CXX_COMPILER_ID:AppleClang>,$<CXX_COMPILER_ID:GNU>>:
+            -Wall -Wno-unused-variable -Wno-unused-lambda-capture>
+)
+
+# Include directories
+target_include_directories(${PROJECT_NAME}
+    PUBLIC
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>
+)
+
+# Link libraries
+target_link_libraries(${PROJECT_NAME} PUBLIC Boost::headers cpprestsdk::cpprest)
+
+# Package configuration
+configure_package_config_file(${CMAKE_CURRENT_SOURCE_DIR}/Config.cmake.in
+    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+    INSTALL_DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}"
+)
+
+# Install targets
+install(
+    TARGETS ${PROJECT_NAME}
+    EXPORT ${PROJECT_NAME}Targets
+    LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    ARCHIVE DESTINATION "${CMAKE_INSTALL_LIBDIR}"
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    INCLUDES DESTINATION "${CMAKE_INSTALL_INCLUDEDIR}"
+)
+
+# Install headers
+install(
+    DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)
+
+# Install CMake config
+install(
+    FILES "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake"
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+)
+
+# Install export targets
+install(
+    EXPORT ${PROJECT_NAME}Targets
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${PROJECT_NAME}
+)
