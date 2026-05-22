@@ -1,5 +1,4 @@
 .gitignore
-.openapi-generator-ignore
 CMakeLists.txt
 Config.cmake.in
 README.md
@@ -42,6 +41,7 @@ include/TextMagic/model/CreateTag_request.h
 include/TextMagic/model/CreateTemplate_request.h
 include/TextMagic/model/Currency.h
 include/TextMagic/model/CustomFieldListItem.h
+include/TextMagic/model/CustomFieldValues.h
 include/TextMagic/model/DeleteChatMessages_request.h
 include/TextMagic/model/DeleteChatsBulk_request.h
 include/TextMagic/model/DeleteContactNotesBulk_request.h
@@ -125,6 +125,7 @@ include/TextMagic/model/MessagingStatItem.h
 include/TextMagic/model/MuteChat_request.h
 include/TextMagic/model/MuteChatsBulk_request.h
 include/TextMagic/model/NotFoundResponse.h
+include/TextMagic/model/NullableUserPersonalInfo.h
 include/TextMagic/model/OutboundEmailResponse.h
 include/TextMagic/model/PingResponse.h
 include/TextMagic/model/PushToken.h
@@ -218,6 +219,7 @@ src/model/CreateTag_request.cpp
 src/model/CreateTemplate_request.cpp
 src/model/Currency.cpp
 src/model/CustomFieldListItem.cpp
+src/model/CustomFieldValues.cpp
 src/model/DeleteChatMessages_request.cpp
 src/model/DeleteChatsBulk_request.cpp
 src/model/DeleteContactNotesBulk_request.cpp
@@ -301,6 +303,7 @@ src/model/MessagingStatItem.cpp
 src/model/MuteChat_request.cpp
 src/model/MuteChatsBulk_request.cpp
 src/model/NotFoundResponse.cpp
+src/model/NullableUserPersonalInfo.cpp
 src/model/OutboundEmailResponse.cpp
 src/model/PingResponse.cpp
 src/model/PushToken.cpp

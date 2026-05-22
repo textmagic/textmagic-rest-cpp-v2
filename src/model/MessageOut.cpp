@@ -40,6 +40,8 @@ MessageOut::MessageOut()
     m_AvatarIsSet = false;
     m_Deleted = false;
     m_DeletedIsSet = false;
+    m_DeliveredAt = utility::datetime();
+    m_DeliveredAtIsSet = false;
     m_Charset = utility::conversions::to_string_t("");
     m_CharsetIsSet = false;
     m_CharsetLabel = utility::conversions::to_string_t("");
@@ -134,6 +136,11 @@ web::json::value MessageOut::toJson() const
     {   
         
         val[utility::conversions::to_string_t(_XPLATSTR("deleted"))] = ModelBase::toJson(m_Deleted);
+    }
+    if(m_DeliveredAtIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("deliveredAt"))] = ModelBase::toJson(m_DeliveredAt);
     }
     if(m_CharsetIsSet)
     {   
@@ -325,6 +332,17 @@ bool MessageOut::fromJson(const web::json::value& val)
             
         }
     }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("deliveredAt"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("deliveredAt")));
+        if(!fieldValue.is_null())
+        {
+            utility::datetime refVal_setDeliveredAt;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setDeliveredAt);
+            setDeliveredAt(refVal_setDeliveredAt);
+            
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("charset"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("charset")));
@@ -511,6 +529,10 @@ void MessageOut::toMultipart(std::shared_ptr<MultipartFormData> multipart, const
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("deleted")), m_Deleted));
     }
+    if(m_DeliveredAtIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("deliveredAt")), m_DeliveredAt));
+    }
     if(m_CharsetIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("charset")), m_Charset));
@@ -635,6 +657,12 @@ bool MessageOut::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, con
         bool refVal_setDeleted;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("deleted"))), refVal_setDeleted );
         setDeleted(refVal_setDeleted);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("deliveredAt"))))
+    {
+        utility::datetime refVal_setDeliveredAt;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("deliveredAt"))), refVal_setDeliveredAt );
+        setDeliveredAt(refVal_setDeliveredAt);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("charset"))))
     {
@@ -1196,6 +1224,27 @@ bool MessageOut::deletedIsSet() const
 void MessageOut::unsetDeleted()
 {
     m_DeletedIsSet = false;
+}
+utility::datetime MessageOut::getDeliveredAt() const
+{
+    return m_DeliveredAt;
+}
+
+
+void MessageOut::setDeliveredAt(const utility::datetime& value)
+{
+    m_DeliveredAt = value;
+    m_DeliveredAtIsSet = true;
+}
+
+bool MessageOut::deliveredAtIsSet() const
+{
+    return m_DeliveredAtIsSet;
+}
+
+void MessageOut::unsetDeliveredAt()
+{
+    m_DeliveredAtIsSet = false;
 }
 utility::string_t MessageOut::getCharset() const
 {

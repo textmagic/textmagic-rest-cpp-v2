@@ -199,6 +199,14 @@ public:
     void setDeleted(bool value);
 
     /// <summary>
+    /// Time when message was delivered.
+    /// </summary>
+    utility::datetime getDeliveredAt() const;
+    bool deliveredAtIsSet() const;
+    void unsetDeliveredAt();
+    void setDeliveredAt(const utility::datetime& value);
+
+    /// <summary>
     /// Message charset. Could be: *   **ISO-8859-1** for plaintext SMS; *   **UTF-16BE** for Unicode SMS. 
     /// </summary>
     utility::string_t getCharset() const;
@@ -322,6 +330,9 @@ protected:
 
     bool m_Deleted;
     bool m_DeletedIsSet;
+
+    utility::datetime m_DeliveredAt;
+    bool m_DeliveredAtIsSet;
 
     utility::string_t m_Charset;
     bool m_CharsetIsSet;

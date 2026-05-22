@@ -130,6 +130,8 @@ GetStateResponse::GetStateResponse()
     m_WebWidgetUpdatedIsSet = false;
     m_WebWidgetDeleted = 0;
     m_WebWidgetDeletedIsSet = false;
+    m_WebWidgetCreated = 0;
+    m_WebWidgetCreatedIsSet = false;
     m_ContactAdded = 0;
     m_ContactAddedIsSet = false;
     m_ContactDeleted = 0;
@@ -400,6 +402,30 @@ GetStateResponse::GetStateResponse()
     m_EmailCampaignFailedAttemptDeletedIsSet = false;
     m_EmailCampaignFailedAttemptStateUpdated = 0;
     m_EmailCampaignFailedAttemptStateUpdatedIsSet = false;
+    m_TollFreePreFillCompleted = 0;
+    m_TollFreePreFillCompletedIsSet = false;
+    m_TollFreePreFillFailed = 0;
+    m_TollFreePreFillFailedIsSet = false;
+    m_TollFreeComplianceCheckCompleted = 0;
+    m_TollFreeComplianceCheckCompletedIsSet = false;
+    m_TollFreeComplianceCheckFailed = 0;
+    m_TollFreeComplianceCheckFailedIsSet = false;
+    m_TenDlcPreFillCompleted = 0;
+    m_TenDlcPreFillCompletedIsSet = false;
+    m_TenDlcPreFillFailed = 0;
+    m_TenDlcPreFillFailedIsSet = false;
+    m_TenDlcComplianceCheckCompleted = 0;
+    m_TenDlcComplianceCheckCompletedIsSet = false;
+    m_TenDlcComplianceCheckFailed = 0;
+    m_TenDlcComplianceCheckFailedIsSet = false;
+    m_MarketingDataModalChanged = 0;
+    m_MarketingDataModalChangedIsSet = false;
+    m_IntegrationStatusChanged = 0;
+    m_IntegrationStatusChangedIsSet = false;
+    m_IntegrationCustomerSyncProgressState = 0;
+    m_IntegrationCustomerSyncProgressStateIsSet = false;
+    m_IntegrationCustomerSyncEnd = 0;
+    m_IntegrationCustomerSyncEndIsSet = false;
 }
 
 GetStateResponse::~GetStateResponse()
@@ -688,6 +714,11 @@ web::json::value GetStateResponse::toJson() const
     {   
         
         val[utility::conversions::to_string_t(_XPLATSTR("webWidgetDeleted"))] = ModelBase::toJson(m_WebWidgetDeleted);
+    }
+    if(m_WebWidgetCreatedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("webWidgetCreated"))] = ModelBase::toJson(m_WebWidgetCreated);
     }
     if(m_ContactAddedIsSet)
     {   
@@ -1364,6 +1395,66 @@ web::json::value GetStateResponse::toJson() const
         
         val[utility::conversions::to_string_t(_XPLATSTR("emailCampaignFailedAttemptStateUpdated"))] = ModelBase::toJson(m_EmailCampaignFailedAttemptStateUpdated);
     }
+    if(m_TollFreePreFillCompletedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillCompleted"))] = ModelBase::toJson(m_TollFreePreFillCompleted);
+    }
+    if(m_TollFreePreFillFailedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillFailed"))] = ModelBase::toJson(m_TollFreePreFillFailed);
+    }
+    if(m_TollFreeComplianceCheckCompletedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckCompleted"))] = ModelBase::toJson(m_TollFreeComplianceCheckCompleted);
+    }
+    if(m_TollFreeComplianceCheckFailedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckFailed"))] = ModelBase::toJson(m_TollFreeComplianceCheckFailed);
+    }
+    if(m_TenDlcPreFillCompletedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillCompleted"))] = ModelBase::toJson(m_TenDlcPreFillCompleted);
+    }
+    if(m_TenDlcPreFillFailedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillFailed"))] = ModelBase::toJson(m_TenDlcPreFillFailed);
+    }
+    if(m_TenDlcComplianceCheckCompletedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckCompleted"))] = ModelBase::toJson(m_TenDlcComplianceCheckCompleted);
+    }
+    if(m_TenDlcComplianceCheckFailedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckFailed"))] = ModelBase::toJson(m_TenDlcComplianceCheckFailed);
+    }
+    if(m_MarketingDataModalChangedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("marketingDataModalChanged"))] = ModelBase::toJson(m_MarketingDataModalChanged);
+    }
+    if(m_IntegrationStatusChangedIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("integrationStatusChanged"))] = ModelBase::toJson(m_IntegrationStatusChanged);
+    }
+    if(m_IntegrationCustomerSyncProgressStateIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncProgressState"))] = ModelBase::toJson(m_IntegrationCustomerSyncProgressState);
+    }
+    if(m_IntegrationCustomerSyncEndIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncEnd"))] = ModelBase::toJson(m_IntegrationCustomerSyncEnd);
+    }
 
     return val;
 }
@@ -1973,6 +2064,17 @@ bool GetStateResponse::fromJson(const web::json::value& val)
             int32_t refVal_setWebWidgetDeleted;
             ok &= ModelBase::fromJson(fieldValue, refVal_setWebWidgetDeleted);
             setWebWidgetDeleted(refVal_setWebWidgetDeleted);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("webWidgetCreated"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("webWidgetCreated")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setWebWidgetCreated;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setWebWidgetCreated);
+            setWebWidgetCreated(refVal_setWebWidgetCreated);
             
         }
     }
@@ -3461,6 +3563,138 @@ bool GetStateResponse::fromJson(const web::json::value& val)
             
         }
     }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillCompleted"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillCompleted")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setTollFreePreFillCompleted;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTollFreePreFillCompleted);
+            setTollFreePreFillCompleted(refVal_setTollFreePreFillCompleted);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillFailed"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillFailed")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setTollFreePreFillFailed;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTollFreePreFillFailed);
+            setTollFreePreFillFailed(refVal_setTollFreePreFillFailed);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckCompleted"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckCompleted")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setTollFreeComplianceCheckCompleted;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTollFreeComplianceCheckCompleted);
+            setTollFreeComplianceCheckCompleted(refVal_setTollFreeComplianceCheckCompleted);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckFailed"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckFailed")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setTollFreeComplianceCheckFailed;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTollFreeComplianceCheckFailed);
+            setTollFreeComplianceCheckFailed(refVal_setTollFreeComplianceCheckFailed);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillCompleted"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillCompleted")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setTenDlcPreFillCompleted;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTenDlcPreFillCompleted);
+            setTenDlcPreFillCompleted(refVal_setTenDlcPreFillCompleted);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillFailed"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillFailed")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setTenDlcPreFillFailed;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTenDlcPreFillFailed);
+            setTenDlcPreFillFailed(refVal_setTenDlcPreFillFailed);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckCompleted"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckCompleted")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setTenDlcComplianceCheckCompleted;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTenDlcComplianceCheckCompleted);
+            setTenDlcComplianceCheckCompleted(refVal_setTenDlcComplianceCheckCompleted);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckFailed"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckFailed")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setTenDlcComplianceCheckFailed;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setTenDlcComplianceCheckFailed);
+            setTenDlcComplianceCheckFailed(refVal_setTenDlcComplianceCheckFailed);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("marketingDataModalChanged"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("marketingDataModalChanged")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setMarketingDataModalChanged;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setMarketingDataModalChanged);
+            setMarketingDataModalChanged(refVal_setMarketingDataModalChanged);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("integrationStatusChanged"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("integrationStatusChanged")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setIntegrationStatusChanged;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setIntegrationStatusChanged);
+            setIntegrationStatusChanged(refVal_setIntegrationStatusChanged);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncProgressState"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncProgressState")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setIntegrationCustomerSyncProgressState;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setIntegrationCustomerSyncProgressState);
+            setIntegrationCustomerSyncProgressState(refVal_setIntegrationCustomerSyncProgressState);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncEnd"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncEnd")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setIntegrationCustomerSyncEnd;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setIntegrationCustomerSyncEnd);
+            setIntegrationCustomerSyncEnd(refVal_setIntegrationCustomerSyncEnd);
+            
+        }
+    }
     return ok;
 }
 
@@ -3690,6 +3924,10 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     if(m_WebWidgetDeletedIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("webWidgetDeleted")), m_WebWidgetDeleted));
+    }
+    if(m_WebWidgetCreatedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("webWidgetCreated")), m_WebWidgetCreated));
     }
     if(m_ContactAddedIsSet)
     {
@@ -4231,6 +4469,54 @@ void GetStateResponse::toMultipart(std::shared_ptr<MultipartFormData> multipart,
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("emailCampaignFailedAttemptStateUpdated")), m_EmailCampaignFailedAttemptStateUpdated));
     }
+    if(m_TollFreePreFillCompletedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillCompleted")), m_TollFreePreFillCompleted));
+    }
+    if(m_TollFreePreFillFailedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillFailed")), m_TollFreePreFillFailed));
+    }
+    if(m_TollFreeComplianceCheckCompletedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckCompleted")), m_TollFreeComplianceCheckCompleted));
+    }
+    if(m_TollFreeComplianceCheckFailedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckFailed")), m_TollFreeComplianceCheckFailed));
+    }
+    if(m_TenDlcPreFillCompletedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillCompleted")), m_TenDlcPreFillCompleted));
+    }
+    if(m_TenDlcPreFillFailedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillFailed")), m_TenDlcPreFillFailed));
+    }
+    if(m_TenDlcComplianceCheckCompletedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckCompleted")), m_TenDlcComplianceCheckCompleted));
+    }
+    if(m_TenDlcComplianceCheckFailedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckFailed")), m_TenDlcComplianceCheckFailed));
+    }
+    if(m_MarketingDataModalChangedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("marketingDataModalChanged")), m_MarketingDataModalChanged));
+    }
+    if(m_IntegrationStatusChangedIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("integrationStatusChanged")), m_IntegrationStatusChanged));
+    }
+    if(m_IntegrationCustomerSyncProgressStateIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncProgressState")), m_IntegrationCustomerSyncProgressState));
+    }
+    if(m_IntegrationCustomerSyncEndIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncEnd")), m_IntegrationCustomerSyncEnd));
+    }
 }
 
 bool GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const utility::string_t& prefix)
@@ -4571,6 +4857,12 @@ bool GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
         int32_t refVal_setWebWidgetDeleted;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("webWidgetDeleted"))), refVal_setWebWidgetDeleted );
         setWebWidgetDeleted(refVal_setWebWidgetDeleted);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("webWidgetCreated"))))
+    {
+        int32_t refVal_setWebWidgetCreated;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("webWidgetCreated"))), refVal_setWebWidgetCreated );
+        setWebWidgetCreated(refVal_setWebWidgetCreated);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("contactAdded"))))
     {
@@ -5381,6 +5673,78 @@ bool GetStateResponse::fromMultiPart(std::shared_ptr<MultipartFormData> multipar
         int32_t refVal_setEmailCampaignFailedAttemptStateUpdated;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("emailCampaignFailedAttemptStateUpdated"))), refVal_setEmailCampaignFailedAttemptStateUpdated );
         setEmailCampaignFailedAttemptStateUpdated(refVal_setEmailCampaignFailedAttemptStateUpdated);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillCompleted"))))
+    {
+        int32_t refVal_setTollFreePreFillCompleted;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillCompleted"))), refVal_setTollFreePreFillCompleted );
+        setTollFreePreFillCompleted(refVal_setTollFreePreFillCompleted);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillFailed"))))
+    {
+        int32_t refVal_setTollFreePreFillFailed;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tollFreePreFillFailed"))), refVal_setTollFreePreFillFailed );
+        setTollFreePreFillFailed(refVal_setTollFreePreFillFailed);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckCompleted"))))
+    {
+        int32_t refVal_setTollFreeComplianceCheckCompleted;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckCompleted"))), refVal_setTollFreeComplianceCheckCompleted );
+        setTollFreeComplianceCheckCompleted(refVal_setTollFreeComplianceCheckCompleted);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckFailed"))))
+    {
+        int32_t refVal_setTollFreeComplianceCheckFailed;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tollFreeComplianceCheckFailed"))), refVal_setTollFreeComplianceCheckFailed );
+        setTollFreeComplianceCheckFailed(refVal_setTollFreeComplianceCheckFailed);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillCompleted"))))
+    {
+        int32_t refVal_setTenDlcPreFillCompleted;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillCompleted"))), refVal_setTenDlcPreFillCompleted );
+        setTenDlcPreFillCompleted(refVal_setTenDlcPreFillCompleted);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillFailed"))))
+    {
+        int32_t refVal_setTenDlcPreFillFailed;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tenDlcPreFillFailed"))), refVal_setTenDlcPreFillFailed );
+        setTenDlcPreFillFailed(refVal_setTenDlcPreFillFailed);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckCompleted"))))
+    {
+        int32_t refVal_setTenDlcComplianceCheckCompleted;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckCompleted"))), refVal_setTenDlcComplianceCheckCompleted );
+        setTenDlcComplianceCheckCompleted(refVal_setTenDlcComplianceCheckCompleted);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckFailed"))))
+    {
+        int32_t refVal_setTenDlcComplianceCheckFailed;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tenDlcComplianceCheckFailed"))), refVal_setTenDlcComplianceCheckFailed );
+        setTenDlcComplianceCheckFailed(refVal_setTenDlcComplianceCheckFailed);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("marketingDataModalChanged"))))
+    {
+        int32_t refVal_setMarketingDataModalChanged;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("marketingDataModalChanged"))), refVal_setMarketingDataModalChanged );
+        setMarketingDataModalChanged(refVal_setMarketingDataModalChanged);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("integrationStatusChanged"))))
+    {
+        int32_t refVal_setIntegrationStatusChanged;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("integrationStatusChanged"))), refVal_setIntegrationStatusChanged );
+        setIntegrationStatusChanged(refVal_setIntegrationStatusChanged);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncProgressState"))))
+    {
+        int32_t refVal_setIntegrationCustomerSyncProgressState;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncProgressState"))), refVal_setIntegrationCustomerSyncProgressState );
+        setIntegrationCustomerSyncProgressState(refVal_setIntegrationCustomerSyncProgressState);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncEnd"))))
+    {
+        int32_t refVal_setIntegrationCustomerSyncEnd;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("integrationCustomerSyncEnd"))), refVal_setIntegrationCustomerSyncEnd );
+        setIntegrationCustomerSyncEnd(refVal_setIntegrationCustomerSyncEnd);
     }
     return ok;
 }
@@ -6485,6 +6849,26 @@ bool GetStateResponse::webWidgetDeletedIsSet() const
 void GetStateResponse::unsetWebWidgetDeleted()
 {
     m_WebWidgetDeletedIsSet = false;
+}
+int32_t GetStateResponse::getWebWidgetCreated() const
+{
+    return m_WebWidgetCreated;
+}
+
+void GetStateResponse::setWebWidgetCreated(int32_t value)
+{
+    m_WebWidgetCreated = value;
+    m_WebWidgetCreatedIsSet = true;
+}
+
+bool GetStateResponse::webWidgetCreatedIsSet() const
+{
+    return m_WebWidgetCreatedIsSet;
+}
+
+void GetStateResponse::unsetWebWidgetCreated()
+{
+    m_WebWidgetCreatedIsSet = false;
 }
 int32_t GetStateResponse::getContactAdded() const
 {
@@ -9185,6 +9569,246 @@ bool GetStateResponse::emailCampaignFailedAttemptStateUpdatedIsSet() const
 void GetStateResponse::unsetEmailCampaignFailedAttemptStateUpdated()
 {
     m_EmailCampaignFailedAttemptStateUpdatedIsSet = false;
+}
+int32_t GetStateResponse::getTollFreePreFillCompleted() const
+{
+    return m_TollFreePreFillCompleted;
+}
+
+void GetStateResponse::setTollFreePreFillCompleted(int32_t value)
+{
+    m_TollFreePreFillCompleted = value;
+    m_TollFreePreFillCompletedIsSet = true;
+}
+
+bool GetStateResponse::tollFreePreFillCompletedIsSet() const
+{
+    return m_TollFreePreFillCompletedIsSet;
+}
+
+void GetStateResponse::unsetTollFreePreFillCompleted()
+{
+    m_TollFreePreFillCompletedIsSet = false;
+}
+int32_t GetStateResponse::getTollFreePreFillFailed() const
+{
+    return m_TollFreePreFillFailed;
+}
+
+void GetStateResponse::setTollFreePreFillFailed(int32_t value)
+{
+    m_TollFreePreFillFailed = value;
+    m_TollFreePreFillFailedIsSet = true;
+}
+
+bool GetStateResponse::tollFreePreFillFailedIsSet() const
+{
+    return m_TollFreePreFillFailedIsSet;
+}
+
+void GetStateResponse::unsetTollFreePreFillFailed()
+{
+    m_TollFreePreFillFailedIsSet = false;
+}
+int32_t GetStateResponse::getTollFreeComplianceCheckCompleted() const
+{
+    return m_TollFreeComplianceCheckCompleted;
+}
+
+void GetStateResponse::setTollFreeComplianceCheckCompleted(int32_t value)
+{
+    m_TollFreeComplianceCheckCompleted = value;
+    m_TollFreeComplianceCheckCompletedIsSet = true;
+}
+
+bool GetStateResponse::tollFreeComplianceCheckCompletedIsSet() const
+{
+    return m_TollFreeComplianceCheckCompletedIsSet;
+}
+
+void GetStateResponse::unsetTollFreeComplianceCheckCompleted()
+{
+    m_TollFreeComplianceCheckCompletedIsSet = false;
+}
+int32_t GetStateResponse::getTollFreeComplianceCheckFailed() const
+{
+    return m_TollFreeComplianceCheckFailed;
+}
+
+void GetStateResponse::setTollFreeComplianceCheckFailed(int32_t value)
+{
+    m_TollFreeComplianceCheckFailed = value;
+    m_TollFreeComplianceCheckFailedIsSet = true;
+}
+
+bool GetStateResponse::tollFreeComplianceCheckFailedIsSet() const
+{
+    return m_TollFreeComplianceCheckFailedIsSet;
+}
+
+void GetStateResponse::unsetTollFreeComplianceCheckFailed()
+{
+    m_TollFreeComplianceCheckFailedIsSet = false;
+}
+int32_t GetStateResponse::getTenDlcPreFillCompleted() const
+{
+    return m_TenDlcPreFillCompleted;
+}
+
+void GetStateResponse::setTenDlcPreFillCompleted(int32_t value)
+{
+    m_TenDlcPreFillCompleted = value;
+    m_TenDlcPreFillCompletedIsSet = true;
+}
+
+bool GetStateResponse::tenDlcPreFillCompletedIsSet() const
+{
+    return m_TenDlcPreFillCompletedIsSet;
+}
+
+void GetStateResponse::unsetTenDlcPreFillCompleted()
+{
+    m_TenDlcPreFillCompletedIsSet = false;
+}
+int32_t GetStateResponse::getTenDlcPreFillFailed() const
+{
+    return m_TenDlcPreFillFailed;
+}
+
+void GetStateResponse::setTenDlcPreFillFailed(int32_t value)
+{
+    m_TenDlcPreFillFailed = value;
+    m_TenDlcPreFillFailedIsSet = true;
+}
+
+bool GetStateResponse::tenDlcPreFillFailedIsSet() const
+{
+    return m_TenDlcPreFillFailedIsSet;
+}
+
+void GetStateResponse::unsetTenDlcPreFillFailed()
+{
+    m_TenDlcPreFillFailedIsSet = false;
+}
+int32_t GetStateResponse::getTenDlcComplianceCheckCompleted() const
+{
+    return m_TenDlcComplianceCheckCompleted;
+}
+
+void GetStateResponse::setTenDlcComplianceCheckCompleted(int32_t value)
+{
+    m_TenDlcComplianceCheckCompleted = value;
+    m_TenDlcComplianceCheckCompletedIsSet = true;
+}
+
+bool GetStateResponse::tenDlcComplianceCheckCompletedIsSet() const
+{
+    return m_TenDlcComplianceCheckCompletedIsSet;
+}
+
+void GetStateResponse::unsetTenDlcComplianceCheckCompleted()
+{
+    m_TenDlcComplianceCheckCompletedIsSet = false;
+}
+int32_t GetStateResponse::getTenDlcComplianceCheckFailed() const
+{
+    return m_TenDlcComplianceCheckFailed;
+}
+
+void GetStateResponse::setTenDlcComplianceCheckFailed(int32_t value)
+{
+    m_TenDlcComplianceCheckFailed = value;
+    m_TenDlcComplianceCheckFailedIsSet = true;
+}
+
+bool GetStateResponse::tenDlcComplianceCheckFailedIsSet() const
+{
+    return m_TenDlcComplianceCheckFailedIsSet;
+}
+
+void GetStateResponse::unsetTenDlcComplianceCheckFailed()
+{
+    m_TenDlcComplianceCheckFailedIsSet = false;
+}
+int32_t GetStateResponse::getMarketingDataModalChanged() const
+{
+    return m_MarketingDataModalChanged;
+}
+
+void GetStateResponse::setMarketingDataModalChanged(int32_t value)
+{
+    m_MarketingDataModalChanged = value;
+    m_MarketingDataModalChangedIsSet = true;
+}
+
+bool GetStateResponse::marketingDataModalChangedIsSet() const
+{
+    return m_MarketingDataModalChangedIsSet;
+}
+
+void GetStateResponse::unsetMarketingDataModalChanged()
+{
+    m_MarketingDataModalChangedIsSet = false;
+}
+int32_t GetStateResponse::getIntegrationStatusChanged() const
+{
+    return m_IntegrationStatusChanged;
+}
+
+void GetStateResponse::setIntegrationStatusChanged(int32_t value)
+{
+    m_IntegrationStatusChanged = value;
+    m_IntegrationStatusChangedIsSet = true;
+}
+
+bool GetStateResponse::integrationStatusChangedIsSet() const
+{
+    return m_IntegrationStatusChangedIsSet;
+}
+
+void GetStateResponse::unsetIntegrationStatusChanged()
+{
+    m_IntegrationStatusChangedIsSet = false;
+}
+int32_t GetStateResponse::getIntegrationCustomerSyncProgressState() const
+{
+    return m_IntegrationCustomerSyncProgressState;
+}
+
+void GetStateResponse::setIntegrationCustomerSyncProgressState(int32_t value)
+{
+    m_IntegrationCustomerSyncProgressState = value;
+    m_IntegrationCustomerSyncProgressStateIsSet = true;
+}
+
+bool GetStateResponse::integrationCustomerSyncProgressStateIsSet() const
+{
+    return m_IntegrationCustomerSyncProgressStateIsSet;
+}
+
+void GetStateResponse::unsetIntegrationCustomerSyncProgressState()
+{
+    m_IntegrationCustomerSyncProgressStateIsSet = false;
+}
+int32_t GetStateResponse::getIntegrationCustomerSyncEnd() const
+{
+    return m_IntegrationCustomerSyncEnd;
+}
+
+void GetStateResponse::setIntegrationCustomerSyncEnd(int32_t value)
+{
+    m_IntegrationCustomerSyncEnd = value;
+    m_IntegrationCustomerSyncEndIsSet = true;
+}
+
+bool GetStateResponse::integrationCustomerSyncEndIsSet() const
+{
+    return m_IntegrationCustomerSyncEndIsSet;
+}
+
+void GetStateResponse::unsetIntegrationCustomerSyncEnd()
+{
+    m_IntegrationCustomerSyncEndIsSet = false;
 }
 
 }

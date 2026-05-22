@@ -24,6 +24,7 @@
 
 #include "TextMagic/model/Tag.h"
 #include "TextMagic/model/Contact.h"
+#include "TextMagic/model/NullableUserPersonalInfo.h"
 #include <cpprest/details/basic_types.h>
 #include "TextMagic/model/Country.h"
 #include <vector>
@@ -36,6 +37,7 @@ namespace model {
 class Contact;
 class Country;
 class Tag;
+class NullableUserPersonalInfo;
 
 
 class  Chat
@@ -238,6 +240,32 @@ public:
     void unsetTags();
     void setTags(const std::vector<std::shared_ptr<Tag>>& value);
 
+    int32_t getAssigneeId() const;
+    bool assigneeIdIsSet() const;
+    void unsetAssigneeId();
+    void setAssigneeId(int32_t value);
+
+    std::shared_ptr<NullableUserPersonalInfo> getUpdatedBy() const;
+    bool updatedByIsSet() const;
+    void unsetUpdatedBy();
+    void setUpdatedBy(const std::shared_ptr<NullableUserPersonalInfo>& value);
+
+    /// <summary>
+    /// Chat creation date and time.
+    /// </summary>
+    utility::datetime getCreatedAt() const;
+    bool createdAtIsSet() const;
+    void unsetCreatedAt();
+    void setCreatedAt(const utility::datetime& value);
+
+    /// <summary>
+    /// Chat last message date and time.
+    /// </summary>
+    utility::datetime getMessageTime() const;
+    bool messageTimeIsSet() const;
+    void unsetMessageTime();
+    void setMessageTime(const utility::datetime& value);
+
 
 protected:
     int32_t m_Id;
@@ -302,6 +330,18 @@ protected:
 
     std::vector<std::shared_ptr<Tag>> m_Tags;
     bool m_TagsIsSet;
+
+    int32_t m_AssigneeId;
+    bool m_AssigneeIdIsSet;
+
+    std::shared_ptr<NullableUserPersonalInfo> m_UpdatedBy;
+    bool m_UpdatedByIsSet;
+
+    utility::datetime m_CreatedAt;
+    bool m_CreatedAtIsSet;
+
+    utility::datetime m_MessageTime;
+    bool m_MessageTimeIsSet;
 
 };
 

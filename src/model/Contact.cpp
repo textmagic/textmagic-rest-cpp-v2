@@ -38,6 +38,7 @@ Contact::Contact()
     m_EmailIsSet = false;
     m_CountryIsSet = false;
     m_CustomFieldsIsSet = false;
+    m_CustomFieldValuesIsSet = false;
     m_UserIsSet = false;
     m_ListsIsSet = false;
     m_OwnerIsSet = false;
@@ -111,6 +112,11 @@ web::json::value Contact::toJson() const
     {   
         
         val[utility::conversions::to_string_t(_XPLATSTR("customFields"))] = ModelBase::toJson(m_CustomFields);
+    }
+    if(m_CustomFieldValuesIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("customFieldValues"))] = ModelBase::toJson(m_CustomFieldValues);
     }
     if(m_UserIsSet)
     {   
@@ -269,6 +275,17 @@ bool Contact::fromJson(const web::json::value& val)
             
         }
     }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("customFieldValues"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("customFieldValues")));
+        if(!fieldValue.is_null())
+        {
+            std::vector<std::shared_ptr<CustomFieldValues>> refVal_setCustomFieldValues;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setCustomFieldValues);
+            setCustomFieldValues(refVal_setCustomFieldValues);
+            
+        }
+    }
     if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("user"))))
     {
         const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("user")));
@@ -407,6 +424,10 @@ void Contact::toMultipart(std::shared_ptr<MultipartFormData> multipart, const ut
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("customFields")), m_CustomFields));
     }
+    if(m_CustomFieldValuesIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("customFieldValues")), m_CustomFieldValues));
+    }
     if(m_UserIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("user")), m_User));
@@ -509,6 +530,12 @@ bool Contact::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const 
         std::vector<std::shared_ptr<CustomFieldListItem>> refVal_setCustomFields;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("customFields"))), refVal_setCustomFields );
         setCustomFields(refVal_setCustomFields);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("customFieldValues"))))
+    {
+        std::vector<std::shared_ptr<CustomFieldValues>> refVal_setCustomFieldValues;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("customFieldValues"))), refVal_setCustomFieldValues );
+        setCustomFieldValues(refVal_setCustomFieldValues);
     }
     if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("user"))))
     {
@@ -768,6 +795,27 @@ bool Contact::customFieldsIsSet() const
 void Contact::unsetCustomFields()
 {
     m_CustomFieldsIsSet = false;
+}
+std::vector<std::shared_ptr<CustomFieldValues>> Contact::getCustomFieldValues() const
+{
+    return m_CustomFieldValues;
+}
+
+
+void Contact::setCustomFieldValues(const std::vector<std::shared_ptr<CustomFieldValues>>& value)
+{
+    m_CustomFieldValues = value;
+    m_CustomFieldValuesIsSet = true;
+}
+
+bool Contact::customFieldValuesIsSet() const
+{
+    return m_CustomFieldValuesIsSet;
+}
+
+void Contact::unsetCustomFieldValues()
+{
+    m_CustomFieldValuesIsSet = false;
 }
 std::shared_ptr<User> Contact::getUser() const
 {

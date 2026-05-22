@@ -327,6 +327,11 @@ public:
     void unsetWebWidgetDeleted();
     void setWebWidgetDeleted(int32_t value);
 
+    int32_t getWebWidgetCreated() const;
+    bool webWidgetCreatedIsSet() const;
+    void unsetWebWidgetCreated();
+    void setWebWidgetCreated(int32_t value);
+
     int32_t getContactAdded() const;
     bool contactAddedIsSet() const;
     void unsetContactAdded();
@@ -1002,6 +1007,66 @@ public:
     void unsetEmailCampaignFailedAttemptStateUpdated();
     void setEmailCampaignFailedAttemptStateUpdated(int32_t value);
 
+    int32_t getTollFreePreFillCompleted() const;
+    bool tollFreePreFillCompletedIsSet() const;
+    void unsetTollFreePreFillCompleted();
+    void setTollFreePreFillCompleted(int32_t value);
+
+    int32_t getTollFreePreFillFailed() const;
+    bool tollFreePreFillFailedIsSet() const;
+    void unsetTollFreePreFillFailed();
+    void setTollFreePreFillFailed(int32_t value);
+
+    int32_t getTollFreeComplianceCheckCompleted() const;
+    bool tollFreeComplianceCheckCompletedIsSet() const;
+    void unsetTollFreeComplianceCheckCompleted();
+    void setTollFreeComplianceCheckCompleted(int32_t value);
+
+    int32_t getTollFreeComplianceCheckFailed() const;
+    bool tollFreeComplianceCheckFailedIsSet() const;
+    void unsetTollFreeComplianceCheckFailed();
+    void setTollFreeComplianceCheckFailed(int32_t value);
+
+    int32_t getTenDlcPreFillCompleted() const;
+    bool tenDlcPreFillCompletedIsSet() const;
+    void unsetTenDlcPreFillCompleted();
+    void setTenDlcPreFillCompleted(int32_t value);
+
+    int32_t getTenDlcPreFillFailed() const;
+    bool tenDlcPreFillFailedIsSet() const;
+    void unsetTenDlcPreFillFailed();
+    void setTenDlcPreFillFailed(int32_t value);
+
+    int32_t getTenDlcComplianceCheckCompleted() const;
+    bool tenDlcComplianceCheckCompletedIsSet() const;
+    void unsetTenDlcComplianceCheckCompleted();
+    void setTenDlcComplianceCheckCompleted(int32_t value);
+
+    int32_t getTenDlcComplianceCheckFailed() const;
+    bool tenDlcComplianceCheckFailedIsSet() const;
+    void unsetTenDlcComplianceCheckFailed();
+    void setTenDlcComplianceCheckFailed(int32_t value);
+
+    int32_t getMarketingDataModalChanged() const;
+    bool marketingDataModalChangedIsSet() const;
+    void unsetMarketingDataModalChanged();
+    void setMarketingDataModalChanged(int32_t value);
+
+    int32_t getIntegrationStatusChanged() const;
+    bool integrationStatusChangedIsSet() const;
+    void unsetIntegrationStatusChanged();
+    void setIntegrationStatusChanged(int32_t value);
+
+    int32_t getIntegrationCustomerSyncProgressState() const;
+    bool integrationCustomerSyncProgressStateIsSet() const;
+    void unsetIntegrationCustomerSyncProgressState();
+    void setIntegrationCustomerSyncProgressState(int32_t value);
+
+    int32_t getIntegrationCustomerSyncEnd() const;
+    bool integrationCustomerSyncEndIsSet() const;
+    void unsetIntegrationCustomerSyncEnd();
+    void setIntegrationCustomerSyncEnd(int32_t value);
+
 
 protected:
     int32_t m_SystemCacheClear;
@@ -1168,6 +1233,9 @@ protected:
 
     int32_t m_WebWidgetDeleted;
     bool m_WebWidgetDeletedIsSet;
+
+    int32_t m_WebWidgetCreated;
+    bool m_WebWidgetCreatedIsSet;
 
     int32_t m_ContactAdded;
     bool m_ContactAddedIsSet;
@@ -1573,6 +1641,42 @@ protected:
 
     int32_t m_EmailCampaignFailedAttemptStateUpdated;
     bool m_EmailCampaignFailedAttemptStateUpdatedIsSet;
+
+    int32_t m_TollFreePreFillCompleted;
+    bool m_TollFreePreFillCompletedIsSet;
+
+    int32_t m_TollFreePreFillFailed;
+    bool m_TollFreePreFillFailedIsSet;
+
+    int32_t m_TollFreeComplianceCheckCompleted;
+    bool m_TollFreeComplianceCheckCompletedIsSet;
+
+    int32_t m_TollFreeComplianceCheckFailed;
+    bool m_TollFreeComplianceCheckFailedIsSet;
+
+    int32_t m_TenDlcPreFillCompleted;
+    bool m_TenDlcPreFillCompletedIsSet;
+
+    int32_t m_TenDlcPreFillFailed;
+    bool m_TenDlcPreFillFailedIsSet;
+
+    int32_t m_TenDlcComplianceCheckCompleted;
+    bool m_TenDlcComplianceCheckCompletedIsSet;
+
+    int32_t m_TenDlcComplianceCheckFailed;
+    bool m_TenDlcComplianceCheckFailedIsSet;
+
+    int32_t m_MarketingDataModalChanged;
+    bool m_MarketingDataModalChangedIsSet;
+
+    int32_t m_IntegrationStatusChanged;
+    bool m_IntegrationStatusChangedIsSet;
+
+    int32_t m_IntegrationCustomerSyncProgressState;
+    bool m_IntegrationCustomerSyncProgressStateIsSet;
+
+    int32_t m_IntegrationCustomerSyncEnd;
+    bool m_IntegrationCustomerSyncEndIsSet;
 
 };
 

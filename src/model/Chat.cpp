@@ -57,6 +57,13 @@ Chat::Chat()
     m_MmsPrice = 0.0;
     m_MmsPriceIsSet = false;
     m_TagsIsSet = false;
+    m_AssigneeId = 0;
+    m_AssigneeIdIsSet = false;
+    m_UpdatedByIsSet = false;
+    m_CreatedAt = utility::datetime();
+    m_CreatedAtIsSet = false;
+    m_MessageTime = utility::datetime();
+    m_MessageTimeIsSet = false;
 }
 
 Chat::~Chat()
@@ -179,6 +186,26 @@ web::json::value Chat::toJson() const
     {   
         
         val[utility::conversions::to_string_t(_XPLATSTR("tags"))] = ModelBase::toJson(m_Tags);
+    }
+    if(m_AssigneeIdIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("assigneeId"))] = ModelBase::toJson(m_AssigneeId);
+    }
+    if(m_UpdatedByIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("updatedBy"))] = ModelBase::toJson(m_UpdatedBy);
+    }
+    if(m_CreatedAtIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("createdAt"))] = ModelBase::toJson(m_CreatedAt);
+    }
+    if(m_MessageTimeIsSet)
+    {   
+        
+        val[utility::conversions::to_string_t(_XPLATSTR("messageTime"))] = ModelBase::toJson(m_MessageTime);
     }
 
     return val;
@@ -420,6 +447,50 @@ bool Chat::fromJson(const web::json::value& val)
             
         }
     }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("assigneeId"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("assigneeId")));
+        if(!fieldValue.is_null())
+        {
+            int32_t refVal_setAssigneeId;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setAssigneeId);
+            setAssigneeId(refVal_setAssigneeId);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("updatedBy"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("updatedBy")));
+        if(!fieldValue.is_null())
+        {
+            std::shared_ptr<NullableUserPersonalInfo> refVal_setUpdatedBy;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setUpdatedBy);
+            setUpdatedBy(refVal_setUpdatedBy);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("createdAt"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("createdAt")));
+        if(!fieldValue.is_null())
+        {
+            utility::datetime refVal_setCreatedAt;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setCreatedAt);
+            setCreatedAt(refVal_setCreatedAt);
+            
+        }
+    }
+    if(val.has_field(utility::conversions::to_string_t(_XPLATSTR("messageTime"))))
+    {
+        const web::json::value& fieldValue = val.at(utility::conversions::to_string_t(_XPLATSTR("messageTime")));
+        if(!fieldValue.is_null())
+        {
+            utility::datetime refVal_setMessageTime;
+            ok &= ModelBase::fromJson(fieldValue, refVal_setMessageTime);
+            setMessageTime(refVal_setMessageTime);
+            
+        }
+    }
     return ok;
 }
 
@@ -513,6 +584,22 @@ void Chat::toMultipart(std::shared_ptr<MultipartFormData> multipart, const utili
     if(m_TagsIsSet)
     {
         multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("tags")), m_Tags));
+    }
+    if(m_AssigneeIdIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("assigneeId")), m_AssigneeId));
+    }
+    if(m_UpdatedByIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("updatedBy")), m_UpdatedBy));
+    }
+    if(m_CreatedAtIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("createdAt")), m_CreatedAt));
+    }
+    if(m_MessageTimeIsSet)
+    {
+        multipart->add(ModelBase::toHttpContent(namePrefix + utility::conversions::to_string_t(_XPLATSTR("messageTime")), m_MessageTime));
     }
 }
 
@@ -650,6 +737,30 @@ bool Chat::fromMultiPart(std::shared_ptr<MultipartFormData> multipart, const uti
         std::vector<std::shared_ptr<Tag>> refVal_setTags;
         ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("tags"))), refVal_setTags );
         setTags(refVal_setTags);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("assigneeId"))))
+    {
+        int32_t refVal_setAssigneeId;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("assigneeId"))), refVal_setAssigneeId );
+        setAssigneeId(refVal_setAssigneeId);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("updatedBy"))))
+    {
+        std::shared_ptr<NullableUserPersonalInfo> refVal_setUpdatedBy;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("updatedBy"))), refVal_setUpdatedBy );
+        setUpdatedBy(refVal_setUpdatedBy);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("createdAt"))))
+    {
+        utility::datetime refVal_setCreatedAt;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("createdAt"))), refVal_setCreatedAt );
+        setCreatedAt(refVal_setCreatedAt);
+    }
+    if(multipart->hasContent(utility::conversions::to_string_t(_XPLATSTR("messageTime"))))
+    {
+        utility::datetime refVal_setMessageTime;
+        ok &= ModelBase::fromHttpContent(multipart->getContent(utility::conversions::to_string_t(_XPLATSTR("messageTime"))), refVal_setMessageTime );
+        setMessageTime(refVal_setMessageTime);
     }
     return ok;
 }
@@ -1158,6 +1269,89 @@ bool Chat::tagsIsSet() const
 void Chat::unsetTags()
 {
     m_TagsIsSet = false;
+}
+int32_t Chat::getAssigneeId() const
+{
+    return m_AssigneeId;
+}
+
+void Chat::setAssigneeId(int32_t value)
+{
+    m_AssigneeId = value;
+    m_AssigneeIdIsSet = true;
+}
+
+bool Chat::assigneeIdIsSet() const
+{
+    return m_AssigneeIdIsSet;
+}
+
+void Chat::unsetAssigneeId()
+{
+    m_AssigneeIdIsSet = false;
+}
+std::shared_ptr<NullableUserPersonalInfo> Chat::getUpdatedBy() const
+{
+    return m_UpdatedBy;
+}
+
+
+void Chat::setUpdatedBy(const std::shared_ptr<NullableUserPersonalInfo>& value)
+{
+    m_UpdatedBy = value;
+    m_UpdatedByIsSet = true;
+}
+
+bool Chat::updatedByIsSet() const
+{
+    return m_UpdatedByIsSet;
+}
+
+void Chat::unsetUpdatedBy()
+{
+    m_UpdatedByIsSet = false;
+}
+utility::datetime Chat::getCreatedAt() const
+{
+    return m_CreatedAt;
+}
+
+
+void Chat::setCreatedAt(const utility::datetime& value)
+{
+    m_CreatedAt = value;
+    m_CreatedAtIsSet = true;
+}
+
+bool Chat::createdAtIsSet() const
+{
+    return m_CreatedAtIsSet;
+}
+
+void Chat::unsetCreatedAt()
+{
+    m_CreatedAtIsSet = false;
+}
+utility::datetime Chat::getMessageTime() const
+{
+    return m_MessageTime;
+}
+
+
+void Chat::setMessageTime(const utility::datetime& value)
+{
+    m_MessageTime = value;
+    m_MessageTimeIsSet = true;
+}
+
+bool Chat::messageTimeIsSet() const
+{
+    return m_MessageTimeIsSet;
+}
+
+void Chat::unsetMessageTime()
+{
+    m_MessageTimeIsSet = false;
 }
 
 }

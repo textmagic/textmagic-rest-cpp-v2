@@ -26,6 +26,7 @@
 #include <cpprest/details/basic_types.h>
 #include "TextMagic/model/List.h"
 #include "TextMagic/model/Country.h"
+#include "TextMagic/model/CustomFieldValues.h"
 #include <vector>
 #include "TextMagic/model/ContactImage.h"
 #include "TextMagic/model/CustomFieldListItem.h"
@@ -38,6 +39,7 @@ namespace model {
 
 class Country;
 class CustomFieldListItem;
+class CustomFieldValues;
 class User;
 class List;
 class Tag;
@@ -142,6 +144,11 @@ public:
     void unsetCustomFields();
     void setCustomFields(const std::vector<std::shared_ptr<CustomFieldListItem>>& value);
 
+    std::vector<std::shared_ptr<CustomFieldValues>> getCustomFieldValues() const;
+    bool customFieldValuesIsSet() const;
+    void unsetCustomFieldValues();
+    void setCustomFieldValues(const std::vector<std::shared_ptr<CustomFieldValues>>& value);
+
     std::shared_ptr<User> getUser() const;
     bool userIsSet() const;
     void unsetUser();
@@ -219,6 +226,9 @@ protected:
 
     std::vector<std::shared_ptr<CustomFieldListItem>> m_CustomFields;
     bool m_CustomFieldsIsSet;
+
+    std::vector<std::shared_ptr<CustomFieldValues>> m_CustomFieldValues;
+    bool m_CustomFieldValuesIsSet;
 
     std::shared_ptr<User> m_User;
     bool m_UserIsSet;
